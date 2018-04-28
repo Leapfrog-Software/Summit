@@ -8,20 +8,80 @@
 
 /* Begin PBXBuildFile section */
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
-		BB9E99F62094A95F007D5E01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F52094A95F007D5E01 /* ViewController.swift */; };
-		BB9E99F92094A95F007D5E01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99F72094A95F007D5E01 /* Main.storyboard */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
 		BB9E99FE2094A961007D5E01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FC2094A961007D5E01 /* LaunchScreen.storyboard */; };
+		BBD1ADA32094C77600487EF0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADA22094C77600487EF0 /* SplashViewController.swift */; };
+		BBD1ADA62094C8CA00487EF0 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADA52094C8CA00487EF0 /* TabbarViewController.swift */; };
+		BBD1ADA92094D87B00487EF0 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADA82094D87B00487EF0 /* ScheduleViewController.swift */; };
+		BBD1ADAC2094D88B00487EF0 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADAB2094D88B00487EF0 /* CardViewController.swift */; };
+		BBD1ADAF2094D89B00487EF0 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADAE2094D89B00487EF0 /* MessageViewController.swift */; };
+		BBD1ADB22094D8AD00487EF0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADB12094D8AD00487EF0 /* SettingViewController.swift */; };
+		BBD1ADB62094D8EA00487EF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD1ADB52094D8EA00487EF0 /* Main.storyboard */; };
+		BBD1ADB92094D8FB00487EF0 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD1ADB82094D8FB00487EF0 /* Schedule.storyboard */; };
+		BBD1ADBB2094D90200487EF0 /* Card.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD1ADBA2094D90200487EF0 /* Card.storyboard */; };
+		BBD1ADBD2094D90900487EF0 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD1ADBC2094D90900487EF0 /* Message.storyboard */; };
+		BBD1ADC12094D91C00487EF0 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD1ADC02094D91C00487EF0 /* Setting.storyboard */; };
+		BBD1ADC32094D92400487EF0 /* Attend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD1ADC22094D92400487EF0 /* Attend.storyboard */; };
+		BBD1ADC52094D92C00487EF0 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD1ADC42094D92C00487EF0 /* Common.storyboard */; };
+		BBD1ADC82094D97400487EF0 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADC72094D97400487EF0 /* HttpManager.swift */; };
+		BBD1ADCB2094D99800487EF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADCA2094D99800487EF0 /* Constants.swift */; };
+		BBD1ADCD2094D9B100487EF0 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADCC2094D9B100487EF0 /* SaveData.swift */; };
+		BBD1ADCF2094D9CD00487EF0 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADCE2094D9CD00487EF0 /* ImageStorage.swift */; };
+		BBD1ADD12094DA2500487EF0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADD02094DA2500487EF0 /* ApiManager.swift */; };
+		BBD1ADD62094DA6400487EF0 /* ScheduleRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADD52094DA6400487EF0 /* ScheduleRequester.swift */; };
+		BBD1ADD82094DA8B00487EF0 /* UserRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADD72094DA8B00487EF0 /* UserRequester.swift */; };
+		BBD1ADDA2094DAA100487EF0 /* MessageRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADD92094DAA100487EF0 /* MessageRequester.swift */; };
+		BBD1ADDC2094DAB600487EF0 /* AccountRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADDB2094DAB600487EF0 /* AccountRequester.swift */; };
+		BBD1ADDE2094DAC800487EF0 /* AttendRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADDD2094DAC800487EF0 /* AttendRequester.swift */; };
+		BBD1ADE12094DAFB00487EF0 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE02094DAFB00487EF0 /* ImageUploader.swift */; };
+		BBD1ADE32094DB0400487EF0 /* UserImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE22094DB0400487EF0 /* UserImageUploader.swift */; };
+		BBD1ADE52094DB2200487EF0 /* UIViewController+Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE42094DB2200487EF0 /* UIViewController+Scene.swift */; };
+		BBD1ADE72094DB5A00487EF0 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE62094DB5A00487EF0 /* Date+Util.swift */; };
+		BBD1ADE92094DB7300487EF0 /* DateFormatter+Jp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE82094DB7300487EF0 /* DateFormatter+Jp.swift */; };
+		BBD1ADEB2094DB8000487EF0 /* UIColor+Original.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADEA2094DB8000487EF0 /* UIColor+Original.swift */; };
+		BBD1ADED2094DB8F00487EF0 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADEC2094DB8F00487EF0 /* UIImage+Crop.swift */; };
+		BBD1ADEF2094DBA500487EF0 /* UIView+Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADEE2094DBA500487EF0 /* UIView+Rect.swift */; };
+		BBD1ADF12094DBB800487EF0 /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADF02094DBB800487EF0 /* CALayer+Border.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB9E99F02094A95F007D5E01 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E99F32094A95F007D5E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB9E99F52094A95F007D5E01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB9E99F82094A95F007D5E01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB9E99FA2094A961007D5E01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB9E99FD2094A961007D5E01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB9E99FF2094A961007D5E01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBD1ADA22094C77600487EF0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		BBD1ADA52094C8CA00487EF0 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		BBD1ADA82094D87B00487EF0 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		BBD1ADAB2094D88B00487EF0 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		BBD1ADAE2094D89B00487EF0 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		BBD1ADB12094D8AD00487EF0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BBD1ADB52094D8EA00487EF0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BBD1ADB82094D8FB00487EF0 /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
+		BBD1ADBA2094D90200487EF0 /* Card.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Card.storyboard; sourceTree = "<group>"; };
+		BBD1ADBC2094D90900487EF0 /* Message.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		BBD1ADC02094D91C00487EF0 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		BBD1ADC22094D92400487EF0 /* Attend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Attend.storyboard; sourceTree = "<group>"; };
+		BBD1ADC42094D92C00487EF0 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
+		BBD1ADC72094D97400487EF0 /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		BBD1ADCA2094D99800487EF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BBD1ADCC2094D9B100487EF0 /* SaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
+		BBD1ADCE2094D9CD00487EF0 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
+		BBD1ADD02094DA2500487EF0 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		BBD1ADD52094DA6400487EF0 /* ScheduleRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRequester.swift; sourceTree = "<group>"; };
+		BBD1ADD72094DA8B00487EF0 /* UserRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequester.swift; sourceTree = "<group>"; };
+		BBD1ADD92094DAA100487EF0 /* MessageRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRequester.swift; sourceTree = "<group>"; };
+		BBD1ADDB2094DAB600487EF0 /* AccountRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRequester.swift; sourceTree = "<group>"; };
+		BBD1ADDD2094DAC800487EF0 /* AttendRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendRequester.swift; sourceTree = "<group>"; };
+		BBD1ADE02094DAFB00487EF0 /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		BBD1ADE22094DB0400487EF0 /* UserImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageUploader.swift; sourceTree = "<group>"; };
+		BBD1ADE42094DB2200487EF0 /* UIViewController+Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Scene.swift"; sourceTree = "<group>"; };
+		BBD1ADE62094DB5A00487EF0 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
+		BBD1ADE82094DB7300487EF0 /* DateFormatter+Jp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Jp.swift"; sourceTree = "<group>"; };
+		BBD1ADEA2094DB8000487EF0 /* UIColor+Original.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Original.swift"; sourceTree = "<group>"; };
+		BBD1ADEC2094DB8F00487EF0 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
+		BBD1ADEE2094DBA500487EF0 /* UIView+Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rect.swift"; sourceTree = "<group>"; };
+		BBD1ADF02094DBB800487EF0 /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +115,147 @@
 			isa = PBXGroup;
 			children = (
 				BB9E99F32094A95F007D5E01 /* AppDelegate.swift */,
-				BB9E99F52094A95F007D5E01 /* ViewController.swift */,
-				BB9E99F72094A95F007D5E01 /* Main.storyboard */,
+				BBD1ADA02094C74E00487EF0 /* View */,
+				BBD1ADB32094D8BC00487EF0 /* Http */,
+				BBD1ADC92094D98B00487EF0 /* System */,
+				BBD1ADC62094D96400487EF0 /* Extension */,
+				BBD1ADB42094D8C700487EF0 /* Storyboard */,
 				BB9E99FA2094A961007D5E01 /* Assets.xcassets */,
 				BB9E99FC2094A961007D5E01 /* LaunchScreen.storyboard */,
 				BB9E99FF2094A961007D5E01 /* Info.plist */,
 			);
 			path = Summit;
+			sourceTree = "<group>";
+		};
+		BBD1ADA02094C74E00487EF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADA12094C75D00487EF0 /* Splash */,
+				BBD1ADA42094C8BB00487EF0 /* Tabbar */,
+				BBD1ADA72094D86B00487EF0 /* Schedule */,
+				BBD1ADAA2094D87F00487EF0 /* Card */,
+				BBD1ADAD2094D88F00487EF0 /* Message */,
+				BBD1ADB02094D8A000487EF0 /* Setting */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBD1ADA12094C75D00487EF0 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADA22094C77600487EF0 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		BBD1ADA42094C8BB00487EF0 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADA52094C8CA00487EF0 /* TabbarViewController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		BBD1ADA72094D86B00487EF0 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADA82094D87B00487EF0 /* ScheduleViewController.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		BBD1ADAA2094D87F00487EF0 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADAB2094D88B00487EF0 /* CardViewController.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		BBD1ADAD2094D88F00487EF0 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADAE2094D89B00487EF0 /* MessageViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		BBD1ADB02094D8A000487EF0 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADB12094D8AD00487EF0 /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		BBD1ADB32094D8BC00487EF0 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADC72094D97400487EF0 /* HttpManager.swift */,
+				BBD1ADD02094DA2500487EF0 /* ApiManager.swift */,
+				BBD1ADD42094DA5200487EF0 /* Requester */,
+				BBD1ADDF2094DAE600487EF0 /* ImageUploader */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		BBD1ADB42094D8C700487EF0 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADB52094D8EA00487EF0 /* Main.storyboard */,
+				BBD1ADB82094D8FB00487EF0 /* Schedule.storyboard */,
+				BBD1ADBA2094D90200487EF0 /* Card.storyboard */,
+				BBD1ADBC2094D90900487EF0 /* Message.storyboard */,
+				BBD1ADC02094D91C00487EF0 /* Setting.storyboard */,
+				BBD1ADC22094D92400487EF0 /* Attend.storyboard */,
+				BBD1ADC42094D92C00487EF0 /* Common.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		BBD1ADC62094D96400487EF0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADE42094DB2200487EF0 /* UIViewController+Scene.swift */,
+				BBD1ADE62094DB5A00487EF0 /* Date+Util.swift */,
+				BBD1ADE82094DB7300487EF0 /* DateFormatter+Jp.swift */,
+				BBD1ADEA2094DB8000487EF0 /* UIColor+Original.swift */,
+				BBD1ADEC2094DB8F00487EF0 /* UIImage+Crop.swift */,
+				BBD1ADEE2094DBA500487EF0 /* UIView+Rect.swift */,
+				BBD1ADF02094DBB800487EF0 /* CALayer+Border.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BBD1ADC92094D98B00487EF0 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADCA2094D99800487EF0 /* Constants.swift */,
+				BBD1ADCC2094D9B100487EF0 /* SaveData.swift */,
+				BBD1ADCE2094D9CD00487EF0 /* ImageStorage.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		BBD1ADD42094DA5200487EF0 /* Requester */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADD52094DA6400487EF0 /* ScheduleRequester.swift */,
+				BBD1ADD72094DA8B00487EF0 /* UserRequester.swift */,
+				BBD1ADD92094DAA100487EF0 /* MessageRequester.swift */,
+				BBD1ADDB2094DAB600487EF0 /* AccountRequester.swift */,
+				BBD1ADDD2094DAC800487EF0 /* AttendRequester.swift */,
+			);
+			path = Requester;
+			sourceTree = "<group>";
+		};
+		BBD1ADDF2094DAE600487EF0 /* ImageUploader */ = {
+			isa = PBXGroup;
+			children = (
+				BBD1ADE02094DAFB00487EF0 /* ImageUploader.swift */,
+				BBD1ADE22094DB0400487EF0 /* UserImageUploader.swift */,
+			);
+			path = ImageUploader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +316,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBD1ADC32094D92400487EF0 /* Attend.storyboard in Resources */,
+				BBD1ADB62094D8EA00487EF0 /* Main.storyboard in Resources */,
+				BBD1ADBB2094D90200487EF0 /* Card.storyboard in Resources */,
+				BBD1ADC52094D92C00487EF0 /* Common.storyboard in Resources */,
+				BBD1ADC12094D91C00487EF0 /* Setting.storyboard in Resources */,
 				BB9E99FE2094A961007D5E01 /* LaunchScreen.storyboard in Resources */,
 				BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */,
-				BB9E99F92094A95F007D5E01 /* Main.storyboard in Resources */,
+				BBD1ADBD2094D90900487EF0 /* Message.storyboard in Resources */,
+				BBD1ADB92094D8FB00487EF0 /* Schedule.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +335,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB9E99F62094A95F007D5E01 /* ViewController.swift in Sources */,
 				BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */,
+				BBD1ADA32094C77600487EF0 /* SplashViewController.swift in Sources */,
+				BBD1ADA62094C8CA00487EF0 /* TabbarViewController.swift in Sources */,
+				BBD1ADD62094DA6400487EF0 /* ScheduleRequester.swift in Sources */,
+				BBD1ADAC2094D88B00487EF0 /* CardViewController.swift in Sources */,
+				BBD1ADED2094DB8F00487EF0 /* UIImage+Crop.swift in Sources */,
+				BBD1ADE12094DAFB00487EF0 /* ImageUploader.swift in Sources */,
+				BBD1ADE92094DB7300487EF0 /* DateFormatter+Jp.swift in Sources */,
+				BBD1ADE72094DB5A00487EF0 /* Date+Util.swift in Sources */,
+				BBD1ADD12094DA2500487EF0 /* ApiManager.swift in Sources */,
+				BBD1ADDA2094DAA100487EF0 /* MessageRequester.swift in Sources */,
+				BBD1ADD82094DA8B00487EF0 /* UserRequester.swift in Sources */,
+				BBD1ADDC2094DAB600487EF0 /* AccountRequester.swift in Sources */,
+				BBD1ADCF2094D9CD00487EF0 /* ImageStorage.swift in Sources */,
+				BBD1ADCD2094D9B100487EF0 /* SaveData.swift in Sources */,
+				BBD1ADE32094DB0400487EF0 /* UserImageUploader.swift in Sources */,
+				BBD1ADE52094DB2200487EF0 /* UIViewController+Scene.swift in Sources */,
+				BBD1ADAF2094D89B00487EF0 /* MessageViewController.swift in Sources */,
+				BBD1ADB22094D8AD00487EF0 /* SettingViewController.swift in Sources */,
+				BBD1ADA92094D87B00487EF0 /* ScheduleViewController.swift in Sources */,
+				BBD1ADC82094D97400487EF0 /* HttpManager.swift in Sources */,
+				BBD1ADF12094DBB800487EF0 /* CALayer+Border.swift in Sources */,
+				BBD1ADEB2094DB8000487EF0 /* UIColor+Original.swift in Sources */,
+				BBD1ADDE2094DAC800487EF0 /* AttendRequester.swift in Sources */,
+				BBD1ADCB2094D99800487EF0 /* Constants.swift in Sources */,
+				BBD1ADEF2094DBA500487EF0 /* UIView+Rect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BB9E99F72094A95F007D5E01 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB9E99F82094A95F007D5E01 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BB9E99FC2094A961007D5E01 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -280,16 +496,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Summit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Leapfrog-Inc.Summit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -297,16 +516,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Summit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Leapfrog-Inc.Summit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
