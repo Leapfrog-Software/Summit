@@ -66,8 +66,8 @@ class AttendRequester {
             if result, let datas = data as? Dictionary<String, Any> {
                 if let chats = datas["chats"] as? Array<Dictionary<String, Any>>,
                     let attends = datas["attends"] as? Array<Dictionary<String, Any>> {
-                    self?.chatList = chats.flatMap { ChatData(data: $0) }
-                    self?.attendList = attends.flatMap { AttendData(data: $0) }
+                    self?.chatList = chats.compactMap { ChatData(data: $0) }
+                    self?.attendList = attends.compactMap { AttendData(data: $0) }
                     completion(true)
                     return
                 }

@@ -126,7 +126,7 @@ class UserRequester {
         let params = ["command": "getUser"]
         ApiManager.post(params: params) { [weak self] result, data in
             if result, let users = data as? Array<Dictionary<String, Any>> {
-                self?.dataList = users.flatMap { UserData(data: $0) }
+                self?.dataList = users.compactMap { UserData(data: $0) }
                 completion(true)
             } else {
                 completion(false)

@@ -50,7 +50,7 @@ class MessageRequester {
         ]
         ApiManager.post(params: params) { [weak self] result, data in
             if result, let messages = data as? Array<Dictionary<String, Any>> {
-                self?.dataList = messages.flatMap { MessageData(data: $0) }
+                self?.dataList = messages.compactMap { MessageData(data: $0) }
                 completion(true)
             } else {
                 completion(false)
