@@ -9,10 +9,15 @@
 import UIKit
 
 class ScheduleViewController: UIViewController {
+    
+    struct Const {
+        static let scheduleTableCellHeight = CGFloat(216)
+    }
 
     @IBOutlet private weak var monthLabel: UILabel!
     @IBOutlet private weak var monthsCollectionView: UICollectionView!
     @IBOutlet private weak var scheduleTableView: UITableView!
+    @IBOutlet private weak var scheduleTableViewHeightConstraint: NSLayoutConstraint!
     
     private var months = [Date]()
     private var selectedDate = Date()
@@ -68,6 +73,7 @@ extension ScheduleViewController: UICollectionViewDataSource, UICollectionViewDe
             self?.selectedSchedules = dayInfo.schedules
             self?.scheduleTableView.setContentOffset(.zero, animated: false)
             self?.scheduleTableView.reloadData()
+            self?.scheduleTableViewHeightConstraint.constant = CGFloat(dayInfo.schedules.count) * Const.scheduleTableCellHeight
         })
         return cell
     }
@@ -82,6 +88,10 @@ extension ScheduleViewController: UICollectionViewDataSource, UICollectionViewDe
 }
 
 extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Const.scheduleTableCellHeight
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.selectedSchedules.count

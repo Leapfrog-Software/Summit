@@ -41,6 +41,8 @@ class TabbarViewController: UIViewController {
         self.addContents(self.cardViewController, isHidden: true)
         self.settingViewController = self.viewController(storyboard: "Setting", identifier: "SettingViewController") as! SettingViewController
         self.addContents(self.settingViewController, isHidden: true)
+        
+        self.changeContents(index: 0)
     }
     
     private func addContents(_ viewController: UIViewController, isHidden: Bool) {
