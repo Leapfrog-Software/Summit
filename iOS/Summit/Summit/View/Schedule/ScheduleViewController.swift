@@ -95,10 +95,10 @@ extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let scheduleData = self.selectedSchedules[indexPath.row - 1]
-//        
-//        let detailViewController = self.viewController(storyboard: "Schedule", identifier: "ScheduleDetailViewController") as! ScheduleDetailViewController
-//        detailViewController.set(scheduleData: scheduleData)
-//        self.tabbarViewController()?.stack(viewController: detailViewController, animationType: .horizontal)
+        let scheduleData = self.selectedSchedules[indexPath.row]
+        
+        let detailViewController = self.viewController(storyboard: "Schedule", identifier: "ScheduleDetailViewController") as! ScheduleDetailViewController
+        detailViewController.set(scheduleData: scheduleData)
+        self.tabbarViewController()?.stack(viewController: detailViewController, animationType: .horizontal)
     }
 }
