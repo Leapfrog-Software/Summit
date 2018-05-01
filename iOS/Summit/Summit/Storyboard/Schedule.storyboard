@@ -112,6 +112,12 @@
                                                     <constraint firstAttribute="height" constant="20" id="hSK-I7-zxV"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOt-1F-YBa">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="68"/>
+                                                <connections>
+                                                    <action selector="onTapNextSchedule:" destination="TaH-Vh-5pL" eventType="touchUpInside" id="Jra-Ej-odR"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -120,10 +126,14 @@
                                             <constraint firstAttribute="bottom" secondItem="cSg-hx-aq7" secondAttribute="bottom" id="Dah-q9-dM8"/>
                                             <constraint firstItem="8iF-Ld-Hbe" firstAttribute="leading" secondItem="3nH-yc-WO1" secondAttribute="trailing" constant="12" id="Gjy-PO-ZnE"/>
                                             <constraint firstItem="3nH-yc-WO1" firstAttribute="centerY" secondItem="Rwj-uP-uh8" secondAttribute="centerY" id="Wwf-SV-g83"/>
+                                            <constraint firstItem="YOt-1F-YBa" firstAttribute="leading" secondItem="Rwj-uP-uh8" secondAttribute="leading" id="Xpn-zT-yI0"/>
                                             <constraint firstItem="cSg-hx-aq7" firstAttribute="leading" secondItem="Rwj-uP-uh8" secondAttribute="leading" id="lkw-O2-p7O"/>
                                             <constraint firstAttribute="trailing" secondItem="8iF-Ld-Hbe" secondAttribute="trailing" constant="16" id="nqg-ef-25J"/>
                                             <constraint firstItem="8iF-Ld-Hbe" firstAttribute="centerY" secondItem="Rwj-uP-uh8" secondAttribute="centerY" id="nrY-NZ-Vqh"/>
                                             <constraint firstItem="3nH-yc-WO1" firstAttribute="leading" secondItem="cSg-hx-aq7" secondAttribute="trailing" constant="16" id="orm-Pt-ckd"/>
+                                            <constraint firstItem="YOt-1F-YBa" firstAttribute="top" secondItem="Rwj-uP-uh8" secondAttribute="top" id="ovA-9r-hCn"/>
+                                            <constraint firstAttribute="bottom" secondItem="YOt-1F-YBa" secondAttribute="bottom" id="qsQ-fg-rml"/>
+                                            <constraint firstAttribute="trailing" secondItem="YOt-1F-YBa" secondAttribute="trailing" id="s8D-0h-XDA"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

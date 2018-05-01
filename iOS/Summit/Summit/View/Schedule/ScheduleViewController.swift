@@ -161,6 +161,9 @@ extension ScheduleViewController {
         if timeInterval >= 60 * 60 {
             return
         }
+        let attendPrepare = self.viewController(storyboard: "Attend", identifier: "AttendPrepareViewController") as! AttendPrepareViewController
+        attendPrepare.set(scheduleData: nextSchedule)
+        self.tabbarViewController()?.stack(viewController: attendPrepare, animationType: .vertical)
     }
 }
 

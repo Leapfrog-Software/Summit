@@ -18,6 +18,9 @@
 		BB1AD4A520985BF30067DD60 /* SettingProfileNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A420985BF30067DD60 /* SettingProfileNameViewController.swift */; };
 		BB1AD4A720985C0C0067DD60 /* SettingProfileTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A620985C0C0067DD60 /* SettingProfileTextViewController.swift */; };
 		BB1AD4A920986BBC0067DD60 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A820986BBC0067DD60 /* WebViewController.swift */; };
+		BB1AD4B020987D4A0067DD60 /* AttendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4AF20987D4A0067DD60 /* AttendViewController.swift */; };
+		BB1AD4B3209882040067DD60 /* AttendPrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4B2209882040067DD60 /* AttendPrepareViewController.swift */; };
+		BB1AD4B5209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4B4209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift */; };
 		BB4AE69C2096F4FD00AF5C67 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69B2096F4FD00AF5C67 /* ScheduleDetailViewController.swift */; };
 		BB4AE69E2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69D2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift */; };
 		BB4AE6A22096FA8100AF5C67 /* CalendarMonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69F2096FA8000AF5C67 /* CalendarMonthCollectionViewCell.swift */; };
@@ -34,6 +37,7 @@
 		BB4AE6BC2097032300AF5C67 /* KeyboardRespondableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE6BB2097032300AF5C67 /* KeyboardRespondableViewController.swift */; };
 		BB4AE6BE2097034C00AF5C67 /* MessageDetailLeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE6BD2097034B00AF5C67 /* MessageDetailLeftTableViewCell.swift */; };
 		BB4AE6C02097035800AF5C67 /* MessageDetailRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE6BF2097035800AF5C67 /* MessageDetailRightTableViewCell.swift */; };
+		BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E6193209887DE00185944 /* AttendMatchViewController.swift */; };
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
 		BB9E99FE2094A961007D5E01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FC2094A961007D5E01 /* LaunchScreen.storyboard */; };
@@ -83,6 +87,9 @@
 		BB1AD4A420985BF30067DD60 /* SettingProfileNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileNameViewController.swift; sourceTree = "<group>"; };
 		BB1AD4A620985C0C0067DD60 /* SettingProfileTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileTextViewController.swift; sourceTree = "<group>"; };
 		BB1AD4A820986BBC0067DD60 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BB1AD4AF20987D4A0067DD60 /* AttendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendViewController.swift; sourceTree = "<group>"; };
+		BB1AD4B2209882040067DD60 /* AttendPrepareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendPrepareViewController.swift; sourceTree = "<group>"; };
+		BB1AD4B4209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendPrepareMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB4AE69B2096F4FD00AF5C67 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		BB4AE69D2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB4AE69F2096FA8000AF5C67 /* CalendarMonthCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonthCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +106,7 @@
 		BB4AE6BB2097032300AF5C67 /* KeyboardRespondableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRespondableViewController.swift; sourceTree = "<group>"; };
 		BB4AE6BD2097034B00AF5C67 /* MessageDetailLeftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailLeftTableViewCell.swift; sourceTree = "<group>"; };
 		BB4AE6BF2097035800AF5C67 /* MessageDetailRightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailRightTableViewCell.swift; sourceTree = "<group>"; };
+		BB8E6193209887DE00185944 /* AttendMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendMatchViewController.swift; sourceTree = "<group>"; };
 		BB9E99F02094A95F007D5E01 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E99F32094A95F007D5E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB9E99FA2094A961007D5E01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +166,25 @@
 			path = Picker;
 			sourceTree = "<group>";
 		};
+		BB1AD4AA20987D0E0067DD60 /* Attend */ = {
+			isa = PBXGroup;
+			children = (
+				BB1AD4B1209881E70067DD60 /* Prepare */,
+				BB8E6192209887C600185944 /* Match */,
+				BB1AD4AF20987D4A0067DD60 /* AttendViewController.swift */,
+			);
+			path = Attend;
+			sourceTree = "<group>";
+		};
+		BB1AD4B1209881E70067DD60 /* Prepare */ = {
+			isa = PBXGroup;
+			children = (
+				BB1AD4B2209882040067DD60 /* AttendPrepareViewController.swift */,
+				BB1AD4B4209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift */,
+			);
+			path = Prepare;
+			sourceTree = "<group>";
+		};
 		BB4AE69A2096F4E200AF5C67 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +234,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		BB8E6192209887C600185944 /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				BB8E6193209887DE00185944 /* AttendMatchViewController.swift */,
+			);
+			path = Match;
+			sourceTree = "<group>";
+		};
 		BB9E99E72094A95F007D5E01 = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +283,7 @@
 				BBD1ADAA2094D87F00487EF0 /* Card */,
 				BBD1ADAD2094D88F00487EF0 /* Message */,
 				BBD1ADB02094D8A000487EF0 /* Setting */,
+				BB1AD4AA20987D0E0067DD60 /* Attend */,
 				BB4AE6BA2097031100AF5C67 /* Common */,
 			);
 			path = View;
@@ -471,6 +507,7 @@
 				BBD1ADD62094DA6400487EF0 /* ScheduleRequester.swift in Sources */,
 				BBD1ADAC2094D88B00487EF0 /* CardViewController.swift in Sources */,
 				BB4AE6BE2097034C00AF5C67 /* MessageDetailLeftTableViewCell.swift in Sources */,
+				BB1AD4B3209882040067DD60 /* AttendPrepareViewController.swift in Sources */,
 				BB4AE6B9209702E500AF5C67 /* MessageDetailViewController.swift in Sources */,
 				BB4AE6AD2096FB0D00AF5C67 /* CardIndexView.swift in Sources */,
 				BBD1ADED2094DB8F00487EF0 /* UIImage+Crop.swift in Sources */,
@@ -478,6 +515,7 @@
 				BB1AD4A520985BF30067DD60 /* SettingProfileNameViewController.swift in Sources */,
 				BB1AD4A920986BBC0067DD60 /* WebViewController.swift in Sources */,
 				BBD1ADE92094DB7300487EF0 /* DateFormatter+Jp.swift in Sources */,
+				BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */,
 				BB1AD4A720985C0C0067DD60 /* SettingProfileTextViewController.swift in Sources */,
 				BB1AD49C209847B60067DD60 /* SettingProfileViewController.swift in Sources */,
 				BB00EEFD20980EA0005263D9 /* CardDetailEventTableViewCell.swift in Sources */,
@@ -508,12 +546,14 @@
 				BB4AE6B62097024700AF5C67 /* MessageTableViewCell.swift in Sources */,
 				BB1AD4A1209853460067DD60 /* PickerTableViewCell.swift in Sources */,
 				BBD1ADC82094D97400487EF0 /* HttpManager.swift in Sources */,
+				BB1AD4B020987D4A0067DD60 /* AttendViewController.swift in Sources */,
 				BBD1ADF12094DBB800487EF0 /* CALayer+Border.swift in Sources */,
 				BBD1ADEB2094DB8000487EF0 /* UIColor+Original.swift in Sources */,
 				BB4AE69C2096F4FD00AF5C67 /* ScheduleDetailViewController.swift in Sources */,
 				BBD1ADDE2094DAC800487EF0 /* AttendRequester.swift in Sources */,
 				BB4AE6BC2097032300AF5C67 /* KeyboardRespondableViewController.swift in Sources */,
 				BB4AE6C02097035800AF5C67 /* MessageDetailRightTableViewCell.swift in Sources */,
+				BB1AD4B5209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift in Sources */,
 				BB00EEF72097F59B005263D9 /* UILabel+Attribute.swift in Sources */,
 				BBD1ADCB2094D99800487EF0 /* Constants.swift in Sources */,
 				BBD1ADEF2094DBA500487EF0 /* UIView+Rect.swift in Sources */,
