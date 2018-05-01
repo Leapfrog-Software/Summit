@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BB00EEF72097F59B005263D9 /* UILabel+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00EEF62097F59B005263D9 /* UILabel+Attribute.swift */; };
+		BB00EEF920980E80005263D9 /* CardDetailUserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00EEF820980E80005263D9 /* CardDetailUserInfoTableViewCell.swift */; };
+		BB00EEFB20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00EEFA20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift */; };
+		BB00EEFD20980EA0005263D9 /* CardDetailEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00EEFC20980EA0005263D9 /* CardDetailEventTableViewCell.swift */; };
 		BB4AE69C2096F4FD00AF5C67 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69B2096F4FD00AF5C67 /* ScheduleDetailViewController.swift */; };
 		BB4AE69E2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69D2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift */; };
 		BB4AE6A22096FA8100AF5C67 /* CalendarMonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69F2096FA8000AF5C67 /* CalendarMonthCollectionViewCell.swift */; };
@@ -63,6 +66,9 @@
 
 /* Begin PBXFileReference section */
 		BB00EEF62097F59B005263D9 /* UILabel+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Attribute.swift"; sourceTree = "<group>"; };
+		BB00EEF820980E80005263D9 /* CardDetailUserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailUserInfoTableViewCell.swift; sourceTree = "<group>"; };
+		BB00EEFA20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailEventTitleTableViewCell.swift; sourceTree = "<group>"; };
+		BB00EEFC20980EA0005263D9 /* CardDetailEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailEventTableViewCell.swift; sourceTree = "<group>"; };
 		BB4AE69B2096F4FD00AF5C67 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		BB4AE69D2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB4AE69F2096FA8000AF5C67 /* CalendarMonthCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonthCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -151,6 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				BB4AE6B32097002B00AF5C67 /* CardDetailViewController.swift */,
+				BB00EEF820980E80005263D9 /* CardDetailUserInfoTableViewCell.swift */,
+				BB00EEFA20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift */,
+				BB00EEFC20980EA0005263D9 /* CardDetailEventTableViewCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -438,9 +447,11 @@
 				BBD1ADED2094DB8F00487EF0 /* UIImage+Crop.swift in Sources */,
 				BBD1ADE12094DAFB00487EF0 /* ImageUploader.swift in Sources */,
 				BBD1ADE92094DB7300487EF0 /* DateFormatter+Jp.swift in Sources */,
+				BB00EEFD20980EA0005263D9 /* CardDetailEventTableViewCell.swift in Sources */,
 				BB4AE6A22096FA8100AF5C67 /* CalendarMonthCollectionViewCell.swift in Sources */,
 				BBD1ADE72094DB5A00487EF0 /* Date+Util.swift in Sources */,
 				BBD1ADD12094DA2500487EF0 /* ApiManager.swift in Sources */,
+				BB00EEFB20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift in Sources */,
 				BBD1ADDA2094DAA100487EF0 /* MessageRequester.swift in Sources */,
 				BB4AE6B42097002B00AF5C67 /* CardDetailViewController.swift in Sources */,
 				BB4AE6B12096FD5500AF5C67 /* KanaUtils.swift in Sources */,
@@ -450,6 +461,7 @@
 				BB4AE6A82096FAB300AF5C67 /* CardUserTableViewCell.swift in Sources */,
 				BBD1ADCF2094D9CD00487EF0 /* ImageStorage.swift in Sources */,
 				BBD1ADCD2094D9B100487EF0 /* SaveData.swift in Sources */,
+				BB00EEF920980E80005263D9 /* CardDetailUserInfoTableViewCell.swift in Sources */,
 				BBD1ADE32094DB0400487EF0 /* UserImageUploader.swift in Sources */,
 				BBD1ADE52094DB2200487EF0 /* UIViewController+Scene.swift in Sources */,
 				BBD1ADAF2094D89B00487EF0 /* MessageViewController.swift in Sources */,

@@ -33,6 +33,23 @@ enum AgeType {
         }
     }
     
+    func toText() -> String {
+        switch self {
+        case .u20:
+            return "20歳未満"
+        case .s20:
+            return "20代"
+        case .s30:
+            return "30代"
+        case .s40:
+            return "40代"
+        case .s50:
+            return "50代"
+        case .o60:
+            return "60歳以上"
+        }
+    }
+    
     func toString() -> String {
         switch self {
         case .u20:
@@ -67,6 +84,17 @@ enum GenderType {
         }
     }
     
+    func toText() -> String {
+        switch self {
+        case .male:
+            return "男性"
+        case .female:
+            return "女性"
+        default:
+            return "-"
+        }
+    }
+    
     func toString() -> String {
         switch self {
         case .male:
@@ -93,6 +121,7 @@ struct UserData {
     var position: String
     var reserves: [String]
     var cards: [String]
+    var message: String
     
     init?(data: Dictionary<String, Any>) {
         
@@ -112,6 +141,7 @@ struct UserData {
         self.position = data["position"] as? String ?? ""
         self.reserves = data["reserves"] as? Array<String> ?? []
         self.cards = data["cards"] as? Array<String> ?? []
+        self.message = "釣りと将棋が好き！釣りと将棋が好き！釣りと将棋が好き！釣りと将棋が好き！釣りと将棋が好き！"  // TODO
     }
 }
 

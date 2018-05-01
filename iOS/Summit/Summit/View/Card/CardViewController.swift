@@ -34,6 +34,21 @@ class CardViewController: UIViewController {
         self.setCellData()
     }
     
+    private func setCardIndexView() {
+        
+        let cardIndexView = UINib(nibName: "CardIndexView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! CardIndexView
+        self.cardIndexBaseView.addSubview(cardIndexView)
+        cardIndexView.translatesAutoresizingMaskIntoConstraints = false
+        cardIndexView.leadingAnchor.constraint(equalTo: self.cardIndexBaseView.leadingAnchor).isActive = true
+        cardIndexView.trailingAnchor.constraint(equalTo: self.cardIndexBaseView.trailingAnchor).isActive = true
+        cardIndexView.topAnchor.constraint(equalTo: self.cardIndexBaseView.topAnchor).isActive = true
+        cardIndexView.bottomAnchor.constraint(equalTo: self.cardIndexBaseView.bottomAnchor).isActive = true
+        
+        cardIndexView.set(index: 0)
+        
+        self.cardIndexView = cardIndexView
+    }
+    
     private func setCellData() {
         
         guard let myUserData = UserRequester.shared.myUserData() else {
@@ -54,6 +69,9 @@ class CardViewController: UIViewController {
             guard let userKanaIndex = KanaUtils.columnIndex(of: userKanaPrefix) else {
                 return
             }
+            if (currentKanaIndex == -1) {
+                self.cardIndexView?.set(index: userKanaIndex)
+            }
             if userKanaIndex != currentKanaIndex {
                 let kana = KanaUtils.kanas[userKanaIndex][0]
                 self.cellDatas.append(CellData(kana: kana, user: nil))
@@ -64,21 +82,6 @@ class CardViewController: UIViewController {
             self.cellDatas.append(CellData(kana: nil, user: user))
             currentOffset += Const.cardTableCellHeight
         }
-    }
-    
-    private func setCardIndexView() {
-        
-        let cardIndexView = UINib(nibName: "CardIndexView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! CardIndexView
-        self.cardIndexBaseView.addSubview(cardIndexView)
-        cardIndexView.translatesAutoresizingMaskIntoConstraints = false
-        cardIndexView.leadingAnchor.constraint(equalTo: self.cardIndexBaseView.leadingAnchor).isActive = true
-        cardIndexView.trailingAnchor.constraint(equalTo: self.cardIndexBaseView.trailingAnchor).isActive = true
-        cardIndexView.topAnchor.constraint(equalTo: self.cardIndexBaseView.topAnchor).isActive = true
-        cardIndexView.bottomAnchor.constraint(equalTo: self.cardIndexBaseView.bottomAnchor).isActive = true
-        
-        cardIndexView.set(index: 0)
-        
-        self.cardIndexView = cardIndexView
     }
 }
 
@@ -108,6 +111,8 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if let userData = self.cellDatas[indexPath.row].user {
             let cardDetailViewController = self.viewController(storyboard: "Card", identifier: "CardDetailViewController") as! CardDetailViewController

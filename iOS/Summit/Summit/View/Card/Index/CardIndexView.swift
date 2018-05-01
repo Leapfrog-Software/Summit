@@ -12,7 +12,7 @@ class CardIndexView: UIView {
 
     @IBOutlet private var kanaLabels: [UILabel]!
     
-    private var currentIndex = 0
+    private var currentIndex = -1
 
     func set(index: Int) {
         

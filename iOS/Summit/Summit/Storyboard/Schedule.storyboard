@@ -796,7 +796,7 @@
                                     <constraint firstAttribute="width" constant="50" id="Mnq-H4-Ul8"/>
                                     <constraint firstAttribute="height" constant="50" id="xAi-Ob-rmA"/>
                                 </constraints>
-                                <state key="normal" image="common_back">
+                                <state key="normal" image="common_back_white">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -835,7 +835,7 @@
     <resources>
         <image name="calendar_arrow_left" width="6" height="11"/>
         <image name="calendar_arrow_right" width="6" height="11"/>
-        <image name="common_back" width="44" height="48"/>
+        <image name="common_back_white" width="61" height="35"/>
         <image name="schedule_detail_date" width="47" height="46"/>
         <image name="schedule_detail_provider" width="39" height="41"/>
     </resources>
