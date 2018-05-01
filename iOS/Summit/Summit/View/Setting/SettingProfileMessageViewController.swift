@@ -10,7 +10,36 @@ import UIKit
 
 class SettingProfileMessageViewController: UIViewController {
 
+    @IBOutlet private weak var textView: UITextView!
+    
+    private var defaultString: String!
+    private var completion: ((String) -> ())!
+    
+    func set(defaultString: String, completion: @escaping ((String) -> ())) {
+        self.defaultString = defaultString
+        self.completion = completion
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.textView.text = self.defaultString
+    }
+    
     @IBAction func onTapBack(_ sender: Any) {
-        self.pop(animationType: .horizontal)
+        
+        let message = self.textView.text ?? ""
+        
+        if self.defaultString == message {
+            self.pop(animationType: .horizontal)
+        } else {
+            if message.count > 128 {
+                // TODO
+                
+            } else {
+                self.completion(message)
+                self.pop(animationType: .horizontal)
+            }
+        }
     }
 }
