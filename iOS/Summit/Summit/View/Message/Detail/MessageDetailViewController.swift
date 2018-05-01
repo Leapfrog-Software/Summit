@@ -18,6 +18,7 @@ class MessageDetailViewController: KeyboardRespondableViewController {
     private var messages = [MessageData]()
     private var dummyLeftCell: MessageDetailLeftTableViewCell?
     private var dummyRightCell: MessageDetailRightTableViewCell?
+    private var temporaryMessageDatas = [MessageData]()
     
     func set(userData: UserData) {
         self.userData = userData
@@ -34,11 +35,17 @@ class MessageDetailViewController: KeyboardRespondableViewController {
     
     func refresh() {
         
-        let messages = MessageRequester.shared.query(userId: self.userData.userId)
+        let messages = MessageRequester.shared.query(userId: self.userData.userId).filter { messageData -> Bool in
+            return messageData.senderId == SaveData.shared.userId || messageData.receiverId == SaveData.shared.userId
+        }
         self.messages = messages.sorted(by: { (msg1, msg2) -> Bool in
-            return msg1.datetime > msg2.datetime
+            return msg1.datetime < msg2.datetime
         })
         self.tableView.reloadData()
+    }
+    
+    @IBAction func didExitTextField(_ sender: Any) {
+        self.view.endEditing(true)
     }
     
     @IBAction func onTapSend(_ sender: Any) {
@@ -48,10 +55,12 @@ class MessageDetailViewController: KeyboardRespondableViewController {
         guard let message = self.textField.text, message.count > 0 else {
             return
         }
+        
         MessageRequester.post(targetId: self.userData.userId, message: message, completion: { [weak self] result in
             if result {
                 MessageRequester.shared.fetch(completion: { [weak self] result in
                     if result {
+                        self?.temporaryMessageDatas.removeAll()
                         self?.refresh()
                     } else {
                         // TODO
@@ -62,6 +71,13 @@ class MessageDetailViewController: KeyboardRespondableViewController {
             }
         })
         self.textField.text = ""
+
+        let temporaryMessageData = MessageData(senderId: SaveData.shared.userId, message: message, datetime: Date())
+        self.temporaryMessageDatas.append(temporaryMessageData)
+        let height = self.dummyRightCell?.height(data: temporaryMessageData) ?? 0
+        let offset = self.tableView.contentSize.height - self.tableView.frame.size.height + height
+        self.tableView.setContentOffset(CGPoint(x: 0, y: offset), animated: false)
+        self.tableView.reloadData()
     }
     
     @IBAction func onTapBack(_ sender: Any) {
@@ -79,15 +95,16 @@ class MessageDetailViewController: KeyboardRespondableViewController {
 extension MessageDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messages.count
+        return self.messages.count + self.temporaryMessageDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let message = self.messages[indexPath.row]
+        let message = (self.messages + self.temporaryMessageDatas)[indexPath.row]
         if message.senderId == SaveData.shared.userId {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MessageDetailRightTableViewCell", for: indexPath) as! MessageDetailRightTableViewCell
-            cell.configure(data: message, isTemporary: false)
+            let isTemporary = indexPath.row > self.messages.count
+            cell.configure(data: message, isTemporary: isTemporary)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MessageDetailLeftTableViewCell", for: indexPath) as! MessageDetailLeftTableViewCell
@@ -98,7 +115,7 @@ extension MessageDetailViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let messageData = self.messages[indexPath.row]
+        let messageData = (self.messages + self.temporaryMessageDatas)[indexPath.row]
         if messageData.senderId == SaveData.shared.userId {
             return self.dummyRightCell?.height(data: messageData) ?? 0
         } else {

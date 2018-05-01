@@ -10,9 +10,15 @@ import UIKit
 
 class MessageViewController: UIViewController {
     
+    struct CellData {
+        let userData: UserData
+        let exist: Bool
+        let dateString: String
+    }
+    
     @IBOutlet private weak var tableView: UITableView!
     
-    private var users = [UserData]()
+    private var cellDatas = [CellData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +49,7 @@ class MessageViewController: UIViewController {
         }
         
         let userList = targetUserIds.compactMap { UserRequester.shared.query(userId: $0) }
-        self.users = userList.sorted(by: { (user1, user2) -> Bool in
+        let sortedUserList = userList.sorted(by: { (user1, user2) -> Bool in
             guard let lastDatetime1 = latestMessageDatetime(messages: MessageRequester.shared.query(userId: user1.userId)) else {
                 return false
             }
@@ -53,6 +59,22 @@ class MessageViewController: UIViewController {
             return lastDatetime1 > lastDatetime2
         })
         
+        let today = Date()
+        sortedUserList.forEach { userData in
+            var dateString = ""
+            if let dateTime = latestMessageDatetime(messages: MessageRequester.shared.query(userId: userData.userId)) {
+                if dateTime.isSameDay(with: today) {
+                    dateString = DateFormatter(dateFormat: "HH:mm").string(from: dateTime)
+                } else if dateTime.isSameYear(with: today) {
+                    dateString = DateFormatter(dateFormat: "M月d日\nHH:mm").string(from: dateTime)
+                } else {
+                    dateString = DateFormatter(dateFormat: "yyyy年M月d日\nHH:mm").string(from: dateTime)
+                }
+            }
+            // TODO
+            self.cellDatas.append(CellData(userData: userData, exist: true, dateString: dateString))
+        }
+        
         self.tableView.reloadData()
     }
 }
@@ -60,20 +82,21 @@ class MessageViewController: UIViewController {
 extension MessageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.users.count
+        return self.cellDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as! MessageTableViewCell
-        cell.configure(userData: self.users[indexPath.row])
+        let cellData = self.cellDatas[indexPath.row]
+        cell.configure(userData: cellData.userData, exist: cellData.exist, dateString: cellData.dateString)
         return cell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let messageDetailViewController = self.viewController(storyboard: "Message", identifier: "MessageDetailViewController") as! MessageDetailViewController
-        messageDetailViewController.set(userData: self.users[indexPath.row])
+        messageDetailViewController.set(userData: self.cellDatas[indexPath.row].userData)
         self.tabbarViewController()?.stack(viewController: messageDetailViewController, animationType: .horizontal)
     }
 }

@@ -35,6 +35,16 @@ class MessageDetailLeftTableViewCell: UITableViewCell {
         
         ImageStorage.shared.fetch(url: Constants.UserImageDirectory + data.senderId, imageView: self.faceImageView)
         self.messageLabel.text = data.message
+        
+        let today = Date()
+        if data.datetime.isSameDay(with: today) {
+            self.dateLabel.text = DateFormatter(dateFormat: "HH:mm").string(from: data.datetime)
+        } else if data.datetime.isSameYear(with: today) {
+            self.dateLabel.text = DateFormatter(dateFormat: "M月d日 HH:mm").string(from: data.datetime)
+        } else {
+            self.dateLabel.text = DateFormatter(dateFormat: "yyyy年M月d日 HH:mm").string(from: data.datetime)
+        }
+        
         self.didTap = didTap
     }
     

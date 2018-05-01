@@ -27,7 +27,16 @@ class MessageDetailRightTableViewCell: UITableViewCell {
     func configure(data: MessageData, isTemporary: Bool) {
         
         self.messageLabel.text = data.message
-        self.dateLabel.text = DateFormatter(dateFormat: "yyyy/MM/dd HH:mm:ss").string(from: data.datetime)
+        
+        let today = Date()
+        if data.datetime.isSameDay(with: today) {
+            self.dateLabel.text = DateFormatter(dateFormat: "HH:mm").string(from: data.datetime)
+        } else if data.datetime.isSameYear(with: today) {
+            self.dateLabel.text = DateFormatter(dateFormat: "M月d日 HH:mm").string(from: data.datetime)
+        } else {
+            self.dateLabel.text = DateFormatter(dateFormat: "yyyy年M月d日 HH:mm").string(from: data.datetime)
+        }
+        
         self.coverView.isHidden = !isTemporary
     }
     

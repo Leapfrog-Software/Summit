@@ -27,6 +27,13 @@ struct MessageData {
         }
         self.datetime = datetime
     }
+    
+    init(senderId: String, message: String, datetime: Date) {
+        self.senderId = senderId
+        self.receiverId = ""
+        self.message = message
+        self.datetime = datetime
+    }
 }
 
 class MessageRequester {

@@ -53,4 +53,11 @@ extension Date {
         return components1.year == components2.year
             && components1.month == components2.month
     }
+    
+    func isSameYear(with: Date) -> Bool {
+        
+        let components1 = calendar.dateComponents([.year, .month], from: self)
+        let components2 = calendar.dateComponents([.year, .month], from: with)
+        return components1.year == components2.year
+    }
 }
