@@ -10,7 +10,16 @@ import UIKit
 
 class ScheduleDetailMemberCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet private weak var memberImageView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        ImageStorage.shared.cancelRequest(imageView: self.memberImageView)
+    }
+    
     func configure(userData: UserData) {
         
+        ImageStorage.shared.fetch(url: Constants.UserImageDirectory + userData.userId, imageView: self.memberImageView)
     }
 }

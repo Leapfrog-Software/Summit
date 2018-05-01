@@ -9,20 +9,47 @@
 import UIKit
 
 class ScheduleDetailViewController: UIViewController {
+    
+    @IBOutlet private weak var scheduleImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var memberCountLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var providerLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var filterLabel: UILabel!
 
     private var scheduleData: ScheduleData!
     private var members = [UserData]()
     
+    func set(scheduleData: ScheduleData) {
+        self.scheduleData = scheduleData
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initContents()
+    }
+    
+    private func initContents() {
+
         self.members = UserRequester.shared.dataList.filter { userData -> Bool in
             return userData.reserves.contains(self.scheduleData.id)
         }
-    }
-    
-    func set(scheduleData: ScheduleData) {
-        self.scheduleData = scheduleData
+        
+        ImageStorage.shared.fetch(url: Constants.ScheduleImageDirectory + self.scheduleData.id, imageView: self.scheduleImageView)
+        
+        self.nameLabel.text = self.scheduleData.title
+        
+        let memberCount = self.members.count
+        self.memberCountLabel.text = "(\(memberCount)名)"
+        
+        self.dateLabel.text = DateFormatter(dateFormat: "M月d日 H:m〜").string(from: self.scheduleData.date)
+        
+        self.providerLabel.text = self.scheduleData.provider
+        
+        self.descriptionLabel.set(text: self.scheduleData.description, lineHeight: 18)
+        self.filterLabel.text = self.scheduleData.filter
     }
     
     @IBAction func onTapReserve(_ sender: Any) {

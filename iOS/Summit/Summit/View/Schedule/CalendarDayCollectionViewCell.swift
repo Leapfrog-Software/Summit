@@ -15,6 +15,7 @@ class CalendarDayCollectionViewCell: UICollectionViewCell {
     }
     
     @IBOutlet private weak var dayLabel: UILabel!
+    @IBOutlet private weak var todayView: UIView!
     @IBOutlet private weak var selectedMarkView: UIView!
     @IBOutlet private weak var plan1BaseView: UIView!
     @IBOutlet private weak var plan2BaseView: UIView!
@@ -26,20 +27,22 @@ class CalendarDayCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var plan2View: UIView!
     @IBOutlet private weak var plan3View: UIView!
     
-    func configure(day: String, isToday: Bool, isSameMonth: Bool, schedules: [ScheduleData]) {
+    func configure(day: String, isToday: Bool, isSameMonth: Bool, isSelected: Bool, schedules: [ScheduleData]) {
         
         self.dayLabel.text = day
         
         if isSameMonth {
             if isToday {
                 self.dayLabel.textColor = .white
-                self.selectedMarkView.isHidden = false
+                self.todayView.isHidden = false
             } else {
                 self.dayLabel.textColor = .calendarActiveDate
-                self.selectedMarkView.isHidden = true
+                self.todayView.isHidden = true
             }
+            self.selectedMarkView.isHidden = !isSelected
         } else {
             self.dayLabel.textColor = .calendarPassiveDate
+            self.todayView.isHidden = true
             self.selectedMarkView.isHidden = true
         }
         

@@ -32,6 +32,9 @@ struct ScheduleData {
     let title: String
     let date: Date
     let timeLength: TimeInterval
+    let provider: String
+    let description: String
+    let filter: String
     
     init?(data: Dictionary<String, Any>) {
         
@@ -54,6 +57,10 @@ struct ScheduleData {
         self.date = date
         
         self.timeLength = TimeInterval(30 * 60)     // TODO
+        
+        self.provider = "Summit運営"      // TODO
+        self.description = "詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細"     // TODO
+        self.filter = "25歳以下の起業家"           // TODO
     }
 }
 

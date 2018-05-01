@@ -15,6 +15,7 @@ class CalendarMonthCollectionViewCell: UICollectionViewCell {
         let dateStr: String
         let isToday: Bool
         let isSameMonth: Bool
+        let isSelected: Bool
         let schedules: [ScheduleData]
     }
     
@@ -23,7 +24,7 @@ class CalendarMonthCollectionViewCell: UICollectionViewCell {
     private var dayInfos = [CalendarDayInfo]()
     private var didSelect: ((CalendarDayInfo) -> ())?
     
-    func configure(month: Date, didSelect: @escaping ((CalendarDayInfo)) -> ()) {
+    func configure(month: Date, selectedDate: Date, didSelect: @escaping ((CalendarDayInfo)) -> ()) {
         
         self.dayInfos.removeAll()
         
@@ -39,6 +40,7 @@ class CalendarMonthCollectionViewCell: UICollectionViewCell {
                                                   dateStr: dateFormatter.string(from: date),
                                                   isToday: date.isSameDay(with: today),
                                                   isSameMonth: date.isSameMonth(with: month),
+                                                  isSelected: date.isSameDay(with: selectedDate),
                                                   schedules: schedules)
             self.dayInfos.append(calendarDayInfo)
         }
@@ -62,6 +64,7 @@ extension CalendarMonthCollectionViewCell: UICollectionViewDataSource, UICollect
         cell.configure(day: dayInfo.dateStr,
                        isToday: dayInfo.isToday,
                        isSameMonth: dayInfo.isSameMonth,
+                       isSelected: dayInfo.isSelected,
                        schedules: dayInfo.schedules)
         
         return cell
