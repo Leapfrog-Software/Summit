@@ -14,6 +14,15 @@ class ScheduleViewController: UIViewController {
         static let scheduleTableCellHeight = CGFloat(116)
     }
 
+    @IBOutlet private weak var nextPlanHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var nextPlanBaseView: UIView!
+    @IBOutlet private weak var nextPlanShadowView: UIView!
+    @IBOutlet private weak var nextPlanScheduleLabel: UILabel!
+    @IBOutlet private weak var nextPlanImageView: UIImageView!
+    @IBOutlet private weak var nextPlantitleLabel: UILabel!
+    @IBOutlet private weak var nextPlanDateLabel: UILabel!
+    @IBOutlet private weak var nextPlanArrowImageView: UIImageView!
+    
     @IBOutlet private weak var monthLabel: UILabel!
     @IBOutlet private weak var monthsCollectionView: UICollectionView!
     @IBOutlet private weak var scheduleDateLabel: UILabel!
@@ -36,6 +45,17 @@ class ScheduleViewController: UIViewController {
         
         let initialSchedules = ScheduleRequester.shared.dataList.filter { $0.date.isSameDay(with: Date()) }
         self.resetSchedules(schedules: initialSchedules)
+        
+        self.nextPlanShadowView.layer.masksToBounds = false
+        self.nextPlanShadowView.layer.shadowOffset = CGSize(width: 0, height: 8)
+        self.nextPlanShadowView.layer.shadowOpacity = 0.4
+        self.nextPlanShadowView.layer.shadowColor = UIColor(white: 0.8, alpha: 1.0).cgColor
+        self.nextPlanShadowView.layer.shadowRadius = 4
+
+        self.timerProc()
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { _ in
+            self.timerProc()
+        })
     }
     
     private func currentIndex() -> Int {
@@ -82,6 +102,64 @@ class ScheduleViewController: UIViewController {
         if index < self.months.count - 1 {
             self.monthsCollectionView.selectItem(at: IndexPath(row: index + 1, section: 0), animated: true, scrollPosition: .centeredHorizontally)
             self.setMonthLabel(index: index + 1)
+        }
+    }
+}
+
+extension ScheduleViewController {
+    
+    private func searchNextSchedule() -> ScheduleData? {
+        
+        guard let myUserData = UserRequester.shared.myUserData() else {
+            return nil
+        }
+        let today = Date()
+        let reservedSchedules = myUserData.reserves.compactMap { ScheduleRequester.shared.query(id: $0) }
+        let futureSchedules = reservedSchedules.filter { $0.date > today }
+        let sortedSchedules = futureSchedules.sorted { $0.date < $1.date }
+        return sortedSchedules.first
+    }
+
+    private func timerProc() {
+        
+        if let nextSchedule = self.searchNextSchedule() {
+            self.nextPlanHeightConstraint.constant = 122
+            self.nextPlanBaseView.isHidden = false
+            self.nextPlanImageView.image = nil
+            ImageStorage.shared.fetch(url: Constants.ScheduleImageDirectory + nextSchedule.id, imageView: self.nextPlanImageView)
+            
+            let today = Date()
+            
+            self.nextPlantitleLabel.text = nextSchedule.title
+            if nextSchedule.date.isSameDay(with: today) {
+                self.nextPlanDateLabel.text = DateFormatter(dateFormat: "H:mm〜").string(from: nextSchedule.date)
+            } else if nextSchedule.date.isSameYear(with: today) {
+                self.nextPlanDateLabel.text = DateFormatter(dateFormat: "yyyy年MM月dd日 H:mm〜").string(from: nextSchedule.date)
+            }
+            
+            let timeInterval = nextSchedule.date.timeIntervalSince(today)
+            if timeInterval < 60 * 60 {
+                let remainMinute = Int(timeInterval / 60) + 1
+                self.nextPlanScheduleLabel.text = "\(remainMinute)分後に開始"
+                self.nextPlanArrowImageView.isHidden = false
+            } else {
+                self.nextPlanScheduleLabel.text = "直近の予定"
+                self.nextPlanArrowImageView.isHidden = true
+            }
+        } else {
+            self.nextPlanHeightConstraint.constant = 0
+            self.nextPlanBaseView.isHidden = true
+        }
+    }
+    
+    @IBAction func onTapNextSchedule(_ sender: Any) {
+        
+        guard let nextSchedule = self.searchNextSchedule() else {
+            return
+        }
+        let timeInterval = nextSchedule.date.timeIntervalSince(Date())
+        if timeInterval >= 60 * 60 {
+            return
         }
     }
 }

@@ -14,6 +14,7 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var companyLabel: UILabel!
     @IBOutlet private weak var positionLabel: UILabel!
+    @IBOutlet private weak var pushSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,8 @@ class SettingViewController: UIViewController {
         
         self.companyLabel.text = myUserData.company
         self.positionLabel.text = myUserData.position
+        
+        self.pushSwitch.isOn = SaveData.shared.pushSetting
     }
     
     @IBAction func onTapProfile(_ sender: Any) {
@@ -46,11 +49,21 @@ class SettingViewController: UIViewController {
         self.tabbarViewController()?.stack(viewController: profile, animationType: .horizontal)
     }
     
+    @IBAction func onTapPush(_ sender: UISwitch) {
+        let saveData = SaveData.shared
+        saveData.pushSetting = sender.isOn
+        saveData.save()
+    }
+    
     @IBAction func onTapTerm(_ sender: Any) {
-        
+        let webView = self.viewController(storyboard: "Common", identifier: "WebViewController") as! WebViewController
+        webView.set(webPageType: .terms)
+        self.tabbarViewController()?.stack(viewController: webView, animationType: .horizontal)
     }
     
     @IBAction func onTapPrivacyPolicy(_ sender: Any) {
-        
+        let webView = self.viewController(storyboard: "Common", identifier: "WebViewController") as! WebViewController
+        webView.set(webPageType: .privacypolicy)
+        self.tabbarViewController()?.stack(viewController: webView, animationType: .horizontal)
     }
 }

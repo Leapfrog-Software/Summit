@@ -223,7 +223,7 @@ class SettingProfileViewController: UIViewController {
                 if result {
                     UserRequester.shared.fetch(completion: { _ in
                         self.pop(animationType: .horizontal)
-                    })                    
+                    })
                 } else {
                     // TODO
                 }

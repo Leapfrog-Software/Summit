@@ -159,6 +159,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrJ-vP-0Q3">
                                                 <rect key="frame" x="310" y="11" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="onTapPush:" destination="Vjf-Bj-utt" eventType="valueChanged" id="kDL-De-8wC"/>
+                                                </connections>
                                             </switch>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWG-Hh-PYP">
                                                 <rect key="frame" x="16" y="53" width="343" height="1"/>
@@ -315,6 +318,7 @@
                         <outlet property="faceImageView" destination="NvH-D9-Mg2" id="E8T-Qk-1hJ"/>
                         <outlet property="nameLabel" destination="s4g-zC-OQh" id="7yn-iK-jqH"/>
                         <outlet property="positionLabel" destination="zua-we-4tV" id="HvU-Uq-Sma"/>
+                        <outlet property="pushSwitch" destination="hrJ-vP-0Q3" id="tSk-sF-lch"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHM-FN-muJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,5 +20,12 @@ struct Constants {
     struct UserDefaultsKey {
         static let UserId = "UserId"
         static let SentFirstMessageScheduleIds = "SentFirstMessageScheduleIds"
+        static let pushSetting = "PushSetting"
+    }
+    
+    // TODO
+    struct WebPageUrl {
+        static let Terms = "http://appfac.net/app/terms.html"
+        static let Privacypolicy = "http://appfac.net/app/privacypolicy.html"
     }
 }
