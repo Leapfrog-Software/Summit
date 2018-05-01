@@ -66,6 +66,10 @@ enum AgeType {
             return "5"
         }
     }
+    
+    static func allValue() -> [AgeType] {
+        return [.u20, .s20, .s30, .s40, .s50, .o60]
+    }
 }
 
 enum GenderType {
@@ -104,6 +108,10 @@ enum GenderType {
         default:
             return "2"
         }
+    }
+    
+    static func allValue() -> [GenderType] {
+        return [.male, .female]
     }
 }
 

@@ -172,9 +172,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxM-lj-hqS">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxM-lj-hqS">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="48"/>
                                                 <connections>
                                                     <action selector="onTapTab4:" destination="bjx-VP-EyJ" eventType="touchUpInside" id="96g-H8-NHE"/>
                                                 </connections>
@@ -183,8 +182,12 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="jIc-cK-9Du" firstAttribute="centerX" secondItem="4Bz-xQ-bB7" secondAttribute="centerX" id="1vn-aM-OHK"/>
+                                            <constraint firstAttribute="trailing" secondItem="OxM-lj-hqS" secondAttribute="trailing" id="OfL-ly-Ya0"/>
                                             <constraint firstItem="jIc-cK-9Du" firstAttribute="top" secondItem="7HO-vA-G7p" secondAttribute="bottom" constant="3" id="dRZ-43-ikl"/>
+                                            <constraint firstAttribute="bottom" secondItem="OxM-lj-hqS" secondAttribute="bottom" id="g7N-5f-Hal"/>
                                             <constraint firstItem="7HO-vA-G7p" firstAttribute="centerX" secondItem="4Bz-xQ-bB7" secondAttribute="centerX" id="l71-fg-L0U"/>
+                                            <constraint firstItem="OxM-lj-hqS" firstAttribute="leading" secondItem="4Bz-xQ-bB7" secondAttribute="leading" id="qF7-5j-jJf"/>
+                                            <constraint firstItem="OxM-lj-hqS" firstAttribute="top" secondItem="4Bz-xQ-bB7" secondAttribute="top" id="s8s-vp-8Aj"/>
                                             <constraint firstItem="7HO-vA-G7p" firstAttribute="top" secondItem="4Bz-xQ-bB7" secondAttribute="top" constant="2" id="vcW-Vo-xg5"/>
                                         </constraints>
                                     </view>

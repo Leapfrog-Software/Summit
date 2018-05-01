@@ -49,4 +49,8 @@ extension UIColor {
     class var cardIndexPassive: UIColor {
         return UIColor(red: 171 / 255, green: 180 / 255, blue: 189 / 255, alpha: 1.0)
     }
+    
+    class var settingNoName: UIColor {
+        return UIColor(red: 171 / 255, green: 171 / 255, blue: 171 / 255, alpha: 1.0)
+    }
 }

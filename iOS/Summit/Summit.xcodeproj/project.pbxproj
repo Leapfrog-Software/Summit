@@ -11,6 +11,12 @@
 		BB00EEF920980E80005263D9 /* CardDetailUserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00EEF820980E80005263D9 /* CardDetailUserInfoTableViewCell.swift */; };
 		BB00EEFB20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00EEFA20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift */; };
 		BB00EEFD20980EA0005263D9 /* CardDetailEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00EEFC20980EA0005263D9 /* CardDetailEventTableViewCell.swift */; };
+		BB1AD49C209847B60067DD60 /* SettingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD49B209847B60067DD60 /* SettingProfileViewController.swift */; };
+		BB1AD49F209853330067DD60 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD49E209853330067DD60 /* PickerViewController.swift */; };
+		BB1AD4A1209853460067DD60 /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A0209853460067DD60 /* PickerTableViewCell.swift */; };
+		BB1AD4A320985BE60067DD60 /* SettingProfileMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A220985BE60067DD60 /* SettingProfileMessageViewController.swift */; };
+		BB1AD4A520985BF30067DD60 /* SettingProfileNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A420985BF30067DD60 /* SettingProfileNameViewController.swift */; };
+		BB1AD4A720985C0C0067DD60 /* SettingProfileTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A620985C0C0067DD60 /* SettingProfileTextViewController.swift */; };
 		BB4AE69C2096F4FD00AF5C67 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69B2096F4FD00AF5C67 /* ScheduleDetailViewController.swift */; };
 		BB4AE69E2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69D2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift */; };
 		BB4AE6A22096FA8100AF5C67 /* CalendarMonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69F2096FA8000AF5C67 /* CalendarMonthCollectionViewCell.swift */; };
@@ -69,6 +75,12 @@
 		BB00EEF820980E80005263D9 /* CardDetailUserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailUserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		BB00EEFA20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailEventTitleTableViewCell.swift; sourceTree = "<group>"; };
 		BB00EEFC20980EA0005263D9 /* CardDetailEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailEventTableViewCell.swift; sourceTree = "<group>"; };
+		BB1AD49B209847B60067DD60 /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
+		BB1AD49E209853330067DD60 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		BB1AD4A0209853460067DD60 /* PickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		BB1AD4A220985BE60067DD60 /* SettingProfileMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileMessageViewController.swift; sourceTree = "<group>"; };
+		BB1AD4A420985BF30067DD60 /* SettingProfileNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileNameViewController.swift; sourceTree = "<group>"; };
+		BB1AD4A620985C0C0067DD60 /* SettingProfileTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileTextViewController.swift; sourceTree = "<group>"; };
 		BB4AE69B2096F4FD00AF5C67 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		BB4AE69D2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB4AE69F2096FA8000AF5C67 /* CalendarMonthCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonthCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -135,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB1AD49D209853250067DD60 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				BB1AD49E209853330067DD60 /* PickerViewController.swift */,
+				BB1AD4A0209853460067DD60 /* PickerTableViewCell.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
 		BB4AE69A2096F4E200AF5C67 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				BB4AE6BB2097032300AF5C67 /* KeyboardRespondableViewController.swift */,
+				BB1AD49D209853250067DD60 /* Picker */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -282,6 +304,10 @@
 			isa = PBXGroup;
 			children = (
 				BBD1ADB12094D8AD00487EF0 /* SettingViewController.swift */,
+				BB1AD49B209847B60067DD60 /* SettingProfileViewController.swift */,
+				BB1AD4A220985BE60067DD60 /* SettingProfileMessageViewController.swift */,
+				BB1AD4A420985BF30067DD60 /* SettingProfileNameViewController.swift */,
+				BB1AD4A620985C0C0067DD60 /* SettingProfileTextViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -446,7 +472,10 @@
 				BB4AE6AD2096FB0D00AF5C67 /* CardIndexView.swift in Sources */,
 				BBD1ADED2094DB8F00487EF0 /* UIImage+Crop.swift in Sources */,
 				BBD1ADE12094DAFB00487EF0 /* ImageUploader.swift in Sources */,
+				BB1AD4A520985BF30067DD60 /* SettingProfileNameViewController.swift in Sources */,
 				BBD1ADE92094DB7300487EF0 /* DateFormatter+Jp.swift in Sources */,
+				BB1AD4A720985C0C0067DD60 /* SettingProfileTextViewController.swift in Sources */,
+				BB1AD49C209847B60067DD60 /* SettingProfileViewController.swift in Sources */,
 				BB00EEFD20980EA0005263D9 /* CardDetailEventTableViewCell.swift in Sources */,
 				BB4AE6A22096FA8100AF5C67 /* CalendarMonthCollectionViewCell.swift in Sources */,
 				BBD1ADE72094DB5A00487EF0 /* Date+Util.swift in Sources */,
@@ -454,6 +483,7 @@
 				BB00EEFB20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift in Sources */,
 				BBD1ADDA2094DAA100487EF0 /* MessageRequester.swift in Sources */,
 				BB4AE6B42097002B00AF5C67 /* CardDetailViewController.swift in Sources */,
+				BB1AD49F209853330067DD60 /* PickerViewController.swift in Sources */,
 				BB4AE6B12096FD5500AF5C67 /* KanaUtils.swift in Sources */,
 				BBD1ADD82094DA8B00487EF0 /* UserRequester.swift in Sources */,
 				BBD1ADDC2094DAB600487EF0 /* AccountRequester.swift in Sources */,
@@ -470,7 +500,9 @@
 				BB4AE6A42096FA8100AF5C67 /* ScheduleEventTableViewCell.swift in Sources */,
 				BB4AE6A32096FA8100AF5C67 /* CalendarDayCollectionViewCell.swift in Sources */,
 				BBD1ADA92094D87B00487EF0 /* ScheduleViewController.swift in Sources */,
+				BB1AD4A320985BE60067DD60 /* SettingProfileMessageViewController.swift in Sources */,
 				BB4AE6B62097024700AF5C67 /* MessageTableViewCell.swift in Sources */,
+				BB1AD4A1209853460067DD60 /* PickerTableViewCell.swift in Sources */,
 				BBD1ADC82094D97400487EF0 /* HttpManager.swift in Sources */,
 				BBD1ADF12094DBB800487EF0 /* CALayer+Border.swift in Sources */,
 				BBD1ADEB2094DB8000487EF0 /* UIColor+Original.swift in Sources */,
