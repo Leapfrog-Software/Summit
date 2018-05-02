@@ -53,13 +53,13 @@ class AttendPrepareViewController: UIViewController {
         }
     }
     
-    private func stackMatch() {
+    private func getInitialInfo() -> (matchUserData: UserData, tableId: String)? {
         
         var targetIndex = -1
         var tableIndex = -1
         
         guard let index = self.members.index(where: { $0.userId == SaveData.shared.userId }) else {
-            return
+            return nil
         }
         if index % 2 == 1 {
             targetIndex = index - 1
@@ -70,19 +70,23 @@ class AttendPrepareViewController: UIViewController {
                     targetIndex = index - 1
                     tableIndex = Int((index - 1) / 2)
                 } else {
-                    return
+                    return nil
                 }
             } else {
                 targetIndex = index + 1
                 tableIndex = Int(index / 2)
             }
         }
-        let matchUserData = self.members[targetIndex]
-        
-        let tableId = String(format: "%d", tableIndex)
-        
+        return (matchUserData: self.members[targetIndex], tableId: String(format: "%d", tableIndex))
+    }
+    
+    private func stackMatch() {
+
+        guard let initialInfo = self.getInitialInfo() else {
+            return
+        }
         let match = self.viewController(storyboard: "Attend", identifier: "AttendMatchViewController") as! AttendMatchViewController
-        match.set(scheduleData: self.scheduleData, userData: matchUserData, tableId: tableId, completion: { [weak self] in
+        match.set(scheduleData: self.scheduleData, userData: initialInfo.matchUserData, tableId: initialInfo.tableId, completion: { [weak self] in
             if let scheduleDate = self?.scheduleData.date, scheduleDate >= Date() {
                 self?.stackAttend()
             }
@@ -105,9 +109,15 @@ class AttendPrepareViewController: UIViewController {
         UIView.animate(withDuration: 0.2, animations: {
             blackView.alpha = 1.0
         }, completion: { [weak self] _ in
+            guard let scheduleData = self?.scheduleData, let initialInfo = self?.getInitialInfo() else {
+                return
+            }
             let attend = self?.viewController(storyboard: "Attend", identifier: "AttendViewController") as! AttendViewController
-            self?.stack(viewController: attend, animationType: .none)
+            attend.set(scheduleData: scheduleData, initialTableId: initialInfo.tableId)
+            self?.tabbarViewController()?.stack(viewController: attend, animationType: .none)
             self?.view.bringSubview(toFront: blackView)
+            
+            self?.pop(animationType: .none)
             
             UIView.animate(withDuration: 0.2, animations: {
                 blackView.alpha = 0

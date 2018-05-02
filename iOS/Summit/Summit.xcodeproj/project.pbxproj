@@ -18,7 +18,6 @@
 		BB1AD4A520985BF30067DD60 /* SettingProfileNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A420985BF30067DD60 /* SettingProfileNameViewController.swift */; };
 		BB1AD4A720985C0C0067DD60 /* SettingProfileTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A620985C0C0067DD60 /* SettingProfileTextViewController.swift */; };
 		BB1AD4A920986BBC0067DD60 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4A820986BBC0067DD60 /* WebViewController.swift */; };
-		BB1AD4B020987D4A0067DD60 /* AttendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4AF20987D4A0067DD60 /* AttendViewController.swift */; };
 		BB1AD4B3209882040067DD60 /* AttendPrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4B2209882040067DD60 /* AttendPrepareViewController.swift */; };
 		BB1AD4B5209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1AD4B4209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift */; };
 		BB4AE69C2096F4FD00AF5C67 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE69B2096F4FD00AF5C67 /* ScheduleDetailViewController.swift */; };
@@ -39,6 +38,13 @@
 		BB4AE6C02097035800AF5C67 /* MessageDetailRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE6BF2097035800AF5C67 /* MessageDetailRightTableViewCell.swift */; };
 		BB62ADA220994AF300B37397 /* PlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADA120994AF300B37397 /* PlaceholderTextField.swift */; };
 		BB62ADA420994B0300B37397 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADA320994B0300B37397 /* PlaceholderTextView.swift */; };
+		BB62ADA92099667F00B37397 /* AttendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADA82099667F00B37397 /* AttendViewController.swift */; };
+		BB62ADAB20996A9F00B37397 /* AttendTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADAA20996A9F00B37397 /* AttendTableView.swift */; };
+		BB62ADAD20996AA800B37397 /* AttendTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADAC20996AA800B37397 /* AttendTableView.xib */; };
+		BB62ADAF20996AB500B37397 /* AttendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADAE20996AB500B37397 /* AttendChatViewController.swift */; };
+		BB62ADB120999D0100B37397 /* AttendHitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADB020999D0100B37397 /* AttendHitView.swift */; };
+		BB62ADB32099A49F00B37397 /* AttendTableUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADB22099A49F00B37397 /* AttendTableUserView.swift */; };
+		BB62ADB52099A4AB00B37397 /* AttendTableUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADB42099A4AB00B37397 /* AttendTableUserView.xib */; };
 		BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E6193209887DE00185944 /* AttendMatchViewController.swift */; };
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
@@ -89,7 +95,6 @@
 		BB1AD4A420985BF30067DD60 /* SettingProfileNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileNameViewController.swift; sourceTree = "<group>"; };
 		BB1AD4A620985C0C0067DD60 /* SettingProfileTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileTextViewController.swift; sourceTree = "<group>"; };
 		BB1AD4A820986BBC0067DD60 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		BB1AD4AF20987D4A0067DD60 /* AttendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendViewController.swift; sourceTree = "<group>"; };
 		BB1AD4B2209882040067DD60 /* AttendPrepareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendPrepareViewController.swift; sourceTree = "<group>"; };
 		BB1AD4B4209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendPrepareMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB4AE69B2096F4FD00AF5C67 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +115,13 @@
 		BB4AE6BF2097035800AF5C67 /* MessageDetailRightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailRightTableViewCell.swift; sourceTree = "<group>"; };
 		BB62ADA120994AF300B37397 /* PlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextField.swift; sourceTree = "<group>"; };
 		BB62ADA320994B0300B37397 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
+		BB62ADA82099667F00B37397 /* AttendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendViewController.swift; sourceTree = "<group>"; };
+		BB62ADAA20996A9F00B37397 /* AttendTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendTableView.swift; sourceTree = "<group>"; };
+		BB62ADAC20996AA800B37397 /* AttendTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendTableView.xib; sourceTree = "<group>"; };
+		BB62ADAE20996AB500B37397 /* AttendChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendChatViewController.swift; sourceTree = "<group>"; };
+		BB62ADB020999D0100B37397 /* AttendHitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendHitView.swift; sourceTree = "<group>"; };
+		BB62ADB22099A49F00B37397 /* AttendTableUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendTableUserView.swift; sourceTree = "<group>"; };
+		BB62ADB42099A4AB00B37397 /* AttendTableUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendTableUserView.xib; sourceTree = "<group>"; };
 		BB8E6193209887DE00185944 /* AttendMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendMatchViewController.swift; sourceTree = "<group>"; };
 		BB9E99F02094A95F007D5E01 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E99F32094A95F007D5E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +187,7 @@
 			children = (
 				BB1AD4B1209881E70067DD60 /* Prepare */,
 				BB8E6192209887C600185944 /* Match */,
-				BB1AD4AF20987D4A0067DD60 /* AttendViewController.swift */,
+				BB62ADA72099665400B37397 /* Attend */,
 			);
 			path = Attend;
 			sourceTree = "<group>";
@@ -246,6 +258,20 @@
 				BB62ADA320994B0300B37397 /* PlaceholderTextView.swift */,
 			);
 			path = Placeholder;
+			sourceTree = "<group>";
+		};
+		BB62ADA72099665400B37397 /* Attend */ = {
+			isa = PBXGroup;
+			children = (
+				BB62ADA82099667F00B37397 /* AttendViewController.swift */,
+				BB62ADB020999D0100B37397 /* AttendHitView.swift */,
+				BB62ADAA20996A9F00B37397 /* AttendTableView.swift */,
+				BB62ADAC20996AA800B37397 /* AttendTableView.xib */,
+				BB62ADB22099A49F00B37397 /* AttendTableUserView.swift */,
+				BB62ADB42099A4AB00B37397 /* AttendTableUserView.xib */,
+				BB62ADAE20996AB500B37397 /* AttendChatViewController.swift */,
+			);
+			path = Attend;
 			sourceTree = "<group>";
 		};
 		BB8E6192209887C600185944 /* Match */ = {
@@ -496,6 +522,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBD1ADC32094D92400487EF0 /* Attend.storyboard in Resources */,
+				BB62ADAD20996AA800B37397 /* AttendTableView.xib in Resources */,
+				BB62ADB52099A4AB00B37397 /* AttendTableUserView.xib in Resources */,
 				BB4AE6AF2096FB1400AF5C67 /* CardIndexView.xib in Resources */,
 				BBD1ADB62094D8EA00487EF0 /* Main.storyboard in Resources */,
 				BBD1ADBB2094D90200487EF0 /* Card.storyboard in Resources */,
@@ -527,8 +555,10 @@
 				BB4AE6AD2096FB0D00AF5C67 /* CardIndexView.swift in Sources */,
 				BBD1ADED2094DB8F00487EF0 /* UIImage+Crop.swift in Sources */,
 				BBD1ADE12094DAFB00487EF0 /* ImageUploader.swift in Sources */,
+				BB62ADB32099A49F00B37397 /* AttendTableUserView.swift in Sources */,
 				BB1AD4A520985BF30067DD60 /* SettingProfileNameViewController.swift in Sources */,
 				BB1AD4A920986BBC0067DD60 /* WebViewController.swift in Sources */,
+				BB62ADB120999D0100B37397 /* AttendHitView.swift in Sources */,
 				BBD1ADE92094DB7300487EF0 /* DateFormatter+Jp.swift in Sources */,
 				BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */,
 				BB1AD4A720985C0C0067DD60 /* SettingProfileTextViewController.swift in Sources */,
@@ -540,6 +570,7 @@
 				BB00EEFB20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift in Sources */,
 				BBD1ADDA2094DAA100487EF0 /* MessageRequester.swift in Sources */,
 				BB4AE6B42097002B00AF5C67 /* CardDetailViewController.swift in Sources */,
+				BB62ADAB20996A9F00B37397 /* AttendTableView.swift in Sources */,
 				BB1AD49F209853330067DD60 /* PickerViewController.swift in Sources */,
 				BB4AE6B12096FD5500AF5C67 /* KanaUtils.swift in Sources */,
 				BBD1ADD82094DA8B00487EF0 /* UserRequester.swift in Sources */,
@@ -550,6 +581,7 @@
 				BBD1ADCD2094D9B100487EF0 /* SaveData.swift in Sources */,
 				BB00EEF920980E80005263D9 /* CardDetailUserInfoTableViewCell.swift in Sources */,
 				BBD1ADE32094DB0400487EF0 /* UserImageUploader.swift in Sources */,
+				BB62ADAF20996AB500B37397 /* AttendChatViewController.swift in Sources */,
 				BBD1ADE52094DB2200487EF0 /* UIViewController+Scene.swift in Sources */,
 				BBD1ADAF2094D89B00487EF0 /* MessageViewController.swift in Sources */,
 				BBD1ADB22094D8AD00487EF0 /* SettingViewController.swift in Sources */,
@@ -561,11 +593,11 @@
 				BB4AE6B62097024700AF5C67 /* MessageTableViewCell.swift in Sources */,
 				BB1AD4A1209853460067DD60 /* PickerTableViewCell.swift in Sources */,
 				BBD1ADC82094D97400487EF0 /* HttpManager.swift in Sources */,
-				BB1AD4B020987D4A0067DD60 /* AttendViewController.swift in Sources */,
 				BBD1ADF12094DBB800487EF0 /* CALayer+Border.swift in Sources */,
 				BBD1ADEB2094DB8000487EF0 /* UIColor+Original.swift in Sources */,
 				BB62ADA220994AF300B37397 /* PlaceholderTextField.swift in Sources */,
 				BB4AE69C2096F4FD00AF5C67 /* ScheduleDetailViewController.swift in Sources */,
+				BB62ADA92099667F00B37397 /* AttendViewController.swift in Sources */,
 				BBD1ADDE2094DAC800487EF0 /* AttendRequester.swift in Sources */,
 				BB4AE6BC2097032300AF5C67 /* KeyboardRespondableViewController.swift in Sources */,
 				BB4AE6C02097035800AF5C67 /* MessageDetailRightTableViewCell.swift in Sources */,

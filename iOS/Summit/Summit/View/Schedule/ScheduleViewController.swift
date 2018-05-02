@@ -115,7 +115,8 @@ extension ScheduleViewController {
         }
         let today = Date()
         let reservedSchedules = myUserData.reserves.compactMap { ScheduleRequester.shared.query(id: $0) }
-        let futureSchedules = reservedSchedules.filter { $0.date + $0.timeLength > today }
+        
+        let futureSchedules = reservedSchedules.filter { $0.date.addingTimeInterval($0.timeLength) > today }
         let sortedSchedules = futureSchedules.sorted { $0.date < $1.date }
         return sortedSchedules.first
     }

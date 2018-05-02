@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AttendTableUserView" customModule="Summit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HGm-Aw-pMw">
+                    <rect key="frame" x="10" y="0.0" width="80" height="80"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="BHV-tX-xce"/>
+                        <constraint firstAttribute="width" secondItem="HGm-Aw-pMw" secondAttribute="height" multiplier="1:1" id="VeF-zZ-jpe"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoI-7w-anx">
+                    <rect key="frame" x="0.0" y="84" width="100" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjC-ha-b8N">
+                    <rect key="frame" x="0.0" y="99.5" width="100" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FoI-7w-anx" secondAttribute="trailing" id="9Ji-Pj-eK2"/>
+                <constraint firstItem="HGm-Aw-pMw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="AZZ-C1-EuG"/>
+                <constraint firstItem="HGm-Aw-pMw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CWa-n2-Qk3"/>
+                <constraint firstItem="YjC-ha-b8N" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kcu-yl-e5I"/>
+                <constraint firstAttribute="trailing" secondItem="YjC-ha-b8N" secondAttribute="trailing" id="jUb-Ze-vPO"/>
+                <constraint firstItem="FoI-7w-anx" firstAttribute="top" secondItem="HGm-Aw-pMw" secondAttribute="bottom" constant="4" id="lVu-qD-HCd"/>
+                <constraint firstItem="FoI-7w-anx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mo1-Xb-DXf"/>
+                <constraint firstItem="YjC-ha-b8N" firstAttribute="top" secondItem="FoI-7w-anx" secondAttribute="bottom" constant="1" id="oLv-51-vpm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="faceImageView" destination="HGm-Aw-pMw" id="es3-Mi-N9s"/>
+                <outlet property="faceImageViewWidthConstraint" destination="BHV-tX-xce" id="SBu-Sc-gFu"/>
+                <outlet property="nameLabel" destination="FoI-7w-anx" id="CV3-5p-rM0"/>
+                <outlet property="profileLabel" destination="YjC-ha-b8N" id="pWW-zA-nef"/>
+            </connections>
+        </view>
+    </objects>
+</document>
