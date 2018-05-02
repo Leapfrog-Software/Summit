@@ -89,6 +89,8 @@
 		BBD1ADED2094DB8F00487EF0 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADEC2094DB8F00487EF0 /* UIImage+Crop.swift */; };
 		BBD1ADEF2094DBA500487EF0 /* UIView+Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADEE2094DBA500487EF0 /* UIView+Rect.swift */; };
 		BBD1ADF12094DBB800487EF0 /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADF02094DBB800487EF0 /* CALayer+Border.swift */; };
+		BBD72233209A2F420066B152 /* AttendMemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD72232209A2F420066B152 /* AttendMemberListViewController.swift */; };
+		BBD72235209A33210066B152 /* AttendMemberListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD72234209A33210066B152 /* AttendMemberListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +178,8 @@
 		BBD1ADEC2094DB8F00487EF0 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
 		BBD1ADEE2094DBA500487EF0 /* UIView+Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rect.swift"; sourceTree = "<group>"; };
 		BBD1ADF02094DBB800487EF0 /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
+		BBD72232209A2F420066B152 /* AttendMemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendMemberListViewController.swift; sourceTree = "<group>"; };
+		BBD72234209A33210066B152 /* AttendMemberListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendMemberListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +292,7 @@
 				BB62ADB22099A49F00B37397 /* AttendTableUserView.swift */,
 				BB62ADB42099A4AB00B37397 /* AttendTableUserView.xib */,
 				BB62ADB62099B57100B37397 /* Chat */,
+				BBD72231209A2F2B0066B152 /* MemberList */,
 			);
 			path = Attend;
 			sourceTree = "<group>";
@@ -511,6 +516,15 @@
 			path = ImageUploader;
 			sourceTree = "<group>";
 		};
+		BBD72231209A2F2B0066B152 /* MemberList */ = {
+			isa = PBXGroup;
+			children = (
+				BBD72232209A2F420066B152 /* AttendMemberListViewController.swift */,
+				BBD72234209A33210066B152 /* AttendMemberListTableViewCell.swift */,
+			);
+			path = MemberList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -603,6 +617,7 @@
 				BB4AE6BE2097034C00AF5C67 /* MessageDetailLeftTableViewCell.swift in Sources */,
 				BB1AD4B3209882040067DD60 /* AttendPrepareViewController.swift in Sources */,
 				BB4AE6B9209702E500AF5C67 /* MessageDetailViewController.swift in Sources */,
+				BBD72235209A33210066B152 /* AttendMemberListTableViewCell.swift in Sources */,
 				BB4AE6AD2096FB0D00AF5C67 /* CardIndexView.swift in Sources */,
 				BBD1ADED2094DB8F00487EF0 /* UIImage+Crop.swift in Sources */,
 				BBD1ADE12094DAFB00487EF0 /* ImageUploader.swift in Sources */,
@@ -652,6 +667,7 @@
 				BBD1ADEB2094DB8000487EF0 /* UIColor+Original.swift in Sources */,
 				BB62ADA220994AF300B37397 /* PlaceholderTextField.swift in Sources */,
 				BB4AE69C2096F4FD00AF5C67 /* ScheduleDetailViewController.swift in Sources */,
+				BBD72233209A2F420066B152 /* AttendMemberListViewController.swift in Sources */,
 				BB62ADA92099667F00B37397 /* AttendViewController.swift in Sources */,
 				BBD1ADDE2094DAC800487EF0 /* AttendRequester.swift in Sources */,
 				BB4AE6BC2097032300AF5C67 /* KeyboardRespondableViewController.swift in Sources */,

@@ -23,6 +23,12 @@ class AttendChatViewController: KeyboardRespondableViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var inputViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var memberImageView1: UIImageView!
+    @IBOutlet private weak var memberImageView2: UIImageView!
+    @IBOutlet private weak var memberImageView3: UIImageView!
+    @IBOutlet private weak var memberImageView4: UIImageView!
+    @IBOutlet private weak var memberImageView5: UIImageView!
+    @IBOutlet private weak var memberCountLabel: UILabel!
     
     weak var delegate: AttendChatDelegate?
     
@@ -30,33 +36,33 @@ class AttendChatViewController: KeyboardRespondableViewController {
     private var chatList = [ChatData]()
     private var tmpChatIds = [String]()
     private var touchOffset: CGPoint?
+    private var userIds = [String]()
     
     private var dummyLeftCell: AttendChatLeftTableViewCell?
     private var dummyRightCell: AttendChatRightTableViewCell?
     
-    func set(tableId: String, chatList: [ChatData]) {
+    func set(tableId: String, chatList: [ChatData], userIds: [String]) {
 
         if self.tableId == tableId && chatList.count == self.chatList.count - self.tmpChatIds.count {
             return
         }
         
         if self.tableId == tableId {
-            self.resetChatList(tableId: tableId, chatList: chatList)
+            self.resetChatList(tableId: tableId, chatList: chatList, userIds: userIds)
         } else {
             UIView.animate(withDuration: 0.2, animations: {
                 self.tableView.alpha = 0
             }, completion: { [weak self] _ in
-                self?.resetChatList(tableId: tableId, chatList: chatList)
+                self?.resetChatList(tableId: tableId, chatList: chatList, userIds: userIds)
                 UIView.animate(withDuration: 0.2, animations: {
                     self?.tableView.alpha = 1
                 })
             })
         }
-        
-        // TODO ユーザ一覧への遷移、名刺を渡す機能
     }
     
-    private func resetChatList(tableId: String, chatList: [ChatData]) {
+    private func resetChatList(tableId: String, chatList: [ChatData], userIds: [String]) {
+        
         self.tmpChatIds.removeAll()
         self.chatList = chatList
         self.tableView.reloadData()
@@ -64,6 +70,20 @@ class AttendChatViewController: KeyboardRespondableViewController {
             self.scrollToBottom(animated: (self.tableId == tableId))
         }
         self.tableId = tableId
+        
+        for i in 0..<5 {
+            let imageView = [self.memberImageView1, self.memberImageView2, self.memberImageView3, self.memberImageView4, self.memberImageView5][i]!
+            if userIds.count > i {
+                imageView.isHidden = false
+                imageView.image = nil
+                ImageStorage.shared.fetch(url: Constants.UserImageDirectory + userIds[i], imageView: imageView)
+            } else {
+                imageView.isHidden = true
+            }
+        }
+        self.memberCountLabel.text = "\(userIds.count)"
+        
+        self.userIds = userIds
     }
     
     override func viewDidLoad() {
@@ -175,6 +195,13 @@ class AttendChatViewController: KeyboardRespondableViewController {
     
     @IBAction func didExitMessage(_ sender: Any) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func onTapMembers(_ sender: Any) {
+        
+        let memberList = self.viewController(storyboard: "Attend", identifier: "AttendMemberListViewController") as! AttendMemberListViewController
+        memberList.set(userIds: self.userIds)
+        self.parent?.stack(viewController: memberList, animationType: .horizontal)
     }
     
     @IBAction func onTapSend(_ sender: Any) {

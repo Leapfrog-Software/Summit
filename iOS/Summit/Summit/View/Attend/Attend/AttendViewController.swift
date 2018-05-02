@@ -86,6 +86,12 @@ class AttendViewController: UIViewController {
             if i == tableCount - 1 {
                 self.scrollView.contentSize = CGSize(width: CGFloat(cellNum) * tableSize.width,
                                                      height: CGFloat(y + 1) * tableSize.height)
+                
+                let offsetX = (Int(self.currentTableId) ?? 0) % cellNum
+                let offsetY = (Int(self.currentTableId) ?? 0) / cellNum
+
+                self.scrollView.contentOffset = CGPoint(x: CGFloat(offsetX) * tableSize.width,
+                                                        y: CGFloat(offsetY) * tableSize.height)
             }
         }
     }
@@ -113,10 +119,13 @@ class AttendViewController: UIViewController {
                     let tableView = ((self.scrollView.subviews.compactMap { $0 as? AttendTableView }).filter { $0.tag == tableId }).first else {
                     return
                 }
-                tableView.set(userIds: attendData.userIds)
+                let userIds = attendData.userIds.filter { $0 != SaveData.shared.userId }
+                tableView.set(userIds: userIds)
             }
             let chatList = self.attendRequester.chatList.filter { $0.tableId == self.currentTableId }
-            self.chatViewController.set(tableId: self.currentTableId, chatList: chatList)
+            let userIds = self.attendRequester.attendList.filter { $0.tableId == self.currentTableId }.first?.userIds ?? []
+            let filteredUserIds = userIds.filter { $0 != SaveData.shared.userId }
+            self.chatViewController.set(tableId: self.currentTableId, chatList: chatList, userIds: filteredUserIds)
         })
     }
     
@@ -129,6 +138,9 @@ extension AttendViewController: AttendViewDelegate {
     
     func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         
+        if !(self.childViewControllers.compactMap { $0 as? AttendMemberListViewController }).isEmpty {
+            return nil
+        }
         if self.closeButton.absoluteFrame().contains(point) {
             return nil
         }
@@ -159,6 +171,8 @@ extension AttendViewController: UIScrollViewDelegate {
         self.currentTableId = "\(tableIndex)"
         
         let chatList = self.attendRequester.chatList.filter { $0.tableId == self.currentTableId }
-        self.chatViewController.set(tableId: self.currentTableId, chatList: chatList)
+        let userIds = self.attendRequester.attendList.filter { $0.tableId == self.currentTableId }.first?.userIds ?? []
+        let filteredUserIds = userIds.filter { $0 != SaveData.shared.userId }
+        self.chatViewController.set(tableId: self.currentTableId, chatList: chatList, userIds: filteredUserIds)
     }
 }
