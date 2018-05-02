@@ -79,9 +79,15 @@ class Attend {
 				}
 				// 削除
 				foreach ($attendList as &$attend) {
-					$newUsers = array_diff($attend->userIds, Array($userId));
-					$attend->userIds = array_values($newUsers);
+					$newUserIds = Array();
+					foreach ($attend->userIds as $uId) {
+						if (strcmp($userId, $uId) != 0) {
+							$newUserIds[] = $uId;
+						}
+					}
+					$attend->userIds = $newUserIds;
 				}
+
 				// 追加
 				$isFind = false;
 				foreach ($attendList as &$attend) {
@@ -90,20 +96,27 @@ class Attend {
 						$isFind = true;
 					}
 				}
+
 				if (!$isFind) {
 					$newAttendData = new AttendData();
 					$newAttendData->tableId = $tableId;
-					$newAttendData->userIds[] = $userId;
+					$newAttendData->userIds = Array($userId);
 					$attendList[] = $newAttendData;
 				}
+
 				// 保存
-				$str = "";
-				foreach($attendList as $attend) {
-					$str .= $attend->toFileString();
-				}
-				file_put_contents($fileName, $str);
+				Attend::saveAttendList($fileName, $attendList);
 			}
 		}
+	}
+
+	static function saveAttendList($fileName, $attendList) {
+
+		$str = "";
+		foreach($attendList as $attend) {
+			$str .= $attend->toFileString();
+		}
+		file_put_contents($fileName, $str);
 	}
 
 	static function readChat($scheduleId) {
@@ -118,7 +131,6 @@ class Attend {
 				for ($i = 0; $i < count($lines); $i++) {
 					$chatData = ChatData::initFromFileString($lines[$i]);
 					if (!is_null($chatData)) {
-						DebugSave("append");
 						$chatList[] = $chatData;
 					}
 				}

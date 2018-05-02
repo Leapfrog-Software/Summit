@@ -1,6 +1,7 @@
 <?php
 
 class MessageData {
+	public $messageId;
 	public $senderId;
 	public $receiverId;
 	public $datetime;
@@ -9,19 +10,21 @@ class MessageData {
 	static function initFromFileString($line) {
 
 		$datas = explode(",", $line);
-		if (count($datas) == 4) {
+		if (count($datas) == 5) {
 			$messageData = new MessageData();
-			$messageData->senderId = $datas[0];
-			$messageData->receiverId = $datas[1];
-			$messageData->datetime = $datas[2];
-			$messageData->message = $datas[3];
+			$messageData->messageId = $datas[0];
+			$messageData->senderId = $datas[1];
+			$messageData->receiverId = $datas[2];
+			$messageData->datetime = $datas[3];
+			$messageData->message = $datas[4];
 			return $messageData;
 		}
 		return null;
 	}
 
 	function toFileString() {
-		return $this->senderId . ","
+		return $this->messageId . ","
+					. $this->senderId . ","
 					. $this->receiverId . ","
 					. $this->datetime . ","
 					. $this->message . "\n";
