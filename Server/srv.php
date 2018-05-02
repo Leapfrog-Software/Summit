@@ -26,6 +26,7 @@ if (strcmp($command, "getSchedule") == 0) {
 } else if (strcmp($command, "postChat") == 0) {
 	postChat();
 } else {
+	getSchedule();
   echo("unknown");
 }
 
@@ -79,6 +80,7 @@ function getMessage() {
 	$messages = Message::readMessage($userId);
 	foreach ($messages as $message) {
 		$data[] = Array(
+				"messageId" => $message->messageId,
 				"senderId" => $message->senderId,
 				"receiverId" => $message->receiverId,
 				"message" => $message->message,
@@ -94,6 +96,7 @@ function postMessage() {
 	date_default_timezone_set('Asia/Tokyo');
 
 	$messageData = new MessageData();
+	$messageData->messageId = $_POST["messageId"];
 	$messageData->senderId = $_POST["senderId"];
 	$messageData->receiverId = $_POST["receiverId"];
 	$messageData->datetime = date('YmdHis');
