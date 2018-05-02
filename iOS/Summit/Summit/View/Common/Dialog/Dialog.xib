@@ -70,7 +70,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ZHs-H5-Ct5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0ik-4M-cFJ"/>
                 <constraint firstAttribute="trailing" secondItem="ZHs-H5-Ct5" secondAttribute="trailing" id="4cB-RQ-v6P"/>
@@ -89,6 +89,6 @@
         </view>
     </objects>
     <resources>
-        <image name="dialog_success" width="16" height="16"/>
+        <image name="dialog_success" width="80" height="80"/>
     </resources>
 </document>

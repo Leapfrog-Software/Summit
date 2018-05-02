@@ -54,9 +54,14 @@ class ScheduleDetailViewController: UIViewController {
     
     @IBAction func onTapReserve(_ sender: Any) {
         
+        Loading.start()
+        
         if var myUserData = UserRequester.shared.myUserData() {
             myUserData.reserves.append(self.scheduleData.id)
             AccountRequester.updateUser(userData: myUserData, completion: { result in
+                
+                Loading.stop()
+                
                 if result {
                     Dialog.show(style: .success, title: "確認", message: "予約が完了しました", actions: [DialogAction(title: "OK", action: nil)])
                 } else {

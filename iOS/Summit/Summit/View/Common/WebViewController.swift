@@ -71,8 +71,7 @@ class WebViewController: UIViewController {
         
         self.webTitleLabel.text = self.webPageType.toTitleText()
   
-        // TODO
-//        Loading.start()
+        Loading.start()
     }
     
     
@@ -84,12 +83,10 @@ class WebViewController: UIViewController {
 extension WebViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        // TODO
-//        Loading.stop()
+        Loading.stop()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        // TODO
-//        Loading.stop()
+        Loading.stop()
     }
 }
