@@ -26,7 +26,6 @@ if (strcmp($command, "getSchedule") == 0) {
 } else if (strcmp($command, "postChat") == 0) {
 	postChat();
 } else {
-	getSchedule();
   echo("unknown");
 }
 
@@ -40,7 +39,11 @@ function getSchedule() {
 			"title" => $schedule->title,
 			"sponsor" => $schedule->sponsor,
 			"datetime" => $schedule->datetime,
-			"type" => $schedule->type
+			"type" => $schedule->type,
+			"timeLength" => $schedule->timeLength,
+			"provider" => $schedule->provider,
+			"description" => $schedule->description,
+			"filter" => $schedule->filter
 		);
 	}
 	echo(json_encode(Array("result" => "0",
@@ -65,7 +68,8 @@ function getUser() {
 			"company" => $user->company,
 			"position" => $user->position,
 			"reserves" => $user->reserves,
-			"cards" => $user->cards
+			"cards" => $user->cards,
+			"message" => $user->message
 		);
 	}
 	echo(json_encode(Array("result" => "0",
