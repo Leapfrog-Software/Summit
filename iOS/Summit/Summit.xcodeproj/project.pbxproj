@@ -41,10 +41,12 @@
 		BB62ADA92099667F00B37397 /* AttendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADA82099667F00B37397 /* AttendViewController.swift */; };
 		BB62ADAB20996A9F00B37397 /* AttendTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADAA20996A9F00B37397 /* AttendTableView.swift */; };
 		BB62ADAD20996AA800B37397 /* AttendTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADAC20996AA800B37397 /* AttendTableView.xib */; };
-		BB62ADAF20996AB500B37397 /* AttendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADAE20996AB500B37397 /* AttendChatViewController.swift */; };
 		BB62ADB120999D0100B37397 /* AttendHitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADB020999D0100B37397 /* AttendHitView.swift */; };
 		BB62ADB32099A49F00B37397 /* AttendTableUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADB22099A49F00B37397 /* AttendTableUserView.swift */; };
 		BB62ADB52099A4AB00B37397 /* AttendTableUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADB42099A4AB00B37397 /* AttendTableUserView.xib */; };
+		BB62ADB82099B58800B37397 /* AttendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADB72099B58800B37397 /* AttendChatViewController.swift */; };
+		BB62ADBA2099B5A100B37397 /* AttendChatLeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADB92099B5A100B37397 /* AttendChatLeftTableViewCell.swift */; };
+		BB62ADBC2099B5AD00B37397 /* AttendChatRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADBB2099B5AD00B37397 /* AttendChatRightTableViewCell.swift */; };
 		BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E6193209887DE00185944 /* AttendMatchViewController.swift */; };
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
@@ -118,10 +120,12 @@
 		BB62ADA82099667F00B37397 /* AttendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendViewController.swift; sourceTree = "<group>"; };
 		BB62ADAA20996A9F00B37397 /* AttendTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendTableView.swift; sourceTree = "<group>"; };
 		BB62ADAC20996AA800B37397 /* AttendTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendTableView.xib; sourceTree = "<group>"; };
-		BB62ADAE20996AB500B37397 /* AttendChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendChatViewController.swift; sourceTree = "<group>"; };
 		BB62ADB020999D0100B37397 /* AttendHitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendHitView.swift; sourceTree = "<group>"; };
 		BB62ADB22099A49F00B37397 /* AttendTableUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendTableUserView.swift; sourceTree = "<group>"; };
 		BB62ADB42099A4AB00B37397 /* AttendTableUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendTableUserView.xib; sourceTree = "<group>"; };
+		BB62ADB72099B58800B37397 /* AttendChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendChatViewController.swift; sourceTree = "<group>"; };
+		BB62ADB92099B5A100B37397 /* AttendChatLeftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendChatLeftTableViewCell.swift; sourceTree = "<group>"; };
+		BB62ADBB2099B5AD00B37397 /* AttendChatRightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendChatRightTableViewCell.swift; sourceTree = "<group>"; };
 		BB8E6193209887DE00185944 /* AttendMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendMatchViewController.swift; sourceTree = "<group>"; };
 		BB9E99F02094A95F007D5E01 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E99F32094A95F007D5E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -269,9 +273,19 @@
 				BB62ADAC20996AA800B37397 /* AttendTableView.xib */,
 				BB62ADB22099A49F00B37397 /* AttendTableUserView.swift */,
 				BB62ADB42099A4AB00B37397 /* AttendTableUserView.xib */,
-				BB62ADAE20996AB500B37397 /* AttendChatViewController.swift */,
+				BB62ADB62099B57100B37397 /* Chat */,
 			);
 			path = Attend;
+			sourceTree = "<group>";
+		};
+		BB62ADB62099B57100B37397 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				BB62ADB72099B58800B37397 /* AttendChatViewController.swift */,
+				BB62ADB92099B5A100B37397 /* AttendChatLeftTableViewCell.swift */,
+				BB62ADBB2099B5AD00B37397 /* AttendChatRightTableViewCell.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		BB8E6192209887C600185944 /* Match */ = {
@@ -565,8 +579,10 @@
 				BB1AD49C209847B60067DD60 /* SettingProfileViewController.swift in Sources */,
 				BB00EEFD20980EA0005263D9 /* CardDetailEventTableViewCell.swift in Sources */,
 				BB4AE6A22096FA8100AF5C67 /* CalendarMonthCollectionViewCell.swift in Sources */,
+				BB62ADBC2099B5AD00B37397 /* AttendChatRightTableViewCell.swift in Sources */,
 				BBD1ADE72094DB5A00487EF0 /* Date+Util.swift in Sources */,
 				BBD1ADD12094DA2500487EF0 /* ApiManager.swift in Sources */,
+				BB62ADBA2099B5A100B37397 /* AttendChatLeftTableViewCell.swift in Sources */,
 				BB00EEFB20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift in Sources */,
 				BBD1ADDA2094DAA100487EF0 /* MessageRequester.swift in Sources */,
 				BB4AE6B42097002B00AF5C67 /* CardDetailViewController.swift in Sources */,
@@ -581,7 +597,6 @@
 				BBD1ADCD2094D9B100487EF0 /* SaveData.swift in Sources */,
 				BB00EEF920980E80005263D9 /* CardDetailUserInfoTableViewCell.swift in Sources */,
 				BBD1ADE32094DB0400487EF0 /* UserImageUploader.swift in Sources */,
-				BB62ADAF20996AB500B37397 /* AttendChatViewController.swift in Sources */,
 				BBD1ADE52094DB2200487EF0 /* UIViewController+Scene.swift in Sources */,
 				BBD1ADAF2094D89B00487EF0 /* MessageViewController.swift in Sources */,
 				BBD1ADB22094D8AD00487EF0 /* SettingViewController.swift in Sources */,
@@ -592,6 +607,7 @@
 				BB1AD4A320985BE60067DD60 /* SettingProfileMessageViewController.swift in Sources */,
 				BB4AE6B62097024700AF5C67 /* MessageTableViewCell.swift in Sources */,
 				BB1AD4A1209853460067DD60 /* PickerTableViewCell.swift in Sources */,
+				BB62ADB82099B58800B37397 /* AttendChatViewController.swift in Sources */,
 				BBD1ADC82094D97400487EF0 /* HttpManager.swift in Sources */,
 				BBD1ADF12094DBB800487EF0 /* CALayer+Border.swift in Sources */,
 				BBD1ADEB2094DB8000487EF0 /* UIColor+Original.swift in Sources */,

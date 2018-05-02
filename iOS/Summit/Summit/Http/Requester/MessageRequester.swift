@@ -10,6 +10,7 @@ import Foundation
 
 struct MessageData {
     
+    let messageId: String
     let senderId: String
     let receiverId: String
     let message: String
@@ -17,6 +18,7 @@ struct MessageData {
     
     init?(data: Dictionary<String, Any>) {
         
+        self.messageId = data["messageId"] as? String ?? ""
         self.senderId = data["senderId"] as? String ?? ""
         self.receiverId = data["receiverId"] as? String ?? ""
         self.message = data["message"] as? String ?? ""
@@ -28,7 +30,8 @@ struct MessageData {
         self.datetime = datetime
     }
     
-    init(senderId: String, message: String, datetime: Date) {
+    init(messageId: String, senderId: String, message: String, datetime: Date) {
+        self.messageId = messageId
         self.senderId = senderId
         self.receiverId = ""
         self.message = message
@@ -77,10 +80,11 @@ class MessageRequester {
         return messages
     }
     
-    class func post(targetId: String, message: String, completion: @escaping ((Bool) -> ())) {
+    class func post(messageId: String, targetId: String, message: String, completion: @escaping ((Bool) -> ())) {
         
         let params = [
             "command": "postMessage",
+            "messageId": messageId,
             "senderId": SaveData.shared.userId,
             "receiverId": targetId,
             "message": message

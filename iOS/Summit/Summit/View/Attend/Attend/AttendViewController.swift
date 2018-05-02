@@ -88,6 +88,7 @@ class AttendViewController: UIViewController {
                                                y: UIScreen.main.bounds.size.height - AttendChatViewController.Const.chatBottomLimit,
                                                width: self.view.frame.size.width,
                                                height: self.view.frame.size.height - AttendChatViewController.Const.chatTopLimit)
+        chatViewController.delegate = self
         self.chatViewController = chatViewController
     }
     
@@ -105,7 +106,7 @@ class AttendViewController: UIViewController {
                 tableView.set(userIds: attendData.userIds)
             }
             let chatList = self.attendRequester.chatList.filter { $0.tableId == self.currentTableId }
-            self.chatViewController.set(chatList: chatList)
+            self.chatViewController.set(tableId: self.currentTableId, chatList: chatList)
         })
     }
     
@@ -119,11 +120,21 @@ extension AttendViewController: AttendViewDelegate {
     func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         
         if self.closeButton.absoluteFrame().contains(point) {
-            return self.closeButton
+            return nil
         }
         if point.y > self.chatViewController.view.frame.origin.y {
-            return self.chatViewController.view
+            return nil
         }
         return self.scrollView
+    }
+}
+
+extension AttendViewController: AttendChatDelegate {
+    
+    func didTapSend(chatId: String, chat: String) {
+        
+        self.attendRequester.postChat(chatId: chatId, tableId: self.currentTableId, chat: chat, completion: { result in
+            
+        })
     }
 }

@@ -9,6 +9,8 @@
 import UIKit
 
 class AttendTableView: UIView {
+    
+    @IBOutlet private weak var memberCountLabel: UILabel!
 
     func set(userIds: [String]) {
         
@@ -21,6 +23,8 @@ class AttendTableView: UIView {
                 userView.isHidden = true
             }            
         }
+        
+        self.memberCountLabel.text = "\(userIds.count)"
     }
     
     override func didMoveToSuperview() {

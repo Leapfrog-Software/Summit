@@ -18,7 +18,7 @@ class MessageDetailViewController: KeyboardRespondableViewController {
     private var messages = [MessageData]()
     private var dummyLeftCell: MessageDetailLeftTableViewCell?
     private var dummyRightCell: MessageDetailRightTableViewCell?
-    private var temporaryMessageDatas = [MessageData]()
+    private var tmpMessageIds = [String]()
     
     func set(userData: UserData) {
         self.userData = userData
@@ -29,6 +29,10 @@ class MessageDetailViewController: KeyboardRespondableViewController {
         
         self.dummyLeftCell = self.tableView.dequeueReusableCell(withIdentifier: "MessageDetailLeftTableViewCell") as? MessageDetailLeftTableViewCell
         self.dummyRightCell = self.tableView.dequeueReusableCell(withIdentifier: "MessageDetailRightTableViewCell") as? MessageDetailRightTableViewCell
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         self.refresh()
     }
@@ -42,6 +46,36 @@ class MessageDetailViewController: KeyboardRespondableViewController {
             return msg1.datetime < msg2.datetime
         })
         self.tableView.reloadData()
+        self.scrollToBottom()
+    }
+    
+    private func isVisibleBottom() -> Bool {
+
+        var lastMessageId = ""
+        if self.messages.count >= 2 {
+            lastMessageId = self.messages[self.messages.count - 2].messageId
+        }
+        for i in 0..<self.tableView.visibleCells.count {
+            let cell = self.tableView.visibleCells[i]
+            if let leftCell = cell as? MessageDetailLeftTableViewCell {
+                if lastMessageId == leftCell.getMessageId() {
+                    return true
+                }
+            } else if let rightCell = cell as? MessageDetailRightTableViewCell {
+                if lastMessageId == rightCell.getMessageId() {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    private func scrollToBottom() {
+    
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let offset = CGPoint(x: 0, y: self.tableView.contentSize.height - self.tableView.frame.size.height)
+            self.tableView.setContentOffset(offset, animated: true)
+        }
     }
     
     @IBAction func didExitTextField(_ sender: Any) {
@@ -50,17 +84,17 @@ class MessageDetailViewController: KeyboardRespondableViewController {
     
     @IBAction func onTapSend(_ sender: Any) {
         
-        self.view.endEditing(true)
-        
         guard let message = self.textField.text, message.count > 0 else {
             return
         }
         
-        MessageRequester.post(targetId: self.userData.userId, message: message, completion: { [weak self] result in
+        let messageId = DateFormatter(dateFormat: "yyyyMMddHHmmssSSS").string(from: Date())
+        
+        MessageRequester.post(messageId: messageId, targetId: self.userData.userId, message: message, completion: { [weak self] result in
             if result {
                 MessageRequester.shared.fetch(completion: { [weak self] result in
                     if result {
-                        self?.temporaryMessageDatas.removeAll()
+                        self?.tmpMessageIds.removeAll()
                         self?.refresh()
                     } else {
                         // TODO
@@ -71,13 +105,15 @@ class MessageDetailViewController: KeyboardRespondableViewController {
             }
         })
         self.textField.text = ""
-
-        let temporaryMessageData = MessageData(senderId: SaveData.shared.userId, message: message, datetime: Date())
-        self.temporaryMessageDatas.append(temporaryMessageData)
-        let height = self.dummyRightCell?.height(data: temporaryMessageData) ?? 0
-        let offset = self.tableView.contentSize.height - self.tableView.frame.size.height + height
-        self.tableView.setContentOffset(CGPoint(x: 0, y: offset), animated: false)
+        
+        let temporaryMessageData = MessageData(messageId: messageId, senderId: SaveData.shared.userId, message: message, datetime: Date())
+        self.messages.append(temporaryMessageData)
+        self.tmpMessageIds.append(messageId)
         self.tableView.reloadData()
+        
+        if self.isVisibleBottom() {
+            self.scrollToBottom()
+        }
     }
     
     @IBAction func onTapBack(_ sender: Any) {
@@ -89,21 +125,24 @@ class MessageDetailViewController: KeyboardRespondableViewController {
         UIView.animate(withDuration: with.duration, delay: 0, options: with.curve, animations: { [weak self] in
             self?.view.layoutIfNeeded()
         })
+        if self.isVisibleBottom() {
+            self.scrollToBottom()
+        }
     }
 }
 
 extension MessageDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messages.count + self.temporaryMessageDatas.count
+        return self.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let message = (self.messages + self.temporaryMessageDatas)[indexPath.row]
+        let message = self.messages[indexPath.row]
         if message.senderId == SaveData.shared.userId {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MessageDetailRightTableViewCell", for: indexPath) as! MessageDetailRightTableViewCell
-            let isTemporary = indexPath.row > self.messages.count
+            let isTemporary = self.tmpMessageIds.contains(message.messageId)
             cell.configure(data: message, isTemporary: isTemporary)
             return cell
         } else {
@@ -115,7 +154,7 @@ extension MessageDetailViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let messageData = (self.messages + self.temporaryMessageDatas)[indexPath.row]
+        let messageData = self.messages[indexPath.row]
         if messageData.senderId == SaveData.shared.userId {
             return self.dummyRightCell?.height(data: messageData) ?? 0
         } else {

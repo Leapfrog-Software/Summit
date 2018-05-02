@@ -1,17 +1,15 @@
 //
-//  MessageDetailLeftTableViewCell.swift
+//  AttendChatLeftTableViewCell.swift
 //  Summit
 //
-//  Created by Leapfrog-Software on 2018/04/30.
+//  Created by Leapfrog-Software on 2018/05/02.
 //  Copyright © 2018年 Leapfrog-Inc. All rights reserved.
 //
 
 import UIKit
 
-import UIKit
+class AttendChatLeftTableViewCell: UITableViewCell {
 
-class MessageDetailLeftTableViewCell: UITableViewCell {
-    
     struct Const {
         static let bottomMargin = CGFloat(26)
     }
@@ -21,7 +19,7 @@ class MessageDetailLeftTableViewCell: UITableViewCell {
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     
-    private var messageId = ""
+    private var chatId = ""
     private var didTap: (() -> ())?
     
     override func prepareForReuse() {
@@ -32,10 +30,10 @@ class MessageDetailLeftTableViewCell: UITableViewCell {
         ImageStorage.shared.cancelRequest(imageView: self.faceImageView)
     }
     
-    func configure(data: MessageData, didTap: (() -> ())? = nil) {
+    func configure(data: ChatData, didTap: (() -> ())? = nil) {
         
         ImageStorage.shared.fetch(url: Constants.UserImageDirectory + data.senderId, imageView: self.faceImageView)
-        self.messageLabel.text = data.message
+        self.messageLabel.text = data.chat
         
         let today = Date()
         if data.datetime.isSameDay(with: today) {
@@ -46,15 +44,15 @@ class MessageDetailLeftTableViewCell: UITableViewCell {
             self.dateLabel.text = DateFormatter(dateFormat: "yyyy年M月d日 HH:mm").string(from: data.datetime)
         }
         
-        self.messageId = data.messageId
+        self.chatId = data.id
         self.didTap = didTap
     }
     
-    func getMessageId() -> String {
-        return self.messageId
+    func getChatId() -> String {
+        return self.chatId
     }
     
-    func height(data: MessageData) -> CGFloat {
+    func height(data: ChatData) -> CGFloat {
         
         self.configure(data: data)
         
@@ -68,4 +66,3 @@ class MessageDetailLeftTableViewCell: UITableViewCell {
         self.didTap?()
     }
 }
-

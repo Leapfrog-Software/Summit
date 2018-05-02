@@ -59,6 +59,9 @@
                 <constraint firstItem="e5J-Wj-o99" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="g8X-Fd-0QC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="memberCountLabel" destination="loy-St-qqh" id="PHA-1l-olS"/>
+            </connections>
         </view>
     </objects>
 </document>

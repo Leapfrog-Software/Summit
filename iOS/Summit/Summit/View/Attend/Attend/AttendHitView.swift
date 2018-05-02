@@ -17,6 +17,9 @@ class AttendHitView: UIView {
     var delegate: AttendViewDelegate?
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        return delegate?.hitTest(point, with: event)
+        if let view = delegate?.hitTest(point, with: event) {
+            return view
+        }
+        return super.hitTest(point, with: event)
     }
 }

@@ -19,10 +19,7 @@ class MessageDetailRightTableViewCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var coverView: UIView!
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-    }
+    private var messageId = ""
     
     func configure(data: MessageData, isTemporary: Bool) {
         
@@ -38,6 +35,12 @@ class MessageDetailRightTableViewCell: UITableViewCell {
         }
         
         self.coverView.isHidden = !isTemporary
+        
+        self.messageId = data.messageId
+    }
+    
+    func getMessageId() -> String {
+        return self.messageId
     }
     
     func height(data: MessageData) -> CGFloat {

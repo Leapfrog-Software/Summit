@@ -28,7 +28,7 @@ struct ChatData {
     let id: String
     let senderId: String
     let tableId: String
-    let datetime: String
+    let datetime: Date
     let chat: String
     
     init?(data: Dictionary<String, Any>) {
@@ -39,8 +39,22 @@ struct ChatData {
         self.id = id
         self.senderId = data["senderId"] as? String ?? ""
         self.tableId = data["tableId"] as? String ?? ""
-        self.datetime = data["datetime"] as? String ?? ""
+        
+        guard let datetimeStr = data["datetime"] as? String,
+            let datetime = DateFormatter(dateFormat: "yyyyMMddHHmmss").date(from: datetimeStr) else {
+                return nil
+        }
+        self.datetime = datetime
+        
         self.chat = data["chat"] as? String ?? ""
+    }
+    
+    init(id: String, senderId: String, tableId: String, datetime: Date, chat: String) {
+        self.id = id
+        self.senderId = senderId
+        self.tableId = tableId
+        self.datetime = datetime
+        self.chat = chat
     }
 }
 
