@@ -149,7 +149,7 @@ struct UserData {
         self.position = data["position"] as? String ?? ""
         self.reserves = data["reserves"] as? Array<String> ?? []
         self.cards = data["cards"] as? Array<String> ?? []
-        self.message = "釣りと将棋が好き！釣りと将棋が好き！釣りと将棋が好き！釣りと将棋が好き！釣りと将棋が好き！"  // TODO
+        self.message = data["message"] as? String ?? ""
     }
 }
 

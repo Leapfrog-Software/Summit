@@ -56,11 +56,11 @@ struct ScheduleData {
         }
         self.date = date
         
-        self.timeLength = TimeInterval(30 * 60)     // TODO
+        self.timeLength = Double(data["timeLength"] as? String ?? "") ?? 0
         
-        self.provider = "Summit運営"      // TODO
-        self.description = "詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細"     // TODO
-        self.filter = "25歳以下の起業家"           // TODO
+        self.provider = data["provider"] as? String ?? ""
+        self.description = data["description"] as? String ?? ""
+        self.filter = data["filter"] as? String ?? ""
     }
 }
 
