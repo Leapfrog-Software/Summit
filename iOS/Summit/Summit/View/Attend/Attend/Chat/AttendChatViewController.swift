@@ -39,15 +39,28 @@ class AttendChatViewController: KeyboardRespondableViewController {
         if self.tableId == tableId && chatList.count == self.chatList.count - self.tmpChatIds.count {
             return
         }
-        self.tmpChatIds.removeAll()
         
+        if self.tableId == tableId {
+            self.resetChatList(tableId: tableId, chatList: chatList)
+        } else {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tableView.alpha = 0
+            }, completion: { [weak self] _ in
+                self?.resetChatList(tableId: tableId, chatList: chatList)
+                UIView.animate(withDuration: 0.2, animations: {
+                    self?.tableView.alpha = 1
+                })
+            })
+        }
+    }
+    
+    private func resetChatList(tableId: String, chatList: [ChatData]) {
+        self.tmpChatIds.removeAll()
         self.chatList = chatList
         self.tableView.reloadData()
-        
-        if self.tableId != tableId || self.isVisibleBottom() {
-            self.scrollToBottom()
+        if self.tableId != tableId || self.isVisibleBottom() == true {
+            self.scrollToBottom(animated: (self.tableId == tableId))
         }
-        
         self.tableId = tableId
     }
     
@@ -124,7 +137,7 @@ class AttendChatViewController: KeyboardRespondableViewController {
             self.view.layoutIfNeeded()
         })
         
-        self.scrollToBottom()
+        self.scrollToBottom(animated: true)
     }
     
     private func isVisibleBottom() -> Bool {
@@ -148,11 +161,13 @@ class AttendChatViewController: KeyboardRespondableViewController {
         return false
     }
     
-    private func scrollToBottom() {
+    private func scrollToBottom(animated: Bool) {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            let offset = CGPoint(x: 0, y: self.tableView.contentSize.height - self.tableView.frame.size.height)
-            self.tableView.setContentOffset(offset, animated: true)
+            if self.tableView.contentSize.height > self.tableView.frame.size.height {
+                let offset = CGPoint(x: 0, y: self.tableView.contentSize.height - self.tableView.frame.size.height)
+                self.tableView.setContentOffset(offset, animated: animated)
+            }
         }
     }
     
@@ -173,7 +188,7 @@ class AttendChatViewController: KeyboardRespondableViewController {
         self.tmpChatIds.append(chatId)
         self.tableView.reloadData()
         
-        self.scrollToBottom()
+        self.scrollToBottom(animated: true)
         
         self.delegate?.didTapSend(chatId: chatId, chat: chat)
         self.textField.text = ""

@@ -48,16 +48,26 @@ class AttendViewController: UIViewController {
         })
     }
     
+    private func getTableCount() -> Int {
+
+        if self.members.count % 2 == 0 {
+            return self.members.count / 2
+        } else if self.members.count >= 3 {
+            return self.members.count / 2 + 1
+        }
+        return 1
+    }
+    
+    private func getCellNumber() -> Int {
+
+        let tableCount = self.getTableCount()
+        return Int(sqrt(Double(tableCount))) + 1
+    }
+    
     private func initTables() {
 
-        var tableCount = 1
-        if self.members.count % 2 == 0 {
-            tableCount = self.members.count / 2
-        } else if self.members.count >= 3 {
-            tableCount = self.members.count / 2 + 1
-        }
-        
-        let cellNum = Int(sqrt(Double(tableCount))) + 1
+        let cellNum = self.getCellNumber()
+        let tableCount = self.getTableCount()
         let tableSize = CGSize(width: UIScreen.main.bounds.size.width - 2 * self.scrollViewLeadingConstraint.constant,
                                height: UIScreen.main.bounds.size.width - 2 * self.scrollViewLeadingConstraint.constant)
         
@@ -136,5 +146,19 @@ extension AttendViewController: AttendChatDelegate {
         self.attendRequester.postChat(chatId: chatId, tableId: self.currentTableId, chat: chat, completion: { result in
             
         })
+    }
+}
+
+extension AttendViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let x = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        let y = Int(scrollView.contentOffset.y / scrollView.frame.height)
+        let cellNum = self.getCellNumber()
+        let tableIndex = y * cellNum + x
+        self.currentTableId = "\(tableIndex)"
+        
+        let chatList = self.attendRequester.chatList.filter { $0.tableId == self.currentTableId }
+        self.chatViewController.set(tableId: self.currentTableId, chatList: chatList)
     }
 }
