@@ -120,10 +120,10 @@ extension AttendMatchViewController: UITextViewDelegate {
     
     private func setSendButtonEnabled(_ enabled: Bool) {
         if enabled {
-            self.sendButton.backgroundColor = UIColor.matchMessageSendButtonActive
+            self.sendButton.backgroundColor = UIColor.activeButton
             self.sendButton.isEnabled = true
         } else {
-            self.sendButton.backgroundColor = UIColor.matchMessageSendButtonInactive
+            self.sendButton.backgroundColor = UIColor.inActiveButton
             self.sendButton.isEnabled = false
         }
     }

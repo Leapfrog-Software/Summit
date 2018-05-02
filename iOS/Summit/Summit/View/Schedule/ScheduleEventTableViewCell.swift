@@ -15,6 +15,7 @@ class ScheduleEventTableViewCell: UITableViewCell {
     @IBOutlet private weak var providerLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var reservedLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +33,8 @@ class ScheduleEventTableViewCell: UITableViewCell {
         self.descriptionLabel.text = scheduleData.description
         self.timeLabel.text = DateFormatter(dateFormat: "HH:mm").string(from: scheduleData.date)
         
-        // TODO 予約済み表示
+        if let myUserData = UserRequester.shared.myUserData() {
+            self.reservedLabel.isHidden = !myUserData.reserves.contains(scheduleData.id)
+        }
     }
 }

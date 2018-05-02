@@ -17,6 +17,7 @@ class ScheduleDetailViewController: UIViewController {
     @IBOutlet private weak var providerLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var filterLabel: UILabel!
+    @IBOutlet private weak var reserveButton: UIButton!
 
     private var scheduleData: ScheduleData!
     private var members = [UserData]()
@@ -29,8 +30,6 @@ class ScheduleDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.initContents()
-        
-        // TODO 予約済みの場合はボタンを非活性
     }
     
     private func initContents() {
@@ -52,14 +51,30 @@ class ScheduleDetailViewController: UIViewController {
         
         self.descriptionLabel.set(text: self.scheduleData.description, lineHeight: 18)
         self.filterLabel.text = self.scheduleData.filter
+        
+        if let myUserData = UserRequester.shared.myUserData() {
+            if myUserData.reserves.contains(self.scheduleData.id) {
+                self.reserveButton.backgroundColor = UIColor.inActiveButton
+                self.reserveButton.isEnabled = false
+                self.reserveButton.setTitle("予約済みです", for: .normal)
+            } else if self.scheduleData.date.addingTimeInterval(-60 * 60).timeIntervalSinceNow < 0 {
+                self.reserveButton.backgroundColor = UIColor.inActiveButton
+                self.reserveButton.isEnabled = false
+                self.reserveButton.setTitle("予約可能日時を過ぎています", for: .normal)
+            } else {
+                self.reserveButton.backgroundColor = UIColor.activeButton
+                self.reserveButton.isEnabled = true
+            }
+        }
     }
     
     @IBAction func onTapReserve(_ sender: Any) {
         
-        Loading.start()
-        
         if var myUserData = UserRequester.shared.myUserData() {
             myUserData.reserves.append(self.scheduleData.id)
+            
+            Loading.start()
+            
             AccountRequester.updateUser(userData: myUserData, completion: { result in
                 
                 Loading.stop()

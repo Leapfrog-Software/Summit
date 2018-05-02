@@ -66,11 +66,11 @@ extension UIColor {
         return UIColor(red: 230 / 255, green: 73 / 255, blue: 66 / 255, alpha: 1)
     }
     
-    class var matchMessageSendButtonActive: UIColor {
+    class var activeButton: UIColor {
         return UIColor(red: 36 / 255, green: 87 / 255, blue: 245 / 255, alpha: 1)
     }
     
-    class var matchMessageSendButtonInactive: UIColor {
-        return UIColor(red: 200 / 255, green: 171 / 255, blue: 171 / 255, alpha: 1)
+    class var inActiveButton: UIColor {
+        return UIColor(red: 200 / 255, green: 200 / 255, blue: 200 / 255, alpha: 1)
     }
 }
