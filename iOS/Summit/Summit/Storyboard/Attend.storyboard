@@ -41,16 +41,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oo2-au-hhk">
-                                        <rect key="frame" x="87" y="374" width="200" height="32"/>
+                                        <rect key="frame" x="81" y="374" width="212" height="32"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始まであと" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uk-Vh-qKW">
-                                                <rect key="frame" x="0.0" y="15" width="84" height="14"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始まであと　　" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uk-Vh-qKW">
+                                                <rect key="frame" x="0.0" y="15" width="112" height="14"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
                                                 <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dz-Nf-TGZ">
-                                                <rect key="frame" x="100" y="0.0" width="100" height="32"/>
+                                                <rect key="frame" x="112" y="0.0" width="100" height="32"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="32"/>
                                                 <color key="textColor" red="0.11764705882352941" green="0.28235294117647058" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                             <constraint firstAttribute="trailing" secondItem="3Dz-Nf-TGZ" secondAttribute="trailing" id="USU-Kt-j6m"/>
                                             <constraint firstItem="0uk-Vh-qKW" firstAttribute="centerY" secondItem="Oo2-au-hhk" secondAttribute="centerY" constant="6" id="XIc-UH-tYA"/>
                                             <constraint firstItem="3Dz-Nf-TGZ" firstAttribute="top" secondItem="Oo2-au-hhk" secondAttribute="top" id="ZYC-ke-KC8"/>
-                                            <constraint firstItem="3Dz-Nf-TGZ" firstAttribute="leading" secondItem="0uk-Vh-qKW" secondAttribute="trailing" constant="16" id="iMU-Fw-bGT"/>
+                                            <constraint firstItem="3Dz-Nf-TGZ" firstAttribute="leading" secondItem="0uk-Vh-qKW" secondAttribute="trailing" id="iMU-Fw-bGT"/>
                                             <constraint firstItem="0uk-Vh-qKW" firstAttribute="leading" secondItem="Oo2-au-hhk" secondAttribute="leading" id="mg8-mR-T3e"/>
                                         </constraints>
                                     </view>
@@ -260,6 +260,7 @@
                         <outlet property="nameLabel" destination="Yj4-T6-ifb" id="ges-ga-JXH"/>
                         <outlet property="providerLabel" destination="u6d-Tt-hYV" id="VBF-D1-sTz"/>
                         <outlet property="remainTimeLabel" destination="3Dz-Nf-TGZ" id="80n-7p-tAJ"/>
+                        <outlet property="remainTimeTitleLabel" destination="0uk-Vh-qKW" id="YsB-08-sTe"/>
                         <outlet property="scheduleImageView" destination="Tff-Wh-tVI" id="O68-zj-OZB"/>
                     </connections>
                 </viewController>
@@ -280,10 +281,102 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-cJ-8Ye">
-                                <rect key="frame" x="16" y="163" width="343" height="340"/>
+                                <rect key="frame" x="16" y="161" width="343" height="344"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交流会の開始" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3c-OT-fSF">
+                                        <rect key="frame" x="16" y="16" width="311" height="14"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                                        <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MfJ-7G-QCM">
+                                        <rect key="frame" x="144" y="62" width="56" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="FOf-s0-xVH"/>
+                                            <constraint firstAttribute="width" constant="56" id="lO3-Bc-2Oc"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="28"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山田太郎さんとマッチしました！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yC-tZ-3JR">
+                                        <rect key="frame" x="16" y="130" width="311" height="18"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FkC-fY-pIo">
+                                        <rect key="frame" x="16" y="172" width="311" height="96"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xlE-4Z-3SB" customClass="PlaceholderTextView" customModule="Summit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="96"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="まずは挨拶のメッセージを送りましょう"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xlE-4Z-3SB" secondAttribute="trailing" id="B82-D9-6vZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="xlE-4Z-3SB" secondAttribute="bottom" id="MUw-DP-6Pn"/>
+                                            <constraint firstItem="xlE-4Z-3SB" firstAttribute="top" secondItem="FkC-fY-pIo" secondAttribute="top" id="T6R-By-Y9m"/>
+                                            <constraint firstItem="xlE-4Z-3SB" firstAttribute="leading" secondItem="FkC-fY-pIo" secondAttribute="leading" id="lgh-Kh-QSZ"/>
+                                            <constraint firstAttribute="height" constant="96" id="xEh-3x-7Ja"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                <color key="value" red="0.47843137254901957" green="0.54509803921568623" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMN-eB-Nsk">
+                                        <rect key="frame" x="32" y="284" width="279" height="44"/>
+                                        <color key="backgroundColor" red="0.14117647058823529" green="0.3411764705882353" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="c9y-pY-7uh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                                        <state key="normal" title="メッセージを送信">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onTapSend:" destination="1Ak-uF-Hqi" eventType="touchUpInside" id="Qml-zo-6bp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="340" id="uvH-0p-6Gl"/>
+                                    <constraint firstItem="MfJ-7G-QCM" firstAttribute="centerX" secondItem="2mM-cJ-8Ye" secondAttribute="centerX" id="6qN-Mr-sAf"/>
+                                    <constraint firstAttribute="trailing" secondItem="FkC-fY-pIo" secondAttribute="trailing" constant="16" id="8lO-DG-fNv"/>
+                                    <constraint firstItem="JMN-eB-Nsk" firstAttribute="top" secondItem="FkC-fY-pIo" secondAttribute="bottom" constant="16" id="Css-Li-0KH"/>
+                                    <constraint firstAttribute="trailing" secondItem="JMN-eB-Nsk" secondAttribute="trailing" constant="32" id="HhO-5K-EmU"/>
+                                    <constraint firstItem="MfJ-7G-QCM" firstAttribute="top" secondItem="X3c-OT-fSF" secondAttribute="bottom" constant="32" id="Nux-jK-YfE"/>
+                                    <constraint firstItem="8yC-tZ-3JR" firstAttribute="leading" secondItem="2mM-cJ-8Ye" secondAttribute="leading" constant="16" id="O2V-ah-BW0"/>
+                                    <constraint firstAttribute="trailing" secondItem="X3c-OT-fSF" secondAttribute="trailing" constant="16" id="RKL-PT-vrC"/>
+                                    <constraint firstItem="FkC-fY-pIo" firstAttribute="top" secondItem="8yC-tZ-3JR" secondAttribute="bottom" constant="24" id="XaB-9h-ivs"/>
+                                    <constraint firstItem="X3c-OT-fSF" firstAttribute="leading" secondItem="2mM-cJ-8Ye" secondAttribute="leading" constant="16" id="h4X-PB-GZA"/>
+                                    <constraint firstAttribute="bottom" secondItem="JMN-eB-Nsk" secondAttribute="bottom" constant="16" id="mPI-zp-JCy"/>
+                                    <constraint firstItem="JMN-eB-Nsk" firstAttribute="leading" secondItem="2mM-cJ-8Ye" secondAttribute="leading" constant="32" id="ppO-Sn-vbK"/>
+                                    <constraint firstItem="FkC-fY-pIo" firstAttribute="leading" secondItem="2mM-cJ-8Ye" secondAttribute="leading" constant="16" id="sQm-Wy-oDX"/>
+                                    <constraint firstItem="X3c-OT-fSF" firstAttribute="top" secondItem="2mM-cJ-8Ye" secondAttribute="top" constant="16" id="waM-pK-ynQ"/>
+                                    <constraint firstItem="8yC-tZ-3JR" firstAttribute="top" secondItem="MfJ-7G-QCM" secondAttribute="bottom" constant="12" id="xrt-cb-uYL"/>
+                                    <constraint firstAttribute="trailing" secondItem="8yC-tZ-3JR" secondAttribute="trailing" constant="16" id="z2G-vs-jSi"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -304,10 +397,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SvZ-th-ZCc"/>
                     </view>
+                    <connections>
+                        <outlet property="chatTextView" destination="xlE-4Z-3SB" id="MWv-Em-f3u"/>
+                        <outlet property="containerView" destination="2mM-cJ-8Ye" id="ndz-ne-nIV"/>
+                        <outlet property="faceImageView" destination="MfJ-7G-QCM" id="2yD-wa-mpW"/>
+                        <outlet property="matchNameLabel" destination="8yC-tZ-3JR" id="JLa-GQ-Gdq"/>
+                        <outlet property="titleLabel" destination="X3c-OT-fSF" id="VN0-Dx-1Qp"/>
+                        <outlet property="verticalCenterConstraint" destination="Bvl-Bz-nCy" id="M0x-1b-4l2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vc5-Rn-dSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="114"/>
+            <point key="canvasLocation" x="781.60000000000002" y="113.79310344827587"/>
         </scene>
         <!--Attend View Controller-->
         <scene sceneID="0jX-gB-tEe">

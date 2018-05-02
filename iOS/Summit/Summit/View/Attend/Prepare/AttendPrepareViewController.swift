@@ -12,6 +12,7 @@ class AttendPrepareViewController: UIViewController {
     
     @IBOutlet private weak var scheduleImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var remainTimeTitleLabel: UILabel!
     @IBOutlet private weak var remainTimeLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var providerLabel: UILabel!
@@ -43,20 +44,90 @@ class AttendPrepareViewController: UIViewController {
             self.timerProc()
         })
         
-        if !SaveData.shared.sentFirstMessageScheduleIds.contains(self.scheduleData.id) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                let match = self.viewController(storyboard: "Attend", identifier: "AttendMatchViewController") as! AttendMatchViewController
-                self.stack(viewController: match, animationType: .none)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            if !SaveData.shared.sentFirstMessageScheduleIds.contains(self.scheduleData.id) {
+                self.stackMatch()
+            } else if self.scheduleData.date <= Date() {
+                self.stackAttend()
             }
         }
+    }
+    
+    private func stackMatch() {
+        
+        var targetIndex = -1
+        var tableIndex = -1
+        
+        guard let index = self.members.index(where: { $0.userId == SaveData.shared.userId }) else {
+            return
+        }
+        if index % 2 == 1 {
+            targetIndex = index - 1
+            tableIndex = Int((index - 1) / 2)
+        } else {
+            if index + 1 >= self.members.count {
+                if self.members.count >= 2 {
+                    targetIndex = index - 1
+                    tableIndex = Int((index - 1) / 2)
+                } else {
+                    return
+                }
+            } else {
+                targetIndex = index + 1
+                tableIndex = Int(index / 2)
+            }
+        }
+        let matchUserData = self.members[targetIndex]
+        
+        let tableId = String(format: "%d", tableIndex)
+        
+        let match = self.viewController(storyboard: "Attend", identifier: "AttendMatchViewController") as! AttendMatchViewController
+        match.set(scheduleData: self.scheduleData, userData: matchUserData, tableId: tableId, completion: { [weak self] in
+            if let scheduleDate = self?.scheduleData.date, scheduleDate >= Date() {
+                self?.stackAttend()
+            }
+        })
+        self.stack(viewController: match, animationType: .none)
+    }
+    
+    private func stackAttend() {
+        
+        let blackView = UIView()
+        blackView.backgroundColor = .black
+        blackView.alpha = 0
+        self.view.addSubview(blackView)
+        blackView.translatesAutoresizingMaskIntoConstraints = false
+        blackView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        blackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        blackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        blackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            blackView.alpha = 1.0
+        }, completion: { [weak self] _ in
+            let attend = self?.viewController(storyboard: "Attend", identifier: "AttendViewController") as! AttendViewController
+            self?.stack(viewController: attend, animationType: .none)
+            self?.view.bringSubview(toFront: blackView)
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                blackView.alpha = 0
+            }, completion: { _ in
+                blackView.removeFromSuperview()
+            })
+        })
     }
     
     private func timerProc() {
         
         let remainTime = self.scheduleData.date.timeIntervalSinceNow
-        let remainMinutes = Int(remainTime / 60)
-        let remainSeconds = Int(remainTime) % 60
-        self.remainTimeLabel.text = "\(remainMinutes):\(remainSeconds)"
+        if remainTime > 0 {
+            let remainMinutes = String(format: "%02d", Int(remainTime / 60))
+            let remainSeconds = String(format: "%02d", Int(remainTime) % 60)
+            self.remainTimeLabel.text = remainMinutes + ":" + remainSeconds
+        } else {
+            self.remainTimeTitleLabel.text = ""
+            self.remainTimeLabel.text = "開催中"
+        }
     }
     
     @IBAction func onTapClose(_ sender: Any) {

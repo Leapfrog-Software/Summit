@@ -37,6 +37,8 @@
 		BB4AE6BC2097032300AF5C67 /* KeyboardRespondableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE6BB2097032300AF5C67 /* KeyboardRespondableViewController.swift */; };
 		BB4AE6BE2097034C00AF5C67 /* MessageDetailLeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE6BD2097034B00AF5C67 /* MessageDetailLeftTableViewCell.swift */; };
 		BB4AE6C02097035800AF5C67 /* MessageDetailRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AE6BF2097035800AF5C67 /* MessageDetailRightTableViewCell.swift */; };
+		BB62ADA220994AF300B37397 /* PlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADA120994AF300B37397 /* PlaceholderTextField.swift */; };
+		BB62ADA420994B0300B37397 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADA320994B0300B37397 /* PlaceholderTextView.swift */; };
 		BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E6193209887DE00185944 /* AttendMatchViewController.swift */; };
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
@@ -106,6 +108,8 @@
 		BB4AE6BB2097032300AF5C67 /* KeyboardRespondableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRespondableViewController.swift; sourceTree = "<group>"; };
 		BB4AE6BD2097034B00AF5C67 /* MessageDetailLeftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailLeftTableViewCell.swift; sourceTree = "<group>"; };
 		BB4AE6BF2097035800AF5C67 /* MessageDetailRightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailRightTableViewCell.swift; sourceTree = "<group>"; };
+		BB62ADA120994AF300B37397 /* PlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextField.swift; sourceTree = "<group>"; };
+		BB62ADA320994B0300B37397 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		BB8E6193209887DE00185944 /* AttendMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendMatchViewController.swift; sourceTree = "<group>"; };
 		BB9E99F02094A95F007D5E01 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E99F32094A95F007D5E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -230,8 +234,18 @@
 				BB4AE6BB2097032300AF5C67 /* KeyboardRespondableViewController.swift */,
 				BB1AD49D209853250067DD60 /* Picker */,
 				BB1AD4A820986BBC0067DD60 /* WebViewController.swift */,
+				BB62ADA020994AD600B37397 /* Placeholder */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BB62ADA020994AD600B37397 /* Placeholder */ = {
+			isa = PBXGroup;
+			children = (
+				BB62ADA120994AF300B37397 /* PlaceholderTextField.swift */,
+				BB62ADA320994B0300B37397 /* PlaceholderTextView.swift */,
+			);
+			path = Placeholder;
 			sourceTree = "<group>";
 		};
 		BB8E6192209887C600185944 /* Match */ = {
@@ -504,6 +518,7 @@
 				BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */,
 				BBD1ADA32094C77600487EF0 /* SplashViewController.swift in Sources */,
 				BBD1ADA62094C8CA00487EF0 /* TabbarViewController.swift in Sources */,
+				BB62ADA420994B0300B37397 /* PlaceholderTextView.swift in Sources */,
 				BBD1ADD62094DA6400487EF0 /* ScheduleRequester.swift in Sources */,
 				BBD1ADAC2094D88B00487EF0 /* CardViewController.swift in Sources */,
 				BB4AE6BE2097034C00AF5C67 /* MessageDetailLeftTableViewCell.swift in Sources */,
@@ -549,6 +564,7 @@
 				BB1AD4B020987D4A0067DD60 /* AttendViewController.swift in Sources */,
 				BBD1ADF12094DBB800487EF0 /* CALayer+Border.swift in Sources */,
 				BBD1ADEB2094DB8000487EF0 /* UIColor+Original.swift in Sources */,
+				BB62ADA220994AF300B37397 /* PlaceholderTextField.swift in Sources */,
 				BB4AE69C2096F4FD00AF5C67 /* ScheduleDetailViewController.swift in Sources */,
 				BBD1ADDE2094DAC800487EF0 /* AttendRequester.swift in Sources */,
 				BB4AE6BC2097032300AF5C67 /* KeyboardRespondableViewController.swift in Sources */,

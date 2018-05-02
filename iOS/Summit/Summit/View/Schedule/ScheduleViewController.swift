@@ -115,7 +115,7 @@ extension ScheduleViewController {
         }
         let today = Date()
         let reservedSchedules = myUserData.reserves.compactMap { ScheduleRequester.shared.query(id: $0) }
-        let futureSchedules = reservedSchedules.filter { $0.date > today }
+        let futureSchedules = reservedSchedules.filter { $0.date + $0.timeLength > today }
         let sortedSchedules = futureSchedules.sorted { $0.date < $1.date }
         return sortedSchedules.first
     }
@@ -138,7 +138,10 @@ extension ScheduleViewController {
             }
             
             let timeInterval = nextSchedule.date.timeIntervalSince(today)
-            if timeInterval < 60 * 60 {
+            if timeInterval <= 0 && timeInterval >= -nextSchedule.timeLength {
+                self.nextPlanScheduleLabel.text = "開催中"
+                self.nextPlanArrowImageView.isHidden = true
+            } else if timeInterval < 60 * 60 {
                 let remainMinute = Int(timeInterval / 60) + 1
                 self.nextPlanScheduleLabel.text = "\(remainMinute)分後に開始"
                 self.nextPlanArrowImageView.isHidden = false

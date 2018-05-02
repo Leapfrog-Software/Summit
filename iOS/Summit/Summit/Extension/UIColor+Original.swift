@@ -53,4 +53,8 @@ extension UIColor {
     class var settingNoName: UIColor {
         return UIColor(red: 171 / 255, green: 171 / 255, blue: 171 / 255, alpha: 1.0)
     }
+    
+    class var placeholder: UIColor {
+        return UIColor(red: 146 / 255, green: 146 / 255, blue: 146 / 255, alpha: 1)
+    }
 }
