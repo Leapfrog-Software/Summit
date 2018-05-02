@@ -38,8 +38,7 @@ class SettingProfileTextViewController: UIViewController {
             self.pop(animationType: .horizontal)
         } else {
             if text.count > 12 {
-                // TODO
-                
+                Dialog.show(style: .error, title: "入力エラー", message: "12文字以内で入力してください", actions: [DialogAction(title: "OK", action: nil)])
             } else {
                 self.completion(text)
                 self.pop(animationType: .horizontal)

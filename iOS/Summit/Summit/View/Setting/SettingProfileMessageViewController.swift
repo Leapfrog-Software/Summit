@@ -34,8 +34,7 @@ class SettingProfileMessageViewController: UIViewController {
             self.pop(animationType: .horizontal)
         } else {
             if message.count > 128 {
-                // TODO
-                
+                Dialog.show(style: .error, title: "入力エラー", message: "128文字以内で入力してください", actions: [DialogAction(title: "OK", action: nil)])
             } else {
                 self.completion(message)
                 self.pop(animationType: .horizontal)

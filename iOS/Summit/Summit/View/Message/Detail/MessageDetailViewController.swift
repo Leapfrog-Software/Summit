@@ -97,11 +97,11 @@ class MessageDetailViewController: KeyboardRespondableViewController {
                         self?.tmpMessageIds.removeAll()
                         self?.refresh()
                     } else {
-                        // TODO
+                        Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
                     }
                 })
             } else {
-                // TODO
+                Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
             }
         })
         self.textField.text = ""

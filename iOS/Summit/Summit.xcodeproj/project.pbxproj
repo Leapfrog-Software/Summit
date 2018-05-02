@@ -47,6 +47,10 @@
 		BB62ADB82099B58800B37397 /* AttendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADB72099B58800B37397 /* AttendChatViewController.swift */; };
 		BB62ADBA2099B5A100B37397 /* AttendChatLeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADB92099B5A100B37397 /* AttendChatLeftTableViewCell.swift */; };
 		BB62ADBC2099B5AD00B37397 /* AttendChatRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADBB2099B5AD00B37397 /* AttendChatRightTableViewCell.swift */; };
+		BB62ADBF2099E46500B37397 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADBE2099E46500B37397 /* Dialog.swift */; };
+		BB62ADC12099E46E00B37397 /* Dialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADC02099E46E00B37397 /* Dialog.xib */; };
+		BB62ADC32099E47900B37397 /* DialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADC22099E47900B37397 /* DialogButton.swift */; };
+		BB62ADC52099E48000B37397 /* DialogButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADC42099E48000B37397 /* DialogButton.xib */; };
 		BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E6193209887DE00185944 /* AttendMatchViewController.swift */; };
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
@@ -126,6 +130,10 @@
 		BB62ADB72099B58800B37397 /* AttendChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendChatViewController.swift; sourceTree = "<group>"; };
 		BB62ADB92099B5A100B37397 /* AttendChatLeftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendChatLeftTableViewCell.swift; sourceTree = "<group>"; };
 		BB62ADBB2099B5AD00B37397 /* AttendChatRightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendChatRightTableViewCell.swift; sourceTree = "<group>"; };
+		BB62ADBE2099E46500B37397 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		BB62ADC02099E46E00B37397 /* Dialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Dialog.xib; sourceTree = "<group>"; };
+		BB62ADC22099E47900B37397 /* DialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogButton.swift; sourceTree = "<group>"; };
+		BB62ADC42099E48000B37397 /* DialogButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogButton.xib; sourceTree = "<group>"; };
 		BB8E6193209887DE00185944 /* AttendMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendMatchViewController.swift; sourceTree = "<group>"; };
 		BB9E99F02094A95F007D5E01 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E99F32094A95F007D5E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +255,7 @@
 		BB4AE6BA2097031100AF5C67 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BB62ADBD2099E45700B37397 /* Dialog */,
 				BB4AE6BB2097032300AF5C67 /* KeyboardRespondableViewController.swift */,
 				BB1AD49D209853250067DD60 /* Picker */,
 				BB1AD4A820986BBC0067DD60 /* WebViewController.swift */,
@@ -286,6 +295,17 @@
 				BB62ADBB2099B5AD00B37397 /* AttendChatRightTableViewCell.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		BB62ADBD2099E45700B37397 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				BB62ADBE2099E46500B37397 /* Dialog.swift */,
+				BB62ADC02099E46E00B37397 /* Dialog.xib */,
+				BB62ADC22099E47900B37397 /* DialogButton.swift */,
+				BB62ADC42099E48000B37397 /* DialogButton.xib */,
+			);
+			path = Dialog;
 			sourceTree = "<group>";
 		};
 		BB8E6192209887C600185944 /* Match */ = {
@@ -542,7 +562,9 @@
 				BBD1ADB62094D8EA00487EF0 /* Main.storyboard in Resources */,
 				BBD1ADBB2094D90200487EF0 /* Card.storyboard in Resources */,
 				BBD1ADC52094D92C00487EF0 /* Common.storyboard in Resources */,
+				BB62ADC52099E48000B37397 /* DialogButton.xib in Resources */,
 				BBD1ADC12094D91C00487EF0 /* Setting.storyboard in Resources */,
+				BB62ADC12099E46E00B37397 /* Dialog.xib in Resources */,
 				BB9E99FE2094A961007D5E01 /* LaunchScreen.storyboard in Resources */,
 				BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */,
 				BBD1ADBD2094D90900487EF0 /* Message.storyboard in Resources */,
@@ -593,6 +615,8 @@
 				BBD1ADDC2094DAB600487EF0 /* AccountRequester.swift in Sources */,
 				BB4AE6A62096FAA500AF5C67 /* CardKanaTableViewCell.swift in Sources */,
 				BB4AE6A82096FAB300AF5C67 /* CardUserTableViewCell.swift in Sources */,
+				BB62ADBF2099E46500B37397 /* Dialog.swift in Sources */,
+				BB62ADC32099E47900B37397 /* DialogButton.swift in Sources */,
 				BBD1ADCF2094D9CD00487EF0 /* ImageStorage.swift in Sources */,
 				BBD1ADCD2094D9B100487EF0 /* SaveData.swift in Sources */,
 				BB00EEF920980E80005263D9 /* CardDetailUserInfoTableViewCell.swift in Sources */,

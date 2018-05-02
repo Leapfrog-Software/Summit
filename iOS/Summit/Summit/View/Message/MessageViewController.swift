@@ -62,6 +62,7 @@ class MessageViewController: UIViewController {
         let today = Date()
         sortedUserList.forEach { userData in
             var dateString = ""
+            var exist = false
             if let dateTime = latestMessageDatetime(messages: MessageRequester.shared.query(userId: userData.userId)) {
                 if dateTime.isSameDay(with: today) {
                     dateString = DateFormatter(dateFormat: "HH:mm").string(from: dateTime)
@@ -70,9 +71,11 @@ class MessageViewController: UIViewController {
                 } else {
                     dateString = DateFormatter(dateFormat: "yyyy年M月d日\nHH:mm").string(from: dateTime)
                 }
+                if dateTime.timeIntervalSinceNow > -60 * 60 * 24 {
+                    exist = true
+                }
             }
-            // TODO
-            self.cellDatas.append(CellData(userData: userData, exist: true, dateString: dateString))
+            self.cellDatas.append(CellData(userData: userData, exist: exist, dateString: dateString))
         }
         
         self.tableView.reloadData()

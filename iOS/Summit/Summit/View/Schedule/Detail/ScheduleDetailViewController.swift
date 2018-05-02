@@ -57,7 +57,11 @@ class ScheduleDetailViewController: UIViewController {
         if var myUserData = UserRequester.shared.myUserData() {
             myUserData.reserves.append(self.scheduleData.id)
             AccountRequester.updateUser(userData: myUserData, completion: { result in
-                // TODO
+                if result {
+                    Dialog.show(style: .success, title: "確認", message: "予約が完了しました", actions: [DialogAction(title: "OK", action: nil)])
+                } else {
+                    Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
+                }
             })
         }
     }

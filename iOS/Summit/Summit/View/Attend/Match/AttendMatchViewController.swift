@@ -16,6 +16,7 @@ class AttendMatchViewController: KeyboardRespondableViewController {
     @IBOutlet private weak var faceImageView: UIImageView!
     @IBOutlet private weak var matchNameLabel: UILabel!
     @IBOutlet private weak var chatTextView: UITextView!
+    @IBOutlet private weak var sendButton: UIButton!
     
     private var scheduleData: ScheduleData!
     private var matchUserData: UserData!
@@ -35,6 +36,8 @@ class AttendMatchViewController: KeyboardRespondableViewController {
         self.titleLabel.text = self.scheduleData.title + "の開始"
         ImageStorage.shared.fetch(url: Constants.UserImageDirectory + self.matchUserData.userId, imageView: self.faceImageView)
         self.matchNameLabel.text = self.matchUserData.nameLast + self.matchUserData.nameFirst + "さんとマッチしました！"
+        
+        self.setSendButtonEnabled(false)
         
         self.verticalCenterConstraint.constant = UIScreen.main.bounds.size.height
     }
@@ -83,7 +86,6 @@ class AttendMatchViewController: KeyboardRespondableViewController {
         
         let chat = self.chatTextView.text ?? ""
         if chat.count == 0 {
-            // TODO
             return
         }
         
@@ -100,8 +102,29 @@ class AttendMatchViewController: KeyboardRespondableViewController {
                 self.completion()
                 self.close()
             } else {
-                // TODO
+                Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
             }
         })
+    }
+}
+
+extension AttendMatchViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.count >= 0 {
+            self.setSendButtonEnabled(true)
+        } else {
+            self.setSendButtonEnabled(false)
+        }
+    }
+    
+    private func setSendButtonEnabled(_ enabled: Bool) {
+        if enabled {
+            self.sendButton.backgroundColor = UIColor.matchMessageSendButtonActive
+            self.sendButton.isEnabled = true
+        } else {
+            self.sendButton.backgroundColor = UIColor.matchMessageSendButtonInactive
+            self.sendButton.isEnabled = false
+        }
     }
 }

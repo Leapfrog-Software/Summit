@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DialogButton" customModule="Summit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wO7-00-nhf">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.28627450980000002" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="bDx-oD-wPX"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-3c-Cro">
+                    <rect key="frame" x="16" y="8" width="268" height="34"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GaY-3c-Cro" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="8XI-LI-bXh"/>
+                <constraint firstItem="wO7-00-nhf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="An5-tD-Dvp"/>
+                <constraint firstAttribute="trailing" secondItem="GaY-3c-Cro" secondAttribute="trailing" constant="16" id="E7g-x5-dME"/>
+                <constraint firstAttribute="trailing" secondItem="wO7-00-nhf" secondAttribute="trailing" id="KXr-RB-sGo"/>
+                <constraint firstItem="GaY-3c-Cro" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="M5G-hg-rsQ"/>
+                <constraint firstItem="wO7-00-nhf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yd4-DM-Nq0"/>
+                <constraint firstAttribute="bottom" secondItem="GaY-3c-Cro" secondAttribute="bottom" constant="8" id="l0X-xf-5va"/>
+                <constraint firstAttribute="bottom" secondItem="wO7-00-nhf" secondAttribute="bottom" id="yuY-Li-wuH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="wO7-00-nhf" id="I5R-7V-4Hh"/>
+                <outlet property="titleLabel" destination="GaY-3c-Cro" id="kCj-AK-ODW"/>
+            </connections>
+        </view>
+    </objects>
+</document>

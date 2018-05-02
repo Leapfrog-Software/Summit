@@ -80,7 +80,7 @@ class SplashViewController: UIViewController {
     }
     
     private func showError() {
-        //TODO
+        Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
     }
     
     private func stackTabbar() {

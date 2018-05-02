@@ -318,6 +318,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="まずは挨拶のメッセージを送りましょう"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ak-uF-Hqi" id="tmU-mv-UnL"/>
+                                                </connections>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
@@ -402,6 +405,7 @@
                         <outlet property="containerView" destination="2mM-cJ-8Ye" id="ndz-ne-nIV"/>
                         <outlet property="faceImageView" destination="MfJ-7G-QCM" id="2yD-wa-mpW"/>
                         <outlet property="matchNameLabel" destination="8yC-tZ-3JR" id="JLa-GQ-Gdq"/>
+                        <outlet property="sendButton" destination="JMN-eB-Nsk" id="H49-h3-FqR"/>
                         <outlet property="titleLabel" destination="X3c-OT-fSF" id="VN0-Dx-1Qp"/>
                         <outlet property="verticalCenterConstraint" destination="Bvl-Bz-nCy" id="M0x-1b-4l2"/>
                     </connections>

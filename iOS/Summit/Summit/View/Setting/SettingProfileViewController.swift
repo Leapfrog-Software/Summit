@@ -164,7 +164,7 @@ class SettingProfileViewController: UIViewController {
                 if result {
                     self.updateUserIfNeeded()
                 } else {
-                    // TODO
+                    Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
                 }
             })
         } else {
@@ -225,7 +225,7 @@ class SettingProfileViewController: UIViewController {
                         self.pop(animationType: .horizontal)
                     })
                 } else {
-                    // TODO
+                    Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
                 }
             })
         } else {
