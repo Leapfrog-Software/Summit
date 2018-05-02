@@ -31,5 +31,7 @@ class ScheduleEventTableViewCell: UITableViewCell {
         self.providerLabel.text = scheduleData.provider
         self.descriptionLabel.text = scheduleData.description
         self.timeLabel.text = DateFormatter(dateFormat: "HH:mm").string(from: scheduleData.date)
+        
+        // TODO 予約済み表示
     }
 }

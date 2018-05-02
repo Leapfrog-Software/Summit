@@ -9,20 +9,53 @@
 import UIKit
 
 class CardDetailViewController: UIViewController {
+
+    enum CellType {
+        case userInfo
+        case title
+        case schedule
+        case noData
+    }
+    
+    struct CellData {
+        let cellType: CellType
+        let title: String?
+        let scheduleCount: Int?
+        let scheduleData: ScheduleData?
+    }
     
     @IBOutlet private weak var tableView: UITableView!
 
     private var userData: UserData!
-    private var futureSchedules = [ScheduleData]()
-    private var pastSchedules = [ScheduleData]()
+    private var cellDatas = [CellData]()
     
     func set(userData: UserData) {
         self.userData = userData
         
         let today = Date()
         let reservedSchedules = userData.reserves.compactMap { ScheduleRequester.shared.query(id: $0) }
-        self.futureSchedules = reservedSchedules.filter { $0.date >= today }
-        self.pastSchedules = reservedSchedules.filter { $0.date < today }
+        
+        self.cellDatas.append(CellData(cellType: .userInfo, title: nil, scheduleCount: nil, scheduleData: nil))
+        
+        let futureSchedules = reservedSchedules.filter { $0.date >= today }
+        self.cellDatas.append(CellData(cellType: .title, title: "参加予定のイベント", scheduleCount: futureSchedules.count, scheduleData: nil))
+        if futureSchedules.isEmpty {
+            self.cellDatas.append(CellData(cellType: .noData, title: nil, scheduleCount: nil, scheduleData: nil))
+        } else {
+            futureSchedules.forEach {
+                self.cellDatas.append(CellData(cellType: .schedule, title: nil, scheduleCount: nil, scheduleData: $0))
+            }
+        }
+        
+        let pastSchedules = reservedSchedules.filter { $0.date < today }
+        self.cellDatas.append(CellData(cellType: .title, title: "過去に参加したイベント", scheduleCount: pastSchedules.count, scheduleData: nil))
+        if pastSchedules.isEmpty {
+            self.cellDatas.append(CellData(cellType: .noData, title: nil, scheduleCount: nil, scheduleData: nil))
+        } else {
+            pastSchedules.forEach {
+                self.cellDatas.append(CellData(cellType: .schedule, title: nil, scheduleCount: nil, scheduleData: $0))
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -40,51 +73,31 @@ class CardDetailViewController: UIViewController {
 extension CardDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var futureCount = self.futureSchedules.count
-        if futureCount == 0 {
-            futureCount = 1
-        }
-        var pastCount = self.pastSchedules.count
-        if pastCount == 0 {
-            pastCount = 1
-        }
-        return 3 + futureCount + pastCount
+        return self.cellDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cellData = self.cellDatas[indexPath.row]
         
-        if indexPath.row == 0 {
+        switch cellData.cellType {
+        case .userInfo:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CardDetailUserInfoTableViewCell", for: indexPath) as! CardDetailUserInfoTableViewCell
             cell.configure(userData: self.userData)
             return cell
-        } else if indexPath.row == 1 {
+            
+        case .title:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CardDetailEventTitleTableViewCell", for: indexPath) as! CardDetailEventTitleTableViewCell
-            cell.configure(title: "参加予定のイベント", count: self.futureSchedules.count)
+            cell.configure(title: cellData.title!, count: cellData.scheduleCount!)
             return cell
-        } else if indexPath.row < 2 + self.futureSchedules.count {
-            if self.futureSchedules.isEmpty {
-                return tableView.dequeueReusableCell(withIdentifier: "CardDetailNoDataTableViewCell", for: indexPath)
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CardDetailEventTableViewCell", for: indexPath) as! CardDetailEventTableViewCell
-                cell.configure(scheduleData: self.futureSchedules[indexPath.row - 2])
-                return cell
-            }
-        } else if indexPath.row == 2 + self.futureSchedules.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CardDetailEventTitleTableViewCell", for: indexPath) as! CardDetailEventTitleTableViewCell
-            cell.configure(title: "過去に参加したイベント", count: self.pastSchedules.count)
+            
+        case .schedule:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CardDetailEventTableViewCell", for: indexPath) as! CardDetailEventTableViewCell
+            cell.configure(scheduleData: cellData.scheduleData!)
             return cell
-        } else {
-            if self.pastSchedules.isEmpty {
-                return tableView.dequeueReusableCell(withIdentifier: "CardDetailNoDataTableViewCell", for: indexPath)
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CardDetailEventTableViewCell", for: indexPath) as! CardDetailEventTableViewCell
-                var futureCount = self.futureSchedules.count
-                if futureCount == 0 {
-                    futureCount = 1
-                }
-                cell.configure(scheduleData: self.pastSchedules[indexPath.row - 3 - futureCount])
-                return cell
-            }
+            
+        case .noData:
+            return tableView.dequeueReusableCell(withIdentifier: "CardDetailNoDataTableViewCell", for: indexPath)
         }
     }
 }

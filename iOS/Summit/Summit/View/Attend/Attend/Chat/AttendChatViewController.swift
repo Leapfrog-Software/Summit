@@ -52,6 +52,8 @@ class AttendChatViewController: KeyboardRespondableViewController {
                 })
             })
         }
+        
+        // TODO ユーザ一覧への遷移、名刺を渡す機能
     }
     
     private func resetChatList(tableId: String, chatList: [ChatData]) {

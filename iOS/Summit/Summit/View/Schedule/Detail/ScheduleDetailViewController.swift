@@ -29,6 +29,8 @@ class ScheduleDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.initContents()
+        
+        // TODO 予約済みの場合はボタンを非活性
     }
     
     private func initContents() {
