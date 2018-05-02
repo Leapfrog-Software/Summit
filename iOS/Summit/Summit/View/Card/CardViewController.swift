@@ -116,7 +116,7 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
         
         if let userData = self.cellDatas[indexPath.row].user {
             let cardDetailViewController = self.viewController(storyboard: "Card", identifier: "CardDetailViewController") as! CardDetailViewController
-            cardDetailViewController.set(userData: userData)
+            cardDetailViewController.set(userData: userData, showSendCard: false)
             self.tabbarViewController()?.stack(viewController: cardDetailViewController, animationType: .horizontal)
         }
     }

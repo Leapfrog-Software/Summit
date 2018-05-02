@@ -40,7 +40,7 @@ extension AttendMemberListViewController: UITableViewDataSource, UITableViewDele
         tableView.deselectRow(at: indexPath, animated: true)
         
         let cardDetailViewController = self.viewController(storyboard: "Card", identifier: "CardDetailViewController") as! CardDetailViewController
-        cardDetailViewController.set(userData: self.userDatas[indexPath.row])
+        cardDetailViewController.set(userData: self.userDatas[indexPath.row], showSendCard: true)
         self.stack(viewController: cardDetailViewController, animationType: .horizontal)
     }
 }

@@ -25,12 +25,17 @@ class CardDetailViewController: UIViewController {
     }
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var sendCardBaseView: UIView!
+    @IBOutlet private weak var sendCardBaseViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var sendCardButton: UIButton!
 
     private var userData: UserData!
     private var cellDatas = [CellData]()
+    private var isShowSendCard = false
     
-    func set(userData: UserData) {
+    func set(userData: UserData, showSendCard: Bool) {
         self.userData = userData
+        self.isShowSendCard = showSendCard
         
         let today = Date()
         let reservedSchedules = userData.reserves.compactMap { ScheduleRequester.shared.query(id: $0) }
@@ -63,6 +68,39 @@ class CardDetailViewController: UIViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 200
+        
+        if self.isShowSendCard {
+            if let myUserData = UserRequester.shared.myUserData() {
+                if myUserData.cards.contains(self.userData.userId) {
+                    self.sendCardButton.backgroundColor = UIColor.inActiveButton
+                    self.sendCardButton.setTitle("名刺は送信済みです", for: .normal)
+                    self.sendCardButton.isEnabled = false
+                } else {
+                    self.sendCardButton.backgroundColor = UIColor.activeButton
+                }
+            }
+        } else {
+            self.sendCardBaseView.isHidden = true
+            self.sendCardBaseViewHeightConstraint.constant = 0
+        }
+    }
+    
+    @IBAction func onTapSendCard(_ sender: Any) {
+
+        var cpUserData = self.userData!
+        cpUserData.cards.append(SaveData.shared.userId)
+        AccountRequester.updateUser(userData: cpUserData, completion: { result in
+            if result {
+                Dialog.show(style: .success, title: "確認", message: "名刺を送信しました", actions: [DialogAction(title: "OK", action: nil)])
+                
+                self.sendCardButton.backgroundColor = UIColor.inActiveButton
+                self.sendCardButton.setTitle("名刺は送信済みです", for: .normal)
+                self.sendCardButton.isEnabled = false
+                
+            } else {
+                Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
+            }
+        })
     }
     
     @IBAction func onTapBack(_ sender: Any) {

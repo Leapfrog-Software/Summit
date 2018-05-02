@@ -209,7 +209,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RMp-5B-JTs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardDetailUserInfoTableViewCell" rowHeight="392" id="LtJ-FR-7YT" customClass="CardDetailUserInfoTableViewCell" customModule="Summit" customModuleProvider="target">
@@ -455,6 +455,35 @@
                                     <outlet property="delegate" destination="NoV-FG-bdP" id="zSG-jt-ZYu"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrd-Mn-QmI">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etA-pF-7ta">
+                                        <rect key="frame" x="16" y="8" width="343" height="44"/>
+                                        <color key="backgroundColor" red="0.1176470588" green="0.28235294119999998" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                                        <state key="normal" title="名刺を渡す">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onTapSendCard:" destination="NoV-FG-bdP" eventType="touchUpInside" id="cCM-Lv-saS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="etA-pF-7ta" secondAttribute="bottom" constant="8" id="EI3-C4-R3a"/>
+                                    <constraint firstAttribute="trailing" secondItem="etA-pF-7ta" secondAttribute="trailing" constant="16" id="JNf-cR-uqV"/>
+                                    <constraint firstItem="etA-pF-7ta" firstAttribute="leading" secondItem="Jrd-Mn-QmI" secondAttribute="leading" constant="16" id="T4Z-uR-LZN"/>
+                                    <constraint firstItem="etA-pF-7ta" firstAttribute="top" secondItem="Jrd-Mn-QmI" secondAttribute="top" constant="8" id="s95-FC-qYu"/>
+                                    <constraint firstAttribute="height" constant="60" id="yES-7Y-sAg"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87p-WI-py7">
                                 <rect key="frame" x="16" y="30" width="44" height="44"/>
                                 <constraints>
@@ -469,16 +498,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dPo-AV-UaL" firstAttribute="bottom" secondItem="RMp-5B-JTs" secondAttribute="bottom" id="7Pp-EN-SxO"/>
+                            <constraint firstItem="dPo-AV-UaL" firstAttribute="trailing" secondItem="Jrd-Mn-QmI" secondAttribute="trailing" id="0Eb-ZW-0YY"/>
+                            <constraint firstItem="Jrd-Mn-QmI" firstAttribute="leading" secondItem="dPo-AV-UaL" secondAttribute="leading" id="Fsr-pE-vqc"/>
                             <constraint firstItem="87p-WI-py7" firstAttribute="top" secondItem="dPo-AV-UaL" secondAttribute="top" constant="10" id="IKI-j6-U7u"/>
                             <constraint firstItem="dPo-AV-UaL" firstAttribute="trailing" secondItem="RMp-5B-JTs" secondAttribute="trailing" id="S4t-kq-K8N"/>
                             <constraint firstItem="87p-WI-py7" firstAttribute="leading" secondItem="dPo-AV-UaL" secondAttribute="leading" constant="16" id="Xk1-XW-cQS"/>
+                            <constraint firstAttribute="bottom" secondItem="Jrd-Mn-QmI" secondAttribute="bottom" id="cYP-pt-ezR"/>
                             <constraint firstItem="RMp-5B-JTs" firstAttribute="leading" secondItem="dPo-AV-UaL" secondAttribute="leading" id="ded-Rl-IJd"/>
+                            <constraint firstItem="Jrd-Mn-QmI" firstAttribute="top" secondItem="RMp-5B-JTs" secondAttribute="bottom" id="jH9-Zz-zId"/>
                             <constraint firstItem="RMp-5B-JTs" firstAttribute="top" secondItem="dGz-b4-FSo" secondAttribute="top" id="z56-KF-F3p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dPo-AV-UaL"/>
                     </view>
                     <connections>
+                        <outlet property="sendCardBaseView" destination="Jrd-Mn-QmI" id="agx-ZR-LKu"/>
+                        <outlet property="sendCardBaseViewHeightConstraint" destination="yES-7Y-sAg" id="xCR-Xd-Mx0"/>
+                        <outlet property="sendCardButton" destination="etA-pF-7ta" id="qIx-7U-DAR"/>
                         <outlet property="tableView" destination="RMp-5B-JTs" id="6rf-qr-fBE"/>
                     </connections>
                 </viewController>
