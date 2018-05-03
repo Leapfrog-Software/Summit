@@ -24,10 +24,10 @@ class MessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refresh()
+        self.reload()
     }
     
-    func refresh() {
+    func reload() {
         
         var targetUserIds = [String]()
         MessageRequester.shared.dataList.forEach { messageData in

@@ -29,6 +29,10 @@ class TabbarViewController: UIViewController {
         super.viewDidLoad()
         
         self.initContents()
+        
+        Timer.scheduledTimer(withTimeInterval: 3 * 60, repeats: true, block: { [weak self] _ in
+            self?.timerProc()
+        })
     }
     
     private func initContents() {
@@ -75,6 +79,18 @@ class TabbarViewController: UIViewController {
         self.tab2Label.textColor = (index == 1) ? .tabSelected : .tabUnselected
         self.tab3Label.textColor = (index == 2) ? .tabSelected : .tabUnselected
         self.tab4Label.textColor = (index == 3) ? .tabSelected : .tabUnselected
+    }
+    
+    private func timerProc() {
+        
+        UserRequester.shared.fetch(completion: { _ in
+            ScheduleRequester.shared.fetch(completion: { _ in
+                MessageRequester.shared.fetch(completion: { _ in
+                    self.cardViewController.reload()
+                    self.messageViewController.reload()
+                })
+            })
+        })
     }
     
     @IBAction func onTapTab1(_ sender: Any) {

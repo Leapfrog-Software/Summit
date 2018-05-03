@@ -32,7 +32,7 @@ class CardViewController: UIViewController {
         super.viewDidLoad()
         
         self.setCardIndexView()
-        self.setCellData()
+        self.reload()
     }
     
     private func setCardIndexView() {
@@ -50,7 +50,7 @@ class CardViewController: UIViewController {
         self.cardIndexView = cardIndexView
     }
     
-    private func setCellData() {
+    func reload() {
         
         guard let myUserData = UserRequester.shared.myUserData() else {
             return
