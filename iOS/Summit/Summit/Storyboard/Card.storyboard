@@ -31,12 +31,22 @@
                                         <color key="textColor" red="0.11764705882352941" green="0.28235294117647058" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryN-RZ-eXF">
+                                        <rect key="frame" x="0.0" y="47" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="J0d-6S-dhS"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="HxT-71-qcK" firstAttribute="centerX" secondItem="ix9-r3-mac" secondAttribute="centerX" id="B2f-HA-9qo"/>
+                                    <constraint firstItem="ryN-RZ-eXF" firstAttribute="leading" secondItem="ix9-r3-mac" secondAttribute="leading" id="HSK-uM-sf1"/>
+                                    <constraint firstAttribute="bottom" secondItem="ryN-RZ-eXF" secondAttribute="bottom" id="tSe-M4-ocm"/>
                                     <constraint firstAttribute="height" constant="48" id="uYz-2b-4AS"/>
                                     <constraint firstItem="HxT-71-qcK" firstAttribute="centerY" secondItem="ix9-r3-mac" secondAttribute="centerY" id="vsN-ll-ojv"/>
+                                    <constraint firstAttribute="trailing" secondItem="ryN-RZ-eXF" secondAttribute="trailing" id="xxy-fo-Tcw"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cVq-WV-Lcv">
@@ -164,6 +174,12 @@
                                     <outlet property="delegate" destination="rCd-Ss-qSW" id="u7U-3Z-KF8"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受け取った名刺はありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSm-LW-Zmc">
+                                <rect key="frame" x="0.0" y="68" width="335" height="599"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUm-To-gli">
                                 <rect key="frame" x="335" y="153.5" width="40" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,16 +192,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vft-I6-9MB" firstAttribute="leading" secondItem="rTv-EP-cSN" secondAttribute="leading" id="3Nb-pP-baA"/>
+                            <constraint firstItem="uSm-LW-Zmc" firstAttribute="leading" secondItem="cVq-WV-Lcv" secondAttribute="leading" id="4Di-hx-OrU"/>
+                            <constraint firstItem="uSm-LW-Zmc" firstAttribute="bottom" secondItem="cVq-WV-Lcv" secondAttribute="bottom" id="693-wH-TnL"/>
                             <constraint firstItem="kB2-1G-QVq" firstAttribute="trailing" secondItem="ix9-r3-mac" secondAttribute="trailing" id="75q-26-5Xs"/>
                             <constraint firstItem="ix9-r3-mac" firstAttribute="leading" secondItem="kB2-1G-QVq" secondAttribute="leading" id="81z-fc-IOv"/>
                             <constraint firstItem="cVq-WV-Lcv" firstAttribute="leading" secondItem="kB2-1G-QVq" secondAttribute="leading" id="APT-5a-QxB"/>
                             <constraint firstAttribute="trailing" secondItem="VUm-To-gli" secondAttribute="trailing" id="CDQ-2m-CKG"/>
                             <constraint firstItem="ix9-r3-mac" firstAttribute="top" secondItem="Vft-I6-9MB" secondAttribute="bottom" id="FCR-te-Vx7"/>
                             <constraint firstItem="VUm-To-gli" firstAttribute="centerY" secondItem="rTv-EP-cSN" secondAttribute="centerY" id="Ksm-wa-tK1"/>
+                            <constraint firstItem="uSm-LW-Zmc" firstAttribute="top" secondItem="cVq-WV-Lcv" secondAttribute="top" id="LZR-XO-zUS"/>
                             <constraint firstItem="ix9-r3-mac" firstAttribute="top" secondItem="kB2-1G-QVq" secondAttribute="top" id="Otr-LX-oJc"/>
                             <constraint firstItem="cVq-WV-Lcv" firstAttribute="top" secondItem="ix9-r3-mac" secondAttribute="bottom" id="Vzr-1y-Huv"/>
                             <constraint firstItem="kB2-1G-QVq" firstAttribute="bottom" secondItem="cVq-WV-Lcv" secondAttribute="bottom" id="bCw-DL-QMw"/>
                             <constraint firstItem="VUm-To-gli" firstAttribute="leading" secondItem="cVq-WV-Lcv" secondAttribute="trailing" id="dLy-xd-SMV"/>
+                            <constraint firstItem="uSm-LW-Zmc" firstAttribute="trailing" secondItem="cVq-WV-Lcv" secondAttribute="trailing" id="i6J-6H-o2U"/>
                             <constraint firstItem="Vft-I6-9MB" firstAttribute="top" secondItem="rTv-EP-cSN" secondAttribute="top" id="nSO-OS-Xib"/>
                             <constraint firstAttribute="trailing" secondItem="Vft-I6-9MB" secondAttribute="trailing" id="vKt-7Z-PY1"/>
                         </constraints>
@@ -194,6 +214,7 @@
                     <connections>
                         <outlet property="cardIndexBaseView" destination="VUm-To-gli" id="23s-3C-jeJ"/>
                         <outlet property="cardTableView" destination="cVq-WV-Lcv" id="9xc-AW-CP7"/>
+                        <outlet property="noDataLabel" destination="uSm-LW-Zmc" id="aM4-Ie-olJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cU0-SP-zWF" userLabel="First Responder" sceneMemberID="firstResponder"/>

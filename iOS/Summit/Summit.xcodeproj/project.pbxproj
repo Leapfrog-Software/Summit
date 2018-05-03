@@ -57,6 +57,7 @@
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
 		BB9E99FE2094A961007D5E01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FC2094A961007D5E01 /* LaunchScreen.storyboard */; };
+		BBCFB2EF209B7CFD00572F9C /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFB2EE209B7CFD00572F9C /* String+Base64.swift */; };
 		BBD1ADA32094C77600487EF0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADA22094C77600487EF0 /* SplashViewController.swift */; };
 		BBD1ADA62094C8CA00487EF0 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADA52094C8CA00487EF0 /* TabbarViewController.swift */; };
 		BBD1ADA92094D87B00487EF0 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADA82094D87B00487EF0 /* ScheduleViewController.swift */; };
@@ -146,6 +147,7 @@
 		BB9E99FA2094A961007D5E01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB9E99FD2094A961007D5E01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB9E99FF2094A961007D5E01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBCFB2EE209B7CFD00572F9C /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
 		BBD1ADA22094C77600487EF0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BBD1ADA52094C8CA00487EF0 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		BBD1ADA82094D87B00487EF0 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				BBD1ADEE2094DBA500487EF0 /* UIView+Rect.swift */,
 				BBD1ADF02094DBB800487EF0 /* CALayer+Border.swift */,
 				BB00EEF62097F59B005263D9 /* UILabel+Attribute.swift */,
+				BBCFB2EE209B7CFD00572F9C /* String+Base64.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				BBD1ADAF2094D89B00487EF0 /* MessageViewController.swift in Sources */,
 				BBD1ADB22094D8AD00487EF0 /* SettingViewController.swift in Sources */,
 				BB4AE69E2096F8CD00AF5C67 /* ScheduleDetailMemberCollectionViewCell.swift in Sources */,
+				BBCFB2EF209B7CFD00572F9C /* String+Base64.swift in Sources */,
 				BB4AE6A42096FA8100AF5C67 /* ScheduleEventTableViewCell.swift in Sources */,
 				BB4AE6A32096FA8100AF5C67 /* CalendarDayCollectionViewCell.swift in Sources */,
 				BBD1ADA92094D87B00487EF0 /* ScheduleViewController.swift in Sources */,

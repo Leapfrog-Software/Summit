@@ -21,7 +21,7 @@ struct MessageData {
         self.messageId = data["messageId"] as? String ?? ""
         self.senderId = data["senderId"] as? String ?? ""
         self.receiverId = data["receiverId"] as? String ?? ""
-        self.message = data["message"] as? String ?? ""
+        self.message = (data["message"] as? String)?.base64Decode() ?? ""
         
         guard let datetimeStr = data["datetime"] as? String,
             let datetime = DateFormatter(dateFormat: "yyyyMMddHHmmss").date(from: datetimeStr) else {
@@ -87,7 +87,7 @@ class MessageRequester {
             "messageId": messageId,
             "senderId": SaveData.shared.userId,
             "receiverId": targetId,
-            "message": message
+            "message": message.base64Encode() ?? ""
         ]
         ApiManager.post(params: params) { (result, data) in
             completion(result)

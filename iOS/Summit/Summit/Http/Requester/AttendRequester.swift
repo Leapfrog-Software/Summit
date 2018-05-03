@@ -46,7 +46,7 @@ struct ChatData {
         }
         self.datetime = datetime
         
-        self.chat = data["chat"] as? String ?? ""
+        self.chat = (data["chat"] as? String)?.base64Decode() ?? ""
     }
     
     init(id: String, senderId: String, tableId: String, datetime: Date, chat: String) {
@@ -98,7 +98,7 @@ class AttendRequester {
             "chatId": chatId,
             "senderId": SaveData.shared.userId,
             "tableId": tableId,
-            "chat": chat
+            "chat": chat.base64Encode() ?? ""
         ]
         ApiManager.post(params: params) { result, _ in
             completion(result)

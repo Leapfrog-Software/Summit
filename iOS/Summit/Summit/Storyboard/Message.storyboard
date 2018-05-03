@@ -173,20 +173,31 @@
                                     <outlet property="delegate" destination="Vt8-7E-Chd" id="q3x-Gt-IYD"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メッセージの履歴はありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htR-5z-aea">
+                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8HD-AJ-SGv" firstAttribute="leading" secondItem="kwA-On-T1U" secondAttribute="leading" id="9f1-j9-Gol"/>
+                            <constraint firstItem="5PL-mh-luA" firstAttribute="leading" secondItem="htR-5z-aea" secondAttribute="leading" id="AWE-M2-Nt2"/>
+                            <constraint firstItem="5PL-mh-luA" firstAttribute="top" secondItem="htR-5z-aea" secondAttribute="top" id="H35-af-c6j"/>
                             <constraint firstItem="kwA-On-T1U" firstAttribute="trailing" secondItem="8HD-AJ-SGv" secondAttribute="trailing" id="HZA-Sh-gdf"/>
                             <constraint firstItem="5PL-mh-luA" firstAttribute="leading" secondItem="kwA-On-T1U" secondAttribute="leading" id="Jsw-yG-NKZ"/>
+                            <constraint firstItem="5PL-mh-luA" firstAttribute="trailing" secondItem="htR-5z-aea" secondAttribute="trailing" id="bc5-Vh-4hi"/>
                             <constraint firstItem="kwA-On-T1U" firstAttribute="bottom" secondItem="5PL-mh-luA" secondAttribute="bottom" id="eNS-BQ-2Ab"/>
                             <constraint firstItem="8HD-AJ-SGv" firstAttribute="top" secondItem="kwA-On-T1U" secondAttribute="top" id="g9D-FW-GMj"/>
+                            <constraint firstItem="5PL-mh-luA" firstAttribute="bottom" secondItem="htR-5z-aea" secondAttribute="bottom" id="myR-0h-lss"/>
                             <constraint firstItem="5PL-mh-luA" firstAttribute="top" secondItem="8HD-AJ-SGv" secondAttribute="bottom" id="rJx-ZZ-qoN"/>
                             <constraint firstItem="kwA-On-T1U" firstAttribute="trailing" secondItem="5PL-mh-luA" secondAttribute="trailing" id="vOc-FK-lAN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kwA-On-T1U"/>
                     </view>
                     <connections>
+                        <outlet property="noDataLabel" destination="htR-5z-aea" id="qeB-qm-lGG"/>
                         <outlet property="tableView" destination="5PL-mh-luA" id="V6D-MF-PXj"/>
                     </connections>
                 </viewController>

@@ -138,18 +138,18 @@ struct UserData {
         }
         self.userId = userId
         
-        self.nameFirst = data["nameFirst"] as? String ?? ""
-        self.nameLast = data["nameLast"] as? String ?? ""
-        self.kanaFirst = data["kanaFirst"] as? String ?? ""
-        self.kanaLast = data["kanaLast"] as? String ?? ""
+        self.nameFirst = (data["nameFirst"] as? String)?.base64Decode() ?? ""
+        self.nameLast = (data["nameLast"] as? String)?.base64Decode() ?? ""
+        self.kanaFirst = (data["kanaFirst"] as? String)?.base64Decode() ?? ""
+        self.kanaLast = (data["kanaLast"] as? String)?.base64Decode() ?? ""
         self.age = AgeType.create(value: (data["age"] as? String ?? ""))
         self.gender = GenderType.create(value: (data["gender"] as? String ?? ""))
-        self.company = data["company"] as? String ?? ""
-        self.job = data["job"] as? String ?? ""
-        self.position = data["position"] as? String ?? ""
+        self.company = (data["company"] as? String)?.base64Decode() ?? ""
+        self.job = (data["job"] as? String)?.base64Decode() ?? ""
+        self.position = (data["position"] as? String)?.base64Decode() ?? ""
         self.reserves = data["reserves"] as? Array<String> ?? []
         self.cards = data["cards"] as? Array<String> ?? []
-        self.message = data["message"] as? String ?? ""
+        self.message = (data["message"] as? String)?.base64Decode() ?? ""
     }
 }
 

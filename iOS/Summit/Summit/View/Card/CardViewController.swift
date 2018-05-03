@@ -22,6 +22,7 @@ class CardViewController: UIViewController {
     
     @IBOutlet private weak var cardTableView: UITableView!
     @IBOutlet private weak var cardIndexBaseView: UIView!
+    @IBOutlet private weak var noDataLabel: UILabel!
     
     private weak var cardIndexView: CardIndexView?
     private var cellDatas = [CellData]()
@@ -44,7 +45,7 @@ class CardViewController: UIViewController {
         cardIndexView.topAnchor.constraint(equalTo: self.cardIndexBaseView.topAnchor).isActive = true
         cardIndexView.bottomAnchor.constraint(equalTo: self.cardIndexBaseView.bottomAnchor).isActive = true
         
-        cardIndexView.set(index: 0)
+        cardIndexView.set(index: -1)
         
         self.cardIndexView = cardIndexView
     }
@@ -82,6 +83,9 @@ class CardViewController: UIViewController {
             self.cellDatas.append(CellData(kana: nil, user: user))
             currentOffset += Const.cardTableCellHeight
         }
+        
+        self.cardTableView.isHidden = self.cellDatas.isEmpty
+        self.noDataLabel.isHidden = !self.cellDatas.isEmpty
     }
 }
 

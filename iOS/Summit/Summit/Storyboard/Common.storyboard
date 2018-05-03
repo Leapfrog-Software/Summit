@@ -86,14 +86,14 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picker_selected" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-FX-Tfi">
-                                                            <rect key="frame" x="16" y="12" width="20" height="20"/>
+                                                            <rect key="frame" x="16" y="20" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="ZYq-nB-r7s"/>
                                                                 <constraint firstAttribute="height" constant="20" id="kD6-Us-OXj"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選択肢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt9-yi-3hk">
-                                                            <rect key="frame" x="52" y="15" width="42" height="14"/>
+                                                            <rect key="frame" x="52" y="23" width="42" height="14"/>
                                                             <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
                                                             <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -190,15 +190,25 @@
                                             <action selector="onTapBack:" destination="k2E-gr-Vlf" eventType="touchUpInside" id="ZQm-Tc-jj1"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EnO-0K-Gjb">
+                                        <rect key="frame" x="0.0" y="47" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="uUS-27-cc9"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="4Tz-dq-scu"/>
                                     <constraint firstItem="UwT-Ww-pVK" firstAttribute="centerY" secondItem="quN-i8-l9r" secondAttribute="centerY" id="Ayn-Ua-Pm5"/>
+                                    <constraint firstAttribute="trailing" secondItem="EnO-0K-Gjb" secondAttribute="trailing" id="IQf-Xa-FUr"/>
                                     <constraint firstItem="leX-27-C7N" firstAttribute="top" secondItem="quN-i8-l9r" secondAttribute="top" id="RIh-jb-Zw2"/>
                                     <constraint firstAttribute="bottom" secondItem="leX-27-C7N" secondAttribute="bottom" id="RiR-dN-2Bs"/>
+                                    <constraint firstAttribute="bottom" secondItem="EnO-0K-Gjb" secondAttribute="bottom" id="Z1p-W7-9vc"/>
                                     <constraint firstItem="UwT-Ww-pVK" firstAttribute="centerX" secondItem="quN-i8-l9r" secondAttribute="centerX" id="bNX-fE-EQB"/>
                                     <constraint firstItem="leX-27-C7N" firstAttribute="leading" secondItem="quN-i8-l9r" secondAttribute="leading" id="iU8-OB-myi"/>
+                                    <constraint firstItem="EnO-0K-Gjb" firstAttribute="leading" secondItem="quN-i8-l9r" secondAttribute="leading" id="mkn-CZ-X4R"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9e-fI-34W">

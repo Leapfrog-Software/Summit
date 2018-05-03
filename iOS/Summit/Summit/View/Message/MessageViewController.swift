@@ -17,6 +17,7 @@ class MessageViewController: UIViewController {
     }
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var noDataLabel: UILabel!
     
     private var cellDatas = [CellData]()
     
@@ -79,6 +80,9 @@ class MessageViewController: UIViewController {
         }
         
         self.tableView.reloadData()
+        
+        self.tableView.isHidden = self.cellDatas.isEmpty
+        self.noDataLabel.isHidden = !self.cellDatas.isEmpty
     }
 }
 

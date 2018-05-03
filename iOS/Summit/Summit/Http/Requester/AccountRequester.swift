@@ -29,36 +29,21 @@ class AccountRequester {
         let params = [
             "command": "updateUser",
             "userId": userData.userId,
-            "nameLast": userData.nameLast,
-            "nameFirst": userData.nameFirst,
-            "kanaLast": userData.kanaLast,
-            "kanaFirst": userData.kanaFirst,
+            "nameLast": userData.nameLast.base64Encode() ?? "",
+            "nameFirst": userData.nameFirst.base64Encode() ?? "",
+            "kanaLast": userData.kanaLast.base64Encode() ?? "",
+            "kanaFirst": userData.kanaFirst.base64Encode() ?? "",
             "age": userData.age.toString(),
             "gender": userData.gender.toString(),
-            "job": userData.job,
-            "company": userData.company,
-            "position": userData.position,
+            "job": userData.job.base64Encode() ?? "",
+            "company": userData.company.base64Encode() ?? "",
+            "position": userData.position.base64Encode() ?? "",
             "reserves": userData.reserves.joined(separator: "-"),
-            "cards": userData.cards.joined(separator: "-")
+            "cards": userData.cards.joined(separator: "-"),
+            "message": userData.message.base64Encode() ?? ""
         ]
         ApiManager.post(params: params) { (result, data) in
             completion(result)
         }
-    }
-    
-    class func login(email: String, password: String, completion: @escaping ((Bool, String?) -> ())) {
-        
-        let params = [
-            "command": "login",
-            "email": email,
-            "password": password
-        ]
-        ApiManager.post(params: params) { (result, data) in
-            if result, let dic = (data as? Dictionary<String, String>), let userId = dic["userId"] {
-                completion(true, userId)
-            } else {
-                completion(false, nil)
-            }
-        }
-    }
+    }    
 }

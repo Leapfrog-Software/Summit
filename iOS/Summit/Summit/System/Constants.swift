@@ -11,6 +11,7 @@ import Foundation
 struct Constants {
     
     static let HttpTimeOutInterval = TimeInterval(10)
+//    static let ServerRootUrl = "http://lfg.co.jp/summit/"
     static let ServerRootUrl = "http://localhost/summit/"
     static let ServerApiUrl = Constants.ServerRootUrl + "srv.php"
     static let ScheduleImageDirectory = Constants.ServerRootUrl + "data/image/schedule/"
@@ -23,9 +24,8 @@ struct Constants {
         static let pushSetting = "PushSetting"
     }
     
-    // TODO
     struct WebPageUrl {
-        static let Terms = "http://appfac.net/app/terms.html"
-        static let Privacypolicy = "http://appfac.net/app/privacypolicy.html"
+        static let Terms = "http://lfg.co.jp/summit/terms.html"
+        static let Privacypolicy = "http://lfg.co.jp/summit/privacypolicy.html"
     }
 }
