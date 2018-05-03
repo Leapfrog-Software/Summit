@@ -44,13 +44,75 @@ class SettingProfileViewController: UIViewController {
         
         ImageStorage.shared.fetch(url: Constants.UserImageDirectory + myUserData.userId, imageView: self.faceImageView)
 
-        self.messageLabel.set(text: myUserData.message, lineHeight: 16)
-        self.nameLabel.text = myUserData.nameLast + " " + myUserData.nameFirst
-        self.kanaLabel.text = myUserData.kanaLast + " " + myUserData.kanaFirst
-        self.ageLabel.text = myUserData.age.toText()
-        self.genderLabel.text = myUserData.gender.toText()
-        self.companyLabel.text = myUserData.company
-        self.positionLabel.text = myUserData.position
+        self.setMessage(myUserData.message)
+        self.setName(nameLast: myUserData.nameLast, nameFirst: myUserData.nameFirst)
+        self.setKana(kanaLast: myUserData.kanaLast, kanaFirst: myUserData.kanaFirst)
+        self.setAge(myUserData.age)
+        self.setGender(myUserData.gender)
+        self.setCompany(myUserData.company)
+        self.setPosition(myUserData.position)
+    }
+    
+    private func setMessage(_ text: String) {
+        if text.isEmpty {
+            self.messageLabel.text = "(未設定)"
+            self.messageLabel.textColor = UIColor.profileInactive
+        } else {
+            self.messageLabel.set(text: text, lineHeight: 16)
+            self.messageLabel.textColor = UIColor.profileActive
+        }
+    }
+    
+    private func setName(nameLast: String, nameFirst: String) {
+        
+        if nameLast.isEmpty && nameFirst.isEmpty {
+            self.nameLabel.text = "(未設定)"
+            self.nameLabel.textColor = UIColor.profileInactive
+        } else {
+            self.nameLabel.text = nameLast + " " + nameFirst
+            self.nameLabel.textColor = UIColor.profileActive
+        }
+    }
+    
+    private func setKana(kanaLast: String, kanaFirst: String) {
+        
+        if kanaLast.isEmpty && kanaFirst.isEmpty {
+            self.kanaLabel.text = "(未設定)"
+            self.kanaLabel.textColor = UIColor.profileInactive
+        } else {
+            self.kanaLabel.text = kanaLast + " " + kanaFirst
+            self.kanaLabel.textColor = UIColor.profileActive
+        }
+    }
+    
+    private func setAge(_ age: AgeType) {
+        self.ageLabel.text = age.toText()
+        self.ageLabel.textColor = (age == .unknown) ? UIColor.profileInactive : UIColor.profileActive
+    }
+    
+    private func setGender(_ gender: GenderType) {
+        self.genderLabel.text = gender.toText()
+        self.genderLabel.textColor = (gender == .unknown) ? UIColor.profileInactive : UIColor.profileActive
+    }
+    
+    private func setCompany(_ text: String) {
+        if text.isEmpty {
+            self.companyLabel.text = "(未設定)"
+            self.companyLabel.textColor = UIColor.profileInactive
+        } else {
+            self.companyLabel.text = text
+            self.companyLabel.textColor = UIColor.profileActive
+        }
+    }
+    
+    private func setPosition(_ text: String) {
+        if text.isEmpty {
+            self.positionLabel.text = "(未設定)"
+            self.positionLabel.textColor = UIColor.profileInactive
+        } else {
+            self.positionLabel.text = text
+            self.positionLabel.textColor = UIColor.profileActive
+        }
     }
     
     @IBAction func onTapFace(_ sender: Any) {
@@ -67,6 +129,7 @@ class SettingProfileViewController: UIViewController {
     @IBAction func onTapMessage(_ sender: Any) {
         let messageEdit = self.viewController(storyboard: "Setting", identifier: "SettingProfileMessageViewController") as! SettingProfileMessageViewController
         messageEdit.set(defaultString: UserRequester.shared.myUserData()?.message ?? "", completion: { [weak self] message in
+            self?.setMessage(message)
             self?.editedMessage = message
         })
         self.tabbarViewController()?.stack(viewController: messageEdit, animationType: .horizontal)
@@ -81,7 +144,7 @@ class SettingProfileViewController: UIViewController {
         nameEdit.set(defaultLast: myUserData.nameLast, defaultFirst: myUserData.nameFirst, isKana: false, completion: { [weak self] nameLast, nameFirst in
             self?.editedNameLast = nameLast
             self?.editedNameFirst = nameFirst
-            self?.nameLabel.text = nameLast + " " + nameFirst
+            self?.setName(nameLast: nameLast, nameFirst: nameFirst)
         })
         self.tabbarViewController()?.stack(viewController: nameEdit, animationType: .horizontal)
     }
@@ -95,7 +158,7 @@ class SettingProfileViewController: UIViewController {
         nameEdit.set(defaultLast: myUserData.kanaLast, defaultFirst: myUserData.kanaFirst, isKana: true, completion: { [weak self] kanaLast, kanaFirst in
             self?.editedKanaLast = kanaLast
             self?.editedKanaFirst = kanaFirst
-            self?.kanaLabel.text = kanaLast + " " + kanaFirst
+            self?.setKana(kanaLast: kanaLast, kanaFirst: kanaFirst)
         })
         self.tabbarViewController()?.stack(viewController: nameEdit, animationType: .horizontal)
     }
@@ -111,7 +174,7 @@ class SettingProfileViewController: UIViewController {
         picker.set(title: "年代", dataArray: dataArray, defaultIndex: defaultIndex, completion: { [weak self] index in
             let age = AgeType.allValue()[index]
             self?.selectedAge = age
-            self?.ageLabel.text = age.toText()
+            self?.setAge(age)
         })
         self.tabbarViewController()?.stack(viewController: picker, animationType: .none)
     }
@@ -127,7 +190,7 @@ class SettingProfileViewController: UIViewController {
         picker.set(title: "性別", dataArray: dataArray, defaultIndex: defaultIndex, completion: { [weak self] index in
             let gender = GenderType.allValue()[index]
             self?.selectedGender = gender
-            self?.genderLabel.text = gender.toText()
+            self?.setGender(gender)
         })
         self.tabbarViewController()?.stack(viewController: picker, animationType: .none)
     }
@@ -136,9 +199,9 @@ class SettingProfileViewController: UIViewController {
         
         let textEdit = self.viewController(storyboard: "Setting", identifier: "SettingProfileTextViewController") as! SettingProfileTextViewController
         
-        textEdit.set(title: "会社・組織名", defaultString: UserRequester.shared.myUserData()?.company ?? "", completion: { [weak self] company in
+        textEdit.set(title: "会社・組織名", defaultString: UserRequester.shared.myUserData()?.company ?? "", placeholder: "会社・組織名", completion: { [weak self] company in
             self?.editedCompany = company
-            self?.companyLabel.text = company
+            self?.setCompany(company)
         })
         self.tabbarViewController()?.stack(viewController: textEdit, animationType: .horizontal)
     }
@@ -146,9 +209,9 @@ class SettingProfileViewController: UIViewController {
     @IBAction func onTapPosition(_ sender: Any) {
         
         let textEdit = self.viewController(storyboard: "Setting", identifier: "SettingProfileTextViewController") as! SettingProfileTextViewController
-        textEdit.set(title: "役職・職種", defaultString: UserRequester.shared.myUserData()?.position ?? "", completion: { [weak self] position in
+        textEdit.set(title: "役職・職種", defaultString: UserRequester.shared.myUserData()?.position ?? "", placeholder: "役職・職種", completion: { [weak self] position in
             self?.editedPosition = position
-            self?.positionLabel.text = position
+            self?.setPosition(position)
         })
         self.tabbarViewController()?.stack(viewController: textEdit, animationType: .horizontal)
     }
@@ -219,12 +282,21 @@ class SettingProfileViewController: UIViewController {
         }
         
         if needed {
+            Loading.start()
+            
             AccountRequester.updateUser(userData: newUserData, completion: { result in
                 if result {
-                    UserRequester.shared.fetch(completion: { _ in
+                    UserRequester.shared.fetch(completion: { result in
+                        Loading.stop()
+                        
+                        if result {
+                            let settingViewController = self.tabbarViewController()?.childViewControllers.compactMap { $0 as? SettingViewController }.first
+                            settingViewController?.refreshContents()
+                        }
                         self.pop(animationType: .horizontal)
                     })
                 } else {
+                    Loading.stop()
                     Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
                 }
             })

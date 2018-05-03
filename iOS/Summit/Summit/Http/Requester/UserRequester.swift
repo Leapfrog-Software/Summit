@@ -15,6 +15,7 @@ enum AgeType {
     case s40
     case s50
     case o60
+    case unknown
     
     static func create(value: String) -> AgeType {
         switch value {
@@ -28,8 +29,10 @@ enum AgeType {
             return .s40
         case "4":
             return .s50
-        default:
+        case "5":
             return .o60
+        default:
+            return .unknown
         }
     }
     
@@ -47,6 +50,8 @@ enum AgeType {
             return "50代"
         case .o60:
             return "60歳以上"
+        case .unknown:
+            return "(未設定)"
         }
     }
     
@@ -62,8 +67,10 @@ enum AgeType {
             return "3"
         case .s50:
             return "4"
-        default:
+        case .o60:
             return "5"
+        default:
+            return ""
         }
     }
     
@@ -95,7 +102,7 @@ enum GenderType {
         case .female:
             return "女性"
         default:
-            return "-"
+            return "(未設定)"
         }
     }
     
@@ -106,7 +113,7 @@ enum GenderType {
         case .female:
             return "1"
         default:
-            return "2"
+            return ""
         }
     }
     

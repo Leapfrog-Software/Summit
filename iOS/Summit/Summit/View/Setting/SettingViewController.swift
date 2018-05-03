@@ -19,10 +19,10 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initContents()
+        self.refreshContents()
     }
     
-    private func initContents() {
+    func refreshContents() {
         
         guard let myUserData = UserRequester.shared.myUserData() else {
             return

@@ -70,22 +70,29 @@ class ScheduleDetailViewController: UIViewController {
     
     @IBAction func onTapReserve(_ sender: Any) {
         
-        if var myUserData = UserRequester.shared.myUserData() {
-            myUserData.reserves.append(self.scheduleData.id)
-            
-            Loading.start()
-            
-            AccountRequester.updateUser(userData: myUserData, completion: { result in
-                
-                Loading.stop()
-                
-                if result {
-                    Dialog.show(style: .success, title: "確認", message: "予約が完了しました", actions: [DialogAction(title: "OK", action: nil)])
-                } else {
-                    Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
-                }
-            })
+        guard var myUserData = UserRequester.shared.myUserData() else {
+            return
         }
+        
+        if myUserData.nameLast.isEmpty || myUserData.nameFirst.isEmpty || myUserData.kanaLast.isEmpty || myUserData.kanaFirst.isEmpty {
+            Dialog.show(style: .error, title: "プロフィールに未設定項目があります", message: "プロフィールを編集してください", actions: [DialogAction(title: "OK", action: nil)])
+            return
+        }
+        
+        myUserData.reserves.append(self.scheduleData.id)
+        
+        Loading.start()
+        
+        AccountRequester.updateUser(userData: myUserData, completion: { result in
+            
+            Loading.stop()
+            
+            if result {
+                Dialog.show(style: .success, title: "確認", message: "予約が完了しました", actions: [DialogAction(title: "OK", action: nil)])
+            } else {
+                Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
+            }
+        })
     }
     
     @IBAction func onTapClose(_ sender: Any) {

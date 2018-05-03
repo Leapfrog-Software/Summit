@@ -10,7 +10,7 @@ import UIKit
 
 class SettingProfileMessageViewController: UIViewController {
 
-    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var textView: PlaceholderTextView!
     
     private var defaultString: String!
     private var completion: ((String) -> ())!
@@ -23,7 +23,7 @@ class SettingProfileMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.textView.text = self.defaultString
+        self.textView.setText(self.defaultString)
     }
     
     @IBAction func onTapBack(_ sender: Any) {

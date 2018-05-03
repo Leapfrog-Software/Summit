@@ -15,12 +15,14 @@ class SettingProfileTextViewController: UIViewController {
     
     private var settingTitle: String!
     private var defaultString: String!
+    private var placeholder: String!
     private var completion: ((String) -> ())!
     
-    func set(title: String, defaultString: String, completion: @escaping ((String) -> ())) {
+    func set(title: String, defaultString: String, placeholder: String, completion: @escaping ((String) -> ())) {
         self.settingTitle = title
         self.defaultString = defaultString
         self.completion = completion
+        self.placeholder = placeholder
     }
     
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ class SettingProfileTextViewController: UIViewController {
         
         self.settingTitleLabel.text = self.settingTitle
         self.textField.text = self.defaultString
+        self.textField.placeholder = self.placeholder
     }
     
     @IBAction func onTapBack(_ sender: Any) {

@@ -41,9 +41,14 @@ class SplashViewController: UIViewController {
                 } else {
                     self?.results[.createUser] = false
                 }
-                self?.checkResult()
+                self?.refreshMasterData()
             })
+        } else {
+            self.refreshMasterData()
         }
+    }
+    
+    private func refreshMasterData() {
         
         if self.results[.schedule] != true {
             ScheduleRequester.shared.fetch(completion: { [weak self] result in

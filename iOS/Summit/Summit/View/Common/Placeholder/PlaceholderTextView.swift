@@ -14,6 +14,11 @@ class PlaceholderTextView: UITextView {
     
     private weak var placeholderLabel: UILabel!
     
+    func setText(_ text: String) {
+        self.text = text
+        self.placeholderLabel.isHidden = self.text.count > 0
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

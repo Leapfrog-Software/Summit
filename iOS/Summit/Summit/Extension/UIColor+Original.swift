@@ -73,4 +73,12 @@ extension UIColor {
     class var inActiveButton: UIColor {
         return UIColor(red: 200 / 255, green: 200 / 255, blue: 200 / 255, alpha: 1)
     }
+    
+    class var profileActive: UIColor {
+        return UIColor(red: 30 / 255, green: 72 / 255, blue: 158 / 255, alpha: 1.0)
+    }
+    
+    class var profileInactive: UIColor {
+        return UIColor(red: 171 / 255, green: 171 / 255, blue: 171 / 255, alpha: 1.0)
+    }
 }
