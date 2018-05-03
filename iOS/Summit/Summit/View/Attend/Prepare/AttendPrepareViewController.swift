@@ -15,6 +15,7 @@ class AttendPrepareViewController: UIViewController {
     @IBOutlet private weak var remainTimeTitleLabel: UILabel!
     @IBOutlet private weak var remainTimeLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var memberCountLabel: UILabel!
     @IBOutlet private weak var providerLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
 
@@ -36,6 +37,7 @@ class AttendPrepareViewController: UIViewController {
         
         self.nameLabel.text = "【" + self.scheduleData.title + "】"
         self.dateLabel.text = DateFormatter(dateFormat: "yyyy年M月d日 HH:mm").string(from: self.scheduleData.date)
+        self.memberCountLabel.text = "(\(self.members.count)名)"
         self.providerLabel.text = self.scheduleData.provider
         self.descriptionLabel.set(text: self.scheduleData.description, lineHeight: 16)
 

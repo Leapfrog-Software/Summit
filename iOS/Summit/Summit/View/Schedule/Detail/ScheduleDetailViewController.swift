@@ -84,12 +84,18 @@ class ScheduleDetailViewController: UIViewController {
         Loading.start()
         
         AccountRequester.updateUser(userData: myUserData, completion: { result in
-            
-            Loading.stop()
-            
             if result {
-                Dialog.show(style: .success, title: "確認", message: "予約が完了しました", actions: [DialogAction(title: "OK", action: nil)])
+                UserRequester.shared.fetch(completion: { _ in
+                    Loading.stop()
+                    Dialog.show(style: .success, title: "確認", message: "予約が完了しました", actions: [DialogAction(title: "OK", action: nil)])
+                    
+                    self.reserveButton.backgroundColor = UIColor.inActiveButton
+                    self.reserveButton.isEnabled = false
+                    self.reserveButton.setTitle("予約済みです", for: .normal)
+                })
+                
             } else {
+                Loading.stop()
                 Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
             }
         })

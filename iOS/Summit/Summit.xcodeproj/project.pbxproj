@@ -82,7 +82,6 @@
 		BBD1ADDC2094DAB600487EF0 /* AccountRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADDB2094DAB600487EF0 /* AccountRequester.swift */; };
 		BBD1ADDE2094DAC800487EF0 /* AttendRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADDD2094DAC800487EF0 /* AttendRequester.swift */; };
 		BBD1ADE12094DAFB00487EF0 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE02094DAFB00487EF0 /* ImageUploader.swift */; };
-		BBD1ADE32094DB0400487EF0 /* UserImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE22094DB0400487EF0 /* UserImageUploader.swift */; };
 		BBD1ADE52094DB2200487EF0 /* UIViewController+Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE42094DB2200487EF0 /* UIViewController+Scene.swift */; };
 		BBD1ADE72094DB5A00487EF0 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE62094DB5A00487EF0 /* Date+Util.swift */; };
 		BBD1ADE92094DB7300487EF0 /* DateFormatter+Jp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1ADE82094DB7300487EF0 /* DateFormatter+Jp.swift */; };
@@ -172,7 +171,6 @@
 		BBD1ADDB2094DAB600487EF0 /* AccountRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRequester.swift; sourceTree = "<group>"; };
 		BBD1ADDD2094DAC800487EF0 /* AttendRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendRequester.swift; sourceTree = "<group>"; };
 		BBD1ADE02094DAFB00487EF0 /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
-		BBD1ADE22094DB0400487EF0 /* UserImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageUploader.swift; sourceTree = "<group>"; };
 		BBD1ADE42094DB2200487EF0 /* UIViewController+Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Scene.swift"; sourceTree = "<group>"; };
 		BBD1ADE62094DB5A00487EF0 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		BBD1ADE82094DB7300487EF0 /* DateFormatter+Jp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Jp.swift"; sourceTree = "<group>"; };
@@ -514,7 +512,6 @@
 			isa = PBXGroup;
 			children = (
 				BBD1ADE02094DAFB00487EF0 /* ImageUploader.swift */,
-				BBD1ADE22094DB0400487EF0 /* UserImageUploader.swift */,
 			);
 			path = ImageUploader;
 			sourceTree = "<group>";
@@ -653,7 +650,6 @@
 				BBD1ADCF2094D9CD00487EF0 /* ImageStorage.swift in Sources */,
 				BBD1ADCD2094D9B100487EF0 /* SaveData.swift in Sources */,
 				BB00EEF920980E80005263D9 /* CardDetailUserInfoTableViewCell.swift in Sources */,
-				BBD1ADE32094DB0400487EF0 /* UserImageUploader.swift in Sources */,
 				BBD1ADE52094DB2200487EF0 /* UIViewController+Scene.swift in Sources */,
 				BBD1ADAF2094D89B00487EF0 /* MessageViewController.swift in Sources */,
 				BBD1ADB22094D8AD00487EF0 /* SettingViewController.swift in Sources */,

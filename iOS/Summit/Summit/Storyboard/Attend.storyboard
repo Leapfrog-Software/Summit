@@ -257,6 +257,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="tUC-6u-Tdo" id="OlM-V5-uE7"/>
                         <outlet property="descriptionLabel" destination="XeY-Au-aID" id="FfD-YU-l4n"/>
+                        <outlet property="memberCountLabel" destination="cLc-04-8sp" id="nfw-c7-Pyb"/>
                         <outlet property="nameLabel" destination="Yj4-T6-ifb" id="ges-ga-JXH"/>
                         <outlet property="providerLabel" destination="u6d-Tt-hYV" id="VBF-D1-sTz"/>
                         <outlet property="remainTimeLabel" destination="3Dz-Nf-TGZ" id="80n-7p-tAJ"/>

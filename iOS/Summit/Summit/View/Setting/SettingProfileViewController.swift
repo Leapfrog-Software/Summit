@@ -223,19 +223,20 @@ class SettingProfileViewController: UIViewController {
                 "command": "uploadUserImage",
                 "userId": SaveData.shared.userId
             ]
+            ImageStorage.shared.remove(url: Constants.UserImageDirectory + SaveData.shared.userId)
             ImageUploader.post(url: Constants.ServerApiUrl, image: selectedImage, params: params, completion: { result, _ in
                 if result {
-                    self.updateUserIfNeeded()
+                    self.updateUserIfNeeded(didUploadImage: true)
                 } else {
                     Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
                 }
             })
         } else {
-            self.updateUserIfNeeded()
+            self.updateUserIfNeeded(didUploadImage: false)
         }
     }
     
-    private func updateUserIfNeeded() {
+    private func updateUserIfNeeded(didUploadImage: Bool) {
 
         guard var newUserData = UserRequester.shared.myUserData() else {
             self.pop(animationType: .horizontal)
@@ -301,6 +302,10 @@ class SettingProfileViewController: UIViewController {
                 }
             })
         } else {
+            if didUploadImage {
+                let settingViewController = self.tabbarViewController()?.childViewControllers.compactMap { $0 as? SettingViewController }.first
+                settingViewController?.refreshContents()
+            }
             self.pop(animationType: .horizontal)
         }
     }

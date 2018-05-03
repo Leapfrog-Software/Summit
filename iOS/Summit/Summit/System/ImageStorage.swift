@@ -77,4 +77,10 @@ class ImageStorage {
         }
         sameIndexes.forEach{ self.requestList.remove(at: $0) }
     }
+    
+    func remove(url: String) {
+        if let index = self.imageList.index(where: { $0.url == url }) {
+            self.imageList.remove(at: index)
+        }
+    }
 }
