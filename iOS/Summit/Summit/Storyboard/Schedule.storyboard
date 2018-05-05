@@ -594,6 +594,7 @@
                                                     <outlet property="nameLabel" destination="iWD-vg-yI1" id="3wE-mm-JZE"/>
                                                     <outlet property="providerLabel" destination="pul-Sp-Bnk" id="LHK-oZ-m9N"/>
                                                     <outlet property="reservedLabel" destination="wFD-Xc-cBl" id="5Co-7x-AEO"/>
+                                                    <outlet property="reservedLabelWidthConstraint" destination="vLv-y9-wAx" id="7Zj-M9-eSU"/>
                                                     <outlet property="shadowView" destination="3qt-kM-bFz" id="bYc-3o-Ajo"/>
                                                     <outlet property="timeLabel" destination="dnR-gK-0FX" id="OCK-r5-a87"/>
                                                 </connections>

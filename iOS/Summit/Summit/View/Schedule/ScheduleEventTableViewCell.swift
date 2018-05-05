@@ -16,6 +16,7 @@ class ScheduleEventTableViewCell: UITableViewCell {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var reservedLabel: UILabel!
+    @IBOutlet private weak var reservedLabelWidthConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +35,13 @@ class ScheduleEventTableViewCell: UITableViewCell {
         self.timeLabel.text = DateFormatter(dateFormat: "HH:mm").string(from: scheduleData.date)
         
         if let myUserData = UserRequester.shared.myUserData() {
-            self.reservedLabel.isHidden = !myUserData.reserves.contains(scheduleData.id)
+            if myUserData.reserves.contains(scheduleData.id) {
+                self.reservedLabel.isHidden = false
+                self.reservedLabelWidthConstraint.constant = 66
+            } else {
+                self.reservedLabel.isHidden = true
+                self.reservedLabelWidthConstraint.constant = 0
+            }
         }
     }
 }

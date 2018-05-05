@@ -45,7 +45,7 @@ class ScheduleDetailViewController: UIViewController {
         let memberCount = self.members.count
         self.memberCountLabel.text = "(\(memberCount)名)"
         
-        self.dateLabel.text = DateFormatter(dateFormat: "M月d日 H:m〜").string(from: self.scheduleData.date)
+        self.dateLabel.text = DateFormatter(dateFormat: "M月d日 HH:mm〜").string(from: self.scheduleData.date)
         
         self.providerLabel.text = self.scheduleData.provider
         

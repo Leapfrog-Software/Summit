@@ -94,15 +94,15 @@
                                         <rect key="frame" x="0.0" y="0.0" width="94" height="48"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab1_on" translatesAutoresizingMaskIntoConstraints="NO" id="XGs-Qc-W2z">
-                                                <rect key="frame" x="33" y="2" width="28" height="28"/>
+                                                <rect key="frame" x="33" y="4" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="Pzc-D9-v3o"/>
                                                     <constraint firstAttribute="height" constant="28" id="lTw-VX-e4f"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDw-cl-qRm">
-                                                <rect key="frame" x="31" y="33" width="33" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                <rect key="frame" x="29.5" y="33" width="35.5" height="9"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -116,9 +116,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="SDw-cl-qRm" firstAttribute="centerX" secondItem="6US-l4-b2r" secondAttribute="centerX" id="7Q3-bu-6wr"/>
-                                            <constraint firstItem="SDw-cl-qRm" firstAttribute="top" secondItem="XGs-Qc-W2z" secondAttribute="bottom" constant="3" id="VLf-Vx-SsL"/>
+                                            <constraint firstItem="SDw-cl-qRm" firstAttribute="top" secondItem="XGs-Qc-W2z" secondAttribute="bottom" constant="1" id="VLf-Vx-SsL"/>
                                             <constraint firstItem="LHn-AW-fdx" firstAttribute="top" secondItem="6US-l4-b2r" secondAttribute="top" id="gyq-2K-vLX"/>
-                                            <constraint firstItem="XGs-Qc-W2z" firstAttribute="top" secondItem="6US-l4-b2r" secondAttribute="top" constant="2" id="lxr-gh-jvf"/>
+                                            <constraint firstItem="XGs-Qc-W2z" firstAttribute="top" secondItem="6US-l4-b2r" secondAttribute="top" constant="4" id="lxr-gh-jvf"/>
                                             <constraint firstAttribute="trailing" secondItem="LHn-AW-fdx" secondAttribute="trailing" id="s4l-7h-xiH"/>
                                             <constraint firstItem="XGs-Qc-W2z" firstAttribute="centerX" secondItem="6US-l4-b2r" secondAttribute="centerX" id="sgi-GE-gW3"/>
                                             <constraint firstAttribute="bottom" secondItem="LHn-AW-fdx" secondAttribute="bottom" id="vmp-uw-9H7"/>
@@ -129,15 +129,15 @@
                                         <rect key="frame" x="94" y="0.0" width="93.5" height="48"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab2_off" translatesAutoresizingMaskIntoConstraints="NO" id="Hp7-Gy-1gt">
-                                                <rect key="frame" x="33" y="2" width="28" height="28"/>
+                                                <rect key="frame" x="33" y="4" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="Fh3-bd-zH1"/>
                                                     <constraint firstAttribute="height" constant="28" id="a7K-sn-bpd"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名刺管理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTW-48-oXa">
-                                                <rect key="frame" x="30.5" y="33" width="33" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                <rect key="frame" x="29" y="33" width="36.5" height="9"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -151,9 +151,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Hp7-Gy-1gt" firstAttribute="centerX" secondItem="vjp-Bf-X2c" secondAttribute="centerX" id="3vU-cX-4qM"/>
-                                            <constraint firstItem="Hp7-Gy-1gt" firstAttribute="top" secondItem="vjp-Bf-X2c" secondAttribute="top" constant="2" id="5Zt-Si-dq8"/>
+                                            <constraint firstItem="Hp7-Gy-1gt" firstAttribute="top" secondItem="vjp-Bf-X2c" secondAttribute="top" constant="4" id="5Zt-Si-dq8"/>
                                             <constraint firstItem="z2l-ql-akh" firstAttribute="leading" secondItem="vjp-Bf-X2c" secondAttribute="leading" id="Cqj-dt-GU4"/>
-                                            <constraint firstItem="rTW-48-oXa" firstAttribute="top" secondItem="Hp7-Gy-1gt" secondAttribute="bottom" constant="3" id="Dkl-VP-U8B"/>
+                                            <constraint firstItem="rTW-48-oXa" firstAttribute="top" secondItem="Hp7-Gy-1gt" secondAttribute="bottom" constant="1" id="Dkl-VP-U8B"/>
                                             <constraint firstItem="rTW-48-oXa" firstAttribute="centerX" secondItem="vjp-Bf-X2c" secondAttribute="centerX" id="Ky9-9q-t3P"/>
                                             <constraint firstAttribute="bottom" secondItem="z2l-ql-akh" secondAttribute="bottom" id="LV5-yT-haK"/>
                                             <constraint firstAttribute="trailing" secondItem="z2l-ql-akh" secondAttribute="trailing" id="QGV-OA-V4S"/>
@@ -164,15 +164,15 @@
                                         <rect key="frame" x="187.5" y="0.0" width="94" height="48"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab3_off" translatesAutoresizingMaskIntoConstraints="NO" id="7s1-Z1-fhL">
-                                                <rect key="frame" x="33" y="2" width="28" height="28"/>
+                                                <rect key="frame" x="33" y="4" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="1IP-Za-7zo"/>
                                                     <constraint firstAttribute="height" constant="28" id="H7g-dS-W6o"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メッセージ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzs-AY-cKw">
-                                                <rect key="frame" x="27" y="33" width="41" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                <rect key="frame" x="25" y="33" width="45.5" height="9"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -185,29 +185,29 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="7s1-Z1-fhL" firstAttribute="top" secondItem="mO9-wp-Lft" secondAttribute="top" constant="2" id="6rv-xY-4w7"/>
+                                            <constraint firstItem="7s1-Z1-fhL" firstAttribute="top" secondItem="mO9-wp-Lft" secondAttribute="top" constant="4" id="6rv-xY-4w7"/>
                                             <constraint firstItem="Vzz-3W-vw3" firstAttribute="top" secondItem="mO9-wp-Lft" secondAttribute="top" id="JNK-O1-twF"/>
                                             <constraint firstItem="Vzz-3W-vw3" firstAttribute="leading" secondItem="mO9-wp-Lft" secondAttribute="leading" id="Scw-e0-Fwh"/>
                                             <constraint firstAttribute="trailing" secondItem="Vzz-3W-vw3" secondAttribute="trailing" id="ZZJ-RU-wBK"/>
                                             <constraint firstAttribute="bottom" secondItem="Vzz-3W-vw3" secondAttribute="bottom" id="l7U-fT-dCY"/>
                                             <constraint firstItem="7s1-Z1-fhL" firstAttribute="centerX" secondItem="mO9-wp-Lft" secondAttribute="centerX" id="q2U-ut-brz"/>
                                             <constraint firstItem="dzs-AY-cKw" firstAttribute="centerX" secondItem="mO9-wp-Lft" secondAttribute="centerX" id="t9o-OT-bDo"/>
-                                            <constraint firstItem="dzs-AY-cKw" firstAttribute="top" secondItem="7s1-Z1-fhL" secondAttribute="bottom" constant="3" id="xSi-Wn-5vL"/>
+                                            <constraint firstItem="dzs-AY-cKw" firstAttribute="top" secondItem="7s1-Z1-fhL" secondAttribute="bottom" constant="1" id="xSi-Wn-5vL"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Bz-xQ-bB7">
                                         <rect key="frame" x="281.5" y="0.0" width="93.5" height="48"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab4_off" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-vA-G7p">
-                                                <rect key="frame" x="33" y="2" width="28" height="28"/>
+                                                <rect key="frame" x="33" y="4" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="PDk-Ra-vLp"/>
                                                     <constraint firstAttribute="width" constant="28" id="rtY-2C-BOp"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIc-cK-9Du">
-                                                <rect key="frame" x="38" y="33" width="16.5" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                <rect key="frame" x="37.5" y="33" width="18.5" height="9"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -222,12 +222,12 @@
                                         <constraints>
                                             <constraint firstItem="jIc-cK-9Du" firstAttribute="centerX" secondItem="4Bz-xQ-bB7" secondAttribute="centerX" id="1vn-aM-OHK"/>
                                             <constraint firstAttribute="trailing" secondItem="OxM-lj-hqS" secondAttribute="trailing" id="OfL-ly-Ya0"/>
-                                            <constraint firstItem="jIc-cK-9Du" firstAttribute="top" secondItem="7HO-vA-G7p" secondAttribute="bottom" constant="3" id="dRZ-43-ikl"/>
+                                            <constraint firstItem="jIc-cK-9Du" firstAttribute="top" secondItem="7HO-vA-G7p" secondAttribute="bottom" constant="1" id="dRZ-43-ikl"/>
                                             <constraint firstAttribute="bottom" secondItem="OxM-lj-hqS" secondAttribute="bottom" id="g7N-5f-Hal"/>
                                             <constraint firstItem="7HO-vA-G7p" firstAttribute="centerX" secondItem="4Bz-xQ-bB7" secondAttribute="centerX" id="l71-fg-L0U"/>
                                             <constraint firstItem="OxM-lj-hqS" firstAttribute="leading" secondItem="4Bz-xQ-bB7" secondAttribute="leading" id="qF7-5j-jJf"/>
                                             <constraint firstItem="OxM-lj-hqS" firstAttribute="top" secondItem="4Bz-xQ-bB7" secondAttribute="top" id="s8s-vp-8Aj"/>
-                                            <constraint firstItem="7HO-vA-G7p" firstAttribute="top" secondItem="4Bz-xQ-bB7" secondAttribute="top" constant="2" id="vcW-Vo-xg5"/>
+                                            <constraint firstItem="7HO-vA-G7p" firstAttribute="top" secondItem="4Bz-xQ-bB7" secondAttribute="top" constant="4" id="vcW-Vo-xg5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -287,8 +287,8 @@
         <image name="splash_logo" width="170" height="170"/>
         <image name="splash_text" width="101" height="41"/>
         <image name="tab1_on" width="28" height="28"/>
-        <image name="tab2_off" width="32" height="28"/>
-        <image name="tab3_off" width="75" height="75"/>
-        <image name="tab4_off" width="74" height="75"/>
+        <image name="tab2_off" width="28" height="28"/>
+        <image name="tab3_off" width="28" height="28"/>
+        <image name="tab4_off" width="28" height="28"/>
     </resources>
 </document>
