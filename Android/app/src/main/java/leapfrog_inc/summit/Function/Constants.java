@@ -16,6 +16,7 @@ public class Constants {
 
     public static class SharedPreferenceKey {
         public static String Key = "Summit";
+        public static String userId = "UserId";
         public static String pushSetting = "PushSetting";
     }
 
