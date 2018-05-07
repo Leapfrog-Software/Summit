@@ -924,7 +924,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="rKP-3C-7QU"/>
                                         </constraints>
-                                        <state key="normal" image="common_back"/>
+                                        <state key="normal" image="back_blue"/>
                                         <connections>
                                             <action selector="onTapBack:" destination="HlL-LR-uY4" eventType="touchUpInside" id="oR5-hS-d2x"/>
                                         </connections>
@@ -1064,7 +1064,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="common_back" width="44" height="48"/>
+        <image name="back_blue" width="48" height="48"/>
         <image name="schedule_detail_date" width="47" height="46"/>
         <image name="schedule_detail_provider" width="39" height="41"/>
         <image name="setting_arrow_right" width="26" height="26"/>

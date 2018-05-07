@@ -506,12 +506,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87p-WI-py7">
-                                <rect key="frame" x="16" y="30" width="44" height="44"/>
+                                <rect key="frame" x="16" y="30" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="E0q-YW-eN9"/>
-                                    <constraint firstAttribute="height" constant="44" id="fhL-dg-rZL"/>
+                                    <constraint firstAttribute="width" constant="48" id="E0q-YW-eN9"/>
+                                    <constraint firstAttribute="height" constant="48" id="fhL-dg-rZL"/>
                                 </constraints>
-                                <state key="normal" image="common_back_white"/>
+                                <state key="normal" image="back_blue"/>
                                 <connections>
                                     <action selector="onTapBack:" destination="NoV-FG-bdP" eventType="touchUpInside" id="l68-Z4-zhD"/>
                                 </connections>
@@ -544,6 +544,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="common_back_white" width="61" height="35"/>
+        <image name="back_blue" width="48" height="48"/>
     </resources>
 </document>

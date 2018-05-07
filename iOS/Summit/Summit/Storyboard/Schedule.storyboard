@@ -165,18 +165,32 @@
                                         <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar_arrow_left" translatesAutoresizingMaskIntoConstraints="NO" id="iFy-5O-fu0">
+                                        <rect key="frame" x="18" y="18" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="2fI-i2-0ma"/>
+                                            <constraint firstAttribute="width" constant="14" id="XRK-U9-6sZ"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbw-Ei-2JD">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="k4x-vY-zOo"/>
                                         </constraints>
-                                        <state key="normal" image="calendar_arrow_left">
+                                        <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="onTapPreviousMonth:" destination="TaH-Vh-5pL" eventType="touchUpInside" id="fF4-Ex-9kg"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="rgr-Xw-8pn">
+                                        <rect key="frame" x="343" y="18" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="B58-nP-l2t"/>
+                                            <constraint firstAttribute="height" constant="14" id="SOr-pR-rDE"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWb-u3-JMh">
                                         <rect key="frame" x="325" y="0.0" width="50" height="50"/>
                                         <constraints>
@@ -194,7 +208,11 @@
                                 <constraints>
                                     <constraint firstItem="Xbw-Ei-2JD" firstAttribute="top" secondItem="eAN-sP-nKp" secondAttribute="top" id="4Ht-8t-Zkl"/>
                                     <constraint firstAttribute="height" constant="50" id="6nY-5h-EGS"/>
+                                    <constraint firstItem="iFy-5O-fu0" firstAttribute="centerX" secondItem="Xbw-Ei-2JD" secondAttribute="centerX" id="7Kj-X8-BVA"/>
+                                    <constraint firstItem="bWb-u3-JMh" firstAttribute="centerY" secondItem="rgr-Xw-8pn" secondAttribute="centerY" id="Dt0-8F-U1w"/>
+                                    <constraint firstItem="iFy-5O-fu0" firstAttribute="centerY" secondItem="Xbw-Ei-2JD" secondAttribute="centerY" id="H9Y-hQ-Z3X"/>
                                     <constraint firstAttribute="bottom" secondItem="bWb-u3-JMh" secondAttribute="bottom" id="OIh-IF-0Lh"/>
+                                    <constraint firstItem="bWb-u3-JMh" firstAttribute="centerX" secondItem="rgr-Xw-8pn" secondAttribute="centerX" id="W8s-Jf-qpl"/>
                                     <constraint firstItem="Xbw-Ei-2JD" firstAttribute="leading" secondItem="eAN-sP-nKp" secondAttribute="leading" id="ept-r0-PoX"/>
                                     <constraint firstItem="tZe-aY-m8A" firstAttribute="centerY" secondItem="eAN-sP-nKp" secondAttribute="centerY" id="hEh-cv-JfR"/>
                                     <constraint firstAttribute="trailing" secondItem="bWb-u3-JMh" secondAttribute="trailing" id="lb3-WF-FMn"/>
@@ -923,12 +941,12 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkI-kb-jnE">
-                                <rect key="frame" x="10" y="30" width="50" height="50"/>
+                                <rect key="frame" x="10" y="30" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Mnq-H4-Ul8"/>
-                                    <constraint firstAttribute="height" constant="50" id="xAi-Ob-rmA"/>
+                                    <constraint firstAttribute="width" constant="48" id="Mnq-H4-Ul8"/>
+                                    <constraint firstAttribute="height" constant="48" id="xAi-Ob-rmA"/>
                                 </constraints>
-                                <state key="normal" image="common_back_white">
+                                <state key="normal" image="back_white">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -966,9 +984,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar_arrow_left" width="6" height="11"/>
-        <image name="calendar_arrow_right" width="6" height="11"/>
-        <image name="common_back_white" width="61" height="35"/>
+        <image name="back_white" width="48" height="48"/>
+        <image name="calendar_arrow_left" width="14" height="14"/>
+        <image name="calendar_arrow_right" width="14" height="14"/>
         <image name="schedule_detail_date" width="47" height="46"/>
         <image name="schedule_detail_provider" width="39" height="41"/>
         <image name="setting_arrow_right" width="26" height="26"/>

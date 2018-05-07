@@ -354,7 +354,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="grM-Zy-XxP"/>
                                         </constraints>
-                                        <state key="normal" image="common_back"/>
+                                        <state key="normal" image="back_blue"/>
                                         <connections>
                                             <action selector="onTapBack:" destination="XeY-xG-9wd" eventType="touchUpInside" id="uaR-Q4-FHK"/>
                                         </connections>
@@ -951,7 +951,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="VPM-Ut-MKj"/>
                                         </constraints>
-                                        <state key="normal" image="common_back"/>
+                                        <state key="normal" image="back_blue"/>
                                         <connections>
                                             <action selector="onTapBack:" destination="iic-WA-c3P" eventType="touchUpInside" id="gZc-K6-gur"/>
                                         </connections>
@@ -1044,7 +1044,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="c96-Xx-zh0"/>
                                         </constraints>
-                                        <state key="normal" image="common_back"/>
+                                        <state key="normal" image="back_blue"/>
                                         <connections>
                                             <action selector="onTapBack:" destination="toX-0D-NDE" eventType="touchUpInside" id="bqO-dF-ACm"/>
                                         </connections>
@@ -1179,7 +1179,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="MJh-fX-NNJ"/>
                                         </constraints>
-                                        <state key="normal" image="common_back"/>
+                                        <state key="normal" image="back_blue"/>
                                         <connections>
                                             <action selector="onTapBack:" destination="Gxf-TT-GQF" eventType="touchUpInside" id="TDo-k7-l1e"/>
                                         </connections>
@@ -1247,7 +1247,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="common_back" width="44" height="48"/>
+        <image name="back_blue" width="48" height="48"/>
         <image name="setting_arrow_right" width="26" height="26"/>
         <image name="setting_profile_camera" width="42" height="40"/>
     </resources>
