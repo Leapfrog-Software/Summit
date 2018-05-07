@@ -987,8 +987,8 @@
         <image name="back_white" width="48" height="48"/>
         <image name="calendar_arrow_left" width="14" height="14"/>
         <image name="calendar_arrow_right" width="14" height="14"/>
-        <image name="schedule_detail_date" width="47" height="46"/>
-        <image name="schedule_detail_provider" width="39" height="41"/>
-        <image name="setting_arrow_right" width="26" height="26"/>
+        <image name="schedule_detail_date" width="20" height="20"/>
+        <image name="schedule_detail_provider" width="20" height="20"/>
+        <image name="setting_arrow_right" width="20" height="20"/>
     </resources>
 </document>

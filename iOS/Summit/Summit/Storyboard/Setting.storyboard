@@ -1248,7 +1248,7 @@
     </scenes>
     <resources>
         <image name="back_blue" width="48" height="48"/>
-        <image name="setting_arrow_right" width="26" height="26"/>
-        <image name="setting_profile_camera" width="42" height="40"/>
+        <image name="setting_arrow_right" width="20" height="20"/>
+        <image name="setting_profile_camera" width="12" height="12"/>
     </resources>
 </document>

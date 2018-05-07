@@ -60,6 +60,6 @@
         </view>
     </objects>
     <resources>
-        <image name="loading" width="128" height="128"/>
+        <image name="loading" width="50" height="50"/>
     </resources>
 </document>
