@@ -13,11 +13,12 @@ class UserData {
 	public $position;
 	public $reserves;
 	public $cards;
+	public $message;
 
 	static function initFromFileString($line) {
 
 		$datas = explode(",", $line);
-		if (count($datas) == 12) {
+		if (count($datas) == 13) {
 			$userData = new UserData();
 			$userData->id = $datas[0];
 			$userData->nameLast = $datas[1];
@@ -31,6 +32,7 @@ class UserData {
 			$userData->position = $datas[9];
 			$userData->reserves = explode("-", $datas[10]);
 			$userData->cards = explode("-", $datas[11]);
+			$userData->message = $datas[12];
 			return $userData;
 		}
 		return null;

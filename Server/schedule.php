@@ -3,22 +3,26 @@
 class ScheduleData {
 	public $id;
 	public $title;
-	public $sponsor;
+	public $provider;
 	public $datetime;
-	public $interval;
+	public $timeLength;
 	public $type;
+	public $description;
+	public $filter;
 
 	static function initFromFileString($line) {
 
 		$datas = explode(",", $line);
-		if (count($datas) == 7) {
+		if (count($datas) == 8) {
 			$scheduleData = new ScheduleData();
 			$scheduleData->id = $datas[0];
 			$scheduleData->title = $datas[1];
-			$scheduleData->sponsor = $datas[2];
+			$scheduleData->provider = $datas[2];
 			$scheduleData->datetime = $datas[3];
-			$scheduleData->interval = $datas[4];
+			$scheduleData->timeLength = $datas[4];
 			$scheduleData->type = $datas[5];
+			$scheduleData->description = $datas[6];
+			$scheduleData->filter = $datas[7];
 			return $scheduleData;
 		}
 		return null;
