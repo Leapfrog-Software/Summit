@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import leapfrog_inc.summit.Function.Base64Utility;
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.SaveData;
 import leapfrog_inc.summit.Http.HttpManager;
@@ -29,7 +30,7 @@ public class MessageRequester {
             try {
                 String senderId = json.getString("senderId");
                 String receiverId = json.getString("receiverId");
-                String message = json.getString("message");
+                String message = Base64Utility.decode(json.getString("message"));
 
                 String datetimeStr = json.getString("datetime");
                 SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");

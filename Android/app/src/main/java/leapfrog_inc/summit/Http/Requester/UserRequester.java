@@ -1,10 +1,13 @@
 package leapfrog_inc.summit.Http.Requester;
 
+import android.util.Base64;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import leapfrog_inc.summit.Function.Base64Utility;
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.KanaUtils;
 import leapfrog_inc.summit.Function.SaveData;
@@ -32,12 +35,12 @@ public class UserRequester {
 
             try {
                 String userId = json.getString("id");
-                String nameFirst = json.getString("nameFirst");
-                String nameLast = json.getString("nameLast");
-                String kanaFirst = json.getString("kanaFirst");
-                String kanaLast = json.getString("kanaLast");
-                String job = json.getString("job");
-                String position = json.getString("position");
+                String nameFirst = Base64Utility.decode(json.getString("nameFirst"));
+                String nameLast = Base64Utility.decode(json.getString("nameLast"));
+                String kanaFirst = Base64Utility.decode(json.getString("kanaFirst"));
+                String kanaLast = Base64Utility.decode(json.getString("kanaLast"));
+                String job = Base64Utility.decode(json.getString("job"));
+                String position = Base64Utility.decode(json.getString("position"));
                 JSONArray reserves = json.getJSONArray("reserves");
                 JSONArray cards = json.getJSONArray("cards");
 

@@ -41,7 +41,7 @@ public class MessageFragment extends BaseFragment {
         for (int i = 0; i < messages.size(); i++) {
             MessageRequester.MessageData messageData = messages.get(i);
             String targetId = "";
-            if (messageData.senderId == SaveData.getInstance().userId) {
+            if (messageData.senderId.equals(SaveData.getInstance().userId)) {
                 targetId = messageData.receiverId;
             } else {
                 targetId = messageData.senderId;
@@ -57,7 +57,7 @@ public class MessageFragment extends BaseFragment {
             int minIndex = -1;
             Date maxDate = null;
             for (int j = 0; j < targetIds.size(); j++) {
-                ArrayList<MessageRequester.MessageData> filterredMessages = MessageRequester.getInstance().queryMessages(targetIds.get(i));
+                ArrayList<MessageRequester.MessageData> filterredMessages = MessageRequester.getInstance().queryMessages(targetIds.get(j));
                 Date lastDate = lastMessageDatetime(filterredMessages);
                 if ((minIndex == -1) || (lastDate.after(maxDate))) {
                     minIndex = j;
