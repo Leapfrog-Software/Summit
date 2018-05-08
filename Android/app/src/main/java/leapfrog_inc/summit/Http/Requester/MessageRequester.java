@@ -89,11 +89,27 @@ public class MessageRequester {
         param.append("command=getMessage");
         param.append("&");
         param.append(("userId=" + SaveData.getInstance().userId));
-        httpManager.execute(Constants.ServerRootUrl, "POST", param.toString());
+        httpManager.execute(Constants.ServerApiUrl, "POST", param.toString());
     }
 
     public interface MessageRequesterCallback {
         void didReceiveData(boolean result);
+    }
+
+    public ArrayList<MessageData> getDataList() {
+        return mDataList;
+    }
+
+    public ArrayList<MessageData> queryMessages(String userId) {
+
+        ArrayList<MessageData> ret = new ArrayList<MessageData>();
+        for (int i = 0; i < mDataList.size(); i++) {
+            MessageData messageData = mDataList.get(i);
+            if ((messageData.senderId.equals(userId)) || (messageData.receiverId.equals(userId))) {
+                ret.add(messageData);
+            }
+        }
+        return ret;
     }
 
     public void post(String targetId, String message, final MessagePostRequesterCallback callback) {
@@ -122,7 +138,7 @@ public class MessageRequester {
         param.append(("receiverId=" + targetId));
         param.append("&");
         param.append(("message=" + message));
-        httpManager.execute(Constants.ServerRootUrl, "POST", param.toString());
+        httpManager.execute(Constants.ServerApiUrl, "POST", param.toString());
     }
 
     public interface MessagePostRequesterCallback {

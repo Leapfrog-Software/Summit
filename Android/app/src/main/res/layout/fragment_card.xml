@@ -3,13 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#0f0"
+    android:background="#fff"
     android:id="@+id/rootLayout">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="名刺管理"
+                android:textColor="@color/mainBlue"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:textAlignment="center"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/weakBlack"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:scrollbars="none"/>
+            <LinearLayout
+                android:id="@+id/cardIndexBaseLayout"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"/>
+        </LinearLayout>
 
     </LinearLayout>
 </FrameLayout>

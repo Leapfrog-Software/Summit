@@ -3,13 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ff0"
+    android:background="#fff"
     android:id="@+id/rootLayout">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="設定"
+                android:textColor="@color/mainBlue"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:textAlignment="center"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/weakBlack"/>
+        </LinearLayout>
 
     </LinearLayout>
 </FrameLayout>

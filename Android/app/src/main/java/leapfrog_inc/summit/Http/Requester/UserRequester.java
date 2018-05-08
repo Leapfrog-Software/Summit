@@ -111,7 +111,7 @@ public class UserRequester {
         });
         StringBuffer param = new StringBuffer();
         param.append("command=getUser");
-        httpManager.execute(Constants.ServerRootUrl, "POST", param.toString());
+        httpManager.execute(Constants.ServerApiUrl, "POST", param.toString());
     }
 
     private ArrayList<UserData> sortUserList(ArrayList<UserData> userList) {
@@ -155,6 +155,16 @@ public class UserRequester {
 
         String userId = SaveData.getInstance().userId;
         if (userId.length() == 0) return null;
+
+        for (int i = 0; i < mDataList.size(); i++) {
+            if (mDataList.get(i).userId.equals(userId)) {
+                return mDataList.get(i);
+            }
+        }
+        return null;
+    }
+
+    public UserData query(String userId) {
 
         for (int i = 0; i < mDataList.size(); i++) {
             if (mDataList.get(i).userId.equals(userId)) {

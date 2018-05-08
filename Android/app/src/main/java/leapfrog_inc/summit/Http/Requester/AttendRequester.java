@@ -127,7 +127,7 @@ public class AttendRequester {
         param.append(("tableId=" + tableId));
         param.append("&");
         param.append(("userId=" + SaveData.getInstance().userId));
-        httpManager.execute(Constants.ServerRootUrl, "POST", param.toString());
+        httpManager.execute(Constants.ServerApiUrl, "POST", param.toString());
     }
 
     public interface AttendRequesterCallback {
@@ -164,7 +164,7 @@ public class AttendRequester {
         param.append(("senderId=" + SaveData.getInstance().userId));
         param.append("&");
         param.append(("chat=" + chat));
-        httpManager.execute(Constants.ServerRootUrl, "POST", param.toString());
+        httpManager.execute(Constants.ServerApiUrl, "POST", param.toString());
     }
 
     public interface PostChatCallback {

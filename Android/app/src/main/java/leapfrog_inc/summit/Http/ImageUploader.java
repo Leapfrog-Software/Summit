@@ -39,7 +39,7 @@ public class ImageUploader extends AsyncTask<ImageUploader.ImageUploaderParamete
         String result = "";
 
         try {
-            URL url = new URL(Constants.ServerRootUrl);
+            URL url = new URL(Constants.ServerApiUrl);
             conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(Constants.HttpReadTimeout);
             conn.setConnectTimeout(Constants.HttpConnectTimeout);

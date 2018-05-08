@@ -114,7 +114,7 @@ public class ScheduleRequester {
         });
         StringBuffer param = new StringBuffer();
         param.append("command=getSchedule");
-        httpManager.execute(Constants.ServerRootUrl, "POST", param.toString());
+        httpManager.execute(Constants.ServerApiUrl, "POST", param.toString());
     }
 
     public interface ScheduleRequesterCallback {

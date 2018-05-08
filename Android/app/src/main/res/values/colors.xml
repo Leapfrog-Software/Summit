@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="mainBlue">#1e489e</color>
+    <color name="basicBlack">#222222</color>
+    <color name="weakBlack">#abb4bd</color>
+    <color name="passiveGray">#ededf4</color>
+
+    <color name="scheduleParty">#ff0068</color>
+    <color name="scheduleSeminar">#5bedcd</color>
+    <color name="scheduleMeeting">#2457f5</color>
 </resources>

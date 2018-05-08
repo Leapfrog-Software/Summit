@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:orientation="vertical"
+        android:elevation="6dp"
+        android:background="@drawable/shape_card"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#f00"
+                android:layout_gravity="center_vertical"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="16dp">
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="名前"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/basicBlack"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/jobTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="株式会社ABC"
+                        android:textSize="12dp"
+                        android:textColor="@color/weakBlack"/>
+                    <TextView
+                        android:id="@+id/positionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="代表取締役"
+                        android:textSize="12dp"
+                        android:textColor="@color/weakBlack"
+                        android:layout_marginLeft="8dp"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/commentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="釣りと将棋が好きです！よろしくお願い致します。釣りと将棋が好きです！よろしくお願い致します"
+                    android:lines="2"
+                    android:gravity="top"
+                    android:layout_marginTop="10dp"
+                    android:textSize="11dp"
+                    android:textColor="@color/basicBlack"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

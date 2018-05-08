@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="100dp">
+
+    <FrameLayout
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal">
+        <View
+            android:id="@+id/todayView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_calendar_today_view"/>
+        <TextView
+            android:id="@+id/dayTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="31"
+            android:textSize="14dp"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="6dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp">
+        <LinearLayout
+            android:id="@+id/schedule1Layout"
+            android:layout_width="8dp"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/schedule1View"
+                android:layout_width="6dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_schedule_party"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/schedule2Layout"
+            android:layout_width="8dp"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/schedule2View"
+                android:layout_width="6dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_schedule_seminar"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/schedule3Layout"
+            android:layout_width="8dp"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/schedule3View"
+                android:layout_width="6dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_schedule_meeting"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/dayButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0000"/>
+
+</FrameLayout>

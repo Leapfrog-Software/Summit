@@ -6,10 +6,185 @@
     android:background="#f00"
     android:id="@+id/rootLayout">
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#fff"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="イベントを探す"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/mainBlue"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/passiveGray"/>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@drawable/calendar_arrow_left"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center"/>
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#0000" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="2018年 3月"
+                        android:textSize="16dp"
+                        android:textColor="@color/basicBlack"
+                        android:gravity="center"/>
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@drawable/calendar_arrow_right"
+                            android:scaleType="fitCenter"
+                            android:layout_gravity="center"/>
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#0000" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="月"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/weakBlack"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="火"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/weakBlack"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="水"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/weakBlack"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="木"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/weakBlack"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="金"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/weakBlack"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="土"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/weakBlack"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="日"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/weakBlack"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="264dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/passiveGray"/>
+
+                <TextView
+                    android:id="@+id/scheduleDateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4/1のイベント"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/basicBlack"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="16dp"/>
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:divider="@null"/>
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </FrameLayout>
