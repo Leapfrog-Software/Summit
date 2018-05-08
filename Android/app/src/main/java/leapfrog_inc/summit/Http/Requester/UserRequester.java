@@ -176,4 +176,15 @@ public class UserRequester {
         }
         return null;
     }
+
+    public ArrayList<UserData> queryReservedUser(String scheduleId) {
+
+        ArrayList<UserRequester.UserData> ret = new ArrayList<UserRequester.UserData>();
+        for (int i = 0; i < mDataList.size(); i++) {
+            if (mDataList.get(i).reserves.contains(scheduleId)) {
+                ret.add(mDataList.get(i));
+            }
+        }
+        return ret;
+    }
 }

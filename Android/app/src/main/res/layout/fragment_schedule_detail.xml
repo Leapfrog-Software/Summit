@@ -2,25 +2,193 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rootLayout">
+    android:id="@+id/rootLayout"
+    android:background="#fff">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/scheduleImageView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="fitCenter"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="異業種交流会"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:textColor="@color/basicBlack"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="参加予定"
+                    android:textSize="12dp"
+                    android:textColor="@color/basicBlack" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(10名)"
+                    android:textSize="12dp"
+                    android:textColor="@color/basicBlack"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+            
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:scrollbars="none"
+                android:layout_marginTop="10dp">
+                <LinearLayout
+                    android:id="@+id/memberLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/schedule_detail_date"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5月1日 11:00〜"
+                    android:textSize="14dp"
+                    android:textColor="#ABABAB"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="16dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/schedule_detail_provider"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Summit!運営"
+                    android:textSize="14dp"
+                    android:textColor="#ABABAB"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#EFEFEF"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="詳細"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="14dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細"
+                android:textColor="@color/basicBlack"
+                android:textSize="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#EFEFEF"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="参加条件 : "
+                    android:textSize="12dp"
+                    android:textColor="@color/basicBlack" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25歳以下の起業家"
+                    android:textSize="12dp"
+                    android:textColor="@color/basicBlack" />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/backButton"
-                android:layout_width="44dp"
-                android:layout_height="match_parent"
-                android:text="＜"/>
+                android:id="@+id/reserveButton"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="予約する"
+                android:textColor="#fff"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_marginTop="46dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/shape_schedule_reserve_button"/>
+
+
+
+
+
+
 
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/back_white" />
+
+
 </FrameLayout>
