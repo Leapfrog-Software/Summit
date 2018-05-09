@@ -42,6 +42,9 @@ public class ScheduleRequester {
         public String title = "";
         public Calendar datetime;
         public int timeLength = 0;
+        public String provider = "";
+        public String description = "";
+        public String filter = "";
 
         static public ScheduleData create(JSONObject json) {
 
@@ -58,8 +61,11 @@ public class ScheduleRequester {
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(datetime);
 
-//                int timeLength = Integer.valueOf(json.getString("timeLength"));
-                int timeLength = 30;
+                int timeLength = Integer.valueOf(json.getString("timeLength"));
+
+                String provider = json.getString("provider");
+                String description = json.getString("description");
+                String filter = json.getString("filter");
 
                 ScheduleData scheduleData = new ScheduleData();
                 scheduleData.id = id;
@@ -67,6 +73,9 @@ public class ScheduleRequester {
                 scheduleData.title = title;
                 scheduleData.datetime = calendar;
                 scheduleData.timeLength = timeLength;
+                scheduleData.provider = provider;
+                scheduleData.description = description;
+                scheduleData.filter = filter;
                 return scheduleData;
 
             } catch(Exception e) {}

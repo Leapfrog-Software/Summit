@@ -181,6 +181,9 @@ public class UserRequester {
 
         ArrayList<UserRequester.UserData> ret = new ArrayList<UserRequester.UserData>();
         for (int i = 0; i < mDataList.size(); i++) {
+            if (mDataList.get(i).userId.equals(SaveData.getInstance().userId)) {
+                continue;
+            }
             if (mDataList.get(i).reserves.contains(scheduleId)) {
                 ret.add(mDataList.get(i));
             }

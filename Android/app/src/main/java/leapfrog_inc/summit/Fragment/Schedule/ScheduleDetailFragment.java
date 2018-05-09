@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -19,6 +21,7 @@ import leapfrog_inc.summit.Fragment.Common.Loading;
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.DeviceUtility;
 import leapfrog_inc.summit.Function.PicassoUtility;
+import leapfrog_inc.summit.Function.SaveData;
 import leapfrog_inc.summit.Http.Requester.AccountRequester;
 import leapfrog_inc.summit.Http.Requester.ScheduleRequester;
 import leapfrog_inc.summit.Http.Requester.UserRequester;
@@ -52,12 +55,14 @@ public class ScheduleDetailFragment extends BaseFragment {
         UserRequester.UserData myUserData = UserRequester.getInstance().myUserData();
         if (myUserData == null) return;
 
+        // 画像
         ImageView scheduleImageView = (ImageView)view.findViewById(R.id.scheduleImageView);
         ViewGroup.LayoutParams params = scheduleImageView.getLayoutParams();
         params.height = DeviceUtility.getWindowSize(getActivity()).x * 2 / 3;
         scheduleImageView.setLayoutParams(params);
         PicassoUtility.getScheduleImage(getActivity(), Constants.ScheduleImageDirectory + mScheduleData.id, (ImageView)view.findViewById(R.id.scheduleImageView));
 
+        // 参加者リスト
         LinearLayout memberLayout = (LinearLayout)view.findViewById(R.id.memberLayout);
         memberLayout.addView(createPaddingView(16));
         ArrayList<UserRequester.UserData> userList = UserRequester.getInstance().queryReservedUser(mScheduleData.id);
@@ -72,16 +77,37 @@ public class ScheduleDetailFragment extends BaseFragment {
         }
         memberLayout.addView(createPaddingView(16));
 
+        ((TextView)view.findViewById(R.id.memberCountTextView)).setText("(" + String.valueOf(userList.size()) + "名)");
+
+
+        // 日時
+        SimpleDateFormat format = new SimpleDateFormat("M月d日 hh:mm〜");
+        String datetime = format.format(mScheduleData.datetime.getTime());
+        ((TextView)view.findViewById(R.id.dateTextView)).setText(datetime);
+
+        // プロバイダー
+        ((TextView)view.findViewById(R.id.providerTextView)).setText(mScheduleData.provider);
+
+        // 詳細
+        ((TextView)view.findViewById(R.id.descriptionTextView)).setText(mScheduleData.description);
+
+        // 参加条件
+        ((TextView)view.findViewById(R.id.filterTextView)).setText(mScheduleData.filter);
+
+        // 予約ボタン
+        Button reserveButton = (Button)view.findViewById(R.id.reserveButton);
         if (myUserData.reserves.contains(mScheduleData.id)) {
-            // TODO 予約済みです
+            reserveButton.setBackgroundResource(R.drawable.shape_schedule_reserve_button_disable);
+            reserveButton.setText("予約済みです");
+            reserveButton.setEnabled(false);
         } else {
             Date current = new Date();
             Date scheduleDate = mScheduleData.datetime.getTime();
             long timeDiff = scheduleDate.getTime() - current.getTime();
             if (timeDiff > -60 * 60 * 1000) {
-                // TODO 予約可能時間を過ぎています
-            } else {
-                // TODO enabled = true
+                reserveButton.setBackgroundResource(R.drawable.shape_schedule_reserve_button_disable);
+                reserveButton.setText("予約可能時間を過ぎています");
+                reserveButton.setEnabled(false);
             }
         }
     }
@@ -141,7 +167,12 @@ public class ScheduleDetailFragment extends BaseFragment {
                                 }
                             });
 
-                            // TODO 予約済みです(非活性化)
+                            View view = getView();
+                            if (view == null) return;
+                            Button reserveButton = (Button)view.findViewById(R.id.reserveButton);
+                            reserveButton.setBackgroundResource(R.drawable.shape_schedule_reserve_button_disable);
+                            reserveButton.setText("予約済みです");
+                            reserveButton.setEnabled(false);
                         }
                     });
                 } else {
