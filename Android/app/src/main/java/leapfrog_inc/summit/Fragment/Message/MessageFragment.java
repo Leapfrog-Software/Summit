@@ -84,9 +84,9 @@ public class MessageFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 UserRequester.UserData userData = (UserRequester.UserData)adapterView.getItemAtPosition(i);
-
-
-
+                MessageDetailFragment fragment = new MessageDetailFragment();
+                fragment.set(userData.userId);
+                stackFragment(fragment, AnimationType.horizontal);
             }
         });
     }

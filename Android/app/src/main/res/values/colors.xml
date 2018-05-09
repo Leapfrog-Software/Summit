@@ -12,4 +12,9 @@
     <color name="scheduleParty">#ff0068</color>
     <color name="scheduleSeminar">#5bedcd</color>
     <color name="scheduleMeeting">#2457f5</color>
+
+
+
+    <color name="dialogButtonSuccess">#7BD1F9</color>
+    <color name="dialogButtonError">#E64942</color>
 </resources>
