@@ -9,13 +9,16 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import leapfrog_inc.summit.Fragment.BaseFragment;
+import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.KanaUtils;
+import leapfrog_inc.summit.Function.PicassoUtility;
 import leapfrog_inc.summit.Http.Requester.UserRequester;
 import leapfrog_inc.summit.R;
 
@@ -173,8 +176,13 @@ public class CardFragment extends BaseFragment {
                 return convertView;
             } else {
                 convertView = mInflater.inflate(R.layout.adapter_card_user, parent, false);
-                ((TextView)convertView.findViewById(R.id.nameTextView)).setText(data.userData.nameLast + " " + data.userData.nameFirst);
 
+                PicassoUtility.getUserImage(mContext, Constants.UserImageDirectory + data.userData.userId, (ImageView)convertView.findViewById(R.id.faceImageView));
+
+                ((TextView)convertView.findViewById(R.id.nameTextView)).setText(data.userData.nameLast + " " + data.userData.nameFirst);
+                ((TextView)convertView.findViewById(R.id.companyTextView)).setText(data.userData.company);
+                ((TextView)convertView.findViewById(R.id.positionTextView)).setText(data.userData.position);
+                ((TextView)convertView.findViewById(R.id.messageTextView)).setText(data.userData.message);
                 return convertView;
             }
         }

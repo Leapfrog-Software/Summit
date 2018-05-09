@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 import leapfrog_inc.summit.Fragment.BaseFragment;
+import leapfrog_inc.summit.Function.Constants;
+import leapfrog_inc.summit.Function.PicassoUtility;
 import leapfrog_inc.summit.Http.Requester.ScheduleRequester;
 import leapfrog_inc.summit.Http.Requester.UserRequester;
 import leapfrog_inc.summit.R;
@@ -126,6 +129,7 @@ public class CardDetailFragment extends BaseFragment {
             if (data.userData != null) {
                 convertView = mInflater.inflate(R.layout.adapter_card_detail_user, parent, false);
 
+                PicassoUtility.getUserImage(mContext, Constants.UserImageDirectory + data.userData.userId, (ImageView)convertView.findViewById(R.id.faceImageView));
 
                 return convertView;
             } else if (data.scheduleTitle != null) {
