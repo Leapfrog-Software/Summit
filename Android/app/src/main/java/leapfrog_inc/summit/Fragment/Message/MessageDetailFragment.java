@@ -6,12 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import leapfrog_inc.summit.Fragment.BaseFragment;
+import leapfrog_inc.summit.Function.Constants;
+import leapfrog_inc.summit.Function.PicassoUtility;
+import leapfrog_inc.summit.Function.SaveData;
 import leapfrog_inc.summit.Http.Requester.MessageRequester;
 import leapfrog_inc.summit.R;
 
@@ -32,9 +40,20 @@ public class MessageDetailFragment extends BaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_message_detail, null);
 
+        initAction(view);
         resetListView(view);
 
         return view;
+    }
+
+    private void initAction(View view) {
+
+        ((ImageButton)view.findViewById(R.id.backButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popFragment(AnimationType.horizontal);
+            }
+        });
     }
 
     private void resetListView(View v) {
@@ -51,9 +70,9 @@ public class MessageDetailFragment extends BaseFragment {
             Date minDate = new Date();
             for (int j = 0; j < messageList.size(); j++) {
                 MessageRequester.MessageData messageData = messageList.get(j);
-                if ((minIndex == -1) || (minDate.after(messageData.datetime))) {
+                if ((minIndex == -1) || (minDate.after(messageData.datetime.getTime()))) {
                     minIndex = j;
-                    minDate = messageData.datetime;
+                    minDate = messageData.datetime.getTime();
                 }
             }
             sortedMessageList.add(messageList.get(minIndex));
@@ -87,16 +106,40 @@ public class MessageDetailFragment extends BaseFragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            convertView = mInflater.inflate(R.layout.adapter_message_detail_left, parent, false);
-
             MessageRequester.MessageData messageData = getItem(position);
+            if (messageData.senderId.equals(SaveData.getInstance().userId)) {
+                convertView = mInflater.inflate(R.layout.adapter_message_detail_right, parent, false);
 
+                ((TextView)convertView.findViewById(R.id.messageTextView)).setText(messageData.message);
+                ((TextView)convertView.findViewById(R.id.dateTextView)).setText(getDateString(messageData.datetime));
 
+            } else {
+                convertView = mInflater.inflate(R.layout.adapter_message_detail_left, parent, false);
 
-
-
+                PicassoUtility.getUserImage(mContext, Constants.UserImageDirectory + messageData.senderId, (ImageView)convertView.findViewById(R.id.faceImageView));
+                ((TextView)convertView.findViewById(R.id.messageTextView)).setText(messageData.message);
+                ((TextView)convertView.findViewById(R.id.dateTextView)).setText(getDateString(messageData.datetime));
+            }
 
             return convertView;
+        }
+
+        private String getDateString(Calendar calendar) {
+
+            Calendar today = Calendar.getInstance();
+
+            if ((today.get(Calendar.YEAR) == calendar.get(Calendar.YEAR))
+                    && (today.get(Calendar.MONTH) == calendar.get(Calendar.MONTH))
+                    && (today.get(Calendar.DAY_OF_MONTH) == calendar.get(Calendar.DAY_OF_MONTH))) {
+                SimpleDateFormat format = new SimpleDateFormat("hh:mm");
+                return format.format(calendar.getTime());
+            } else if (today.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)) {
+                SimpleDateFormat format = new SimpleDateFormat("M月d日 hh:mm");
+                return format.format(calendar.getTime());
+            } else {
+                SimpleDateFormat format = new SimpleDateFormat("yyyy年M月d日 hh:mm");
+                return format.format(calendar.getTime());
+            }
         }
     }
 }
