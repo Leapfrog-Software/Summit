@@ -12,4 +12,82 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="48dp"/>
 
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="山田太郎"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:id="@+id/companyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="株式会社ABC"
+            android:textSize="14dp"
+            android:textColor="#ABABAB"/>
+        <TextView
+            android:id="@+id/positionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="代表取締役"
+            android:textSize="14dp"
+            android:textColor="#ABABAB"
+            android:layout_marginLeft="16dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:id="@+id/ageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20代"
+            android:textSize="14dp"
+            android:textColor="#ABABAB"/>
+        <TextView
+            android:id="@+id/genderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="男性"
+            android:textSize="14dp"
+            android:textColor="#ABABAB"
+            android:layout_marginLeft="16dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="釣りと将棋が好きです。釣りと将棋が好きです。釣りと将棋が好きです。釣りと将棋が好きです。釣りと将棋が好きです。釣りと将棋が好きです。釣りと将棋が好きです。"
+        android:textSize="12dp"
+        android:textColor="@color/basicBlack"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#EFEFEF"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"/>
 </LinearLayout>

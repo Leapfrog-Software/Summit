@@ -6,9 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,12 +39,22 @@ public class CardDetailFragment extends BaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_card_detail, null);
 
+        initAction(view);
         initListView(view);
 
         return view;
     }
 
-    // 0508
+    private void initAction(View view) {
+
+        ((ImageButton)view.findViewById(R.id.backButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popFragment(AnimationType.horizontal);
+            }
+        });
+    }
+
     private void initListView(View view) {
 
         CardDetailAdapater adapter = new CardDetailAdapater(getActivity());
@@ -69,8 +82,7 @@ public class CardDetailFragment extends BaseFragment {
         }
 
         CardDetailAdapterData futureTitleAdapterData = new CardDetailAdapterData();
-        futureTitleAdapterData.scheduleTitle = "参加予定のイベント";
-        futureTitleAdapterData.scheduleTitleCount = futureSchedules.size();
+        futureTitleAdapterData.scheduleTitle = String.format("参加予定のイベント(%d)", futureSchedules.size());
         adapter.add(futureTitleAdapterData);
 
         if (futureSchedules.size() == 0) {
@@ -84,9 +96,8 @@ public class CardDetailFragment extends BaseFragment {
         }
 
         CardDetailAdapterData pastTitleAdapterData = new CardDetailAdapterData();
-        futureTitleAdapterData.scheduleTitle = "過去に参加したイベント";
-        futureTitleAdapterData.scheduleTitleCount = pastSchedules.size();
-        adapter.add(futureTitleAdapterData);
+        pastTitleAdapterData.scheduleTitle = String.format("過去に参加したイベント(%d)", pastSchedules.size());
+        adapter.add(pastTitleAdapterData);
 
         if (pastSchedules.size() == 0) {
             adapter.add(new CardDetailAdapterData());
@@ -103,11 +114,9 @@ public class CardDetailFragment extends BaseFragment {
         listView.setAdapter(adapter);
     }
 
-
     private class CardDetailAdapterData {
         UserRequester.UserData userData;
         String scheduleTitle;
-        int scheduleTitleCount;
         ScheduleRequester.ScheduleData scheduleData;
     }
 
@@ -131,22 +140,35 @@ public class CardDetailFragment extends BaseFragment {
 
                 PicassoUtility.getUserImage(mContext, Constants.UserImageDirectory + data.userData.userId, (ImageView)convertView.findViewById(R.id.faceImageView));
 
+                ((TextView)convertView.findViewById(R.id.nameTextView)).setText(data.userData.nameLast + " " + data.userData.nameFirst);
+                ((TextView)convertView.findViewById(R.id.companyTextView)).setText(data.userData.company);
+                ((TextView)convertView.findViewById(R.id.positionTextView)).setText(data.userData.position);
+                ((TextView)convertView.findViewById(R.id.ageTextView)).setText(data.userData.age.toText());
+                ((TextView)convertView.findViewById(R.id.genderTextView)).setText(data.userData.gender.toText());
+                ((TextView)convertView.findViewById(R.id.messageTextView)).setText(data.userData.message);
+
                 return convertView;
+
             } else if (data.scheduleTitle != null) {
                 convertView = mInflater.inflate(R.layout.adapter_card_detail_schedule_title, parent, false);
-
-
+                ((TextView)convertView.findViewById(R.id.titleTextView)).setText(data.scheduleTitle);
                 return convertView;
+
             } else if (data.scheduleData != null) {
                 convertView = mInflater.inflate(R.layout.adapter_card_detail_schedule, parent, false);
+                ((TextView)convertView.findViewById(R.id.titleTextView)).setText(data.scheduleData.title);
 
+                SimpleDateFormat format = new SimpleDateFormat("yyyy/M/d");
+                String datetime = format.format(data.scheduleData.datetime.getTime());
+                ((TextView)convertView.findViewById(R.id.dateTextView)).setText(datetime);
+
+                ((TextView)convertView.findViewById(R.id.providerTextView)).setText(data.scheduleData.provider);
+                ((TextView)convertView.findViewById(R.id.descriptionTextView)).setText(data.scheduleData.description);
 
                 return convertView;
+
             } else {
-                convertView = mInflater.inflate(R.layout.adapter_card_detail_nodata, parent, false);
-
-
-                return convertView;
+                return mInflater.inflate(R.layout.adapter_card_detail_nodata, parent, false);
             }
         }
     }

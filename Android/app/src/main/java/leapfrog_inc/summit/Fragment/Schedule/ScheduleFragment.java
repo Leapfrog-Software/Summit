@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -143,7 +144,17 @@ public class ScheduleFragment extends BaseFragment {
             ScheduleRequester.ScheduleData scheduleData = getItem(position);
 
             convertView = mInflater.inflate(R.layout.adapter_schedule, parent, false);
-            ((LinearLayout)convertView.findViewById(R.id.baseLayout)).setElevation(50);
+
+            ((TextView)convertView.findViewById(R.id.titleTextView)).setText(scheduleData.title);
+
+            SimpleDateFormat format = new SimpleDateFormat("hh:mm");
+            String datetime = format.format(scheduleData.datetime.getTime());
+            ((TextView)convertView.findViewById(R.id.dateTextView)).setText(datetime);
+
+            ((TextView)convertView.findViewById(R.id.providerTextView)).setText(scheduleData.provider);
+            ((TextView)convertView.findViewById(R.id.descriptionTextView)).setText(scheduleData.description);
+
+
             return convertView;
         }
     }

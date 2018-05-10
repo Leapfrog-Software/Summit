@@ -8,6 +8,17 @@
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:divider="@null"/>
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/back_blue"
+        android:scaleType="fitCenter"
+        android:background="#0000"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
 
 </FrameLayout>
