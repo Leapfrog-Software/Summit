@@ -25,5 +25,6 @@ public class Constants {
     // TODO
     public static class WebPageUrl {
         public static String terms = "http://lfg.co.jp/";
+        public static String privacyPolicy = "http://lfg.co.jp/";
     }
 }

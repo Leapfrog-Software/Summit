@@ -13,6 +13,11 @@
     <color name="scheduleSeminar">#5bedcd</color>
     <color name="scheduleMeeting">#2457f5</color>
 
+    <color name="profileActive">#1e489e</color>
+    <color name="profileInactive">#ABABAB</color>
+
+
+
 
 
     <color name="dialogButtonSuccess">#7BD1F9</color>
