@@ -19,6 +19,7 @@ public class Constants {
         public static String Key = "Summit";
         public static String userId = "UserId";
         public static String pushSetting = "PushSetting";
+        public static String sentFirstMessageScheduleIds = "SentFirstMessageScheduleIds";
     }
 
     // TODO

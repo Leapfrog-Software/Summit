@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,10 +21,15 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
+import leapfrog_inc.summit.Fragment.Attend.Prepare.AttendPrepareFragment;
 import leapfrog_inc.summit.Fragment.BaseFragment;
+import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.DeviceUtility;
+import leapfrog_inc.summit.Function.PicassoUtility;
 import leapfrog_inc.summit.Http.Requester.ScheduleRequester;
+import leapfrog_inc.summit.Http.Requester.UserRequester;
 import leapfrog_inc.summit.R;
 
 /**
@@ -36,10 +43,32 @@ public class ScheduleFragment extends BaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_schedule, null);
 
+        initAction(view);
         initCalendar(view);
         resetListView(view, Calendar.getInstance());
 
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                timerProc();
+                new Handler().postDelayed(this, 10000);
+            }
+        };
+        new Handler().post(runnable);
+
         return view;
+    }
+
+    private void initAction(View view) {
+
+        ((Button)view.findViewById(R.id.nextPlanButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AttendPrepareFragment fragment = new AttendPrepareFragment();
+                fragment.set(searchNextSchedule());
+                stackFragment(fragment, AnimationType.horizontal);
+            }
+        });
     }
 
     private void initCalendar(View view) {
@@ -85,6 +114,70 @@ public class ScheduleFragment extends BaseFragment {
 
         String titleText = String.valueOf(calendar.get(Calendar.MONTH) + 1) + "/" + String.valueOf(calendar.get(Calendar.DATE) + "のイベント");
         ((TextView)view.findViewById(R.id.scheduleDateTextView)).setText(titleText);
+    }
+
+    private void timerProc() {
+
+        View view = getView();
+        if (view == null) return;
+
+        ScheduleRequester.ScheduleData nextSchedule = searchNextSchedule();
+        if (nextSchedule != null) {
+            view.findViewById(R.id.nextPlanLayout).setVisibility(View.VISIBLE);
+
+            PicassoUtility.getScheduleImage(getActivity(), Constants.ScheduleImageDirectory + nextSchedule.id, (ImageView)view.findViewById(R.id.nextPlanImageView));
+
+            ((TextView)view.findViewById(R.id.nextPlanTitleTextView)).setText(nextSchedule.title);
+
+            Calendar today = Calendar.getInstance();
+
+            if ((nextSchedule.datetime.get(Calendar.YEAR) == today.get(Calendar.YEAR))
+                    && (nextSchedule.datetime.get(Calendar.MONTH) == today.get(Calendar.MONTH))
+                    && (nextSchedule.datetime.get(Calendar.DAY_OF_MONTH) == today.get(Calendar.DAY_OF_MONTH))) {
+                SimpleDateFormat format = new SimpleDateFormat("h:mm〜");
+                ((TextView)view.findViewById(R.id.nextPlanDateTextView)).setText(format.format(nextSchedule.datetime.getTime()));
+            } else {
+                SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 h:mm〜");
+                ((TextView)view.findViewById(R.id.nextPlanDateTextView)).setText(format.format(nextSchedule.datetime.getTime()));
+            }
+
+            int timeInterval = (int)(nextSchedule.datetime.getTime().getTime() - today.getTime().getTime());
+            if ((timeInterval <= 0) && timeInterval >= -nextSchedule.timeLength) {
+                ((TextView)view.findViewById(R.id.nextPlanScheduleTextView)).setText("開催中");
+                view.findViewById(R.id.nextPlanArrowImageView).setVisibility(View.VISIBLE); // TODO iOSでバグ
+            } else if (timeInterval < 60 * 60) {
+                int remainMinutes = (int)(timeInterval / 60 + 1);
+                ((TextView)view.findViewById(R.id.nextPlanScheduleTextView)).setText(String.format("%d分後に開始", remainMinutes));
+                view.findViewById(R.id.nextPlanArrowImageView).setVisibility(View.VISIBLE);
+            } else {
+                ((TextView)view.findViewById(R.id.nextPlanScheduleTextView)).setText("直近の予定");
+                view.findViewById(R.id.nextPlanArrowImageView).setVisibility(View.INVISIBLE);
+            }
+        } else {
+            view.findViewById(R.id.nextPlanLayout).setVisibility(View.GONE);
+        }
+    }
+
+    private ScheduleRequester.ScheduleData searchNextSchedule() {
+
+        UserRequester.UserData myUserData = UserRequester.getInstance().myUserData();
+        if (myUserData == null) return null;
+
+        long today = (new Date()).getTime();
+
+        ArrayList<ScheduleRequester.ScheduleData> allSchedules = ScheduleRequester.getInstance().getDataList();
+        ScheduleRequester.ScheduleData nextSchedule = null;
+        for (int i = 0; i < allSchedules.size(); i++) {
+            ScheduleRequester.ScheduleData scheduleData = allSchedules.get(i);
+            if (myUserData.reserves.contains(scheduleData.id)) {
+                if (scheduleData.datetime.getTime().getTime() + scheduleData.timeLength - today >= 0) {
+                    if (nextSchedule.datetime.getTime().getTime() - scheduleData.datetime.getTime().getTime() >= 0) {
+                        nextSchedule = scheduleData;
+                    }
+                }
+            }
+        }
+        return nextSchedule;
     }
 
     private class CalendarMonthPagerAdapter extends FragmentPagerAdapter {
