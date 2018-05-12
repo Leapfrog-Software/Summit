@@ -24,11 +24,14 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import leapfrog_inc.summit.Fragment.BaseFragment;
+import leapfrog_inc.summit.Fragment.Common.Dialog;
+import leapfrog_inc.summit.Fragment.Common.Loading;
 import leapfrog_inc.summit.Fragment.Common.WebViewFragment;
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.PicassoUtility;
 import leapfrog_inc.summit.Function.SaveData;
 import leapfrog_inc.summit.Http.ImageUploader;
+import leapfrog_inc.summit.Http.Requester.AccountRequester;
 import leapfrog_inc.summit.Http.Requester.Enum.AgeType;
 import leapfrog_inc.summit.Http.Requester.Enum.GenderType;
 import leapfrog_inc.summit.Http.Requester.UserRequester;
@@ -43,6 +46,7 @@ public class SettingProfileFragment extends BaseFragment {
     public static int requestCodeGallery = 1000;
     public static int requestCodePermission = 1001;
     private Uri mImageUri;
+    String editedMessage = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
@@ -60,7 +64,7 @@ public class SettingProfileFragment extends BaseFragment {
         ((ImageButton)view.findViewById(R.id.backButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                popFragment(AnimationType.horizontal);
+                updateUserIfNeeded();
             }
         });
 
@@ -74,7 +78,15 @@ public class SettingProfileFragment extends BaseFragment {
         ((Button)view.findViewById(R.id.messageButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SettingProfileMessageFragment fragment = new SettingProfileMessageFragment();
+                UserRequester.UserData myUserData = UserRequester.getInstance().myUserData();
+                fragment.set(myUserData.message, new SettingProfileMessageFragment.SettingProfileMessageFragmentCallback() {
+                    @Override
+                    public void didEditMessage(String message) {
+                        editedMessage = message;
+                    }
+                });
+                stackFragment(fragment, AnimationType.horizontal);
             }
         });
 
@@ -218,6 +230,48 @@ public class SettingProfileFragment extends BaseFragment {
             }
         } else {
             openGallery();
+        }
+    }
+
+    private void updateUserIfNeeded() {
+
+        boolean needUpdate = false;
+
+        UserRequester.UserData newUserData = UserRequester.getInstance().myUserData();
+        if (newUserData == null) {
+            popFragment(AnimationType.horizontal);
+            return;
+        }
+
+        if (editedMessage != null) {
+            needUpdate = true;
+            newUserData.message = editedMessage;
+        }
+
+
+        if (needUpdate) {
+            Loading.start(getActivity());
+            AccountRequester.updateUser(newUserData, new AccountRequester.UpdateUserCallback() {
+                @Override
+                public void didReceiveData(boolean result) {
+                    Loading.stop(getActivity());
+
+                    if (result) {
+                        // TODO
+
+
+
+
+
+
+
+                    } else {
+                        Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", null);
+                    }
+                }
+            });
+        } else {
+            popFragment(AnimationType.horizontal);
         }
     }
 
