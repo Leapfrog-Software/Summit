@@ -52,7 +52,7 @@ public class UserRequester {
                 String position = Base64Utility.decode(json.getString("position"));
                 JSONArray reserves = json.getJSONArray("reserves");
                 JSONArray cards = json.getJSONArray("cards");
-                String message = json.getString("message");
+                String message = Base64Utility.decode(json.getString("message"));
 
                 UserData userData = new UserData();
                 userData.userId = userId;

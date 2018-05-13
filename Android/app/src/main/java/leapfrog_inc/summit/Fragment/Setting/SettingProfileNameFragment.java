@@ -65,15 +65,19 @@ public class SettingProfileNameFragment extends BaseFragment {
     private void initContent(View view) {
 
         if (mIsKana) {
-            ((TextView)view.findViewById(R.id.titleTextView)).setText("氏名");
-        } else {
             ((TextView)view.findViewById(R.id.titleTextView)).setText("氏名(かな)");
+            ((EditText)view.findViewById(R.id.lastEditText)).setHint("やまだ");
+            ((EditText)view.findViewById(R.id.firstEditText)).setHint("たろう");
+        } else {
+            ((TextView)view.findViewById(R.id.titleTextView)).setText("氏名");
+            ((EditText)view.findViewById(R.id.lastEditText)).setHint("山田");
+            ((EditText)view.findViewById(R.id.firstEditText)).setHint("太郎");
         }
         ((EditText)view.findViewById(R.id.lastEditText)).setText(mDefaultLast);
         ((EditText)view.findViewById(R.id.firstEditText)).setText(mDefaultFirst);
     }
 
     public interface SettingProfileNameFragmentCallback {
-        void didEditName(String last, String kana);
+        void didEditName(String last, String first);
     }
 }

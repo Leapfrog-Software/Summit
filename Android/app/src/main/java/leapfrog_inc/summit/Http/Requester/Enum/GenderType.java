@@ -1,5 +1,7 @@
 package leapfrog_inc.summit.Http.Requester.Enum;
 
+import java.util.ArrayList;
+
 /**
  * Created by Leapfrog-Software on 2018/05/09.
  */
@@ -44,5 +46,12 @@ public enum GenderType {
             default:
                 return "(未設定)";
         }
+    }
+
+    public static ArrayList<GenderType> allValue() {
+        ArrayList<GenderType> ret = new ArrayList<GenderType>();
+        ret.add(GenderType.male);
+        ret.add(GenderType.female);
+        return ret;
     }
 }

@@ -1,5 +1,7 @@
 package leapfrog_inc.summit.Http.Requester.Enum;
 
+import java.util.ArrayList;
+
 /**
  * Created by Leapfrog-Software on 2018/05/09.
  */
@@ -68,9 +70,20 @@ public enum AgeType {
             case s50:
                 return "50代";
             case o60:
-                return "60代";
+                return "60歳以上";
             default:
                 return "(未設定)";
         }
+    }
+
+    public static ArrayList<AgeType> allValue() {
+        ArrayList<AgeType> ret = new ArrayList<AgeType>();
+        ret.add(AgeType.u20);
+        ret.add(AgeType.s20);
+        ret.add(AgeType.s30);
+        ret.add(AgeType.s40);
+        ret.add(AgeType.s50);
+        ret.add(AgeType.o60);
+        return ret;
     }
 }

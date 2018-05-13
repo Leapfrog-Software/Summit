@@ -62,11 +62,15 @@ public class MainActivity extends AppCompatActivity {
             return ;
         }
 
-        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        List<Fragment> fragments = getCurrentFragments();
         for (int i = 0; i < fragments.size(); i++) {
             if (fragments.get(i) instanceof SettingProfileFragment) {
                 ((SettingProfileFragment)fragments.get(i)).didSelectImage(data);
             }
         }
+    }
+
+    public List<Fragment> getCurrentFragments() {
+        return getSupportFragmentManager().getFragments();
     }
 }
