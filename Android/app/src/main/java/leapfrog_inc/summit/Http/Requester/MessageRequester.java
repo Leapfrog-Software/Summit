@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import leapfrog_inc.summit.Function.Base64Utility;
 import leapfrog_inc.summit.Function.Constants;
@@ -35,6 +36,7 @@ public class MessageRequester {
 
                 String datetimeStr = json.getString("datetime");
                 SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+                format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
                 Date datetime = format.parse(datetimeStr);
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(datetime);

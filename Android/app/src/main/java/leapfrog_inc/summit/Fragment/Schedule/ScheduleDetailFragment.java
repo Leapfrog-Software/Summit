@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.TimeZone;
 
 import leapfrog_inc.summit.Fragment.BaseFragment;
 import leapfrog_inc.summit.Fragment.Common.Dialog;
@@ -67,6 +68,7 @@ public class ScheduleDetailFragment extends BaseFragment {
         memberLayout.addView(createPaddingView(16));
         ArrayList<UserRequester.UserData> userList = UserRequester.getInstance().queryReservedUser(mScheduleData.id);
         for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).userId.equals(SaveData.getInstance().userId)) continue;
             ImageView imageView = new ImageView(getActivity());
             float density = DeviceUtility.getDeviceDensity(getActivity());
             imageView.setLayoutParams(new ViewGroup.LayoutParams((int)(34 * density), (int)(34 * density)));
@@ -82,6 +84,7 @@ public class ScheduleDetailFragment extends BaseFragment {
 
         // 日時
         SimpleDateFormat format = new SimpleDateFormat("M月d日 hh:mm〜");
+        format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
         String datetime = format.format(mScheduleData.datetime.getTime());
         ((TextView)view.findViewById(R.id.dateTextView)).setText(datetime);
 
@@ -104,7 +107,7 @@ public class ScheduleDetailFragment extends BaseFragment {
             Date current = new Date();
             Date scheduleDate = mScheduleData.datetime.getTime();
             long timeDiff = scheduleDate.getTime() - current.getTime();
-            if (timeDiff > -60 * 60 * 1000) {
+            if (timeDiff <= 60 * 60 * 1000) {
                 reserveButton.setBackgroundResource(R.drawable.shape_schedule_reserve_button_disable);
                 reserveButton.setText("予約可能時間を過ぎています");
                 reserveButton.setEnabled(false);

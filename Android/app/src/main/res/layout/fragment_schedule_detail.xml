@@ -178,12 +178,6 @@
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/shape_schedule_reserve_button"/>
 
-
-
-
-
-
-
         </LinearLayout>
     </ScrollView>
 
@@ -195,7 +189,7 @@
         android:layout_marginTop="10dp"
         android:background="#0000"
         android:scaleType="fitCenter"
-        android:src="@drawable/back_white" />
+        android:src="@drawable/back_blue" />
 
 
 </FrameLayout>

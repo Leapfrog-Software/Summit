@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.TimeZone;
 
 import leapfrog_inc.summit.Fragment.Attend.Attend.AttendFragment;
 import leapfrog_inc.summit.Fragment.Attend.Match.AttendMatchFragment;
@@ -65,13 +66,18 @@ public class AttendPrepareFragment extends BaseFragment {
     private void initContent(View view) {
 
         // 画像
-        PicassoUtility.getScheduleImage(getActivity(), Constants.ScheduleImageDirectory + mScheduleData.id, (ImageView)view.findViewById(R.id.scheduleImageView));
+        ImageView scheduleImageView = (ImageView)view.findViewById(R.id.scheduleImageView);
+        PicassoUtility.getScheduleImage(getActivity(), Constants.ScheduleImageDirectory + mScheduleData.id, scheduleImageView);
+        ViewGroup.LayoutParams imageViewParams = scheduleImageView.getLayoutParams();
+        imageViewParams.height = (int)(DeviceUtility.getWindowSize(getActivity()).x * 2 / 3);
+        scheduleImageView.setLayoutParams(imageViewParams);
 
         // タイトル
-        ((TextView)view.findViewById(R.id.nameTextView)).setText(mScheduleData.title);
+        ((TextView)view.findViewById(R.id.nameTextView)).setText("【" + mScheduleData.title + "】");
 
         // 日付
         SimpleDateFormat format = new SimpleDateFormat("yyyy年M月d日 hh:mm");
+        format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
         ((TextView)view.findViewById(R.id.dateTextView)).setText(format.format(mScheduleData.datetime.getTime()));
 
         ArrayList<UserRequester.UserData> userList = UserRequester.getInstance().queryReservedUser(mScheduleData.id);
@@ -89,6 +95,7 @@ public class AttendPrepareFragment extends BaseFragment {
         LinearLayout memberLayout = (LinearLayout)view.findViewById(R.id.memberLayout);
         memberLayout.addView(createPaddingView(16));
         for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).userId.equals(SaveData.getInstance().userId)) continue;
             ImageView imageView = new ImageView(getActivity());
             float density = DeviceUtility.getDeviceDensity(getActivity());
             imageView.setLayoutParams(new ViewGroup.LayoutParams((int)(34 * density), (int)(34 * density)));
@@ -179,7 +186,7 @@ public class AttendPrepareFragment extends BaseFragment {
                 didStackFragment = false;
             }
         });
-        stackFragment(fragment, AnimationType.horizontal);
+        stackFragment(fragment, AnimationType.none);
     }
 
     private void stackAttend() {
@@ -191,11 +198,13 @@ public class AttendPrepareFragment extends BaseFragment {
 
         AlphaAnimation alpha = new AlphaAnimation(0, 1);
         alpha.setDuration(300);
-        view.findViewById(R.id.blackView).startAnimation(alpha);
+        View blackView = view.findViewById(R.id.blackView);
+        blackView.setVisibility(View.VISIBLE);
+        blackView.startAnimation(alpha);
 
         AttendFragment fragment = new AttendFragment();
         fragment.set(mScheduleData, mTableIndex);
-        stackFragment(fragment, AnimationType.horizontal);
+        stackFragment(fragment, AnimationType.none);
     }
 
     private void timerProc() {
@@ -203,7 +212,8 @@ public class AttendPrepareFragment extends BaseFragment {
         View view = getView();
         if (view == null) return;
 
-        int remainTime = (int)(mScheduleData.datetime.getTime().getTime() - (new Date()).getTime());
+        Date ddd = mScheduleData.datetime.getTime();
+        int remainTime = (int)(mScheduleData.datetime.getTime().getTime() - (new Date()).getTime()) / 1000;
         if (remainTime > 0) {
             String remainMinutes = String.format("%02d", remainTime / 60);
             String remainSecondss = String.format("%02d", remainTime % 60);

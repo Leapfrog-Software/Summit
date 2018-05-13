@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.TimeZone;
 
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.SaveData;
@@ -58,6 +59,7 @@ public class AttendRequester {
 
                 String datetimeStr = json.getString("datetime");
                 SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+                format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
                 Date datetime = format.parse(datetimeStr);
 
                 String chat = json.getString("chat");

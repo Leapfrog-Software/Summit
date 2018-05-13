@@ -127,7 +127,7 @@ public class ScheduleFragment extends BaseFragment {
 
             PicassoUtility.getScheduleImage(getActivity(), Constants.ScheduleImageDirectory + nextSchedule.id, (ImageView)view.findViewById(R.id.nextPlanImageView));
 
-            ((TextView)view.findViewById(R.id.nextPlanTitleTextView)).setText(nextSchedule.title);
+            ((TextView)view.findViewById(R.id.nextPlanScheduleTextView)).setText(nextSchedule.title);
 
             Calendar today = Calendar.getInstance();
 
@@ -143,14 +143,14 @@ public class ScheduleFragment extends BaseFragment {
 
             int timeInterval = (int)(nextSchedule.datetime.getTime().getTime() - today.getTime().getTime());
             if ((timeInterval <= 0) && timeInterval >= -nextSchedule.timeLength) {
-                ((TextView)view.findViewById(R.id.nextPlanScheduleTextView)).setText("開催中");
+                ((TextView)view.findViewById(R.id.nextPlanTitleTextView)).setText("開催中");
                 view.findViewById(R.id.nextPlanArrowImageView).setVisibility(View.VISIBLE); // TODO iOSでバグ
             } else if (timeInterval < 60 * 60) {
                 int remainMinutes = (int)(timeInterval / 60 + 1);
-                ((TextView)view.findViewById(R.id.nextPlanScheduleTextView)).setText(String.format("%d分後に開始", remainMinutes));
+                ((TextView)view.findViewById(R.id.nextPlanTitleTextView)).setText(String.format("%d分後に開始", remainMinutes));
                 view.findViewById(R.id.nextPlanArrowImageView).setVisibility(View.VISIBLE);
             } else {
-                ((TextView)view.findViewById(R.id.nextPlanScheduleTextView)).setText("直近の予定");
+                ((TextView)view.findViewById(R.id.nextPlanTitleTextView)).setText("直近の予定");
                 view.findViewById(R.id.nextPlanArrowImageView).setVisibility(View.INVISIBLE);
             }
         } else {
@@ -171,7 +171,9 @@ public class ScheduleFragment extends BaseFragment {
             ScheduleRequester.ScheduleData scheduleData = allSchedules.get(i);
             if (myUserData.reserves.contains(scheduleData.id)) {
                 if (scheduleData.datetime.getTime().getTime() + scheduleData.timeLength - today >= 0) {
-                    if (nextSchedule.datetime.getTime().getTime() - scheduleData.datetime.getTime().getTime() >= 0) {
+                    if (nextSchedule == null) {
+                        nextSchedule = scheduleData;
+                    } else if (nextSchedule.datetime.getTime().getTime() - scheduleData.datetime.getTime().getTime() >= 0) {
                         nextSchedule = scheduleData;
                     }
                 }
