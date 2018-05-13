@@ -123,20 +123,10 @@ public class AttendMatchFragment extends BaseFragment {
         setSendButtonEnabled(sendButton, false);
 
         LinearLayout contentLayout = (LinearLayout)view.findViewById(R.id.contentLayout);
-        int toYdelta = (int)(DeviceUtility.getWindowSize(getActivity()).y);
-        TranslateAnimation animation = new TranslateAnimation(0, 0, 0, toYdelta);
+        int fromYdelta = (int)(DeviceUtility.getWindowSize(getActivity()).y);
+        TranslateAnimation animation = new TranslateAnimation(0, 0, fromYdelta, 0);
         animation.setDuration(200);
         animation.setFillAfter(true);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {}
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                popFragment(AnimationType.none);
-            }
-            @Override
-            public void onAnimationRepeat(Animation animation) {}
-        });
         contentLayout.startAnimation(animation);
     }
 
@@ -153,10 +143,21 @@ public class AttendMatchFragment extends BaseFragment {
 
     private void close(LinearLayout contentLayout) {
 
-        int fromYdelta = (int)(DeviceUtility.getWindowSize(getActivity()).y);
-        TranslateAnimation animation = new TranslateAnimation(0, 0, fromYdelta, 0);
+        int toYdelta = (int)(DeviceUtility.getWindowSize(getActivity()).y);
+
+        TranslateAnimation animation = new TranslateAnimation(0, 0, 0, toYdelta);
         animation.setDuration(200);
         animation.setFillAfter(true);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {}
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                popFragment(AnimationType.none);
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {}
+        });
         contentLayout.startAnimation(animation);
     }
 
