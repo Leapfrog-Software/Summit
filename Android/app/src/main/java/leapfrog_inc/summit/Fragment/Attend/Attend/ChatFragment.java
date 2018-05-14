@@ -44,6 +44,22 @@ public class ChatFragment extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        View view = getView();
+
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        int windowHeight = DeviceUtility.getWindowSize(getActivity()).y - DeviceUtility.getStatusBarHeight(getActivity());
+        params.height = windowHeight - getTopLimit();
+        view.setLayoutParams(params);
+
+        int height = DeviceUtility.getWindowSize(getActivity()).y;
+        int y = height - (int)(100 * DeviceUtility.getDeviceDensity(getActivity()));
+        view.setTranslationY(y);
+    }
+
     private void initAction(View view) {
 
         ((LinearLayout)view.findViewById(R.id.headerLayout)).setOnTouchListener(new View.OnTouchListener() {
@@ -60,8 +76,10 @@ public class ChatFragment extends BaseFragment {
                         if (mOffset != null) {
                             View view = getView();
                             if (view != null) {
-                                view.setTranslationX(motionEvent.getRawX() - (float) mOffset.x);
-                                view.setTranslationY(motionEvent.getRawY() - (float) mOffset.y);
+                                int y = (int)(motionEvent.getRawY() - (float) mOffset.y);
+                                if (y < getTopLimit()) y = getTopLimit();
+                                if (y > getBottomLimit()) y = getBottomLimit();
+                                view.setTranslationY(y);
                             }
                             return true;
                         }
@@ -87,6 +105,15 @@ public class ChatFragment extends BaseFragment {
                 mCallback.onTapSend("", chat);
             }
         });
+    }
+
+    private int getTopLimit() {
+        return (int)(120 * DeviceUtility.getDeviceDensity(getActivity()));
+    }
+
+    private int getBottomLimit() {
+        int height = DeviceUtility.getWindowSize(getActivity()).y;
+        return height - (int)(80 * DeviceUtility.getDeviceDensity(getActivity()));
     }
 
     public interface ChatFragmentCallback {

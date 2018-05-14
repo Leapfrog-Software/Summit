@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:background="#292C35"
     android:clickable="true"
-    android:id="@+id/rootLayout">
+    android:id="@+id/rootLayout"
+    android:clipChildren="false"
+    android:clipToPadding="false">
     
     <FrameLayout
         android:layout_width="match_parent"
@@ -12,6 +14,7 @@
         android:orientation="horizontal">
         <!-- TODO iOS直す -->
         <ImageButton
+            android:id="@+id/backButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/back_white"
@@ -32,12 +35,22 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="300dp"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_gravity="center_vertical"
+        android:background="#0000"
+        android:clipToPadding="false"
+        android:clipChildren="false">
         <LinearLayout
             android:id="@+id/scrollContentsLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            android:clipToPadding="false"
+            android:clipChildren="false"/>
     </ScrollView>
 
     <LinearLayout

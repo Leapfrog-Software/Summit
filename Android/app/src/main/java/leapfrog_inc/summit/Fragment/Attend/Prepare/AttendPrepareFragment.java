@@ -191,10 +191,13 @@ public class AttendPrepareFragment extends BaseFragment {
 
     private void stackAttend() {
 
+        if (didStackFragment) {
+            return;
+        }
+        didStackFragment = true;
+
         View view = getView();
         if (view == null) return;
-
-        didStackFragment = true;
 
         AlphaAnimation alpha = new AlphaAnimation(0, 1);
         alpha.setDuration(300);
@@ -221,7 +224,6 @@ public class AttendPrepareFragment extends BaseFragment {
             ((TextView)view.findViewById(R.id.remainTimeTitleTextView)).setText("");
             ((TextView)view.findViewById(R.id.remainTimeTextView)).setText("開催中");
 
-            didStackFragment = true;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
