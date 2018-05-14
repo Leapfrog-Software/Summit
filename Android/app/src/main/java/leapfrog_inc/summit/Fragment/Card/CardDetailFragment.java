@@ -1,11 +1,13 @@
 package leapfrog_inc.summit.Fragment.Card;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -16,8 +18,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import leapfrog_inc.summit.Fragment.BaseFragment;
+import leapfrog_inc.summit.Fragment.Common.Dialog;
+import leapfrog_inc.summit.Fragment.Common.Loading;
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.PicassoUtility;
+import leapfrog_inc.summit.Function.SaveData;
+import leapfrog_inc.summit.Http.Requester.AccountRequester;
 import leapfrog_inc.summit.Http.Requester.ScheduleRequester;
 import leapfrog_inc.summit.Http.Requester.UserRequester;
 import leapfrog_inc.summit.R;
@@ -29,9 +35,11 @@ import leapfrog_inc.summit.R;
 public class CardDetailFragment extends BaseFragment {
 
     private UserRequester.UserData mUserData;
+    private boolean mNeedSendCard;
 
-    public void set(UserRequester.UserData userData) {
+    public void set(UserRequester.UserData userData, boolean needSendCard) {
         mUserData = userData;
+        mNeedSendCard = needSendCard;
     }
 
     @Override
@@ -41,6 +49,10 @@ public class CardDetailFragment extends BaseFragment {
 
         initAction(view);
         initListView(view);
+
+        if ((mNeedSendCard) && (mUserData.cards.contains(SaveData.getInstance().userId))) {
+            setSendCardButtonDisable(view);
+        }
 
         return view;
     }
@@ -53,6 +65,47 @@ public class CardDetailFragment extends BaseFragment {
                 popFragment(AnimationType.horizontal);
             }
         });
+
+        if (mNeedSendCard) {
+            view.findViewById(R.id.sendCardLayout).setVisibility(View.VISIBLE);
+            ((Button)view.findViewById(R.id.sendCardButton)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onTapSendCard();
+                }
+            });
+        } else {
+            view.findViewById(R.id.sendCardLayout).setVisibility(View.GONE);
+        }
+    }
+
+    private void onTapSendCard() {
+
+        mUserData.cards.add(SaveData.getInstance().userId);
+
+        Loading.start(getActivity());
+
+        AccountRequester.updateUser(mUserData, new AccountRequester.UpdateUserCallback() {
+            @Override
+            public void didReceiveData(boolean result) {
+
+                Loading.stop(getActivity());
+
+                if (result) {
+                    Dialog.show(getActivity(), Dialog.Style.success, "確認", "名刺を送信しました", null);
+                    setSendCardButtonDisable(getView());
+                } else {
+                    Dialog.show(getActivity(), Dialog.Style.success, "エラー", "通信に失敗しました", null);
+                }
+            }
+        });
+    }
+
+    private void setSendCardButtonDisable(View view) {
+        Button button = (Button)view.findViewById(R.id.sendCardButton);
+        button.setText("名刺は送信済みです");
+        button.setEnabled(false);
+        button.setBackgroundResource(R.drawable.shape_card_detail_card_button_disable);
     }
 
     private void initListView(View view) {

@@ -89,7 +89,7 @@ public class CardFragment extends BaseFragment {
                 UserRequester.UserData userData = data.userData;
                 if (userData != null) {
                     CardDetailFragment fragment = new CardDetailFragment();
-                    fragment.set(userData);
+                    fragment.set(userData, false);
                     stackFragment(fragment, AnimationType.horizontal);
                 }
             }

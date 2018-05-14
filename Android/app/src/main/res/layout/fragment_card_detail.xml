@@ -5,11 +5,37 @@
     android:background="#fff"
     android:id="@+id/rootLayout">
 
-    <ListView
-        android:id="@+id/listView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"/>
+        android:orientation="vertical">
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@null"/>
+        <LinearLayout
+            android:id="@+id/sendCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <Button
+                android:id="@+id/sendCardButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="名刺を渡す"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/shape_card_detail_card_button"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
 
     <ImageButton
         android:id="@+id/backButton"
