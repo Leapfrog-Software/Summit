@@ -12,6 +12,7 @@
         android:background="@drawable/shape_attend_table_user_layout">
 
         <TextView
+            android:id="@+id/memberCountTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="13"

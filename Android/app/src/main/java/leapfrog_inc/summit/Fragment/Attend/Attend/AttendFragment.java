@@ -259,9 +259,6 @@ public class AttendFragment extends BaseFragment {
 
     private void timerProc() {
 
-        View view = getView();
-        if (view == null) return;
-
         mAttendRequester.attend(String.valueOf(mTableIndex), new AttendRequester.AttendRequesterCallback() {
             @Override
             public void didReceiveData(boolean result) {
