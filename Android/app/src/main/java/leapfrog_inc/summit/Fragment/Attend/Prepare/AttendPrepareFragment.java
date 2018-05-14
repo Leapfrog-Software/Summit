@@ -212,7 +212,6 @@ public class AttendPrepareFragment extends BaseFragment {
         View view = getView();
         if (view == null) return;
 
-        Date ddd = mScheduleData.datetime.getTime();
         int remainTime = (int)(mScheduleData.datetime.getTime().getTime() - (new Date()).getTime()) / 1000;
         if (remainTime > 0) {
             String remainMinutes = String.format("%02d", remainTime / 60);
@@ -222,7 +221,13 @@ public class AttendPrepareFragment extends BaseFragment {
             ((TextView)view.findViewById(R.id.remainTimeTitleTextView)).setText("");
             ((TextView)view.findViewById(R.id.remainTimeTextView)).setText("開催中");
 
-            stackAttend();
+            didStackFragment = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    stackAttend();
+                }
+            }, 2000);
         }
     }
 }

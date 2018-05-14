@@ -172,5 +172,32 @@ public class AttendRequester {
     public interface PostChatCallback {
         void didReceiveData(boolean result);
     }
+
+    public ArrayList<ChatData> queryChatList(int tableIndex) {
+
+        ArrayList<ChatData> ret = new ArrayList<ChatData>();
+        for (int i = 0; i < mChatList.size(); i++) {
+            ChatData chatData = mChatList.get(i);
+            if (chatData.tableId.equals(String.format("%d", tableIndex))) {
+                ret.add(chatData);
+            }
+        }
+        return ret;
+    }
+
+    public ArrayList<AttendData> getAttendList() {
+        return mAttendList;
+    }
+
+    public ArrayList<String> queryAttendUserIds(int tableIndex) {
+
+        for (int i = 0; i < mAttendList.size(); i++) {
+            AttendData attendData = mAttendList.get(i);
+            if (attendData.tableId.equals(String.format("%d", tableIndex))) {
+                return attendData.userIds;
+            }
+        }
+        return new ArrayList<String>();
+    }
 }
 
