@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="#f2f2f2"
     android:id="@+id/rootLayout">
 
     <LinearLayout
@@ -30,6 +30,194 @@
                 android:layout_height="1dp"
                 android:background="@color/weakBlack"/>
         </LinearLayout>
+        
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/faceImageView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="36dp"/>
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="山田太郎"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:textAlignment="center"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/companyTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="株式会社ABC"
+                        android:textSize="14dp"
+                        android:textColor="#ABABAB"/>
+                    <TextView
+                        android:id="@+id/positionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="代表取締役"
+                        android:textSize="14dp"
+                        android:textColor="#ABABAB"
+                        android:layout_marginLeft="8dp"/>
+                </LinearLayout>
+
+                <!-- プロフィール設定 -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="32dp"
+                    android:background="#fff">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="プロフィール設定"
+                        android:textSize="14dp"
+                        android:textColor="@color/basicBlack"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"/>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/setting_arrow_right"
+                        android:scaleType="fitCenter"
+                        android:background="#0000"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="center_vertical|right"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EFEFEF"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="bottom"/>
+                    <Button
+                        android:id="@+id/profileButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#0000"/>
+                </FrameLayout>
+
+                <!-- 通知 -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="#fff">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="通知"
+                        android:textSize="14dp"
+                        android:textColor="@color/basicBlack"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"/>
+                    <CheckBox
+                        android:id="@+id/pushCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="center_vertical|right"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EFEFEF"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="bottom"/>
+                </FrameLayout>
+
+                <!-- 利用規約 -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="#fff">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="利用規約"
+                        android:textSize="14dp"
+                        android:textColor="@color/basicBlack"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"/>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/setting_arrow_right"
+                        android:scaleType="fitCenter"
+                        android:background="#0000"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="center_vertical|right"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EFEFEF"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="bottom"/>
+                    <Button
+                        android:id="@+id/termButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#0000"/>
+                </FrameLayout>
+
+                <!-- 個人情報保護方針 -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="#fff"
+                    android:layout_marginBottom="32dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="個人情報保護方針"
+                        android:textSize="14dp"
+                        android:textColor="@color/basicBlack"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"/>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/setting_arrow_right"
+                        android:scaleType="fitCenter"
+                        android:background="#0000"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="center_vertical|right"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EFEFEF"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="bottom"/>
+                    <Button
+                        android:id="@+id/privacyPolicyButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#0000"/>
+                </FrameLayout>
+
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 </FrameLayout>

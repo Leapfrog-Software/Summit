@@ -19,6 +19,7 @@
                 android:layout_height="100dp"
                 android:scaleType="fitCenter"/>
             <TextView
+                android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="異業種交流会"
@@ -41,6 +42,7 @@
                     android:textSize="12dp"
                     android:textColor="@color/basicBlack" />
                 <TextView
+                    android:id="@+id/memberCountTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(10名)"
@@ -53,7 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
                 android:scrollbars="none"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:overScrollMode="never">
                 <LinearLayout
                     android:id="@+id/memberLayout"
                     android:layout_width="wrap_content"
@@ -72,6 +75,7 @@
                     android:layout_height="20dp"
                     android:src="@drawable/schedule_detail_date"/>
                 <TextView
+                    android:id="@+id/dateTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5月1日 11:00〜"
@@ -92,6 +96,7 @@
                     android:layout_height="20dp"
                     android:src="@drawable/schedule_detail_provider"/>
                 <TextView
+                    android:id="@+id/providerTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Summit!運営"
@@ -120,6 +125,7 @@
                 android:layout_marginLeft="16dp"/>
 
             <TextView
+                android:id="@+id/descriptionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細"
@@ -150,6 +156,7 @@
                     android:textSize="12dp"
                     android:textColor="@color/basicBlack" />
                 <TextView
+                    android:id="@+id/filterTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="25歳以下の起業家"
@@ -171,12 +178,6 @@
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/shape_schedule_reserve_button"/>
 
-
-
-
-
-
-
         </LinearLayout>
     </ScrollView>
 
@@ -188,7 +189,7 @@
         android:layout_marginTop="10dp"
         android:background="#0000"
         android:scaleType="fitCenter"
-        android:src="@drawable/back_white" />
+        android:src="@drawable/back_blue" />
 
 
 </FrameLayout>

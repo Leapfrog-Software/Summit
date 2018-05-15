@@ -5,7 +5,9 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.SaveData;
@@ -46,7 +48,7 @@ public class AttendRequester {
         public String id;
         public String senderId;
         public String tableId;
-        public Date datetime;
+        public Calendar datetime;
         public String chat;
 
         static public ChatData create(JSONObject json) {
@@ -58,7 +60,10 @@ public class AttendRequester {
 
                 String datetimeStr = json.getString("datetime");
                 SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+                format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
                 Date datetime = format.parse(datetimeStr);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(datetime);
 
                 String chat = json.getString("chat");
 
@@ -66,7 +71,7 @@ public class AttendRequester {
                 chatData.id = id;
                 chatData.senderId = senderId;
                 chatData.tableId = tableId;
-                chatData.datetime = datetime;
+                chatData.datetime = calendar;
                 chatData.chat = chat;
                 return chatData;
 
@@ -169,6 +174,33 @@ public class AttendRequester {
 
     public interface PostChatCallback {
         void didReceiveData(boolean result);
+    }
+
+    public ArrayList<ChatData> queryChatList(int tableIndex) {
+
+        ArrayList<ChatData> ret = new ArrayList<ChatData>();
+        for (int i = 0; i < mChatList.size(); i++) {
+            ChatData chatData = mChatList.get(i);
+            if (chatData.tableId.equals(String.format("%d", tableIndex))) {
+                ret.add(chatData);
+            }
+        }
+        return ret;
+    }
+
+    public ArrayList<AttendData> getAttendList() {
+        return mAttendList;
+    }
+
+    public ArrayList<String> queryAttendUserIds(int tableIndex) {
+
+        for (int i = 0; i < mAttendList.size(); i++) {
+            AttendData attendData = mAttendList.get(i);
+            if (attendData.tableId.equals(String.format("%d", tableIndex))) {
+                return attendData.userIds;
+            }
+        }
+        return new ArrayList<String>();
     }
 }
 

@@ -3,6 +3,7 @@ package leapfrog_inc.summit.Http.Requester;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import leapfrog_inc.summit.Function.Base64Utility;
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Http.HttpManager;
 
@@ -65,17 +66,23 @@ public class AccountRequester {
         param.append("&");
         param.append(("userId=") + userData.userId);
         param.append("&");
-        param.append(("nameLast=" + userData.nameLast));
+        param.append(("nameLast=" + Base64Utility.encode(userData.nameLast)));
         param.append("&");
-        param.append(("nameFirst=" + userData.nameFirst));
+        param.append(("nameFirst=" + Base64Utility.encode(userData.nameFirst)));
         param.append("&");
-        param.append(("kanaLast=") + userData.kanaLast);
+        param.append(("kanaLast=") + Base64Utility.encode(userData.kanaLast));
         param.append("&");
-        param.append(("kanaFirst=" + userData.kanaFirst));
+        param.append(("kanaFirst=" + Base64Utility.encode(userData.kanaFirst)));
         param.append("&");
-        param.append(("job=") + userData.job);
+        param.append(("age=" + userData.age.toValue()));
         param.append("&");
-        param.append(("position=") + userData.position);
+        param.append(("gender=" + userData.gender.toValue()));
+        param.append("&");
+        param.append(("job=") + Base64Utility.encode(userData.job));
+        param.append("&");
+        param.append(("company=") + Base64Utility.encode(userData.company));
+        param.append("&");
+        param.append(("position=") + Base64Utility.encode(userData.position));
         param.append("&");
 
         String reserves = "";
@@ -85,7 +92,7 @@ public class AccountRequester {
             }
             reserves += userData.reserves.get(i);
         }
-        param.append(("reserves=") + reserves);
+        param.append(("reserves=" + reserves));
         param.append("&");
 
         String cards = "";
@@ -95,7 +102,10 @@ public class AccountRequester {
             }
             cards += userData.cards.get(i);
         }
-        param.append(cards);
+        param.append(("cards=" + cards));
+        param.append("&");
+
+        param.append(("message=" + Base64Utility.encode(userData.message)));
 
         httpManager.execute(Constants.ServerApiUrl, "POST", param.toString());
     }

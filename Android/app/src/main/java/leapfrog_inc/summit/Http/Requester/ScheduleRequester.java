@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Http.HttpManager;
@@ -42,6 +43,9 @@ public class ScheduleRequester {
         public String title = "";
         public Calendar datetime;
         public int timeLength = 0;
+        public String provider = "";
+        public String description = "";
+        public String filter = "";
 
         static public ScheduleData create(JSONObject json) {
 
@@ -54,12 +58,16 @@ public class ScheduleRequester {
 
                 String datetimeStr = json.getString("datetime");
                 SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+                format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
                 Date datetime = format.parse(datetimeStr);
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(datetime);
 
-//                int timeLength = Integer.valueOf(json.getString("timeLength"));
-                int timeLength = 30;
+                int timeLength = Integer.valueOf(json.getString("timeLength")) * 60 * 1000;
+
+                String provider = json.getString("provider");
+                String description = json.getString("description");
+                String filter = json.getString("filter");
 
                 ScheduleData scheduleData = new ScheduleData();
                 scheduleData.id = id;
@@ -67,6 +75,9 @@ public class ScheduleRequester {
                 scheduleData.title = title;
                 scheduleData.datetime = calendar;
                 scheduleData.timeLength = timeLength;
+                scheduleData.provider = provider;
+                scheduleData.description = description;
+                scheduleData.filter = filter;
                 return scheduleData;
 
             } catch(Exception e) {}

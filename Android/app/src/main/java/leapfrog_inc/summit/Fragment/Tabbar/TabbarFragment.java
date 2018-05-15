@@ -104,52 +104,48 @@ public class TabbarFragment extends BaseFragment {
             mScheduleFragment.getView().setVisibility(View.VISIBLE);
             ((ImageView)view.findViewById(R.id.tab1OnImageView)).setVisibility(View.VISIBLE);
             ((ImageView)view.findViewById(R.id.tab1OffImageView)).setVisibility(View.GONE);
-            // TODO
-//            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
+            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
         } else {
             mScheduleFragment.getView().setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab1OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab1OffImageView)).setVisibility(View.VISIBLE);
-//            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
         }
 
         if (index == 1) {
             mCardFragment.getView().setVisibility(View.VISIBLE);
             ((ImageView)view.findViewById(R.id.tab2OnImageView)).setVisibility(View.VISIBLE);
             ((ImageView)view.findViewById(R.id.tab2OffImageView)).setVisibility(View.GONE);
-            // TODO
-//            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
+            ((TextView)view.findViewById(R.id.tab2TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
         } else {
             mCardFragment.getView().setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab2OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab2OffImageView)).setVisibility(View.VISIBLE);
-//            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+            ((TextView)view.findViewById(R.id.tab2TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
         }
 
         if (index == 2) {
             mMessageFragment.getView().setVisibility(View.VISIBLE);
             ((ImageView)view.findViewById(R.id.tab3OnImageView)).setVisibility(View.VISIBLE);
             ((ImageView)view.findViewById(R.id.tab3OffImageView)).setVisibility(View.GONE);
-            // TODO
-//            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
+            ((TextView)view.findViewById(R.id.tab3TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
         } else {
             mMessageFragment.getView().setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab3OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab3OffImageView)).setVisibility(View.VISIBLE);
-//            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+            ((TextView)view.findViewById(R.id.tab3TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
         }
 
         if (index == 3) {
             mSettingFragment.getView().setVisibility(View.VISIBLE);
             ((ImageView)view.findViewById(R.id.tab4OnImageView)).setVisibility(View.VISIBLE);
             ((ImageView)view.findViewById(R.id.tab4OffImageView)).setVisibility(View.GONE);
-            // TODO
-//            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
+            ((TextView)view.findViewById(R.id.tab4TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
         } else {
             mSettingFragment.getView().setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab4OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab4OffImageView)).setVisibility(View.VISIBLE);
-//            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+            ((TextView)view.findViewById(R.id.tab4TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
         }
     }
 }

@@ -5,7 +5,9 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import leapfrog_inc.summit.Function.Base64Utility;
 import leapfrog_inc.summit.Function.Constants;
@@ -23,7 +25,7 @@ public class MessageRequester {
         public String senderId;
         public String receiverId;
         public String message;
-        public Date datetime;
+        public Calendar datetime;
 
         static public MessageData create(JSONObject json) {
 
@@ -34,13 +36,16 @@ public class MessageRequester {
 
                 String datetimeStr = json.getString("datetime");
                 SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+                format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
                 Date datetime = format.parse(datetimeStr);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(datetime);
 
                 MessageData messageData = new MessageData();
                 messageData.senderId = senderId;
                 messageData.receiverId = receiverId;
                 messageData.message = message;
-                messageData.datetime = datetime;
+                messageData.datetime = calendar;
                 return messageData;
 
             } catch(Exception e) {}

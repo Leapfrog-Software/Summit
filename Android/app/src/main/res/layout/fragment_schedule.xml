@@ -42,6 +42,84 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <FrameLayout
+                    android:id="@+id/nextPlanLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="122dp"
+                    android:orientation="vertical"
+                    android:background="#F2F2F2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp">
+                        <TextView
+                            android:id="@+id/nextPlanTitleTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="次の予定"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textColor="#4E5665"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="68dp"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+                            <ImageView
+                                android:id="@+id/nextPlanImageView"
+                                android:layout_width="102dp"
+                                android:layout_height="68dp"
+                                android:scaleType="fitCenter"/>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="16dp">
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/nextPlanScheduleTextView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="異業種交流会"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/basicBlack"/>
+                                    <TextView
+                                        android:id="@+id/nextPlanDateTextView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="12:00〜"
+                                        android:textSize="11dp"
+                                        android:textStyle="bold"
+                                        android:textColor="#7A8B9C"
+                                        android:layout_marginTop="8dp"/>
+                                </LinearLayout>
+                                <ImageView
+                                    android:id="@+id/nextPlanArrowImageView"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/setting_arrow_right"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_gravity="center_vertical"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Button
+                        android:id="@+id/nextPlanButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#0000"/>
+                </FrameLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="44dp"

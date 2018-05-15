@@ -12,6 +12,8 @@ import leapfrog_inc.summit.Function.Constants;
 import leapfrog_inc.summit.Function.KanaUtils;
 import leapfrog_inc.summit.Function.SaveData;
 import leapfrog_inc.summit.Http.HttpManager;
+import leapfrog_inc.summit.Http.Requester.Enum.AgeType;
+import leapfrog_inc.summit.Http.Requester.Enum.GenderType;
 
 /**
  * Created by Leapfrog-Software on 2018/05/08.
@@ -26,10 +28,14 @@ public class UserRequester {
         public String nameLast = "";
         public String kanaFirst = "";
         public String kanaLast = "";
+        public AgeType age = AgeType.unknown;
+        public GenderType gender = GenderType.unknown;
         public String job = "";
+        public String company = "";
         public String position = "";
         public ArrayList<String> reserves = new ArrayList<String>();
         public ArrayList<String> cards = new ArrayList<String>();
+        public String message = "";
 
         static public UserData create(JSONObject json) {
 
@@ -39,10 +45,14 @@ public class UserRequester {
                 String nameLast = Base64Utility.decode(json.getString("nameLast"));
                 String kanaFirst = Base64Utility.decode(json.getString("kanaFirst"));
                 String kanaLast = Base64Utility.decode(json.getString("kanaLast"));
+                AgeType age = AgeType.create(json.getString("age"));
+                GenderType gender = GenderType.create(json.getString("gender"));
                 String job = Base64Utility.decode(json.getString("job"));
+                String company = Base64Utility.decode(json.getString("company"));
                 String position = Base64Utility.decode(json.getString("position"));
                 JSONArray reserves = json.getJSONArray("reserves");
                 JSONArray cards = json.getJSONArray("cards");
+                String message = Base64Utility.decode(json.getString("message"));
 
                 UserData userData = new UserData();
                 userData.userId = userId;
@@ -50,7 +60,10 @@ public class UserRequester {
                 userData.nameLast = nameLast;
                 userData.kanaFirst = kanaFirst;
                 userData.kanaLast = kanaLast;
+                userData.age = age;
+                userData.gender = gender;
                 userData.job = job;
+                userData.company = company;
                 userData.position = position;
 
                 for (int i = 0; i < reserves.length(); i++) {
@@ -66,6 +79,8 @@ public class UserRequester {
                         userData.cards.add(card);
                     }
                 }
+
+                userData.message = message;
 
                 return userData;
 

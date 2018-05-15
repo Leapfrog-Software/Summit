@@ -19,7 +19,7 @@ import leapfrog_inc.summit.Function.Constants;
 
 public class ImageUploader extends AsyncTask<ImageUploader.ImageUploaderParameter, Integer, Object> {
 
-    class ImageUploaderParameter {
+    public static class ImageUploaderParameter {
         public String userId;
         public Bitmap bitmap;
     }
