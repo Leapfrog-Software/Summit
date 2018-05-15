@@ -63,7 +63,7 @@ public class ScheduleRequester {
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(datetime);
 
-                int timeLength = Integer.valueOf(json.getString("timeLength")) * 60 * 1000;  // TODO iOSを直す
+                int timeLength = Integer.valueOf(json.getString("timeLength")) * 60 * 1000;
 
                 String provider = json.getString("provider");
                 String description = json.getString("description");

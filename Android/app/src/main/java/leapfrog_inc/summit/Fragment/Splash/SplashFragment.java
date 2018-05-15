@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import leapfrog_inc.summit.Fragment.BaseFragment;
+import leapfrog_inc.summit.Fragment.Common.Dialog;
 import leapfrog_inc.summit.Fragment.Tabbar.TabbarFragment;
 import leapfrog_inc.summit.Function.SaveData;
 import leapfrog_inc.summit.Http.Requester.AccountRequester;
@@ -64,7 +65,12 @@ public class SplashFragment extends BaseFragment {
                     fetchMasterData();
 
                 } else {
-                    // TODO
+                    Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", new Dialog.DialogCallback() {
+                        @Override
+                        public void didClose() {
+                            createUser();
+                        }
+                    });
                 }
             }
         });
@@ -116,7 +122,12 @@ public class SplashFragment extends BaseFragment {
                 || (mUserFetchResult == FetchResult.error)
                 || (mMessageFetchResult == FetchResult.error)) {
 
-            // TODO
+            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", new Dialog.DialogCallback() {
+                @Override
+                public void didClose() {
+                    checkResult();
+                }
+            });
 
             return;
         }

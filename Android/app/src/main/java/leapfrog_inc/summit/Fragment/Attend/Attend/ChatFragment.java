@@ -133,7 +133,8 @@ public class ChatFragment extends BaseFragment {
         ((Button)view.findViewById(R.id.memberViewButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
+                AttendMemberListFragment fragment = new AttendMemberListFragment();
+                fragment.set(mUserIds);
             }
         });
     }

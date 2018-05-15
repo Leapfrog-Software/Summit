@@ -173,7 +173,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- TODO iOSでバグ -->
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="48dp"

@@ -6,8 +6,8 @@ package leapfrog_inc.summit.Function;
 
 public class Constants {
 
-    //public static String ServerRootUrl = "http://appfac.net/";
-    public static String ServerRootUrl = "http://10.0.2.2/summit/";
+    public static String ServerRootUrl = "http://lfg.co.jp/summit/";
+//    public static String ServerRootUrl = "http://10.0.2.2/summit/";
     public static String ServerApiUrl = Constants.ServerRootUrl + "srv.php";
     public static String ScheduleImageDirectory = Constants.ServerRootUrl + "data/image/schedule/";
     public static String UserImageDirectory = Constants.ServerRootUrl + "data/image/user/";
@@ -22,9 +22,8 @@ public class Constants {
         public static String sentFirstMessageScheduleIds = "SentFirstMessageScheduleIds";
     }
 
-    // TODO
     public static class WebPageUrl {
-        public static String terms = "http://lfg.co.jp/";
-        public static String privacyPolicy = "http://lfg.co.jp/";
+        public static String terms = "http://lfg.co.jp/summit/static/terms.html";
+        public static String privacyPolicy = "http://lfg.co.jp/summit/static/privacypolicy.html";
     }
 }

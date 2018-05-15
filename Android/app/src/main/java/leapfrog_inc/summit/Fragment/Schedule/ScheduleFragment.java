@@ -145,7 +145,7 @@ public class ScheduleFragment extends BaseFragment {
             int timeInterval = (int)(nextSchedule.datetime.getTime().getTime() - today.getTime().getTime());
             if ((timeInterval <= 0) && timeInterval >= -nextSchedule.timeLength) {
                 ((TextView)view.findViewById(R.id.nextPlanTitleTextView)).setText("開催中");
-                view.findViewById(R.id.nextPlanArrowImageView).setVisibility(View.VISIBLE); // TODO iOSでバグ
+                view.findViewById(R.id.nextPlanArrowImageView).setVisibility(View.VISIBLE);
             } else if (timeInterval < 60 * 60) {
                 int remainMinutes = (int)(timeInterval / 60 + 1);
                 ((TextView)view.findViewById(R.id.nextPlanTitleTextView)).setText(String.format("%d分後に開始", remainMinutes));
