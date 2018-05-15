@@ -43,6 +43,16 @@
                 android:layout_height="match_parent"
                 android:divider="@null"
                 android:scrollbars="none"/>
+            <TextView
+                android:id="@+id/noDataTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="受け取った名刺はありません"
+                android:textSize="16dp"
+                android:textColor="#ABABAB"
+                android:textAlignment="center"
+                android:gravity="center_vertical"/>
             <LinearLayout
                 android:id="@+id/cardIndexBaseLayout"
                 android:layout_width="32dp"

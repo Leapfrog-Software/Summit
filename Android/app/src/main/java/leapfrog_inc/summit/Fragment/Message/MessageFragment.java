@@ -118,6 +118,16 @@ public class MessageFragment extends BaseFragment {
         }
 
         ListView listView = (ListView)view.findViewById(R.id.listView);
+        TextView noDataTextView = (TextView)view.findViewById(R.id.noDataTextView);
+
+        if (sortedTargetIds.size() > 0) {
+            listView.setVisibility(View.VISIBLE);
+            noDataTextView.setVisibility(View.GONE);
+        } else {
+            listView.setVisibility(View.GONE);
+            noDataTextView.setVisibility(View.VISIBLE);
+        }
+
         adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
