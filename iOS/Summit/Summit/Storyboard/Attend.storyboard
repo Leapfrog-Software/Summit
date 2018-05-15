@@ -232,10 +232,13 @@
                                     <constraint firstAttribute="trailing" secondItem="XeY-Au-aID" secondAttribute="trailing" constant="16" id="xMe-sB-cky"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-ch-w5N">
-                                <rect key="frame" x="24" y="39" width="27" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="×">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-ch-w5N">
+                                <rect key="frame" x="10" y="20" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="J5F-gO-Dhv"/>
+                                    <constraint firstAttribute="height" constant="48" id="Srh-83-Abe"/>
+                                </constraints>
+                                <state key="normal" image="back_white">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -245,7 +248,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="eXR-ch-w5N" firstAttribute="leading" secondItem="SRo-r8-Hmd" secondAttribute="leading" constant="10" id="Gb0-AC-wqc"/>
                             <constraint firstItem="Tff-Wh-tVI" firstAttribute="width" secondItem="OoM-AD-TGe" secondAttribute="width" id="WFl-ek-uOP"/>
+                            <constraint firstItem="eXR-ch-w5N" firstAttribute="top" secondItem="SRo-r8-Hmd" secondAttribute="top" id="dII-x6-Tql"/>
                             <constraint firstAttribute="bottom" secondItem="iSK-XB-ggp" secondAttribute="bottom" id="dxS-ro-FTA"/>
                             <constraint firstItem="iSK-XB-ggp" firstAttribute="top" secondItem="OoM-AD-TGe" secondAttribute="top" id="ut7-C8-uCq"/>
                             <constraint firstItem="SRo-r8-Hmd" firstAttribute="trailing" secondItem="iSK-XB-ggp" secondAttribute="trailing" id="xMI-Ah-Eeg"/>
@@ -442,11 +447,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wE8-V5-2HW">
-                                        <rect key="frame" x="25" y="0.0" width="30" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="×">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wE8-V5-2HW">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="DNf-Yw-rVR"/>
+                                            <constraint firstAttribute="width" constant="48" id="YLZ-Ju-5qT"/>
+                                        </constraints>
+                                        <state key="normal" image="back_white">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -456,7 +463,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="wE8-V5-2HW" firstAttribute="top" secondItem="fNN-ay-5yR" secondAttribute="top" id="BvK-uh-9bP"/>
                                     <constraint firstItem="OT7-ei-s5c" firstAttribute="centerX" secondItem="fNN-ay-5yR" secondAttribute="centerX" id="QDh-Nu-XMa"/>
+                                    <constraint firstItem="wE8-V5-2HW" firstAttribute="leading" secondItem="fNN-ay-5yR" secondAttribute="leading" id="jJ2-Jm-8Pd"/>
                                     <constraint firstAttribute="height" constant="48" id="t9d-N2-hMe"/>
                                     <constraint firstItem="OT7-ei-s5c" firstAttribute="centerY" secondItem="fNN-ay-5yR" secondAttribute="centerY" id="wke-KY-gHb"/>
                                 </constraints>
@@ -1065,8 +1074,9 @@
     </scenes>
     <resources>
         <image name="back_blue" width="48" height="48"/>
-        <image name="schedule_detail_date" width="47" height="46"/>
-        <image name="schedule_detail_provider" width="39" height="41"/>
-        <image name="setting_arrow_right" width="26" height="26"/>
+        <image name="back_white" width="48" height="48"/>
+        <image name="schedule_detail_date" width="20" height="20"/>
+        <image name="schedule_detail_provider" width="20" height="20"/>
+        <image name="setting_arrow_right" width="20" height="20"/>
     </resources>
 </document>

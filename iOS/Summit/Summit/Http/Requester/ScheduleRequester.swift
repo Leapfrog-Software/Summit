@@ -56,7 +56,7 @@ struct ScheduleData {
         }
         self.date = date
         
-        self.timeLength = Double(data["timeLength"] as? String ?? "") ?? 0
+        self.timeLength = (Double(data["timeLength"] as? String ?? "") ?? 0) * 60 * 1000
         
         self.provider = data["provider"] as? String ?? ""
         self.description = data["description"] as? String ?? ""

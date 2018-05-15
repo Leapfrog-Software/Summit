@@ -141,7 +141,7 @@ extension ScheduleViewController {
             let timeInterval = nextSchedule.date.timeIntervalSince(today)
             if timeInterval <= 0 && timeInterval >= -nextSchedule.timeLength {
                 self.nextPlanScheduleLabel.text = "開催中"
-                self.nextPlanArrowImageView.isHidden = true
+                self.nextPlanArrowImageView.isHidden = false
             } else if timeInterval < 60 * 60 {
                 let remainMinute = Int(timeInterval / 60) + 1
                 self.nextPlanScheduleLabel.text = "\(remainMinute)分後に開始"
