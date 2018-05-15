@@ -196,10 +196,10 @@ public class ScheduleFragment extends BaseFragment {
             if ((nextSchedule.datetime.get(Calendar.YEAR) == today.get(Calendar.YEAR))
                     && (nextSchedule.datetime.get(Calendar.MONTH) == today.get(Calendar.MONTH))
                     && (nextSchedule.datetime.get(Calendar.DAY_OF_MONTH) == today.get(Calendar.DAY_OF_MONTH))) {
-                SimpleDateFormat format = new SimpleDateFormat("h:mm〜");
+                SimpleDateFormat format = new SimpleDateFormat("k:mm〜");
                 ((TextView)view.findViewById(R.id.nextPlanDateTextView)).setText(format.format(nextSchedule.datetime.getTime()));
             } else {
-                SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 h:mm〜");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 k:mm〜");
                 ((TextView)view.findViewById(R.id.nextPlanDateTextView)).setText(format.format(nextSchedule.datetime.getTime()));
             }
 
@@ -306,7 +306,7 @@ public class ScheduleFragment extends BaseFragment {
 
             ((TextView)convertView.findViewById(R.id.titleTextView)).setText(scheduleData.title);
 
-            SimpleDateFormat format = new SimpleDateFormat("hh:mm");
+            SimpleDateFormat format = new SimpleDateFormat("kk:mm");
             String datetime = format.format(scheduleData.datetime.getTime());
             ((TextView)convertView.findViewById(R.id.dateTextView)).setText(datetime);
 

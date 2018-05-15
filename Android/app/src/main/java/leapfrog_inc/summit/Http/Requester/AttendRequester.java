@@ -59,7 +59,7 @@ public class AttendRequester {
                 String tableId = json.getString("tableId");
 
                 String datetimeStr = json.getString("datetime");
-                SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+                SimpleDateFormat format = new SimpleDateFormat("yyyyMMddkkmmss");
                 format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
                 Date datetime = format.parse(datetimeStr);
                 Calendar calendar = Calendar.getInstance();

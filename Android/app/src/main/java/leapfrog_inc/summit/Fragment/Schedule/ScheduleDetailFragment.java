@@ -83,7 +83,7 @@ public class ScheduleDetailFragment extends BaseFragment {
 
 
         // 日時
-        SimpleDateFormat format = new SimpleDateFormat("M月d日 hh:mm〜");
+        SimpleDateFormat format = new SimpleDateFormat("M月d日 kk:mm〜");
         format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
         String datetime = format.format(mScheduleData.datetime.getTime());
         ((TextView)view.findViewById(R.id.dateTextView)).setText(datetime);

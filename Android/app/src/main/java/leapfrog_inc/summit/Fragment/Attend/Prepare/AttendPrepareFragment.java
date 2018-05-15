@@ -76,7 +76,7 @@ public class AttendPrepareFragment extends BaseFragment {
         ((TextView)view.findViewById(R.id.nameTextView)).setText("【" + mScheduleData.title + "】");
 
         // 日付
-        SimpleDateFormat format = new SimpleDateFormat("yyyy年M月d日 hh:mm");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy年M月d日 kk:mm");
         format.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
         ((TextView)view.findViewById(R.id.dateTextView)).setText(format.format(mScheduleData.datetime.getTime()));
 

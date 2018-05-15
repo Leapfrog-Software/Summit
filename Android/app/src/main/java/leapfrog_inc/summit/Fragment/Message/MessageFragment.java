@@ -98,17 +98,17 @@ public class MessageFragment extends BaseFragment {
                     && (today.get(Calendar.MONTH) == lastMessageDate.get(Calendar.MONTH))
                     && (today.get(Calendar.DAY_OF_MONTH) == lastMessageDate.get(Calendar.DAY_OF_MONTH))) {
                 adapterData.date = null;
-                SimpleDateFormat format = new SimpleDateFormat("hh:mm");
+                SimpleDateFormat format = new SimpleDateFormat("kk:mm");
                 adapterData.time = format.format(lastMessageDate.getTime());
             } else if (today.get(Calendar.YEAR) == lastMessageDate.get(Calendar.YEAR)) {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("M月d日");
                 adapterData.date = dateFormat.format(lastMessageDate.getTime());
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+                SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm");
                 adapterData.time = timeFormat.format(lastMessageDate.getTime());
             } else {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年M月d日");
                 adapterData.date = dateFormat.format(lastMessageDate.getTime());
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+                SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm");
                 adapterData.time = timeFormat.format(lastMessageDate.getTime());
             }
 
