@@ -27,20 +27,20 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDy-6X-EyP">
-                                <rect key="frame" x="87" y="243" width="200" height="181"/>
+                                <rect key="frame" x="112" y="268" width="150" height="131.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="qiU-G6-ibS">
-                                        <rect key="frame" x="60" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="35" y="0.5" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Kmw-nF-GJT"/>
                                             <constraint firstAttribute="width" constant="80" id="wM4-2T-ki8"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_text" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-ZZ-p2G">
-                                        <rect key="frame" x="0.0" y="100" width="200" height="81"/>
+                                        <rect key="frame" x="0.0" y="100.5" width="150" height="31.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="0SR-tf-SjO"/>
-                                            <constraint firstAttribute="width" secondItem="gPu-ZZ-p2G" secondAttribute="height" multiplier="303:123" id="lhz-eN-hXX"/>
+                                            <constraint firstAttribute="width" constant="150" id="0SR-tf-SjO"/>
+                                            <constraint firstAttribute="width" secondItem="gPu-ZZ-p2G" secondAttribute="height" multiplier="400:84" id="lhz-eN-hXX"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -77,8 +77,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash_base" width="391" height="640"/>
-        <image name="splash_logo" width="170" height="170"/>
-        <image name="splash_text" width="101" height="41"/>
+        <image name="splash_base" width="375" height="614"/>
+        <image name="splash_logo" width="80" height="80"/>
+        <image name="splash_text" width="150" height="31"/>
     </resources>
 </document>
