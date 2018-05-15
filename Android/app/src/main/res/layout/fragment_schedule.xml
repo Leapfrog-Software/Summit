@@ -36,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:scrollbars="none">
+            android:scrollbars="none"
+            android:overScrollMode="never">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,12 +136,14 @@
                             android:scaleType="fitCenter"
                             android:layout_gravity="center"/>
                         <Button
+                            android:id="@+id/monthLeftButton"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="#0000" />
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/monthTextView"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -159,6 +162,7 @@
                             android:scaleType="fitCenter"
                             android:layout_gravity="center"/>
                         <Button
+                            android:id="@+id/monthRightButton"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="#0000" />
@@ -237,7 +241,8 @@
                 <android.support.v4.view.ViewPager
                     android:id="@+id/viewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="264dp" />
+                    android:layout_height="264dp"
+                    android:overScrollMode="never"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -261,6 +266,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:divider="@null"/>
+
+                <TextView
+                    android:id="@+id/noDataTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:text="イベントはありません"
+                    android:textSize="16dp"
+                    android:textColor="#ABABAB"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"/>
 
             </LinearLayout>
         </ScrollView>

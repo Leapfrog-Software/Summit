@@ -1,9 +1,11 @@
 package leapfrog_inc.summit.Fragment.Schedule;
 
+import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -25,10 +28,14 @@ import leapfrog_inc.summit.R;
 public class CalendarMonthFragment extends Fragment {
 
     private int mMonthOffset;
+    private Calendar mSelectedDate;
     private CalendarMonthCallback mCallback;
 
-    public void set(int monthOffset, CalendarMonthCallback callback) {
+    private ArrayList<View> mSelectedViews = new ArrayList<View>();
+
+    public void set(int monthOffset, Calendar selectedDate, CalendarMonthCallback callback) {
         mMonthOffset = monthOffset;
+        mSelectedDate = selectedDate;
         mCallback = callback;
     }
 
@@ -50,6 +57,11 @@ public class CalendarMonthFragment extends Fragment {
         Calendar today = Calendar.getInstance();
         Calendar currentDay = getFirstDay();
 
+        Calendar targetMonth = Calendar.getInstance();
+        targetMonth.add(Calendar.MONTH, mMonthOffset);
+
+        mSelectedViews.clear();
+
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 View dayView = LayoutInflater.from(getActivity()).inflate(R.layout.view_calendar_day, null);
@@ -67,11 +79,37 @@ public class CalendarMonthFragment extends Fragment {
 
                 TextView dayTextView = (TextView)dayView.findViewById(R.id.dayTextView);
                 dayTextView.setText(String.valueOf(currentDay.get(Calendar.DATE)));
-                if (currentDay.get(Calendar.MONTH) == today.get(Calendar.MONTH)) {
-                    dayTextView.setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.basicBlack));
+
+                View selectedView = dayView.findViewById(R.id.selectedView);
+
+                // 同じ月
+                if (currentDay.get(Calendar.MONTH) == targetMonth.get(Calendar.MONTH)) {
+                    // 同じ日
+                    if ((currentDay.get(Calendar.MONTH) == today.get(Calendar.MONTH)) && (currentDay.get(Calendar.DATE) == today.get(Calendar.DATE))) {
+                        dayTextView.setTextColor(Color.WHITE);
+                        dayView.findViewById(R.id.todayView).setVisibility(View.VISIBLE);
+                    } else {
+                        dayTextView.setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.basicBlack));
+                        dayView.findViewById(R.id.todayView).setVisibility(View.INVISIBLE);
+                    }
+                    if (mSelectedDate == null) {
+                        selectedView.setVisibility(View.INVISIBLE);
+                    } else {
+                        if ((mSelectedDate.get(Calendar.MONTH) == currentDay.get(Calendar.MONTH)) && (mSelectedDate.get(Calendar.DATE) == currentDay.get(Calendar.DATE))) {
+                            selectedView.setVisibility(View.VISIBLE);
+                        } else {
+                            selectedView.setVisibility(View.INVISIBLE);
+                        }
+                    }
                 } else {
                     dayTextView.setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.passiveGray));
+                    dayView.findViewById(R.id.todayView).setVisibility(View.INVISIBLE);
+                    selectedView.setVisibility(View.INVISIBLE);
                 }
+                SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+                String currentDayString = format.format(currentDay.getTime());
+                selectedView.setTag(currentDayString);
+                mSelectedViews.add(selectedView);
 
                 ArrayList<ScheduleRequester.ScheduleData> scheduleList = ScheduleRequester.getInstance().query(currentDay);
                 if (scheduleList.size() >= 1) {
@@ -100,13 +138,6 @@ public class CalendarMonthFragment extends Fragment {
                     else                                                                ((View)dayView.findViewById(R.id.schedule3View)).setBackgroundResource(R.drawable.shape_schedule_meeting);
                 } else {
                     ((LinearLayout)dayView.findViewById(R.id.schedule3Layout)).setVisibility(View.GONE);
-                }
-
-                if ((currentDay.get(Calendar.MONTH) == today.get(Calendar.MONTH))
-                        && (currentDay.get(Calendar.DATE) == today.get(Calendar.DATE))) {
-                    ((View)dayView.findViewById(R.id.todayView)).setVisibility(View.VISIBLE);
-                } else {
-                    ((View)dayView.findViewById(R.id.todayView)).setVisibility(View.INVISIBLE);
                 }
 
                 final int year = currentDay.get(Calendar.YEAR);
@@ -140,6 +171,22 @@ public class CalendarMonthFragment extends Fragment {
             calendar.add(Calendar.DATE, -1);
         }
         return null;
+    }
+
+    public void reselectDate(Calendar calendar) {
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        String selectedDayString = format.format(calendar.getTime());
+
+        for (int i = 0; i < mSelectedViews.size(); i++) {
+            View selectedView = mSelectedViews.get(i);
+            String targetDayString = (String)selectedView.getTag();
+            if (targetDayString.equals(selectedDayString)) {
+                selectedView.setVisibility(View.VISIBLE);
+            } else {
+                selectedView.setVisibility(View.GONE);
+            }
+        }
     }
 
     public interface CalendarMonthCallback {

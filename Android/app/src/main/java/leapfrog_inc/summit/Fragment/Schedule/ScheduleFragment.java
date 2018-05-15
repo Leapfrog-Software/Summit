@@ -39,6 +39,9 @@ import leapfrog_inc.summit.R;
 
 public class ScheduleFragment extends BaseFragment {
 
+    private Calendar mSelectedDate = Calendar.getInstance();
+    private ArrayList<CalendarMonthFragment> mMonthFragments;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
 
@@ -46,7 +49,7 @@ public class ScheduleFragment extends BaseFragment {
 
         initAction(view);
         initCalendar(view);
-        resetListView(view, Calendar.getInstance());
+        resetListView(view);
 
         Runnable runnable = new Runnable() {
             @Override
@@ -70,18 +73,70 @@ public class ScheduleFragment extends BaseFragment {
                 stackFragment(fragment, AnimationType.horizontal);
             }
         });
+
+        ((Button)view.findViewById(R.id.monthLeftButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ViewPager viewPager = (ViewPager)getView().findViewById(R.id.viewPager);
+                int page = viewPager.getCurrentItem();
+                if (page >= 1) {
+                    page -= 1;
+                    viewPager.setCurrentItem(page);
+                }
+            }
+        });
+
+        ((Button)view.findViewById(R.id.monthRightButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ViewPager viewPager = (ViewPager)getView().findViewById(R.id.viewPager);
+                int page = viewPager.getCurrentItem();
+                if (page <= 4) {
+                    page += 1;
+                    viewPager.setCurrentItem(page);
+                }
+            }
+        });
     }
 
     private void initCalendar(View view) {
+
+        mMonthFragments = new ArrayList<CalendarMonthFragment>();
+        for (int i = 0; i < 6; i++) {
+            mMonthFragments.add(new CalendarMonthFragment());
+        }
 
         ViewPager viewPager = (ViewPager)view.findViewById(R.id.viewPager);
 
         CalendarMonthPagerAdapter adapter = new CalendarMonthPagerAdapter(getActivity().getSupportFragmentManager());
         adapter.destroy(viewPager);
         viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+            @Override
+            public void onPageSelected(int position) {
+                setCurrentMonth(getView(), position);
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {}
+        });
+
+
+        setCurrentMonth(view, 0);
     }
 
-    private void resetListView(View view, Calendar calendar) {
+    private void setCurrentMonth(View view, int offset) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, offset);
+        Date date = calendar.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy年 M月");
+        String monthString = format.format(date);
+        ((TextView)view.findViewById(R.id.monthTextView)).setText(monthString);
+    }
+
+    private void resetListView(View view) {
 
         View cpView = view;
         if (cpView == null)     cpView = getView();
@@ -89,7 +144,7 @@ public class ScheduleFragment extends BaseFragment {
 
         final ScheduleAdapater adapter = new ScheduleAdapater(getActivity());
 
-        ArrayList<ScheduleRequester.ScheduleData> scheduleList = ScheduleRequester.getInstance().query(calendar);
+        ArrayList<ScheduleRequester.ScheduleData> scheduleList = ScheduleRequester.getInstance().query(mSelectedDate);
         for (int i = 0; i < scheduleList.size(); i++) {
             adapter.add(scheduleList.get(i));
         }
@@ -108,12 +163,18 @@ public class ScheduleFragment extends BaseFragment {
             }
         });
 
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = (int)(108 * DeviceUtility.getDeviceDensity(getActivity()) * (float)scheduleList.size());
-        listView.setLayoutParams(params);
+        if (scheduleList.size() > 0) {
+            listView.setVisibility(View.VISIBLE);
+            view.findViewById(R.id.noDataTextView).setVisibility(View.GONE);
+            ViewGroup.LayoutParams params = listView.getLayoutParams();
+            params.height = (int) (124 * DeviceUtility.getDeviceDensity(getActivity()) * (float) scheduleList.size());
+            listView.setLayoutParams(params);
+        } else {
+            listView.setVisibility(View.GONE);
+            view.findViewById(R.id.noDataTextView).setVisibility(View.VISIBLE);
+        }
 
-
-        String titleText = String.valueOf(calendar.get(Calendar.MONTH) + 1) + "/" + String.valueOf(calendar.get(Calendar.DATE) + "のイベント");
+        String titleText = String.valueOf(mSelectedDate.get(Calendar.MONTH) + 1) + "/" + String.valueOf(mSelectedDate.get(Calendar.DATE) + "のイベント");
         ((TextView)view.findViewById(R.id.scheduleDateTextView)).setText(titleText);
     }
 
@@ -191,11 +252,13 @@ public class ScheduleFragment extends BaseFragment {
 
         @Override
         public Fragment getItem(int position) {
-            CalendarMonthFragment fragment = new CalendarMonthFragment();
-            fragment.set(position, new CalendarMonthFragment.CalendarMonthCallback() {
+            final CalendarMonthFragment fragment = new CalendarMonthFragment();
+            fragment.set(position, mSelectedDate, new CalendarMonthFragment.CalendarMonthCallback() {
                 @Override
                 public void didSelectDay(Calendar calendar) {
-                    resetListView(getView(), calendar);
+                    mSelectedDate = calendar;
+                    resetListView(getView());
+                    fragment.reselectDate(calendar);
                 }
             });
             return fragment;

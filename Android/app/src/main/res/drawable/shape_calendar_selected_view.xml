@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <solid android:color="@color/mainBlue" />
+    <solid android:color="#0000" />
     <corners android:radius="16dp" />
+    <stroke
+        android:width="2dp"
+        android:color="@color/mainBlue" />
 </shape>

@@ -8,9 +8,15 @@
         android:layout_height="32dp"
         android:layout_gravity="center_horizontal">
         <View
-            android:id="@+id/todayView"
+            android:id="@+id/selectedView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/shape_calendar_selected_view"/>
+        <View
+            android:id="@+id/todayView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
             android:background="@drawable/shape_calendar_today_view"/>
         <TextView
             android:id="@+id/dayTextView"
