@@ -98,6 +98,7 @@
 		BB00EEF820980E80005263D9 /* CardDetailUserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailUserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		BB00EEFA20980E92005263D9 /* CardDetailEventTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailEventTitleTableViewCell.swift; sourceTree = "<group>"; };
 		BB00EEFC20980EA0005263D9 /* CardDetailEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailEventTableViewCell.swift; sourceTree = "<group>"; };
+		BB015F4F20B850B90039E1E9 /* Summit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Summit.entitlements; sourceTree = "<group>"; };
 		BB1AD49B209847B60067DD60 /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
 		BB1AD49E209853330067DD60 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		BB1AD4A0209853460067DD60 /* PickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
@@ -363,6 +364,7 @@
 				BB9E99FA2094A961007D5E01 /* Assets.xcassets */,
 				BB9E99FC2094A961007D5E01 /* LaunchScreen.storyboard */,
 				BB9E99FF2094A961007D5E01 /* Info.plist */,
+				BB015F4F20B850B90039E1E9 /* Summit.entitlements */,
 			);
 			path = Summit;
 			sourceTree = "<group>";
@@ -557,6 +559,11 @@
 				TargetAttributes = {
 					BB9E99EF2094A95F007D5E01 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -812,6 +819,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Summit/Summit.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Summit/Info.plist;
@@ -832,6 +840,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Summit/Summit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P98P6SV69B;
