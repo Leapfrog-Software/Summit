@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -45,6 +46,7 @@ public class AttendMemberListFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_attend_member_list, null);
 
         initListView(view);
+        initAction(view);
 
         return view;
     }
@@ -69,6 +71,16 @@ public class AttendMemberListFragment extends BaseFragment {
                 CardDetailFragment fragment = new CardDetailFragment();
                 fragment.set(userData, true);
                 stackFragment(fragment, AnimationType.none);
+            }
+        });
+    }
+
+    private void initAction(View view) {
+
+        ((ImageButton)view.findViewById(R.id.backButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popFragment(AnimationType.horizontal);
             }
         });
     }

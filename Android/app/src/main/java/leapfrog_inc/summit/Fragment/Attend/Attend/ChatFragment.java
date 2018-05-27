@@ -135,6 +135,7 @@ public class ChatFragment extends BaseFragment {
             public void onClick(View view) {
                 AttendMemberListFragment fragment = new AttendMemberListFragment();
                 fragment.set(mUserIds);
+                stackFragment(fragment, AnimationType.horizontal);
             }
         });
     }
