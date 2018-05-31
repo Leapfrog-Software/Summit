@@ -61,7 +61,8 @@ class UserData {
 					. $this->company . ","
 					. $this->position . ","
 					. $reserves . ","
-					. $cards . "\n";
+					. $cards . ","
+					. $this->message . "\n";
 	}
 }
 

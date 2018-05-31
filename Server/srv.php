@@ -25,6 +25,8 @@ if (strcmp($command, "getSchedule") == 0) {
 	attend();
 } else if (strcmp($command, "postChat") == 0) {
 	postChat();
+} else if (strcmp($command, "getReview") == 0) {
+	getReview();
 } else {
   echo("unknown");
 }
@@ -138,6 +140,7 @@ function updateUser() {
 	$userData->position = $_POST["position"];
 	$userData->reserves = explode("-", $_POST["reserves"]);
 	$userData->cards = explode("-", $_POST["cards"]);
+	$userData->message = $_POST["message"];
 
 	User::updateUser($userData);
 	echo(json_encode(Array("result" => "0")));
@@ -207,6 +210,10 @@ function postChat() {
 	Attend::postChat($scheduleId, $chatData);
 
 	echo(json_encode(Array("result" => "0")));
+}
+
+function getReview() {
+	echo(json_encode(Array("result" => "0", "inReview" => "1")));
 }
 
 function DebugSave($str){

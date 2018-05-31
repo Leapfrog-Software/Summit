@@ -43,7 +43,13 @@ class AttendData {
 			$attendData = new AttendData();
 			$attendData->tableId = $datas[0];
 			$userIds = explode("-", $datas[1]);
-			$attendData->userIds = $userIds;
+			$attendUserIds = Array();
+			foreach ($userIds as $userId) {
+				if (strlen($userId) > 0) {
+					$attendUserIds[] = $userId;
+				}
+			}
+			$attendData->userIds = $attendUserIds;
 			return $attendData;
 		}
 		return null;
