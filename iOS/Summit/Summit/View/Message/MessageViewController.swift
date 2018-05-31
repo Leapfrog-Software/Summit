@@ -82,8 +82,10 @@ class MessageViewController: UIViewController {
         }
         
         if ReviewRequester.shared.inReview {
-            let managerCellData = CellData(userData: UserData.createManager(), exist: true, dateString: DateFormatter(dateFormat: "yyyy年M月d日\nHH:mm").string(from: ReviewRequester.shared.activateDatetime))
-            self.cellDatas.append(managerCellData)
+            if !SaveData.shared.blockUserIdList.contains("M") {
+                let managerCellData = CellData(userData: UserData.createManager(), exist: true, dateString: DateFormatter(dateFormat: "yyyy年M月d日\nHH:mm").string(from: ReviewRequester.shared.activateDatetime))
+                self.cellDatas.append(managerCellData)
+            }
         }
         
         self.tableView.reloadData()

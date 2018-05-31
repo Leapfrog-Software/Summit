@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -236,15 +237,57 @@
                                             <action selector="onTapBack:" destination="EyX-id-gjf" eventType="touchUpInside" id="9Do-uP-3dM"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXe-iL-EkI">
+                                        <rect key="frame" x="327" y="0.0" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="aXe-iL-EkI" secondAttribute="height" multiplier="1:1" id="xZh-7L-c2r"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="onTapBlock:" destination="EyX-id-gjf" eventType="touchUpInside" id="mlF-Gp-m4w"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="block" translatesAutoresizingMaskIntoConstraints="NO" id="F8p-jZ-oeE">
+                                        <rect key="frame" x="339" y="12" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="4uj-Y9-cVR"/>
+                                            <constraint firstAttribute="height" constant="24" id="Pft-JQ-Zyt"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwm-Tk-Rmi">
+                                        <rect key="frame" x="279" y="0.0" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Pwm-Tk-Rmi" secondAttribute="height" multiplier="1:1" id="gzl-p0-dh1"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="onTapReport:" destination="EyX-id-gjf" eventType="touchUpInside" id="eLW-yQ-LS6"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="report" translatesAutoresizingMaskIntoConstraints="NO" id="5xB-ei-49m">
+                                        <rect key="frame" x="291" y="12" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="6eo-wc-MVg"/>
+                                            <constraint firstAttribute="height" constant="24" id="dHG-nV-vEm"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="u2A-Oz-Pz5" firstAttribute="centerX" secondItem="tNw-F2-qjx" secondAttribute="centerX" id="2PN-be-AgY"/>
                                     <constraint firstAttribute="bottom" secondItem="L0l-ac-HvU" secondAttribute="bottom" id="Nh9-DS-qwz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pwm-Tk-Rmi" secondAttribute="bottom" id="PP3-Vg-ydg"/>
+                                    <constraint firstItem="Pwm-Tk-Rmi" firstAttribute="top" secondItem="tNw-F2-qjx" secondAttribute="top" id="V0J-KD-Kic"/>
+                                    <constraint firstItem="aXe-iL-EkI" firstAttribute="centerX" secondItem="F8p-jZ-oeE" secondAttribute="centerX" id="Vfj-s6-RJ7"/>
+                                    <constraint firstAttribute="bottom" secondItem="aXe-iL-EkI" secondAttribute="bottom" id="X6C-av-Sf0"/>
+                                    <constraint firstAttribute="trailing" secondItem="aXe-iL-EkI" secondAttribute="trailing" id="dUu-Jk-uSr"/>
                                     <constraint firstAttribute="height" constant="48" id="fUk-ca-zgY"/>
                                     <constraint firstItem="L0l-ac-HvU" firstAttribute="leading" secondItem="tNw-F2-qjx" secondAttribute="leading" id="fVc-0A-cbo"/>
                                     <constraint firstItem="u2A-Oz-Pz5" firstAttribute="centerY" secondItem="tNw-F2-qjx" secondAttribute="centerY" id="fvb-aM-b5e"/>
+                                    <constraint firstItem="aXe-iL-EkI" firstAttribute="centerY" secondItem="F8p-jZ-oeE" secondAttribute="centerY" id="g0I-c8-kt8"/>
+                                    <constraint firstItem="aXe-iL-EkI" firstAttribute="top" secondItem="tNw-F2-qjx" secondAttribute="top" id="iHW-Oz-ORZ"/>
+                                    <constraint firstItem="Pwm-Tk-Rmi" firstAttribute="centerY" secondItem="5xB-ei-49m" secondAttribute="centerY" id="lht-TO-YUB"/>
+                                    <constraint firstItem="Pwm-Tk-Rmi" firstAttribute="centerX" secondItem="5xB-ei-49m" secondAttribute="centerX" id="qol-mt-0uM"/>
                                     <constraint firstItem="L0l-ac-HvU" firstAttribute="top" secondItem="tNw-F2-qjx" secondAttribute="top" id="rTz-ff-BZY"/>
+                                    <constraint firstItem="aXe-iL-EkI" firstAttribute="leading" secondItem="Pwm-Tk-Rmi" secondAttribute="trailing" id="xha-NM-BHC"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WCX-Vx-pCk">
@@ -504,5 +547,7 @@
     </scenes>
     <resources>
         <image name="back_blue" width="48" height="48"/>
+        <image name="block" width="85" height="85"/>
+        <image name="report" width="85" height="85"/>
     </resources>
 </document>

@@ -10,11 +10,12 @@ import Foundation
 
 class ReportRequester {
     
-    class func post(userId: String, reason: String, completion: @escaping ((Bool) -> ())) {
+    class func post(userId: String, targetId: String, reason: String, completion: @escaping ((Bool) -> ())) {
         
         let params = [
             "command": "report",
             "userId": userId,
+            "targetId": targetId,
             "reason": reason,
             ]
         ApiManager.post(params: params) { (result, data) in

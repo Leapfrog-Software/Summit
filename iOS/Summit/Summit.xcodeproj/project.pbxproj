@@ -55,6 +55,7 @@
 		BB62ADCA2099E9D900B37397 /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADC92099E9D900B37397 /* Loading.xib */; };
 		BB8C05E420C0076900FBA41A /* ReviewRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C05E320C0076900FBA41A /* ReviewRequester.swift */; };
 		BB8C05E620C0077300FBA41A /* ReportRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C05E520C0077300FBA41A /* ReportRequester.swift */; };
+		BB8C05E920C012D700FBA41A /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C05E820C012D700FBA41A /* ReportViewController.swift */; };
 		BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E6193209887DE00185944 /* AttendMatchViewController.swift */; };
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
@@ -145,6 +146,7 @@
 		BB62ADC92099E9D900B37397 /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
 		BB8C05E320C0076900FBA41A /* ReviewRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRequester.swift; sourceTree = "<group>"; };
 		BB8C05E520C0077300FBA41A /* ReportRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRequester.swift; sourceTree = "<group>"; };
+		BB8C05E820C012D700FBA41A /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		BB8E6193209887DE00185944 /* AttendMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendMatchViewController.swift; sourceTree = "<group>"; };
 		BB9E99F02094A95F007D5E01 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E99F32094A95F007D5E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -332,6 +334,14 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		BB8C05E720C012C600FBA41A /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				BB8C05E820C012D700FBA41A /* ReportViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		BB8E6192209887C600185944 /* Match */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +434,7 @@
 				BB4AE6A72096FAB300AF5C67 /* CardUserTableViewCell.swift */,
 				BB4AE6AB2096FB0000AF5C67 /* Index */,
 				BB4AE6B22097001D00AF5C67 /* Detail */,
+				BB8C05E720C012C600FBA41A /* Report */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -653,6 +664,7 @@
 				BB4AE6B42097002B00AF5C67 /* CardDetailViewController.swift in Sources */,
 				BB62ADAB20996A9F00B37397 /* AttendTableView.swift in Sources */,
 				BB1AD49F209853330067DD60 /* PickerViewController.swift in Sources */,
+				BB8C05E920C012D700FBA41A /* ReportViewController.swift in Sources */,
 				BB4AE6B12096FD5500AF5C67 /* KanaUtils.swift in Sources */,
 				BBD1ADD82094DA8B00487EF0 /* UserRequester.swift in Sources */,
 				BBD1ADDC2094DAB600487EF0 /* AccountRequester.swift in Sources */,

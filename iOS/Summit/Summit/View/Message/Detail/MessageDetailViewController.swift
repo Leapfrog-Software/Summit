@@ -131,6 +131,28 @@ class MessageDetailViewController: KeyboardRespondableViewController {
         self.pop(animationType: .horizontal)
     }
     
+    @IBAction func onTapBlock(_ sender: Any) {
+        
+        let okAction = DialogAction(title: "はい", action: {
+            let saveData = SaveData.shared
+            saveData.blockUserIdList.append(self.userData.userId)
+            saveData.save()
+            
+            (self.parent as? MessageViewController)?.reload()
+        })
+        let cancelAction = DialogAction(title: "いいえ", action: nil)
+        
+        let title = self.userData.nameLast + " " + self.userData.nameFirst + "さんをブロックします"
+        Dialog.show(style: .error, title: title, message: "よろしいですか？", actions: [okAction, cancelAction])
+    }
+    
+    @IBAction func onTapReport(_ sender: Any) {
+        
+        let reportViewController = self.viewController(storyboard: "Card", identifier: "ReportViewController") as! ReportViewController
+        reportViewController.set(userData: self.userData)
+        self.stack(viewController: reportViewController, animationType: .none)
+    }
+    
     override func animate(with: KeyboardAnimation) {
         self.inputViewBottomConstraint.constant = with.height
         UIView.animate(withDuration: with.duration, delay: 0, options: with.curve, animations: { [weak self] in
