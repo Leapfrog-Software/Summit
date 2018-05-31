@@ -27,6 +27,8 @@ if (strcmp($command, "getSchedule") == 0) {
 	postChat();
 } else if (strcmp($command, "getReview") == 0) {
 	getReview();
+} else if (strcmp($command, "report") == 0) {
+	report();
 } else {
   echo("unknown");
 }
@@ -213,7 +215,19 @@ function postChat() {
 }
 
 function getReview() {
-	echo(json_encode(Array("result" => "0", "inReview" => "1")));
+	echo(json_encode(Array("result" => "0",
+												 "data" => Array("inReview" => "1"))));
+}
+
+function report() {
+
+	$userId = $_POST["userId"];
+	$targetId = $_POST["targetId"];
+	$reason = $_POST["reason"];
+	$fileData = $userId . "," . $targetId . "," . $reason . "\n";
+	file_put_contents("data/report.txt", $fileData, FILE_APPEND);
+
+	echo(json_encode(Array("result" => "0")));
 }
 
 function DebugSave($str){
