@@ -11,8 +11,8 @@ import Foundation
 struct Constants {
     
     static let HttpTimeOutInterval = TimeInterval(10)
-//    static let ServerRootUrl = "http://lfg.co.jp/summit/"
-    static let ServerRootUrl = "http://localhost/summit/"
+    static let ServerRootUrl = "http://lfg.co.jp/summit/"
+//    static let ServerRootUrl = "http://localhost/summit/"
     static let ServerApiUrl = Constants.ServerRootUrl + "srv.php"
     static let ScheduleImageDirectory = Constants.ServerRootUrl + "data/image/schedule/"
     static let UserImageDirectory = Constants.ServerRootUrl + "data/image/user/"
@@ -25,7 +25,7 @@ struct Constants {
     }
     
     struct WebPageUrl {
-        static let Terms = "http://lfg.co.jp/summit/terms.html"
-        static let Privacypolicy = "http://lfg.co.jp/summit/privacypolicy.html"
+        static let Terms = "http://lfg.co.jp/summit/static/terms.html"
+        static let Privacypolicy = "http://lfg.co.jp/summit/static/privacypolicy.html"
     }
 }
