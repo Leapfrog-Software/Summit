@@ -44,4 +44,8 @@ class ReportViewController: UIViewController {
             }
         })
     }
+    
+    @IBAction func onTapCancel(_ sender: Any) {
+        self.pop(animationType: .none)
+    }
 }

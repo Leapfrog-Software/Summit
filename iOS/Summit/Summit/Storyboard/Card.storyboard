@@ -551,16 +551,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1b6-AQ-9Is">
-                                <rect key="frame" x="20" y="202.5" width="335" height="261"/>
+                                <rect key="frame" x="20" y="174.5" width="335" height="317.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通報の理由を教えてください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6k-vW-Q4c">
-                                        <rect key="frame" x="74.5" y="20" width="186" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="77.5" y="20" width="180.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
                                         <color key="textColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTD-DT-o1e">
-                                        <rect key="frame" x="20" y="57" width="295" height="120"/>
+                                        <rect key="frame" x="20" y="54" width="295" height="120"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L6W-O5-01n" customClass="PlaceholderTextView" customModule="Summit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="120"/>
@@ -593,7 +593,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMW-u3-GlF">
-                                        <rect key="frame" x="20" y="196.5" width="295" height="44"/>
+                                        <rect key="frame" x="20" y="193.5" width="295" height="44"/>
                                         <color key="backgroundColor" red="0.14117647059999999" green="0.3411764706" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="dzC-gj-Gb3"/>
@@ -611,13 +611,34 @@
                                             <action selector="onTapSend" destination="qkM-Uv-bGP" eventType="touchUpInside" id="W46-xB-Nme"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU4-Kb-Tml">
+                                        <rect key="frame" x="20" y="253.5" width="295" height="44"/>
+                                        <color key="backgroundColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="vXJ-VO-PGL"/>
+                                        </constraints>
+                                        <state key="normal" title="キャンセル">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onTapCancel:" destination="qkM-Uv-bGP" eventType="touchUpInside" id="Zff-uu-km3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="PU4-Kb-Tml" firstAttribute="top" secondItem="YMW-u3-GlF" secondAttribute="bottom" constant="16" id="0kv-2z-fiB"/>
                                     <constraint firstItem="O6k-vW-Q4c" firstAttribute="centerX" secondItem="1b6-AQ-9Is" secondAttribute="centerX" id="7CL-5C-9ss"/>
+                                    <constraint firstItem="PU4-Kb-Tml" firstAttribute="leading" secondItem="1b6-AQ-9Is" secondAttribute="leading" constant="20" id="IMh-1x-mor"/>
                                     <constraint firstAttribute="trailing" secondItem="GTD-DT-o1e" secondAttribute="trailing" constant="20" id="IsZ-8A-Pa4"/>
-                                    <constraint firstAttribute="bottom" secondItem="YMW-u3-GlF" secondAttribute="bottom" constant="20" id="JrD-Fb-oNA"/>
+                                    <constraint firstAttribute="bottom" secondItem="PU4-Kb-Tml" secondAttribute="bottom" constant="20" id="V4f-ds-u8d"/>
                                     <constraint firstAttribute="trailing" secondItem="YMW-u3-GlF" secondAttribute="trailing" constant="20" id="ZCo-Zn-ztS"/>
+                                    <constraint firstAttribute="trailing" secondItem="PU4-Kb-Tml" secondAttribute="trailing" constant="20" id="j22-SX-RsP"/>
                                     <constraint firstItem="O6k-vW-Q4c" firstAttribute="top" secondItem="1b6-AQ-9Is" secondAttribute="top" constant="20" id="kNs-P2-8oa"/>
                                     <constraint firstItem="GTD-DT-o1e" firstAttribute="top" secondItem="O6k-vW-Q4c" secondAttribute="bottom" constant="20" id="oEa-ha-ibe"/>
                                     <constraint firstItem="YMW-u3-GlF" firstAttribute="top" secondItem="GTD-DT-o1e" secondAttribute="bottom" constant="20" id="rhO-NS-fCs"/>
