@@ -17,10 +17,14 @@ class ScheduleDetailViewController: UIViewController {
     @IBOutlet private weak var providerLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var filterLabel: UILabel!
+    @IBOutlet private weak var agreeView: UIView!
+    @IBOutlet private weak var agreeViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var agreeImageView: UIImageView!
     @IBOutlet private weak var reserveButton: UIButton!
 
     private var scheduleData: ScheduleData!
     private var members = [UserData]()
+    private var didAgree = false
     
     func set(scheduleData: ScheduleData) {
         self.scheduleData = scheduleData
@@ -66,9 +70,25 @@ class ScheduleDetailViewController: UIViewController {
                 self.reserveButton.isEnabled = true
             }
         }
+        
+        if SaveData.shared.didTermsAgree {
+            self.agreeView.isHidden = true
+            self.agreeViewHeightConstraint.constant = 0
+            self.didAgree = true
+        } else {
+            self.agreeImageView.isHidden = true
+        }
     }
     
     @IBAction func onTapReserve(_ sender: Any) {
+        
+        if !self.didAgree {
+            Dialog.show(style: .error, title: "エラー", message: "利用規約の同意が必要です", actions: [DialogAction(title: "OK", action: nil)])
+            return
+        }
+        let saveData = SaveData.shared
+        saveData.didTermsAgree = true
+        saveData.save()
         
         guard var myUserData = UserRequester.shared.myUserData() else {
             return
@@ -99,6 +119,18 @@ class ScheduleDetailViewController: UIViewController {
                 Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [DialogAction(title: "OK", action: nil)])
             }
         })
+    }
+    
+    @IBAction func onTapAgree(_ sender: Any) {
+        
+        self.didAgree = !self.didAgree
+        self.agreeImageView.isHidden = !self.didAgree
+    }
+    
+    @IBAction func onTapTerms(_ sender: Any) {
+        let webView = self.viewController(storyboard: "Common", identifier: "WebViewController") as! WebViewController
+        webView.set(webPageType: .terms)
+        self.stack(viewController: webView, animationType: .horizontal)
     }
     
     @IBAction func onTapClose(_ sender: Any) {

@@ -23,6 +23,7 @@ struct Constants {
         static let SentFirstMessageScheduleIds = "SentFirstMessageScheduleIds"
         static let pushSetting = "PushSetting"
         static let blockUserIdList = "BlockUserIdList"
+        static let didTermsAgree = "DidTermsAgree"
     }
     
     struct WebPageUrl {

@@ -16,6 +16,7 @@ class SaveData {
     var sentFirstMessageScheduleIds = [String]()
     var pushSetting = true
     var blockUserIdList = [String]()
+    var didTermsAgree = false
     
     init() {
         let userDefaults = UserDefaults()
@@ -23,6 +24,7 @@ class SaveData {
         self.sentFirstMessageScheduleIds = userDefaults.array(forKey: Constants.UserDefaultsKey.SentFirstMessageScheduleIds) as? [String] ?? []
         self.pushSetting = userDefaults.bool(forKey: Constants.UserDefaultsKey.pushSetting)
         self.blockUserIdList = userDefaults.array(forKey: Constants.UserDefaultsKey.blockUserIdList) as? [String] ?? []
+        self.didTermsAgree = userDefaults.bool(forKey: Constants.UserDefaultsKey.didTermsAgree)
     }
     
     func save() {
@@ -33,7 +35,7 @@ class SaveData {
         userDefaults.set(self.sentFirstMessageScheduleIds, forKey: Constants.UserDefaultsKey.SentFirstMessageScheduleIds)
         userDefaults.set(self.pushSetting, forKey: Constants.UserDefaultsKey.pushSetting)
         userDefaults.set(self.blockUserIdList, forKey: Constants.UserDefaultsKey.blockUserIdList)
-        
+        userDefaults.set(self.didTermsAgree, forKey: Constants.UserDefaultsKey.didTermsAgree)
         userDefaults.synchronize()
     }
 }
