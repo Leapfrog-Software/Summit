@@ -15,12 +15,14 @@ class SaveData {
     var userId = ""
     var sentFirstMessageScheduleIds = [String]()
     var pushSetting = true
+    var blockUserIdList = [String]()
     
     init() {
         let userDefaults = UserDefaults()
         self.userId = userDefaults.string(forKey: Constants.UserDefaultsKey.UserId) ?? ""
         self.sentFirstMessageScheduleIds = userDefaults.array(forKey: Constants.UserDefaultsKey.SentFirstMessageScheduleIds) as? [String] ?? []
         self.pushSetting = userDefaults.bool(forKey: Constants.UserDefaultsKey.pushSetting)
+        self.blockUserIdList = userDefaults.array(forKey: Constants.UserDefaultsKey.blockUserIdList) as? [String] ?? []
     }
     
     func save() {
@@ -30,6 +32,7 @@ class SaveData {
         userDefaults.set(self.userId, forKey: Constants.UserDefaultsKey.UserId)
         userDefaults.set(self.sentFirstMessageScheduleIds, forKey: Constants.UserDefaultsKey.SentFirstMessageScheduleIds)
         userDefaults.set(self.pushSetting, forKey: Constants.UserDefaultsKey.pushSetting)
+        userDefaults.set(self.blockUserIdList, forKey: Constants.UserDefaultsKey.blockUserIdList)
         
         userDefaults.synchronize()
     }

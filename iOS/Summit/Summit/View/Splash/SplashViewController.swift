@@ -15,6 +15,7 @@ class SplashViewController: UIViewController {
         case schedule = "Schedule"
         case user = "User"
         case message = "Message"
+        case review = "Review"
     }
     
     private var results = Dictionary<ResultKey, Bool>()
@@ -68,11 +69,17 @@ class SplashViewController: UIViewController {
                 self?.checkResult()
             })
         }
+        if self.results[.review] != true {
+            ReviewRequester.shared.fetch(completion: { [weak self] result, _ in
+                self?.results[.review] = result
+                self?.checkResult()
+            })
+        }
     }
     
     private func checkResult() {
         
-        let keys: [ResultKey] = [.createUser, .schedule, .user, .message]
+        let keys: [ResultKey] = [.createUser, .schedule, .user, .message, .review]
         let results = keys.map { self.results[$0] }
         if results.contains(where: { $0 == nil }) {
             return

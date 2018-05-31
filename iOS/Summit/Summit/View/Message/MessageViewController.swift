@@ -29,6 +29,8 @@ class MessageViewController: UIViewController {
     
     func reload() {
         
+        self.cellDatas.removeAll()
+        
         var targetUserIds = [String]()
         MessageRequester.shared.dataList.forEach { messageData in
             let targetUserId: String
@@ -37,7 +39,7 @@ class MessageViewController: UIViewController {
             } else {
                 targetUserId = messageData.senderId
             }
-            if !targetUserIds.contains(targetUserId) {
+            if !targetUserIds.contains(targetUserId) && !SaveData.shared.blockUserIdList.contains(targetUserId) {
                 targetUserIds.append(targetUserId)
             }
         }
@@ -77,6 +79,11 @@ class MessageViewController: UIViewController {
                 }
             }
             self.cellDatas.append(CellData(userData: userData, exist: exist, dateString: dateString))
+        }
+        
+        if ReviewRequester.shared.inReview {
+            let managerCellData = CellData(userData: UserData.createManager(), exist: true, dateString: DateFormatter(dateFormat: "yyyy年M月d日\nHH:mm").string(from: ReviewRequester.shared.activateDatetime))
+            self.cellDatas.append(managerCellData)
         }
         
         self.tableView.reloadData()

@@ -10,6 +10,7 @@ import UIKit
 
 class MessageDetailViewController: KeyboardRespondableViewController {
     
+    @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var inputViewBottomConstraint: NSLayoutConstraint!
@@ -29,6 +30,8 @@ class MessageDetailViewController: KeyboardRespondableViewController {
         
         self.dummyLeftCell = self.tableView.dequeueReusableCell(withIdentifier: "MessageDetailLeftTableViewCell") as? MessageDetailLeftTableViewCell
         self.dummyRightCell = self.tableView.dequeueReusableCell(withIdentifier: "MessageDetailRightTableViewCell") as? MessageDetailRightTableViewCell
+        
+        self.nameLabel.text = self.userData.nameLast + " " + self.userData.nameFirst
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +48,12 @@ class MessageDetailViewController: KeyboardRespondableViewController {
         self.messages = messages.sorted(by: { (msg1, msg2) -> Bool in
             return msg1.datetime < msg2.datetime
         })
+        
+        if self.userData.userId == "M" {
+            let managerMessage = MessageData(messageId: "", senderId: "M", message: "Summit!へのご参加ありがとうございます。\n運営への質問はこちらからどうぞ!", datetime: ReviewRequester.shared.activateDatetime)
+            self.messages.insert(managerMessage, at: 0)
+        }
+        
         self.tableView.reloadData()
         self.scrollToBottom()
     }
@@ -73,8 +82,10 @@ class MessageDetailViewController: KeyboardRespondableViewController {
     private func scrollToBottom() {
     
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            let offset = CGPoint(x: 0, y: self.tableView.contentSize.height - self.tableView.frame.size.height)
-            self.tableView.setContentOffset(offset, animated: true)
+            if self.tableView.contentSize.height > self.tableView.frame.size.height {
+                let offset = CGPoint(x: 0, y: self.tableView.contentSize.height - self.tableView.frame.size.height)
+                self.tableView.setContentOffset(offset, animated: true)
+            }
         }
     }
     

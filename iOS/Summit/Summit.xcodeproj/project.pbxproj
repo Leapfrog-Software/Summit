@@ -53,6 +53,8 @@
 		BB62ADC52099E48000B37397 /* DialogButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADC42099E48000B37397 /* DialogButton.xib */; };
 		BB62ADC82099E9D200B37397 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62ADC72099E9D200B37397 /* Loading.swift */; };
 		BB62ADCA2099E9D900B37397 /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB62ADC92099E9D900B37397 /* Loading.xib */; };
+		BB8C05E420C0076900FBA41A /* ReviewRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C05E320C0076900FBA41A /* ReviewRequester.swift */; };
+		BB8C05E620C0077300FBA41A /* ReportRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C05E520C0077300FBA41A /* ReportRequester.swift */; };
 		BB8E6194209887DE00185944 /* AttendMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E6193209887DE00185944 /* AttendMatchViewController.swift */; };
 		BB9E99F42094A95F007D5E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9E99F32094A95F007D5E01 /* AppDelegate.swift */; };
 		BB9E99FB2094A961007D5E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9E99FA2094A961007D5E01 /* Assets.xcassets */; };
@@ -141,6 +143,8 @@
 		BB62ADC42099E48000B37397 /* DialogButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogButton.xib; sourceTree = "<group>"; };
 		BB62ADC72099E9D200B37397 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		BB62ADC92099E9D900B37397 /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
+		BB8C05E320C0076900FBA41A /* ReviewRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRequester.swift; sourceTree = "<group>"; };
+		BB8C05E520C0077300FBA41A /* ReportRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRequester.swift; sourceTree = "<group>"; };
 		BB8E6193209887DE00185944 /* AttendMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendMatchViewController.swift; sourceTree = "<group>"; };
 		BB9E99F02094A95F007D5E01 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E99F32094A95F007D5E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -506,6 +510,8 @@
 				BBD1ADD92094DAA100487EF0 /* MessageRequester.swift */,
 				BBD1ADDB2094DAB600487EF0 /* AccountRequester.swift */,
 				BBD1ADDD2094DAC800487EF0 /* AttendRequester.swift */,
+				BB8C05E320C0076900FBA41A /* ReviewRequester.swift */,
+				BB8C05E520C0077300FBA41A /* ReportRequester.swift */,
 			);
 			path = Requester;
 			sourceTree = "<group>";
@@ -653,6 +659,7 @@
 				BB4AE6A62096FAA500AF5C67 /* CardKanaTableViewCell.swift in Sources */,
 				BB4AE6A82096FAB300AF5C67 /* CardUserTableViewCell.swift in Sources */,
 				BB62ADBF2099E46500B37397 /* Dialog.swift in Sources */,
+				BB8C05E420C0076900FBA41A /* ReviewRequester.swift in Sources */,
 				BB62ADC32099E47900B37397 /* DialogButton.swift in Sources */,
 				BBD1ADCF2094D9CD00487EF0 /* ImageStorage.swift in Sources */,
 				BBD1ADCD2094D9B100487EF0 /* SaveData.swift in Sources */,
@@ -681,6 +688,7 @@
 				BB4AE6C02097035800AF5C67 /* MessageDetailRightTableViewCell.swift in Sources */,
 				BB1AD4B5209882140067DD60 /* AttendPrepareMemberCollectionViewCell.swift in Sources */,
 				BB62ADC82099E9D200B37397 /* Loading.swift in Sources */,
+				BB8C05E620C0077300FBA41A /* ReportRequester.swift in Sources */,
 				BB00EEF72097F59B005263D9 /* UILabel+Attribute.swift in Sources */,
 				BBD1ADCB2094D99800487EF0 /* Constants.swift in Sources */,
 				BBD1ADEF2094DBA500487EF0 /* UIView+Rect.swift in Sources */,

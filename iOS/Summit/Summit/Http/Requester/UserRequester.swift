@@ -158,6 +158,16 @@ struct UserData {
         self.cards = data["cards"] as? Array<String> ?? []
         self.message = (data["message"] as? String)?.base64Decode() ?? ""
     }
+    
+    static func createManager() -> UserData {
+        
+        var dataDic = Dictionary<String, Any>()
+        dataDic["id"] = "M"
+        
+        var userData = UserData(data: dataDic)!
+        userData.nameLast = "Summit!運営"
+        return userData
+    }
 }
 
 class UserRequester {
