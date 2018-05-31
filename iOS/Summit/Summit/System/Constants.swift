@@ -11,8 +11,8 @@ import Foundation
 struct Constants {
     
     static let HttpTimeOutInterval = TimeInterval(10)
-//    static let ServerRootUrl = "http://lfg.co.jp/summit/"
-    static let ServerRootUrl = "http://localhost/summit/"
+    static let ServerRootUrl = "http://lfg.co.jp/summit/"
+//    static let ServerRootUrl = "http://localhost/summit/"
     static let ServerApiUrl = Constants.ServerRootUrl + "srv.php"
     static let ScheduleImageDirectory = Constants.ServerRootUrl + "data/image/schedule/"
     static let UserImageDirectory = Constants.ServerRootUrl + "data/image/user/"
