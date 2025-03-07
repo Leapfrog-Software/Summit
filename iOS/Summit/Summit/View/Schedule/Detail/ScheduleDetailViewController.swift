@@ -13,6 +13,7 @@ class ScheduleDetailViewController: UIViewController {
     @IBOutlet private weak var scheduleImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var memberCountLabel: UILabel!
+    @IBOutlet private weak var memberCollectionView: UICollectionView!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var providerLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
@@ -32,6 +33,8 @@ class ScheduleDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.memberCollectionView.backgroundColor = .white
         
         self.initContents()
     }

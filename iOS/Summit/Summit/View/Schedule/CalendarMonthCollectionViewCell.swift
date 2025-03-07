@@ -24,6 +24,12 @@ class CalendarMonthCollectionViewCell: UICollectionViewCell {
     private var dayInfos = [CalendarDayInfo]()
     private var didSelect: ((CalendarDayInfo) -> ())?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.daysCollectionView.backgroundColor = .white
+    }
+    
     func configure(month: Date, selectedDate: Date, didSelect: @escaping ((CalendarDayInfo)) -> ()) {
         
         self.dayInfos.removeAll()

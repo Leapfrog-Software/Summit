@@ -26,7 +26,7 @@ class AccountRequester {
     
     class func updateUser(userData: UserData, completion: @escaping ((Bool) -> ())) {
         
-        let params = [
+        let params: [String: String] = [
             "command": "updateUser",
             "userId": userData.userId,
             "nameLast": userData.nameLast.base64Encode() ?? "",

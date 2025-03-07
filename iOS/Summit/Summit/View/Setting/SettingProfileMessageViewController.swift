@@ -23,6 +23,8 @@ class SettingProfileMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.textView.backgroundColor = .white
+        
         self.textView.setText(self.defaultString)
     }
     

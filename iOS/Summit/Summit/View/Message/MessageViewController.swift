@@ -24,6 +24,8 @@ class MessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundColor = .white
+        
         self.reload()
     }
     

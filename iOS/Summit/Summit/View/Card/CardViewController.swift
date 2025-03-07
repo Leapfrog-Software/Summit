@@ -31,6 +31,8 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.cardTableView.backgroundColor = .white
+        
         self.setCardIndexView()
         self.reload()
     }

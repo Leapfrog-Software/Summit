@@ -18,6 +18,12 @@ class ReportViewController: UIViewController {
         self.userData = userData
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.reasonTextView.backgroundColor = .white
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

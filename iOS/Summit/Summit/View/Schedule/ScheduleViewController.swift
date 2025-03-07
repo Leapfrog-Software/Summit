@@ -37,6 +37,8 @@ class ScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.monthsCollectionView.backgroundColor = .white
+        
         for i in 0..<6 {
             self.months.append(Date().add(month: i))
         }

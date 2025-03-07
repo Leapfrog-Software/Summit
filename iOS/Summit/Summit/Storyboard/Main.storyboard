@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,17 +24,17 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRq-ci-r9h">
-                                <rect key="frame" x="112" y="267.5" width="150" height="131.5"/>
+                                <rect key="frame" x="112.5" y="268" width="150" height="131.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZZe-xh-biW">
-                                        <rect key="frame" x="35" y="0.5" width="80" height="80"/>
+                                        <rect key="frame" x="35" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Exy-I5-7xM"/>
                                             <constraint firstAttribute="width" constant="80" id="O71-AX-BcD"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_text" translatesAutoresizingMaskIntoConstraints="NO" id="DFq-wn-5yh">
-                                        <rect key="frame" x="0.0" y="100.5" width="150" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="100" width="150" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="DFq-wn-5yh" secondAttribute="height" multiplier="400:84" id="LRO-t5-bX9"/>
                                             <constraint firstAttribute="width" constant="150" id="xs6-U7-raj"/>
@@ -55,6 +52,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="a4e-af-PoD" secondAttribute="bottom" id="0OG-m6-Kno"/>
@@ -68,7 +66,6 @@
                             <constraint firstItem="a4e-af-PoD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sg2-qV-UCc"/>
                             <constraint firstItem="PRq-ci-r9h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vk7-CV-oK3"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -101,12 +98,12 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDw-cl-qRm">
-                                                <rect key="frame" x="29.5" y="33" width="35.5" height="9"/>
+                                                <rect key="frame" x="29" y="33" width="35.5" height="9"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHn-AW-fdx">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHn-AW-fdx">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="48"/>
                                                 <connections>
                                                     <action selector="onTapTab1:" destination="bjx-VP-EyJ" eventType="touchUpInside" id="YD2-2x-VaU"/>
@@ -129,19 +126,19 @@
                                         <rect key="frame" x="94" y="0.0" width="93.5" height="48"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab2_off" translatesAutoresizingMaskIntoConstraints="NO" id="Hp7-Gy-1gt">
-                                                <rect key="frame" x="33" y="4" width="28" height="28"/>
+                                                <rect key="frame" x="32.5" y="4" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="Fh3-bd-zH1"/>
                                                     <constraint firstAttribute="height" constant="28" id="a7K-sn-bpd"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名刺管理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTW-48-oXa">
-                                                <rect key="frame" x="29" y="33" width="36.5" height="9"/>
+                                                <rect key="frame" x="28.5" y="33" width="36" height="9"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2l-ql-akh">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2l-ql-akh">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="48"/>
                                                 <connections>
                                                     <action selector="onTapTab2:" destination="bjx-VP-EyJ" eventType="touchUpInside" id="KTG-jl-nn7"/>
@@ -171,12 +168,12 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メッセージ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzs-AY-cKw">
-                                                <rect key="frame" x="25" y="33" width="45.5" height="9"/>
+                                                <rect key="frame" x="24.5" y="33" width="45" height="9"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzz-3W-vw3">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzz-3W-vw3">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="48"/>
                                                 <connections>
                                                     <action selector="onTapTab3:" destination="bjx-VP-EyJ" eventType="touchUpInside" id="TRv-oe-iOn"/>
@@ -199,19 +196,19 @@
                                         <rect key="frame" x="281.5" y="0.0" width="93.5" height="48"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab4_off" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-vA-G7p">
-                                                <rect key="frame" x="33" y="4" width="28" height="28"/>
+                                                <rect key="frame" x="32.5" y="4" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="PDk-Ra-vLp"/>
                                                     <constraint firstAttribute="width" constant="28" id="rtY-2C-BOp"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIc-cK-9Du">
-                                                <rect key="frame" x="37.5" y="33" width="18.5" height="9"/>
+                                                <rect key="frame" x="37.5" y="33" width="18" height="9"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxM-lj-hqS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxM-lj-hqS">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="48"/>
                                                 <connections>
                                                     <action selector="onTapTab4:" destination="bjx-VP-EyJ" eventType="touchUpInside" id="96g-H8-NHE"/>
@@ -252,18 +249,26 @@
                                     <constraint firstItem="mO9-wp-Lft" firstAttribute="width" secondItem="6US-l4-b2r" secondAttribute="width" id="z8p-TT-MQT"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FqJ-Yt-6Ff">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="o4O-Yi-JPc"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tbX-KJ-AMj" firstAttribute="leading" secondItem="o4O-Yi-JPc" secondAttribute="leading" id="33n-Db-CKD"/>
                             <constraint firstItem="tbX-KJ-AMj" firstAttribute="top" secondItem="OM7-Hz-wtB" secondAttribute="top" id="3gj-D5-BXK"/>
                             <constraint firstItem="SeX-k2-5mt" firstAttribute="leading" secondItem="o4O-Yi-JPc" secondAttribute="leading" id="7OO-dm-kBS"/>
+                            <constraint firstItem="FqJ-Yt-6Ff" firstAttribute="top" secondItem="SeX-k2-5mt" secondAttribute="bottom" id="8H3-cj-GWS"/>
+                            <constraint firstItem="o4O-Yi-JPc" firstAttribute="bottom" secondItem="SeX-k2-5mt" secondAttribute="bottom" id="DOh-a7-rCu"/>
                             <constraint firstItem="SeX-k2-5mt" firstAttribute="top" secondItem="tbX-KJ-AMj" secondAttribute="bottom" id="QvL-PF-foa"/>
                             <constraint firstItem="o4O-Yi-JPc" firstAttribute="trailing" secondItem="SeX-k2-5mt" secondAttribute="trailing" id="RlI-Pu-5cV"/>
                             <constraint firstItem="o4O-Yi-JPc" firstAttribute="trailing" secondItem="tbX-KJ-AMj" secondAttribute="trailing" id="WzO-4Y-rdY"/>
-                            <constraint firstAttribute="bottom" secondItem="SeX-k2-5mt" secondAttribute="bottom" id="jwI-bF-C1s"/>
+                            <constraint firstAttribute="bottom" secondItem="FqJ-Yt-6Ff" secondAttribute="bottom" id="lHC-yC-7oo"/>
+                            <constraint firstItem="FqJ-Yt-6Ff" firstAttribute="leading" secondItem="o4O-Yi-JPc" secondAttribute="leading" id="ufg-4k-ghq"/>
+                            <constraint firstItem="o4O-Yi-JPc" firstAttribute="trailing" secondItem="FqJ-Yt-6Ff" secondAttribute="trailing" id="zGU-yv-TQJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="o4O-Yi-JPc"/>
                     </view>
                     <connections>
                         <outlet property="container" destination="tbX-KJ-AMj" id="27a-GT-fyq"/>
@@ -279,13 +284,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0r4-mf-zEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1298" y="117"/>
+            <point key="canvasLocation" x="1296.8" y="116.49175412293854"/>
         </scene>
     </scenes>
     <resources>
-        <image name="splash_base" width="360" height="589"/>
+        <image name="splash_base" width="375" height="614"/>
         <image name="splash_logo" width="80" height="80"/>
-        <image name="splash_text" width="150" height="31"/>
+        <image name="splash_text" width="150" height="31.5"/>
         <image name="tab1_on" width="28" height="28"/>
         <image name="tab2_off" width="28" height="28"/>
         <image name="tab3_off" width="28" height="28"/>
