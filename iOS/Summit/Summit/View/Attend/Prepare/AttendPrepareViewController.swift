@@ -16,6 +16,7 @@ class AttendPrepareViewController: UIViewController {
     @IBOutlet private weak var remainTimeLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var memberCountLabel: UILabel!
+    @IBOutlet private weak var memberCollectionView: UICollectionView!
     @IBOutlet private weak var providerLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
 
@@ -32,6 +33,8 @@ class AttendPrepareViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.memberCollectionView.backgroundColor = .white
         
         ImageStorage.shared.fetch(url: Constants.ScheduleImageDirectory + self.scheduleData.id, imageView: self.scheduleImageView)
         

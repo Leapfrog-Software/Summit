@@ -33,6 +33,8 @@ class AttendMatchViewController: KeyboardRespondableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.chatTextView.backgroundColor = .white
+        
         self.titleLabel.text = self.scheduleData.title + "の開始"
         ImageStorage.shared.fetch(url: Constants.UserImageDirectory + self.matchUserData.userId, imageView: self.faceImageView)
         self.matchNameLabel.text = self.matchUserData.nameLast + self.matchUserData.nameFirst + "さんとマッチしました！"

@@ -89,6 +89,8 @@ class AttendChatViewController: KeyboardRespondableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundColor = .white
+        
         self.dummyLeftCell = self.tableView.dequeueReusableCell(withIdentifier: "AttendChatLeftTableViewCell") as? AttendChatLeftTableViewCell
         self.dummyRightCell = self.tableView.dequeueReusableCell(withIdentifier: "AttendChatRightTableViewCell") as? AttendChatRightTableViewCell
     }

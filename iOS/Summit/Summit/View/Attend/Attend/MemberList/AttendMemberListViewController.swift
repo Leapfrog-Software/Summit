@@ -10,11 +10,19 @@ import UIKit
 
 class AttendMemberListViewController: UIViewController {
 
+    @IBOutlet private weak var tableView: UITableView!
+    
     private var userDatas = [UserData]()
     
     func set(userIds: [String]) {
 
         self.userDatas = userIds.compactMap { UserRequester.shared.query(userId: $0) }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tableView.backgroundColor = .white
     }
     
     @IBAction func onTapBack(_ sender: Any) {
