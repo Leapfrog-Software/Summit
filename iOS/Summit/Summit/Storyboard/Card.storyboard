@@ -122,7 +122,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="釣りと将棋が好きです。よろしくお願い致します！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiD-dg-rKQ">
                                                                     <rect key="frame" x="0.0" y="42" width="191" height="22"/>
                                                                     <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -257,7 +257,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山田太郎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duw-IK-kNP">
                                                     <rect key="frame" x="143.5" y="232" width="88" height="22"/>
                                                     <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="22"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OrS-9R-Cwj">
@@ -330,6 +330,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="N9U-1t-cKz" firstAttribute="leading" secondItem="lCZ-9L-zhM" secondAttribute="leading" constant="16" id="15M-lw-EGm"/>
                                                 <constraint firstItem="Xsv-y7-6vg" firstAttribute="leading" secondItem="lCZ-9L-zhM" secondAttribute="leading" constant="16" id="38S-3g-awu"/>
@@ -348,6 +349,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Xsv-y7-6vg" secondAttribute="bottom" id="uif-7P-lfq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="ageLabel" destination="JEF-PF-fXU" id="g3J-jZ-pMO"/>
                                             <outlet property="companyLabel" destination="jcR-dz-DkB" id="rHL-7a-jMv"/>
@@ -371,12 +373,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="jlQ-B2-fSb" firstAttribute="leading" secondItem="xXV-Sq-A7R" secondAttribute="leading" constant="16" id="Fc9-7o-fef"/>
                                                 <constraint firstItem="jlQ-B2-fSb" firstAttribute="top" secondItem="xXV-Sq-A7R" secondAttribute="top" constant="16" id="LUF-41-1GV"/>
                                                 <constraint firstAttribute="bottom" secondItem="jlQ-B2-fSb" secondAttribute="bottom" constant="8" id="owD-Rp-4ip"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="titleTextLabel" destination="jlQ-B2-fSb" id="ENE-hE-vMs"/>
                                         </connections>
@@ -436,6 +440,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="0Xh-8O-mLv" firstAttribute="top" secondItem="DDc-OQ-7Sb" secondAttribute="top" id="9L5-CZ-ipg"/>
                                                 <constraint firstAttribute="trailing" secondItem="0Xh-8O-mLv" secondAttribute="trailing" constant="16" id="Z05-BT-qGe"/>
@@ -443,6 +448,7 @@
                                                 <constraint firstItem="0Xh-8O-mLv" firstAttribute="leading" secondItem="DDc-OQ-7Sb" secondAttribute="leading" constant="16" id="can-rS-5Et"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="zYk-2T-u00" id="M9G-qz-3ze"/>
                                             <outlet property="descriptionLabel" destination="5lJ-Gd-Ybl" id="E5h-u5-CId"/>
@@ -458,19 +464,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="イベントはありません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1A-10-Qth">
-                                                    <rect key="frame" x="108.5" y="40" width="159" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベントはありません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1A-10-Qth">
+                                                    <rect key="frame" x="108" y="40" width="159" height="20"/>
                                                     <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="O1A-10-Qth" firstAttribute="centerX" secondItem="KvK-DY-Tof" secondAttribute="centerX" id="7s7-z7-GFE"/>
                                                 <constraint firstItem="O1A-10-Qth" firstAttribute="top" secondItem="KvK-DY-Tof" secondAttribute="top" constant="40" id="XKb-BO-QcW"/>
                                                 <constraint firstAttribute="bottom" secondItem="O1A-10-Qth" secondAttribute="bottom" constant="40" id="eQQ-5O-DKR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
