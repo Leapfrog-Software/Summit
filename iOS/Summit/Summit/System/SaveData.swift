@@ -25,6 +25,8 @@ class SaveData {
         self.pushSetting = userDefaults.bool(forKey: Constants.UserDefaultsKey.pushSetting)
         self.blockUserIdList = userDefaults.array(forKey: Constants.UserDefaultsKey.blockUserIdList) as? [String] ?? []
         self.didTermsAgree = userDefaults.bool(forKey: Constants.UserDefaultsKey.didTermsAgree)
+        
+        self.userId = "536"
     }
     
     func save() {

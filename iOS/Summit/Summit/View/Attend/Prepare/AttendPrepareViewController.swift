@@ -48,14 +48,16 @@ class AttendPrepareViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.timerProc()
         })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            if !SaveData.shared.sentFirstMessageScheduleIds.contains(self.scheduleData.id) {
-                self.stackMatch()
-            } else if self.scheduleData.date <= Date() {
-                self.stackAttend()
-            }
-        }
+
+        self.stackMatch()
+//        self.stackAttend()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            if !SaveData.shared.sentFirstMessageScheduleIds.contains(self.scheduleData.id) {
+//                self.stackMatch()
+//            } else if self.scheduleData.date <= Date() {
+//                self.stackAttend()
+//            }
+//        }
     }
     
     private func getInitialInfo() -> (matchUserData: UserData, tableId: String)? {
@@ -82,7 +84,8 @@ class AttendPrepareViewController: UIViewController {
                 tableIndex = Int(index / 2)
             }
         }
-        return (matchUserData: self.members[targetIndex], tableId: String(format: "%d", tableIndex))
+//        return (matchUserData: self.members[targetIndex], tableId: String(format: "%d", tableIndex))
+        return (matchUserData: self.members[2], tableId: String(format: "%d", tableIndex))
     }
     
     private func stackMatch() {

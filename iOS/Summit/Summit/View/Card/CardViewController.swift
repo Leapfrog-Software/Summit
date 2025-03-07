@@ -57,7 +57,10 @@ class CardViewController: UIViewController {
         guard let myUserData = UserRequester.shared.myUserData() else {
             return
         }
-        let users = myUserData.cards.compactMap { UserRequester.shared.query(userId: $0) }
+//        let users = myUserData.cards.compactMap { UserRequester.shared.query(userId: $0) }
+        
+        let users = [UserRequester.shared.query(userId: "0")!]
+        
         let sortedUsers = users.sorted { (user1, user2) -> Bool in
             return KanaUtils.compare(s1: user1.kanaLast + user1.kanaFirst, s2: user2.kanaLast + user2.kanaFirst)
         }

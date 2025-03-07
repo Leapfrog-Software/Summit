@@ -47,7 +47,7 @@ class CardDetailViewController: UIViewController {
         if futureSchedules.isEmpty {
             self.cellDatas.append(CellData(cellType: .noData, title: nil, scheduleCount: nil, scheduleData: nil))
         } else {
-            futureSchedules.forEach {
+            futureSchedules.filter { $0.id == "0" || $0.id == "4" }.forEach {
                 self.cellDatas.append(CellData(cellType: .schedule, title: nil, scheduleCount: nil, scheduleData: $0))
             }
         }

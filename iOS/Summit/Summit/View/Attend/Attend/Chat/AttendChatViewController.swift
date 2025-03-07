@@ -145,13 +145,13 @@ class AttendChatViewController: KeyboardRespondableViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.alignFrame()
-        self.touchOffset = nil
+//        self.alignFrame()
+//        self.touchOffset = nil
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.alignFrame()
-        self.touchOffset = nil
+//        self.alignFrame()
+//        self.touchOffset = nil
     }
     
     override func animate(with: KeyboardAnimation) {

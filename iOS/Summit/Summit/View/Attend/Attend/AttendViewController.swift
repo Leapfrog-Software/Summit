@@ -28,7 +28,8 @@ class AttendViewController: UIViewController {
         self.scheduleData = scheduleData
         self.currentTableId = initialTableId
         
-        self.members = UserRequester.shared.dataList.filter { $0.reserves.contains(self.scheduleData.id) }
+//        self.members = UserRequester.shared.dataList.filter { $0.reserves.contains(self.scheduleData.id) }
+        self.members = UserRequester.shared.dataList.filter { $0.userId == "0" || $0.userId == "1" || $0.userId == "2" }
     }
     
     override func viewDidLoad() {
@@ -50,18 +51,19 @@ class AttendViewController: UIViewController {
     
     private func getTableCount() -> Int {
 
-        if self.members.count % 2 == 0 {
-            return self.members.count / 2
-        } else if self.members.count >= 3 {
-            return self.members.count / 2 + 1
-        }
+//        if self.members.count % 2 == 0 {
+//            return self.members.count / 2
+//        } else if self.members.count >= 3 {
+//            return self.members.count / 2 + 1
+//        }
         return 1
     }
     
     private func getCellNumber() -> Int {
 
-        let tableCount = self.getTableCount()
-        return Int(sqrt(Double(tableCount))) + 1
+//        let tableCount = self.getTableCount()
+//        return Int(sqrt(Double(tableCount))) + 1
+        return 3
     }
     
     private func initTables() {
@@ -119,13 +121,24 @@ class AttendViewController: UIViewController {
                     let tableView = ((self.scrollView.subviews.compactMap { $0 as? AttendTableView }).filter { $0.tag == tableId }).first else {
                     return
                 }
-                let userIds = attendData.userIds.filter { $0 != SaveData.shared.userId }
+                //let userIds = attendData.userIds.filter { $0 != SaveData.shared.userId }
+                let userIds = ["0", "1", "2"]
                 tableView.set(userIds: userIds)
             }
-            let chatList = self.attendRequester.chatList.filter { $0.tableId == self.currentTableId }
+//            let chatList = self.attendRequester.chatList.filter { $0.tableId == self.currentTableId }
+            
+            var chatList = [ChatData]()
+
+            let chat0 = ChatData(id: "0", senderId: "2", tableId: "0", datetime: Date(), chat: "普段はどういったお仕事をされていますか？")
+            chatList.append(chat0)
+            
+            let chat1 = ChatData(id: "1", senderId: SaveData.shared.userId, tableId: "0", datetime: Date(), chat: "営業の仕事をやっています。")
+            chatList.append(chat1)
+            
             let userIds = self.attendRequester.attendList.filter { $0.tableId == self.currentTableId }.first?.userIds ?? []
             let filteredUserIds = userIds.filter { $0 != SaveData.shared.userId }
-            self.chatViewController.set(tableId: self.currentTableId, chatList: chatList, userIds: filteredUserIds)
+//            self.chatViewController.set(tableId: self.currentTableId, chatList: chatList, userIds: filteredUserIds)
+            self.chatViewController.set(tableId: self.currentTableId, chatList: chatList, userIds: ["0", "1", "2"])
         })
     }
     
@@ -173,6 +186,6 @@ extension AttendViewController: UIScrollViewDelegate {
         let chatList = self.attendRequester.chatList.filter { $0.tableId == self.currentTableId }
         let userIds = self.attendRequester.attendList.filter { $0.tableId == self.currentTableId }.first?.userIds ?? []
         let filteredUserIds = userIds.filter { $0 != SaveData.shared.userId }
-        self.chatViewController.set(tableId: self.currentTableId, chatList: chatList, userIds: filteredUserIds)
+        self.chatViewController.set(tableId: self.currentTableId, chatList: chatList, userIds: ["0", "1", "2"])
     }
 }
